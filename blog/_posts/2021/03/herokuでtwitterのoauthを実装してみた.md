@@ -1,9 +1,7 @@
 ---
 title: "HerokuでTwitterのOAuthを実装してみた"
 date: "2021-03-18"
-categories:
-  - "PHP"
-  - "話題"
+category: "PHP"
 ---
 
 ## Heroku

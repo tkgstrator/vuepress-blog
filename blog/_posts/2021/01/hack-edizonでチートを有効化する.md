@@ -1,8 +1,7 @@
 ---
 title: "[Hack] Edizonでチートを有効化する"
 date: "2021-01-08"
-categories:
-  - "Hack"
+category: Hack
 ---
 
 ## Edizon

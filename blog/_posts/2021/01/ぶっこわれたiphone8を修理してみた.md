@@ -1,8 +1,7 @@
 ---
 title: "ぶっこわれたiPhone8を修理してみた"
 date: "2021-01-18"
-categories:
-  - "話題"
+category: 話題
 ---
 
 ## iPhone8

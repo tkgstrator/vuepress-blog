@@ -1,8 +1,7 @@
 ---
-title: "AirPods ProっぽいJR-T03S Proを買ってみた"
-date: "2021-03-17"
-categories:
-  - "話題"
+title: AirPods ProっぽいJR-T03S Proを買ってみた
+date: 2021-03-17
+category: 話題
 ---
 
 ## AirPods Pro とは

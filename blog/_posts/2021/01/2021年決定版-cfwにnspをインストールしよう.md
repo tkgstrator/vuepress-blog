@@ -1,9 +1,7 @@
 ---
 title: "[2021年決定版] CFWにNSPをインストールしよう"
 date: "2021-01-17"
-categories:
-  - "CFW"
-  - "Hack"
+category: CFW
 ---
 
 ## NSP をダンプしよう

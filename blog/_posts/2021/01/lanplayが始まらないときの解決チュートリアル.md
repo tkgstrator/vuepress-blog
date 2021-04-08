@@ -1,9 +1,7 @@
 ---
 title: "LanPlayが始まらないときの解決チュートリアル"
 date: "2021-01-12"
-categories:
-  - "Splatoon2"
-  - "イカッチャ"
+category: Splatoon2
 ---
 
 ## LanPlay の導入

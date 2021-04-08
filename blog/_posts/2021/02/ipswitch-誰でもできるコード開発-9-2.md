@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #9"
 date: "2021-02-14"
-categories:
+category:
   - "Hack"
   - "IPSwitch"
 ---

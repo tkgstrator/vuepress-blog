@@ -1,9 +1,7 @@
 ---
 title: "[二日目]Apple Reviewの審査に通るまで"
 date: "2021-01-15"
-categories:
-  - "Swift"
-  - "プログラミング"
+category: Swift
 ---
 
 ## 背景

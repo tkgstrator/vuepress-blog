@@ -1,8 +1,8 @@
 ---
 title: "PS3エミュレータRPCS3を使ってみよう"
 date: "2021-02-01"
-categories:
-  - "CFW"
+category:
+  - CFW
   - "Hack"
 ---
 

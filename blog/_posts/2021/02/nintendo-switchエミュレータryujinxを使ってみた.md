@@ -1,8 +1,8 @@
 ---
 title: "Nintendo Switch エミュレータ Ryujinx を使ってみた"
 date: "2021-02-02"
-categories:
-  - "CFW"
+category:
+  - CFW
   - "Hack"
 ---
 

@@ -2,11 +2,7 @@
 title: "GAS版Salmoniaを複数アカウント対応した"
 date: "2021-02-04"
 description: "Android 版の Salmonia はリザルトアップロード機能しかなく、iOS 版のようにデータ分析などができない。よって、本記事は Android を所持している方向けで、そういう人はパソコンがあるなら絶対に導入したほうがいいです"
-categories:
-  - "Javascript"
-  - "Splatoon2"
-  - "サーモンラン"
-  - "話題"
+category: Splatoon2
 ---
 
 ## Android 利用者向けである

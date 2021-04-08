@@ -1,13 +1,7 @@
 ---
 title: "サーモンランのWAVE内容を先読みする方法と解説"
 date: "2021-01-22"
-categories:
-  - "Hack"
-  - "IPSwitch"
-  - "Splatoon2"
-  - "イカッチャ"
-  - "サーモンラン"
-  - "話題"
+category: Hack
 ---
 
 ## WAVE 内容とは

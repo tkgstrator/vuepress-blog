@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch]5.4.0向けインスタンスアドレス"
 date: "2021-02-28"
-categories:
+category:
   - "話題"
 ---
 

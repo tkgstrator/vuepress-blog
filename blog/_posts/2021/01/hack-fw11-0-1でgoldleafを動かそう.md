@@ -1,8 +1,7 @@
 ---
 title: "[Hack] FW11.0.1でGoldleafを動かそう"
 date: "2021-01-10"
-categories:
-  - "Hack"
+category: Hack
 ---
 
 ## FW11.0.1 に未対応

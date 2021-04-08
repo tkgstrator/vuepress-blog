@@ -1,9 +1,7 @@
 ---
 title: "[非脱獄] Twitter公式アプリの広告を非表示にする"
-date: "2021-01-11"
-categories:
-  - "Hack"
-  - "話題"
+date: 2021-01-11
+category: Hack
 ---
 
 ## AltServer

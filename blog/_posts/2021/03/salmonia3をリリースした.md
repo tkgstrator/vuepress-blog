@@ -1,10 +1,7 @@
 ---
 title: "Salmonia3をリリースした"
 date: "2021-03-20"
-categories:
-  - "Swift"
-  - "サーモンラン"
-  - "話題"
+category: "Swift"
 ---
 
 ## Salmonia3

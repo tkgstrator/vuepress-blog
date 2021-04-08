@@ -1,9 +1,7 @@
 ---
 title: "[Hack] 疑似ダウングレード用のファイルを作成する"
 date: "2021-01-06"
-categories:
-  - "Hack"
-  - "Splatoon2"
+category: Hack
 ---
 
 ## ダウングレードの必要性

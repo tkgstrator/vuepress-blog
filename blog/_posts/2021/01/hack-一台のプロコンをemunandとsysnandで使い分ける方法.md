@@ -1,8 +1,7 @@
 ---
 title: "[Hack] 一台のプロコンをEmuNANDとSysNANDで使い分ける方法"
 date: "2021-01-14"
-categories:
-  - "Hack"
+category: Hack
 ---
 
 ## ペアリングについて
