@@ -1,6 +1,6 @@
 module.exports = {
-  title: "VuePress Blog Example",
-  description: "This is a blog example built by VuePress",
+  title: "えいむーと愉快な仲間たち",
+  description: "えいむーの技術メモ",
   theme: "@vuepress/theme-blog", // OR shortcut: @vuepress/blog
   themeConfig: {
     /**
@@ -14,7 +14,8 @@ module.exports = {
         "link",
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/earlyaccess/mplus1p.css",
+          href:
+            "https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap",
         },
       ],
     ],
@@ -23,11 +24,11 @@ module.exports = {
      */
     nav: [
       {
-        text: "Blog",
+        text: "記事一覧",
         link: "/",
       },
       {
-        text: "Tags",
+        text: "タグ",
         link: "/tag/",
       },
     ],
