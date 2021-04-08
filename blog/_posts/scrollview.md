@@ -1,3 +1,10 @@
+---
+title: ScrollView + Reader
+date: 2021-04-08
+description: GeometryReader や ScrollViewReaderの使い方をメモした
+category: Swift
+---
+
 # ScrollViewReader
 
 ScrollViewReader は iOS14 以降で使える List や ScrollView で使える便利な機能である。

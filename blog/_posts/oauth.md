@@ -1,24 +1,32 @@
-# OAuth認証のための手順
+---
+title: OAuth認証のための手順
+date: 2021-04-08
+description: Swift で OAuth の認証のためのコードを書くためのチュートリアル
+category: Swift
+---
 
-## VerifierとChallenge
+# OAuth 認証のための手順
 
-S256という認証システムを使う場合、VerifierとChallengeの関係は以下のようになる。
+## Verifier と Challenge
+
+S256 という認証システムを使う場合、Verifier と Challenge の関係は以下のようになる。
 
 `Challenge = BASE64URL-ENCODE(SHA256(ASCII(Verifier)))`
 
-ここで注意しなければいけないのはASCIIからSHA256に変換する際に一度文字列を経由するとバグってしまうということだ。ここで詰まると無限に時間を消費するので気をつけてほしい。単なるSHA256ハッシュとS256アルゴリズムで使うハッシュ生成は全く異なるのだ。
+ここで注意しなければいけないのは ASCII から SHA256 に変換する際に一度文字列を経由するとバグってしまうということだ。ここで詰まると無限に時間を消費するので気をつけてほしい。単なる SHA256 ハッシュと S256 アルゴリズムで使うハッシュ生成は全く異なるのだ。
 
 ```swift
 import CryptoKit
 import Fundation
 ```
 
-暗号化ライブラリを使うのでCryptoKitを、Data型を扱うのでFundationをimportしておこう。
+暗号化ライブラリを使うので CryptoKit を、Data 型を扱うので Fundation を import しておこう。
 
 ## ランダム文字列: Verifier
-OAuthで認証するためにはVerifierとChallengeと呼ばれる二つのパラメータが必要になってくる。Verifierはある程度長い（64や128が推奨されているようだ）ランダム文字列であり、ChallengeはVerifierのSHA256のハッシュとなっている。
 
-SHA256はSwiftの場合CryptoKitと呼ばれるiOS13から解禁された標準ライブラリが使える。iOS13未満の場合はCryptoSwiftやObjective-Cの機能であるCommonCryptoを使うことになるだろう。今回はCryptoKitを用いた場合のコーディングについて解説する。
+OAuth で認証するためには Verifier と Challenge と呼ばれる二つのパラメータが必要になってくる。Verifier はある程度長い（64 や 128 が推奨されているようだ）ランダム文字列であり、Challenge は Verifier の SHA256 のハッシュとなっている。
+
+SHA256 は Swift の場合 CryptoKit と呼ばれる iOS13 から解禁された標準ライブラリが使える。iOS13 未満の場合は CryptoSwift や Objective-C の機能である CommonCrypto を使うことになるだろう。今回は CryptoKit を用いた場合のコーディングについて解説する。
 
 ```swift
 extension String {
@@ -33,18 +41,19 @@ extension String {
 }
 ```
 
-上のコードはランダム文字列を生成するためExtensionである。Swift4.2以前はarc4randomといったC言語から引っ張ってきた関数を使う必要があったのだが、現在では標準乱数生成メソッドが使えるのでそれを利用する。
+上のコードはランダム文字列を生成するため Extension である。Swift4.2 以前は arc4random といった C 言語から引っ張ってきた関数を使う必要があったのだが、現在では標準乱数生成メソッドが使えるのでそれを利用する。
 
-ポイントとしては予め使われる可能性のある文字を文字列にしておき、そこから一文字区切りの配列をつくるという点である。そしてその配列からランダムに128回値を選び、それらを結合するというわけである。単にmapを使うとString型ではなくCharacter型の配列になってしまうので型変換をする。
+ポイントとしては予め使われる可能性のある文字を文字列にしておき、そこから一文字区切りの配列をつくるという点である。そしてその配列からランダムに 128 回値を選び、それらを結合するというわけである。単に map を使うと String 型ではなく Character 型の配列になってしまうので型変換をする。
 
-文字列から配列をつくるにあたって、[【swift】文字列を一文字ずつに分割する時のArray("hoge")の型について](https://qiita.com/rondine-jumpei/items/a298bf4e0612166e5dd5)のコードが大変参考になりました。
+文字列から配列をつくるにあたって、[【swift】文字列を一文字ずつに分割する時の Array("hoge")の型について](https://qiita.com/rondine-jumpei/items/a298bf4e0612166e5dd5)のコードが大変参考になりました。
 
-128回ループして結合するというコードはとりあえずFor文で書いたのだがとてもダサいのでなんとかしたい所存である。
+128 回ループして結合するというコードはとりあえず For 文で書いたのだがとてもダサいのでなんとかしたい所存である。
 
-気になる点としては暗号論的に安全な乱数になっているかというところであるが、まあ気にしなくても多分大丈夫だろう、多分。もしもrandomElement()に何らかの偏りがある場合、Verifierを推察される可能性があり、危険である。
+気になる点としては暗号論的に安全な乱数になっているかというところであるが、まあ気にしなくても多分大丈夫だろう、多分。もしも randomElement()に何らかの偏りがある場合、Verifier を推察される可能性があり、危険である。
 
 ## SHA256: Challenge
-次にこのランダム文字列をSHA256に変換する。CryptoKitのSHA256でハッシュを求めるアルゴリズムは引数がData型でありString型ではないので、文字列をData型に変換する必要がある。
+
+次にこのランダム文字列を SHA256 に変換する。CryptoKit の SHA256 でハッシュを求めるアルゴリズムは引数が Data 型であり String 型ではないので、文字列を Data 型に変換する必要がある。
 
 ```swift
 // OK
@@ -55,7 +64,7 @@ extension String {
 }
 ```
 
-というわけで、String型のExtensionを拡張してそれ自身のSHA256ハッシュを返せるようにした。
+というわけで、String 型の Extension を拡張してそれ自身の SHA256 ハッシュを返せるようにした。
 
 ```swift
 // NG
@@ -66,15 +75,15 @@ extension String {
 }
 ```
 
-ちなみに、上のようなコードを書くと文字列を経由してしまい失敗する。こちらは単にSHA256のハッシュが欲しい場合に使うと良い。
+ちなみに、上のようなコードを書くと文字列を経由してしまい失敗する。こちらは単に SHA256 のハッシュが欲しい場合に使うと良い。
 
-SHA256ハッシュ作成に関しては[PKCEのcode_challenge生成](https://rono23.com/posts/pkec-code-challenge/)のページが大変参考になりました。
-
+SHA256 ハッシュ作成に関しては[PKCE の code_challenge 生成](https://rono23.com/posts/pkec-code-challenge/)のページが大変参考になりました。
 
 ## Base64Encode: Challenge
-実はChallengeは単なるSHA256ハッシュではなく、そのハッシュをBase64エンコードしたものとなっている。なぜ二回ハッシュを計算するのかわからないが（しかもBase64は安全なハッシュとは言えない）、仕様書でそうなっているのでそうするしかない。
 
-SHA256のハッシュから直接Base64を返したいので標準ライブラリを用いて以下のように実装した。PKCEではBase64の値のうち「=」、「+」、「/」の三つについては正しくエスケープしないといけない。
+実は Challenge は単なる SHA256 ハッシュではなく、そのハッシュを Base64 エンコードしたものとなっている。なぜ二回ハッシュを計算するのかわからないが（しかも Base64 は安全なハッシュとは言えない）、仕様書でそうなっているのでそうするしかない。
+
+SHA256 のハッシュから直接 Base64 を返したいので標準ライブラリを用いて以下のように実装した。PKCE では Base64 の値のうち「=」、「+」、「/」の三つについては正しくエスケープしないといけない。
 
 ```swift
 extension SHA256.Digest {
@@ -87,7 +96,6 @@ extension SHA256.Digest {
 }
 ```
 
-なので非常に冗長になるが、base64EncodedString()を拡張してPKCE用のBase64文字列を返すようにした。
+なので非常に冗長になるが、base64EncodedString()を拡張して PKCE 用の Base64 文字列を返すようにした。
 
-この状態で`E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`をVerifierとして設定し、Challengeを計算すると正しく`E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`を得ることができた。
-
+この状態で`E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`を Verifier として設定し、Challenge を計算すると正しく`E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`を得ることができた。

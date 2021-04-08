@@ -1,16 +1,23 @@
-## URLRequestはいいぞ
+---
+title: URLRequest を理解する
+date: 2021-04-08
+description: Alamofireのソースコードから理解を深めよう
+category: Swift
+---
 
-URLRequestはSwiftでHTTP通信をするための標準ライブラリである。が、実際にアプリを組むとなると簡単で高機能なAlamofireを使ってしまいがちであった。
+# URLRequest はいいぞ
 
-ただ、作りたい自作ライブラリがHTTP通信を必要とし、そのライブラリを使いたいアプリもHTTP通信が必要になるとライブラリにもアプリにもAlamofireを導入せねばならず、なんとなく気持ち悪い印象を受ける。
+URLRequest は Swift で HTTP 通信をするための標準ライブラリである。が、実際にアプリを組むとなると簡単で高機能な Alamofire を使ってしまいがちであった。
 
-複雑怪奇なライブラリならさておき、SplatNet2程度のライブラリならGETとPOSTがリクエストできれば良いのでAlamofireのような高機能ライブラリも、それを受け取るためのSwiftyJSONも不要なはずなのだ。
+ただ、作りたい自作ライブラリが HTTP 通信を必要とし、そのライブラリを使いたいアプリも HTTP 通信が必要になるとライブラリにもアプリにも Alamofire を導入せねばならず、なんとなく気持ち悪い印象を受ける。
 
-よって、今回は原点回帰をして外部ライブラリなしにAPIを叩いて通信するためのコードを書いていく。
+複雑怪奇なライブラリならさておき、SplatNet2 程度のライブラリなら GET と POST がリクエストできれば良いので Alamofire のような高機能ライブラリも、それを受け取るための SwiftyJSON も不要なはずなのだ。
 
-## Swiftのクラスの理解を深める
+よって、今回は原点回帰をして外部ライブラリなしに API を叩いて通信するためのコードを書いていく。
 
-Swiftでライブラリをつくる際は`public class`にしなければ呼び出せないことが知られている。
+## Swift のクラスの理解を深める
+
+Swift でライブラリをつくる際は`public class`にしなければ呼び出せないことが知られている。
 
 例えば`OAuth`クラスをライブラリ化したいのであれば以下のように書かなければいけない。
 
@@ -36,14 +43,14 @@ class OAuth {
 
 ```swift
 public class OAuth {
-    
+
     let version: String = "1.10.0"
-    
+
     // OK
     public func getVersion1() {
         print(version)
     }
-    
+
     // NG
     public class func getVersion2() {
         print(version)
@@ -68,22 +75,22 @@ oauth.getVersion1()
 OAuth.getVersion2()
 ```
 
-それに対して`public class func`はOAuthクラスのクラス関数なので使いたいクラス自体を明示すれば使うことができる。
+それに対して`public class func`は OAuth クラスのクラス関数なので使いたいクラス自体を明示すれば使うことができる。
 
-ここで重要になるのは`version`がただのクラス変数であり、クラスがインスタンス化されるまで取得できないということだ。よって、`getVersion2`ではまだ実体化していないversionを取得することができない。このプログラムはコンパイルエラーを返すのである。
+ここで重要になるのは`version`がただのクラス変数であり、クラスがインスタンス化されるまで取得できないということだ。よって、`getVersion2`ではまだ実体化していない version を取得することができない。このプログラムはコンパイルエラーを返すのである。
 
-これを防ぐためには`version`の値をクラスが常に保存しておくようにする。プログラミング言語等によってはクラス変数化する`class let version = "1.10.0"`のような書き方ができるが、Swiftではできない。その代わり`static`が用意されているのでそちらを利用する。
+これを防ぐためには`version`の値をクラスが常に保存しておくようにする。プログラミング言語等によってはクラス変数化する`class let version = "1.10.0"`のような書き方ができるが、Swift ではできない。その代わり`static`が用意されているのでそちらを利用する。
 
 ```swift
 public class OAuth {
-    
+
     static let version: String = "1.10.0"
-    
+
     // NG
     public func getVersion1() {
         print(version)
     }
-    
+
     // OK
     public class func getVersion2() {
         print(version)
@@ -99,20 +106,20 @@ public func getVersion1() {
 }
 ```
 
-のようにOAuthクラスの変数を呼び出すようにコードを変えなければいけない。
+のように OAuth クラスの変数を呼び出すようにコードを変えなければいけない。
 
-## HTTPHeadersとHTTPHeaderを定義しよう
+## HTTPHeaders と HTTPHeader を定義しよう
 
-HTTPHeadersとHTTPHeaderはどちらもAlamofireで使われる構造体である。非常に便利なので同じテクニックを使わせてもらうことにした。
+HTTPHeaders と HTTPHeader はどちらも Alamofire で使われる構造体である。非常に便利なので同じテクニックを使わせてもらうことにした。
 
-HTTPHeadersのソースコードは[ここ](https://github.com/Alamofire/Alamofire/blob/097e1f03166d49b31f824507fb85ad843b14fc13/Source/HTTPHeaders.swift)にあるが、今回はすべてを利用するわけではないので便利そうなところだけ参考にさせていただいた。
+HTTPHeaders のソースコードは[ここ](https://github.com/Alamofire/Alamofire/blob/097e1f03166d49b31f824507fb85ad843b14fc13/Source/HTTPHeaders.swift)にあるが、今回はすべてを利用するわけではないので便利そうなところだけ参考にさせていただいた。
 
 ```swift
 // HTTPHeader.swift
 public struct HTTPHeader: Hashable {
     public let name: String
     public let value: String
-    
+
     public init(name: String, value: String) {
         self.name = name
         self.value = value
@@ -127,19 +134,19 @@ extension Array where Element == HTTPHeader {
 }
 ```
 
-HTTPHeaderは単一のヘッダー情報を持つ構造体で、それをまとめたものがHTTPHeadersである。
+HTTPHeader は単一のヘッダー情報を持つ構造体で、それをまとめたものが HTTPHeaders である。
 
 ```swift
 public struct HTTPHeaders {
     // HTTPHeaderの配列
     private var headers: [HTTPHeader] = []
     public init() {}
-    
+
     // 重複してないか調べて追加する関数
     public mutating func update(name: String, value: String) {
         update(HTTPHeader(name: name, value: value))
     }
-    
+
     public mutating func update(_ header: HTTPHeader) {
         // 重複していなければ追加
         guard let index = headers.index(of: header.name) else {
@@ -159,9 +166,9 @@ extension HTTPHeaders: ExpressibleByDictionaryLiteral {
 }
 ```
 
-そしてここで重要なのがこの`ExpressibleByDictionaryLiteral`で、これを利用することでなんと辞書型から直接HTTPHeadersのインスタンスをつくることができるようになる。
+そしてここで重要なのがこの`ExpressibleByDictionaryLiteral`で、これを利用することでなんと辞書型から直接 HTTPHeaders のインスタンスをつくることができるようになる。
 
-つまり、下のように辞書をそのまま指定するだけで簡単にHTTPHeader型に変換できるのだ、すごい。
+つまり、下のように辞書をそのまま指定するだけで簡単に HTTPHeader 型に変換できるのだ、すごい。
 
 ```swift
 let header: HTTPHeaders = [
@@ -169,7 +176,7 @@ let header: HTTPHeaders = [
 ]
 ```
 
-### HTTPMethodを定義しよう
+### HTTPMethod を定義しよう
 
 ```swift
 public struct HTTPMethod: RawRepresentable, Equatable, Hashable {
@@ -186,19 +193,17 @@ public struct HTTPMethod: RawRepresentable, Equatable, Hashable {
 }
 ```
 
-Alamofireではたくさんのメソッドが対応しているが、この四つがあれば基本的には何でもできるだろうということでこの四つにのみ対応した。
+Alamofire ではたくさんのメソッドが対応しているが、この四つがあれば基本的には何でもできるだろうということでこの四つにのみ対応した。
 
+## GET しよう
 
-## GETしよう
+## POST しよう
 
-## POSTしよう
+POST ではデータを送信する必要があり、多くの API は`application/json`を受け取るようになっているが、たまに頭のおかしい API は`application/x-www-form-urlencoded`のような`Content-Type`を要求してくる。`application/form-data`のような更におかしなものも存在するが、ここではこの二つだけに絞ろう。
 
-POSTではデータを送信する必要があり、多くのAPIは`application/json`を受け取るようになっているが、たまに頭のおかしいAPIは`application/x-www-form-urlencoded`のような`Content-Type`を要求してくる。`application/form-data`のような更におかしなものも存在するが、ここではこの二つだけに絞ろう。
+Alamofire であればこれの対応は簡単で`parameters`のエンコーディングで`JSONEncoding.default`を指定すれば`JSON`形式でパラメータを変換でき、`URLEncoding.default`を指定すれば`x-www-form-urlencoded`に対応できる。
 
-Alamofireであればこれの対応は簡単で`parameters`のエンコーディングで`JSONEncoding.default`を指定すれば`JSON`形式でパラメータを変換でき、`URLEncoding.default`を指定すれば`x-www-form-urlencoded`に対応できる。
-
-
-### JSONをPOSTしよう
+### JSON を POST しよう
 
 ```swift
 

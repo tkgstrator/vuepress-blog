@@ -1,12 +1,19 @@
+---
+title: Swiftでのエラーの扱い
+date: 2021-04-08
+description: Swift では Error 型と NSError 型を使うことができる
+category: Swift
+---
+
 # エラーの扱いについて
 
-SwiftではError型とNSError型を使うことができる。Error型はSwiftUIで使われる一般的なエラー型ではあるがエラーコードがなかったりとかゆいところに手が届かなかったりする。
+Swift では Error 型と NSError 型を使うことができる。Error 型は SwiftUI で使われる一般的なエラー型ではあるがエラーコードがなかったりとかゆいところに手が届かなかったりする。
 
-ここでは独自のError型を定義し、それを柔軟に使っていくためのチュートリアルを解説する。
+ここでは独自の Error 型を定義し、それを柔軟に使っていくためのチュートリアルを解説する。
 
 ## 独自のエラー型を定義しよう
 
-エラーの定義であるEnumはErrorを継承することはもちろん、ついでにCaseIterableを継承しておくと良い。
+エラーの定義である Enum は Error を継承することはもちろん、ついでに CaseIterable を継承しておくと良い。
 
 今回はアプリが「不明」「期限切れ」「空」「無効」の四パターンのエラーを返すものを想定した。
 
@@ -19,11 +26,11 @@ enum APPError: Error, CaseIterable {
 }
 ```
 
-それはEnumを使ってこのように書けるが、これだけだと意味がないので、このAPPErrorに対してエラーの詳細やエラーコードを割り当てていく。
+それは Enum を使ってこのように書けるが、これだけだと意味がないので、この APPError に対してエラーの詳細やエラーコードを割り当てていく。
 
 ## エラーコード
 
-エラーコードはCustomNSErrorを継承すれば定義することができる。
+エラーコードは CustomNSError を継承すれば定義することができる。
 
 ```swift
 extension APPError: CustomNSError {
@@ -44,7 +51,7 @@ extension APPError: CustomNSError {
 
 ## エラー詳細
 
-エラー詳細は`errorDescription`というメンバ変数に割り当てる。これは`LocalizedError`を継承すればString?型で定義することができる。
+エラー詳細は`errorDescription`というメンバ変数に割り当てる。これは`LocalizedError`を継承すれば String?型で定義することができる。
 
 ```swift
 extension APPError: LocalizedError {
@@ -67,7 +74,7 @@ extension APPError: LocalizedError {
 
 # エラーの呼び出し
 
-SwiftUIにおいては`throw ERROR`とすることでエラーを呼び出すことができる。これは普通のreturnなどと違い、放置すればクラッシュするので`try?`でエラーをなかったことにするか`do catch`で適切にハンドリングする必要がある。
+SwiftUI においては`throw ERROR`とすることでエラーを呼び出すことができる。これは普通の return などと違い、放置すればクラッシュするので`try?`でエラーをなかったことにするか`do catch`で適切にハンドリングする必要がある。
 
 エラーが呼び出される関数には必ず呼び出される可能性があることを明示しなければならない。
 
@@ -78,14 +85,14 @@ func throwError() throws -> () {
 }
 ```
 
-例えばこれは定義されたAPPError型から適当に一つ選んでエラーを発生させるコードである。`randomElement()`がnilを返す場合があるのでその場合にはとりあえず不明なエラーを返すようにした。
+例えばこれは定義された APPError 型から適当に一つ選んでエラーを発生させるコードである。`randomElement()`が nil を返す場合があるのでその場合にはとりあえず不明なエラーを返すようにした。
 
-ここでの`throws`(throwではない)はエラーが発生したときにエラーハンドリングをせずにこの関数を呼び出した関数に「エラー自体」を伝達することを意味する。
+ここでの`throws`(throw ではない)はエラーが発生したときにエラーハンドリングをせずにこの関数を呼び出した関数に「エラー自体」を伝達することを意味する。
 
 なぜならこの関数は`do catch`でエラーハンドリングをしていないにもかかわらず関数内に`throw`があるためにエラーを発生させる可能性があるためである。エラーを発生させる可能性(`throw`)があるが、`do catch`がない関数には必ず`throws`でエラーを投げる可能性があることを明示しなければならないのだ。
 
 ```swift
-// NG 
+// NG
 func throwError() -> () {
     throw (APPError.allCases.randomElement() ?? APPError.unknown)
 }
@@ -104,11 +111,11 @@ func throwError() -> () {
 }
 ```
 
-このように`do catch`を使ってエラーハンドリングをし、関数からエラーが投げられないようにすれば`throws`を書かなくて済む。ただ、これだとエラーが発生したときにERRORという文字列が表示されるだけで、これではエラーハンドリングとは言えない。
+このように`do catch`を使ってエラーハンドリングをし、関数からエラーが投げられないようにすれば`throws`を書かなくて済む。ただ、これだとエラーが発生したときに ERROR という文字列が表示されるだけで、これではエラーハンドリングとは言えない。
 
 ## エラー処理をする
 
-まず、エラーの中身を見たときはこのように書けば良い。多くのプログラミング言語では`catch`でerrorが定義されている。Swiftの場合もそうなので定義しなくても`error`という変数でエラーの内容をとってくることができる。
+まず、エラーの中身を見たときはこのように書けば良い。多くのプログラミング言語では`catch`で error が定義されている。Swift の場合もそうなので定義しなくても`error`という変数でエラーの内容をとってくることができる。
 
 ```swift
 do {
@@ -128,9 +135,9 @@ do {
 }
 ```
 
-`throwError()`はAPPError型を返すのだが、実際にどんな値を受け取っているのか見てみると`empty`や`invalid`という値が返っていていた。
+`throwError()`は APPError 型を返すのだが、実際にどんな値を受け取っているのか見てみると`empty`や`invalid`という値が返っていていた。
 
-つまり、受け取っているのはただのEnumだということだ。
+つまり、受け取っているのはただの Enum だということだ。
 
 ```swift
 do {
@@ -140,11 +147,11 @@ do {
 }
 ```
 
-では肝心の中身を見る話だかこれは`error.errorCode`や`error.errorDescription`のように受け取ることができない。SwiftUIで受け取ることができるのはあくまでもError型であり、Error型は`localizedDescripion`というメンバ変数しか持たないためだ。
+では肝心の中身を見る話だかこれは`error.errorCode`や`error.errorDescription`のように受け取ることができない。SwiftUI で受け取ることができるのはあくまでも Error 型であり、Error 型は`localizedDescripion`というメンバ変数しか持たないためだ。
 
 ただ、`localizedDescription`を表示すると`errorDescription`の値を表示することはできた。問題は`errorCode`をどうやって受け取るかである。
 
-Swiftで使えるエラーには`Error`, `NSError`, `CustomNSError`などがあるが、今回のケースではエラーコードを利用するために`CustomNSError`を継承しているのでこれを利用する。
+Swift で使えるエラーには`Error`, `NSError`, `CustomNSError`などがあるが、今回のケースではエラーコードを利用するために`CustomNSError`を継承しているのでこれを利用する。
 
 ```swift
 do {
@@ -155,17 +162,17 @@ do {
 }
 ```
 
-つまり、上のようにCustomNSErrorにキャストすることでエラーコードを表示することができるようになる。
+つまり、上のように CustomNSError にキャストすることでエラーコードを表示することができるようになる。
 
 # アラートでエラー発生
 
-エラーが発生したときにそれを検知してアラートを表示したいケースが多いが、そのたびに何度もAlertの定義を書くのはめんどくさいのでエラーが発生しそうなところに使えるViewModifierを定義した。
+エラーが発生したときにそれを検知してアラートを表示したいケースが多いが、そのたびに何度も Alert の定義を書くのはめんどくさいのでエラーが発生しそうなところに使える ViewModifier を定義した。
 
 ```swift
 struct AlertView: ViewModifier {
     @Binding var isPresented: Bool
     let error: CustomNSError
-    
+
     func body(content: Content) -> some View {
         content
             .alert(isPresented: $isPresented) {
@@ -182,4 +189,4 @@ extension View {
 }
 ```
 
-これは単にエラーが発生したら表示するだけなので再利用するのは簡単である。ViewModifierの中身を変えれば自由にカスタマイズすることもできる。
+これは単にエラーが発生したら表示するだけなので再利用するのは簡単である。ViewModifier の中身を変えれば自由にカスタマイズすることもできる。

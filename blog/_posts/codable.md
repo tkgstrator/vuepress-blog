@@ -1,18 +1,25 @@
+---
+title: JSON + Codable
+date: 2021-04-08
+description: JSONで受け取ったデータをCodableで変換するためのチュートリアル
+category: Swift
+---
+
 # 変数名とキーが一致している場合
 
 ```json
 {
-    "id": 100,
-    "name": "tkgling",
-    "email": "tkgling@sample.com"
+  "id": 100,
+  "name": "tkgling",
+  "email": "tkgling@sample.com"
 }
 ```
 
-こういう値を返すJSONを考える。例えばユーザ名を指定してそのユーザの情報を返すようなAPIが想定されるだろう。
+こういう値を返す JSON を考える。例えばユーザ名を指定してそのユーザの情報を返すような API が想定されるだろう。
 
-「変数名とキーが一致している」としたのはJSON側ではスネークケースであることが多いのに対して、Swiftではキャメルケースでの命名規則が推奨されているためだ。つまりJSON側では`user_name`というキーがあれば、その値はSwift側では`userName`として取得したいのである。
+「変数名とキーが一致している」としたのは JSON 側ではスネークケースであることが多いのに対して、Swift ではキャメルケースでの命名規則が推奨されているためだ。つまり JSON 側では`user_name`というキーがあれば、その値は Swift 側では`userName`として取得したいのである。
 
-が、今回のAPIではたまたまアンダーバーがなくそのような変換が不要だと想定する。
+が、今回の API ではたまたまアンダーバーがなくそのような変換が不要だと想定する。
 
 ```swift
 struct UserInfo: Decodable {
@@ -37,28 +44,28 @@ do {
 
 変数名とキーが一致していない場合、いくつかの対応がある。
 
-* 手動で変数とキーの対応表であるCodingKeyを書く
-  * 最もめんどくさく、最も推奨しない
-  * キーが多く、ネストが深いJSONだと対応表だけで数百行になる
-* キーと変数名に一定の規則がある場合
-  * JSONDecoder()の自動変換機能が使える
-  * キーの命名規則がスネークケースでないとめんどくさいのが難点
-* 変数名をキーから決める
-  * 確実に一意にはなるが、自分が使いたい変数名にならない場合がある
+- 手動で変数とキーの対応表である CodingKey を書く
+  - 最もめんどくさく、最も推奨しない
+  - キーが多く、ネストが深い JSON だと対応表だけで数百行になる
+- キーと変数名に一定の規則がある場合
+  - JSONDecoder()の自動変換機能が使える
+  - キーの命名規則がスネークケースでないとめんどくさいのが難点
+- 変数名をキーから決める
+  - 確実に一意にはなるが、自分が使いたい変数名にならない場合がある
 
 ## 自分で対応表を書く場合
 
-例えば以下のようなJSONを扱うことを考えます。
+例えば以下のような JSON を扱うことを考えます。
 
 ```json
 {
-    "user_id": 100,
-    "user_name": "tkgling",
-    "user_email": "tkgling@sample.com"
+  "user_id": 100,
+  "user_name": "tkgling",
+  "user_email": "tkgling@sample.com"
 }
 ```
 
-これは先程の考えを推し進めれば次のように構造体をつくればDecodableで一発で変換できる。
+これは先程の考えを推し進めれば次のように構造体をつくれば Decodable で一発で変換できる。
 
 ```swift
 struct UserInfo: Decodable {
@@ -68,9 +75,9 @@ struct UserInfo: Decodable {
 }
 ```
 
-しかし、Swiftはキャメルケースが命名規則なので、この変数名は正直センスがない。別の言い方をすればイカしていないのである。
+しかし、Swift はキャメルケースが命名規則なので、この変数名は正直センスがない。別の言い方をすればイカしていないのである。
 
-Swiftの命名規則に従えばこれらの変数は以下のように定義されるべきである。スネークケースからキャメルケースの変換は簡単で、アンダーバーを削除してアンダーバーの最初のアルファベットを大文字にするだけである。
+Swift の命名規則に従えばこれらの変数は以下のように定義されるべきである。スネークケースからキャメルケースの変換は簡単で、アンダーバーを削除してアンダーバーの最初のアルファベットを大文字にするだけである。
 
 ```swift
 struct UserInfo: Decodable {
@@ -90,30 +97,30 @@ private let UserInfoKeys: String, CodingKey {
 }
 ```
 
-Enumの名前は今回は変数名と揃えたが、区別がつくなら別に何でも良い。ただし、 rawValueだけはキーと一致させる必要がある。
+Enum の名前は今回は変数名と揃えたが、区別がつくなら別に何でも良い。ただし、 rawValue だけはキーと一致させる必要がある。
 
 最後に構造体のイニシャライザを書いたらそれらをくっつけるだけである。
 
- ```swift
+```swift
 struct UserInfo: Decodable {
-    let userId: Int
-    let userName: String
-    let userEmail: String
+   let userId: Int
+   let userName: String
+   let userEmail: String
 
-    private let UserInfoKeys: String, CodingKey {
-    case userId     = "user_id"
-    case userName   = "user_name"
-    case userEmail  = "user_email"
-    }
+   private let UserInfoKeys: String, CodingKey {
+   case userId     = "user_id"
+   case userName   = "user_name"
+   case userEmail  = "user_email"
+   }
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: UserInfoKeys.self)
-        // 処理を書く
-    }
+   init(from decoder: Decoder) throws {
+       let container = try decoder.container(keyedBy: UserInfoKeys.self)
+       // 処理を書く
+   }
 }
 ```
 
- これはPlaygroundで簡単に再現できるのでやってみましょう。
+これは Playground で簡単に再現できるのでやってみましょう。
 
 ```swift
 import Foundation
@@ -136,18 +143,18 @@ struct UserInfo: Decodable {
     let userId: Int
     let userName: String
     let userEmail: String
-    
+
     // プロパティとキーの対応
     private enum UserInfoKeys: String, CodingKey {
         case userId = "user_id"
         case userName = "user_name"
         case userEmail = "user_email"
     }
-    
+
     // イニシャライザ
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: UserInfoKeys.self)
-        
+
         userId = try container.decode(Int.self, forKey: .userId)
         userName = try container.decode(String.self, forKey: .userName)
         userEmail = try container.decode(String.self, forKey: .userEmail)
@@ -162,11 +169,11 @@ struct UserInfo: Decodable {
 UserInfo(userId: 0, userName: "tkgling", userEmail: "tkgling@gmail.com")
 ```
 
-が、やってみればわかるのですが途方もなくめんどくさいです。プロパティが10くらいならやる気もおきますが、それを超えるとめんどうなだけです。
+が、やってみればわかるのですが途方もなくめんどくさいです。プロパティが 10 くらいならやる気もおきますが、それを超えるとめんどうなだけです。
 
 ## スネークケースからキャメルケースへの変換
 
-単にスネークケースからキャメルケースに変換するだけであればJSONDecoderの`convertFromSnakeCase`のプロパティが使えます。
+単にスネークケースからキャメルケースに変換するだけであれば JSONDecoder の`convertFromSnakeCase`のプロパティが使えます。
 
 ```swift
 import Foundation
@@ -194,13 +201,13 @@ struct UserInfo: Decodable {
 }
 ```
 
-これはJSONDecoderのプロパティに予め`.convertFromSnakeCase`を適用させた状態で使っているため、JSONを読み込んだ段階でキーが全てキャメルケースに変換されています。
+これは JSONDecoder のプロパティに予め`.convertFromSnakeCase`を適用させた状態で使っているため、JSON を読み込んだ段階でキーが全てキャメルケースに変換されています。
 
 よって、対応表を書かなくとも一発でデータを取得することができます。
 
-## JSONのキーをプロパティ名にする
+## JSON のキーをプロパティ名にする
 
-こちらはSwiftでの命名規則よりもJSON側の命名規則を優先する場合、またはJSON側がキャメルケースになっている場合などに使えます。
+こちらは Swift での命名規則よりも JSON 側の命名規則を優先する場合、または JSON 側がキャメルケースになっている場合などに使えます。
 
 ```swift
 import Foundation
@@ -230,18 +237,18 @@ struct UserInfo: Decodable {
 
 # 自動で型変換しよう
 
-JSONが持っている型と、Swiftで扱いたい型が違う場合があります。その際には`DateEncodingStrategy`と`DateDecodingStrategy`を使えば簡単に相互変換ができます。
+JSON が持っている型と、Swift で扱いたい型が違う場合があります。その際には`DateEncodingStrategy`と`DateDecodingStrategy`を使えば簡単に相互変換ができます。
 
 ```json
 {
-    "user_id": 100,
-    "user_name": "tkgling",
-    "user_email": "tkgling@sample.com",
-    "created_at": 1617267600
+  "user_id": 100,
+  "user_name": "tkgling",
+  "user_email": "tkgling@sample.com",
+  "created_at": 1617267600
 }
 ```
 
-アカウントが作成された時間がUnixTimestampで保存されているのですが、これをDate型に変換したい場合などが考えられます。
+アカウントが作成された時間が UnixTimestamp で保存されているのですが、これを Date 型に変換したい場合などが考えられます。
 
 ```swift
 let decoder: JSONDecoder = {
@@ -252,7 +259,7 @@ let decoder: JSONDecoder = {
 }()
 ```
 
-このときはこのようにJSONDecoderを拡張してやればDate型に自動で変換してくれます。
+このときはこのように JSONDecoder を拡張してやれば Date 型に自動で変換してくれます。
 
 ```swift
 // 実行結果
@@ -260,37 +267,35 @@ UserInfo(userId: 0, userName: "tkgling", userEmail: "tkgling@gmail.com", created
 ```
 
 このデコード方式はいまのところ以下のものが対応している様子でした。
-* ISO8601形式(.iso8601)
-  * 万能かつ最強
-  * これを使っていればとりあえず怒られることはない
-  * 昔は使えなかったっぽいのだが、いつの間にか対応していた
-* 標準フォーマット(.secondsSince1970)
-  * `yyyy-mm-dd HH:mm:ss`形式のやつ
-* 標準フォーマット(.millisecondsSince1970) 
-  * 上のやつのミリ秒まで使えるパターン
 
-ただ、RealmなどはDate型にプライマリキーをつけられないなどの制約があるので、データベースに保存するつもりならわざわざDate型に変換する意味はないような気もします。
+- ISO8601 形式(.iso8601)
+  - 万能かつ最強
+  - これを使っていればとりあえず怒られることはない
+  - 昔は使えなかったっぽいのだが、いつの間にか対応していた
+- 標準フォーマット(.secondsSince1970)
+  - `yyyy-mm-dd HH:mm:ss`形式のやつ
+- 標準フォーマット(.millisecondsSince1970)
+  - 上のやつのミリ秒まで使えるパターン
 
-# いろいろな構造のJSONに対する対応
+ただ、Realm などは Date 型にプライマリキーをつけられないなどの制約があるので、データベースに保存するつもりならわざわざ Date 型に変換する意味はないような気もします。
+
+# いろいろな構造の JSON に対する対応
 
 ## 配列の場合(Array)
 
-ではちょっと複雑化したネスト付きのJSONを考えよう。
+ではちょっと複雑化したネスト付きの JSON を考えよう。
 
 ```json
 {
-    "user_id": 100,
-    "user_name": "tkgling",
-    "user_email": "tkgling@sample.com",
-    "created_at": 1617267600,
-    "accounts": [
-        "tkgling",
-        "tkgstrator"
-    ]
+  "user_id": 100,
+  "user_name": "tkgling",
+  "user_email": "tkgling@sample.com",
+  "created_at": 1617267600,
+  "accounts": ["tkgling", "tkgstrator"]
 }
 ```
 
-このように配列が入っている場合も、構造体のプロパティとして配列を与えてやればJSONDecoderは自動で変換してくれます。
+このように配列が入っている場合も、構造体のプロパティとして配列を与えてやれば JSONDecoder は自動で変換してくれます。
 
 ```swift
 struct UserInfo: Decodable {
@@ -307,30 +312,30 @@ struct UserInfo: Decodable {
 UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", createdAt: 2021-04-01 09:00:00 +0000, accounts: ["tkgling", "tkgstrator"])
 ```
 
-ちなみに今回はString型で単純に受け取っていますが、以下のように好きな構造体を割り当てることもできます。
+ちなみに今回は String 型で単純に受け取っていますが、以下のように好きな構造体を割り当てることもできます。
 
 ## オブジェクトの配列の場合(ArrayObject)
 
 オブジェクトを配列として持っている場合を考える。
 
-このときは先程とは違い、何番目のアカウントのidやcreated_atに直接アクセスできるような仕組みになっているとありがたいわけである。
+このときは先程とは違い、何番目のアカウントの id や created_at に直接アクセスできるような仕組みになっているとありがたいわけである。
 
 ```json
 {
-    "user_id": 100,
-    "user_name": "tkgling",
-    "user_email": "tkgling@sample.com",
-    "created_at": 1617267600,
-    "accounts": [
-        {
-            "id": "tkgling",
-            "created_at": 1617267600
-        },
-        {
-            "id": "tkgstrator",
-            "created_at": 1617267600
-        }
-    ]
+  "user_id": 100,
+  "user_name": "tkgling",
+  "user_email": "tkgling@sample.com",
+  "created_at": 1617267600,
+  "accounts": [
+    {
+      "id": "tkgling",
+      "created_at": 1617267600
+    },
+    {
+      "id": "tkgstrator",
+      "created_at": 1617267600
+    }
+  ]
 }
 ```
 
@@ -343,7 +348,7 @@ struct UserInfo: Decodable {
     let userEmail: String
     let createdAt: Date
     let accounts: [Account]
-    
+
     struct Account: Decodable {
         let id: String
         let createdAt: Date
@@ -359,14 +364,14 @@ UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", crea
 
 ```json
 {
-    "user_id": 100,
-    "user_name": "tkgling",
-    "user_email": "tkgling@sample.com",
-    "created_at": 1617267600,
-    "accounts": {
-        "id": "tkgling",
-        "created_at": 1617267600
-    }
+  "user_id": 100,
+  "user_name": "tkgling",
+  "user_email": "tkgling@sample.com",
+  "created_at": 1617267600,
+  "accounts": {
+    "id": "tkgling",
+    "created_at": 1617267600
+  }
 }
 ```
 
@@ -416,7 +421,7 @@ struct UserInfo: Decodable {
     let userEmail: String
     let createdAt: Date
     let accounts: Account? // オプショナル
-    
+
     struct Account: Decodable {
         let id: String
         let createdAt: Date
@@ -427,9 +432,9 @@ struct UserInfo: Decodable {
 UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", createdAt: 2021-04-01 09:00:00 +0000, accounts: nil)
 ```
 
-パターン2の場合は`accounts`に`nil`が入る可能性があるため、該当部分をオプショナルに変更します。
+パターン 2 の場合は`accounts`に`nil`が入る可能性があるため、該当部分をオプショナルに変更します。
 
-ちなみにSwiftは変数をもったりもたなかったりというようなことが（多分）できないのでパターン1のJSONは強制的にパターン2と同じデータに変換されます。
+ちなみに Swift は変数をもったりもたなかったりというようなことが（多分）できないのでパターン 1 の JSON は強制的にパターン 2 と同じデータに変換されます。
 
 ```swift
 // パターン3の場合
@@ -439,7 +444,7 @@ struct UserInfo: Decodable {
     let userEmail: String
     let createdAt: Date
     let accounts: Account
-    
+
     struct Account: Decodable {
         let id: String?
         let createdAt: Date?
@@ -450,26 +455,26 @@ struct UserInfo: Decodable {
 UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", createdAt: 2021-04-01 09:00:00 +0000, accounts: Optional(Page_Contents.UserInfo.Account(id: nil, createdAt: nil)))
 ```
 
-パターン3の場合は`accounts`自体はかならずあるが、中身のデータが有るかどうかがわからないのでこうなります。
+パターン 3 の場合は`accounts`自体はかならずあるが、中身のデータが有るかどうかがわからないのでこうなります。
 
 ## キーが文字列型でないオブジェクト(Dictionary)
 
-気が狂いそうになるのがこのパターン。Swiftは変数名の先頭を数字にできないため、以下のような構造をしていると単純にデータをとってくることができなくなる。
+気が狂いそうになるのがこのパターン。Swift は変数名の先頭を数字にできないため、以下のような構造をしていると単純にデータをとってくることができなくなる。
 
 ```json
 {
-    "user_id": 100,
-    "user_name": "tkgling",
-    "user_email": "tkgling@sample.com",
-    "created_at": 1617267600,
-    "accounts": {
-        "1": "tkgling",
-        "2": "tkgstrator"
-    }
+  "user_id": 100,
+  "user_name": "tkgling",
+  "user_email": "tkgling@sample.com",
+  "created_at": 1617267600,
+  "accounts": {
+    "1": "tkgling",
+    "2": "tkgstrator"
+  }
 }
 ```
 
-このようなケースではaccountsのキーが必要な場合と不要な場合が存在する。今回のケースではキーは順序を保証するためだけの情報なので（Swiftの配列は順序が保証されるので）あってもなくてもいいことになる。
+このようなケースでは accounts のキーが必要な場合と不要な場合が存在する。今回のケースではキーは順序を保証するためだけの情報なので（Swift の配列は順序が保証されるので）あってもなくてもいいことになる。
 
 ちなみにただデータを取得したいだけであればこう書ける。
 
@@ -492,28 +497,28 @@ UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", crea
 
 ```json
 {
-    "user_id": 100,
-    "user_name": "tkgling",
-    "user_email": "tkgling@sample.com",
-    "created_at": 1617267600,
-    "accounts": {
-        "1": {
-            "id": "tkgling",
-            "created_at": 1617267600
-        },
-        "2": {
-            "id": "tkgstrator",
-            "created_at": 1617267600
-        }
+  "user_id": 100,
+  "user_name": "tkgling",
+  "user_email": "tkgling@sample.com",
+  "created_at": 1617267600,
+  "accounts": {
+    "1": {
+      "id": "tkgling",
+      "created_at": 1617267600
+    },
+    "2": {
+      "id": "tkgstrator",
+      "created_at": 1617267600
     }
+  }
 }
 ```
 
-さっきのを更に拡張するとこうなります。JSONでは順序がないため順序を保持するために辞書にIDを割り振っているケースがあります。
+さっきのを更に拡張するとこうなります。JSON では順序がないため順序を保持するために辞書に ID を割り振っているケースがあります。
 
 これはやはり辞書のキーが数字のため単純に置き換えることができません。
 
-これ、未だに自動でDecodableなstructに変換するための書き方がわからないです。
+これ、未だに自動で Decodable な struct に変換するための書き方がわからないです。
 
 ## ルートがオブジェクトの配列の場合
 
@@ -521,14 +526,14 @@ UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", crea
 
 ```json
 [
-    {
-        "id": "tkgling",
-        "created_at": 1617267600
-    },
-    {
-        "id": "tkgstrator",
-        "created_at": 1617267600
-    }
+  {
+    "id": "tkgling",
+    "created_at": 1617267600
+  },
+  {
+    "id": "tkgstrator",
+    "created_at": 1617267600
+  }
 ]
 ```
 
