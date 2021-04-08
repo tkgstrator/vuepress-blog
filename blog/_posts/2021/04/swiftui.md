@@ -170,16 +170,10 @@ ContentView のボタンをタップすればカウントが増えていき、4 
 
 子ビューの見た目を親ビューからうまいこと変化させる仕組みは（多分）存在しません。
 
-おとなしく Binding を使いましょう。
+おとなしく Binding を使いましょう。例えば以下のように State で現在の状態を渡した場合には PlaceholderView が変更を受け取ることができません。
 
 ```swift
-//
-//  ContentView.swift
-//  SwiftUITest
-//
-//  Created by devonly on 2021/04/08.
-//
-
+// NGなコード
 import SwiftUI
 
 struct ContentView: View {
@@ -187,9 +181,6 @@ struct ContentView: View {
     private var length: Int
     @State var passcode: [Int?] = []
     @State var lockStates: [LockState]
-
-    // 別にこれは保持していなくても良い？
-//    @State var placeholders: [PlaceholderView]
 
     init(length: Int) {
         self.length = length
@@ -237,8 +228,12 @@ struct PlaceholderView: View, Identifiable {
             .background(backgroundColor)
             .frame(width: 16, height: 16, alignment: .center)
             .onChange(of: lockState) { value in
-                print("VALUE CHANGE", value)
+                animateState()
             }
+    }
+
+    func animateState() {
+        backgroundColor = .black
     }
 }
 
@@ -247,3 +242,106 @@ public enum LockState: CaseIterable {
     case inactive
 }
 ```
+
+値が変化する可能性のあるものを受け取り、それによってビューを再レンダリングするためには State ではなく Binding を受け取る必要があるためです。
+
+```swift
+import SwiftUI
+
+struct ContentView: View {
+
+    private var length: Int
+    @State var passcode: [Int?] = []
+    @State var lockStates: [LockState]
+
+    init(length: Int) {
+        self.length = length
+        self._lockStates = State(initialValue: Array(repeating: .inactive, count: length))
+    }
+
+    var body: some View {
+        VStack(spacing: 30) {
+            HStack {
+                ForEach(Range(0...length - 1)) { index in
+                    PlaceholderView(state: $lockStates[index])
+                }
+            }
+            Text("\(passcode.count)")
+            Button(action: { addSign() }, label: { Text("COUNT") })
+        }
+    }
+
+    func addSign() {
+        passcode.append(nil)
+
+        if passcode.count >= length {
+            passcode.removeAll()
+            lockStates = Array(repeating: .inactive, count: length)
+        } else {
+            lockStates[passcode.count - 1] = .active
+        }
+    }
+}
+
+struct PlaceholderView: View, Identifiable {
+
+    var id: String = UUID().uuidString
+    @State var backgroundColor: Color = .clear
+    @State var borderColor: Color = .blue
+    // ここをBindingにして変更を受け取れるようにする
+    @Binding var lockState: LockState
+
+    // ここもBinding型を受け取れるようにする
+    init(state lockState: Binding<LockState>) {
+        // この書き方大事なので覚えておく
+        self._lockState = lockState
+    }
+
+    var body: some View {
+        Circle()
+            .strokeBorder(borderColor)
+            .background(backgroundColor)
+            .frame(width: 16, height: 16, alignment: .center)
+            .onChange(of: lockState) { value in
+                animateState()
+            }
+    }
+
+    func animateState() {
+        backgroundColor = .black
+    }
+}
+
+public enum LockState: CaseIterable {
+    case active
+    case inactive
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(length: 5)
+    }
+}
+```
+
+というわけで、これでボタンを押せばそれに応じて背景色が変わるようにできました。
+
+要するに、受け取る側が Binding でさえ受け取ってしまえば変更可能だということです。
+
+じゃあ Binding で渡せばいいので`animateState(state: Binding<LockState>)`みたいにすればよいのではないかという気もしてくる。
+
+が、そうすると今度は SwiftUI が構造体で定義してしまうので値を変更できない。変更するためには`mutating`を付ける必要がある。なんかいろいろめんどくさそうなので普通にイニシャライザで渡してしまったほうが良いかもしれない。
+
+### おまけ
+
+このままだと一瞬でボタンの中身が切り替わってしまうので、ゆっくり切り替わるように実装する。
+
+```swift
+withAnimation {
+    animateState(state: value)
+}
+```
+
+こうやって`withAnimation`をつければアニメーションをつけて変化してくれるので便利。
+
+## 一通りの動作を実装してみる
