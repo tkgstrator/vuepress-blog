@@ -171,3 +171,79 @@ ContentView のボタンをタップすればカウントが増えていき、4 
 子ビューの見た目を親ビューからうまいこと変化させる仕組みは（多分）存在しません。
 
 おとなしく Binding を使いましょう。
+
+```swift
+//
+//  ContentView.swift
+//  SwiftUITest
+//
+//  Created by devonly on 2021/04/08.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+
+    private var length: Int
+    @State var passcode: [Int?] = []
+    @State var lockStates: [LockState]
+
+    // 別にこれは保持していなくても良い？
+//    @State var placeholders: [PlaceholderView]
+
+    init(length: Int) {
+        self.length = length
+        self._lockStates = State(initialValue: Array(repeating: .inactive, count: length))
+    }
+
+    var body: some View {
+        VStack(spacing: 30) {
+            HStack {
+                ForEach(Range(0...length - 1)) { index in
+                    PlaceholderView(state: lockStates[index])
+                }
+            }
+            Text("\(passcode.count)")
+            Button(action: { addSign() }, label: { Text("COUNT") })
+        }
+    }
+
+    func addSign() {
+        passcode.append(nil)
+
+        if passcode.count >= length {
+            passcode.removeAll()
+        } else {
+            lockStates[passcode.count] = .active
+        }
+    }
+}
+
+struct PlaceholderView: View, Identifiable {
+
+    var id: String = UUID().uuidString
+
+    @State var backgroundColor: Color = .clear
+    @State var borderColor: Color = .blue
+    @State var lockState: LockState
+
+    init(state lockState: LockState) {
+        self._lockState = State(initialValue: lockState)
+    }
+
+    var body: some View {
+        Circle()
+            .strokeBorder(borderColor)
+            .background(backgroundColor)
+            .frame(width: 16, height: 16, alignment: .center)
+            .onChange(of: lockState) { value in
+                print("VALUE CHANGE", value)
+            }
+    }
+}
+
+public enum LockState: CaseIterable {
+    case active
+    case inactive
+}
+```
