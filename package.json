@@ -1,0 +1,20 @@
+{
+  "name": "tkgstrator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "tkgstrator",
+    "email": "nasawake.am@gmail.com"
+  },
+  "repository": "/tkgstrator",
+  "scripts": {
+    "dev": "vuepress dev blog",
+    "build": "vuepress build blog"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.3.1",
+    "@vuepress/theme-blog": "^2.1.0"
+  }
+}
