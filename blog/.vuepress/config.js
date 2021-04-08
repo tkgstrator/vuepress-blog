@@ -137,4 +137,13 @@ module.exports = {
       { text: "Posts", link: "/posts/", exact: false },
     ],
   },
+
+  plugins: [
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-111335437-1", // UA-00000000-0
+      },
+    ],
+  ],
 };
