@@ -1,7 +1,7 @@
 ---
 title: "Salmonia3をリリースした"
 date: "2021-03-20"
-category: "Swift"
+category: Swift
 ---
 
 ## Salmonia3

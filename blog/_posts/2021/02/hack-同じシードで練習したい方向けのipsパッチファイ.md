@@ -2,10 +2,9 @@
 title: "[Hack] 同じシードで練習したい方向けのIPSパッチファイル"
 date: "2021-02-04"
 category:
-  - "Hack"
-  - "IPSwitch"
+  - Hack
+  - IPSwitch
   - Splatoon2
-  - "イカッチャ"
 ---
 
 ## SeedHack のパッチファイル

@@ -1,8 +1,7 @@
 ---
 title: "SplatNet2のライブラリを更新している"
 date: "2021-03-26"
-category:
-  - "Swift"
+category: Swift
 ---
 
 ## SplatNet2 ライブラリ

@@ -15,6 +15,7 @@ module.exports = {
   // head information of website
   head: [
     // need favicon
+    ["link", { href: "/css/style.css", rel: "stylesheet"}],
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
     ["meta", { name: "og:url", content: "https://tkgling.netlify.app/" }],
     ["meta", { name: "og:type", content: "website" }],
@@ -75,8 +76,8 @@ module.exports = {
 
         // instagram account and link
         // instagram: {
-        //   account: '',
-        //   link: '',
+        //   account: "",
+        //   link: "",
         // },
       },
     },
@@ -94,16 +95,16 @@ module.exports = {
 
     // footer config
     footer: {
-      // show 'Powered by VuePress' or not
-      poweredBy: true,
+      // show "Powered by VuePress" or not
+      poweredBy: false,
 
       // show the theme
-      poweredByTheme: true,
+      poweredByTheme: false,
     },
 
     // info card config
     infoCard: {
-      // the background of the info card's header
+      // the background of the info card"s header
       headerBackground: {
         // use random pattern
         useGeo: true,
@@ -124,10 +125,10 @@ module.exports = {
     // comment config(vssue)
     comments: {
       platform: "github",
-      owner: "tkgling",
-      repo: "xxx",
-      clientId: "xxx",
-      clientSecret: "xxx",
+      owner: "tkgstrator",
+      repo: "vuepress-blog-comment",
+      clientId: "f7ca8cef9b8e0be50beb",
+      clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
       autoCreateIssue: process.env.NODE_ENV !== "development",
     },
 
