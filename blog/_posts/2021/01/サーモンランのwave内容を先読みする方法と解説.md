@@ -39,20 +39,21 @@ category: Hack
 
 ### 初期シードから擬似乱数生成
 
+```python
 class NSRandom:
 mSeed1 = 0x00000000
 mSeed2 = 0x00000000
 mSeed3 = 0x00000000
 mSeed4 = 0x00000000
 
-    def \_\_init\_\_(self):
+    def __init__(self):
         pass
 
     def init(self, seed):
-        self.mSeed1 = 0xFFFFFFFF & (0x6C078965 \* (seed ^ (seed >> 30)) + 1)
-        self.mSeed2 = 0xFFFFFFFF & (0x6C078965 \* (self.mSeed1 ^ (self.mSeed1 >> 30)) + 2)
-        self.mSeed3 = 0xFFFFFFFF & (0x6C078965 \* (self.mSeed2 ^ (self.mSeed2 >> 30)) + 3)
-        self.mSeed4 = 0xFFFFFFFF & (0x6C078965 \* (self.mSeed3 ^ (self.mSeed3 >> 30)) + 4)
+        self.mSeed1 = 0xFFFFFFFF & (0x6C078965 * (seed ^ (seed >> 30)) + 1)
+        self.mSeed2 = 0xFFFFFFFF & (0x6C078965 * (self.mSeed1 ^ (self.mSeed1 >> 30)) + 2)
+        self.mSeed3 = 0xFFFFFFFF & (0x6C078965 * (self.mSeed2 ^ (self.mSeed2 >> 30)) + 3)
+        self.mSeed4 = 0xFFFFFFFF & (0x6C078965 * (self.mSeed3 ^ (self.mSeed3 >> 30)) + 4)
 
     def getU32(self):
         n = self.mSeed1 ^ (0xFFFFFFFF & self.mSeed1 << 11)
@@ -62,6 +63,7 @@ mSeed4 = 0x00000000
         self.mSeed4 = (n ^ (n >> 8) ^ self.mSeed4 ^ (self.mSeed4 >> 19))
 
         return self.mSeed4
+```
 
 乱数生成器は初期シードで初期化され、その後`getU32()`を呼び出すことで乱数を生成します。
 
@@ -69,9 +71,10 @@ mSeed4 = 0x00000000
 
 ### 潮位・イベント決定アルゴリズム
 
+```python
 def getWaveInfo(self):
-mEventProb = \[18, 1, 1, 1, 1, 1, 1\]
-mTideProb = \[1, 3, 1\]
+mEventProb = [18, 1, 1, 1, 1, 1, 1]
+mTideProb = [1, 3, 1]
 self.rnd.init(self.mGameSeed)
 
     for wave in range(3):
@@ -79,20 +82,21 @@ self.rnd.init(self.mGameSeed)
         for event in range(7):
             if (
                 (wave > 0)
-                and (self.mEvent\[wave - 1\] != 0)
-                and (self.mEvent\[wave - 1\] == event)
+                and (self.mEvent[wave - 1] != 0)
+                and (self.mEvent[wave - 1] == event)
             ):
                 continue
-            sum += mEventProb\[event\]
-            if (self.rnd.getU32() \* sum >> 0x20) < mEventProb\[event\]:
-                self.mEvent\[wave\] = event
+            sum += mEventProb[event]
+            if (self.rnd.getU32() * sum >> 0x20) < mEventProb[event]:
+                self.mEvent[wave] = event
         sum = 0
         for tide in range(3):
-            if tide == 0 and 1 <= self.mEvent\[wave\] and self.mEvent\[wave\] <= 3:
+            if tide == 0 and 1 <= self.mEvent[wave] and self.mEvent[wave] <= 3:
                 continue
-            sum += mTideProb\[tide\]
-            if (self.rnd.getU32() \* sum >> 0x20) < mTideProb\[tide\]:
-                self.mTide\[wave\] = 0 if self.mEvent\[wave\] == 6 else tide
+            sum += mTideProb[tide]
+            if (self.rnd.getU32() * sum >> 0x20) < mTideProb[tide]:
+                self.mTide[wave] = 0 if self.mEvent[wave] == 6 else tide
+```
 
 アルゴリズムではまず最初にイベントを決定します。
 
@@ -114,14 +118,16 @@ WAVE1 のイベントは完全にランダムに選ばれますが、WAVE2 以�
 
 なので、初期シードが決まった時点で WAVE シードも予測可能になります。
 
+```python
 def setWaveMgr(self):
 self.rnd.init(self.mGameSeed)
 self.rnd.getU32()
-self.mWaveMgr = \[
+self.mWaveMgr = [
 WaveMgr(0, self.mGameSeed),
 WaveMgr(1, self.rnd.getU32()),
 WaveMgr(2, self.rnd.getU32()),
-\]
+]
+```
 
 興味深いのは WAVE1 の WAVE シードは初期シードであるということです。
 
@@ -129,21 +135,23 @@ WaveMgr(2, self.rnd.getU32()),
 
 ### キンシャケ探しアタリ位置計算アルゴリズム
 
+```python
 def getGeyserPos(self):
 self.rnd.init(self.mWaveSeed)
-mReuse = \[False, False, False, False\]
-mPos = \["D", "E", "F", "G"\]
-mSucc = \[\]
+mReuse = [False, False, False, False]
+mPos = ["D", "E", "F", "G"]
+mSucc = []
 
 for idx in range(15):
 for sel in range(len(mPos) - 1, 0, -1):
-index = (self.rnd.getU32() \* (sel + 1)) >> 0x20
-mPos\[sel\], mPos\[index\] = mPos\[index\], mPos\[sel\]
-mReuse\[sel\], mReuse\[index\] = mReuse\[index\], mReuse\[sel\]
-mSucc += mPos\[0\]
-if mReuse\[0\]:
+index = (self.rnd.getU32() * (sel + 1)) >> 0x20
+mPos[sel], mPos[index] = mPos[index], mPos[sel]
+mReuse[sel], mReuse[index] = mReuse[index], mReuse[sel]
+mSucc += mPos[0]
+if mReuse[0]:
 self.rnd.getU32()
 return mSucc
+```
 
 キンシャケ探しのアタリ位置を計算するためには「キンシャケ探しのアタリ位置候補」と「乱数消費フラグ」の二つが必要になります。
 
@@ -155,8 +163,9 @@ return mSucc
 
 ### 湧き方向計算アルゴリズム
 
+```python
 def getEnemyAppearId(self, previousId):
-mArray = \[1, 2, 3\]
+mArray = [1, 2, 3]
 mIndex = 0
 w6 = 3
 x6 = 3
@@ -166,7 +175,7 @@ if not (id & 0x80000000):
 w8 = w6 - 1
 while True:
 v17 = w8
-w9 = w7\[mIndex\]
+w9 = w7[mIndex]
 if w9 < id:
 break
 w6 -= w9 == id
@@ -179,10 +188,10 @@ break
 
     mIndex = 0
     x7 = mArray
-    x8 = 0xFFFFFFFF & (self.rnd.getU32() \* w6 >> 0x20)
+    x8 = 0xFFFFFFFF & (self.rnd.getU32() * w6 >> 0x20)
 
     while True:
-        x9 = x7\[mIndex\]
+        x9 = x7[mIndex]
         x10 = 0 if x8 == 0 else x8 - 1
         x11 = x9 if x8 == 0 else v5
         x12 = 5 if x9 == v5 else x8 == 0
@@ -196,6 +205,7 @@ break
         if not x6:
             return v5
     return id
+```
 
 Python ではポインタが使えないため、アセンブラから上手く復元することができませんでした。
 
@@ -205,15 +215,17 @@ Python ではポインタが使えないため、アセンブラから上手く�
 
 ### 出現オオモノ計算アルゴリズム
 
+```python
 def getEnemyId(self):
 mRnd = NSRandom.NSRandom()
 mRnd.init(self.rnd.getU32())
 
     mRareId = 0
     for mProb in range(7):
-        if not (mRnd.getU32() \* (mProb + 1) >> 0x20):
+        if not (mRnd.getU32() * (mProb + 1) >> 0x20):
             mRareId = mProb
     return mRareId
+```
 
 出現するオオモノは湧き方向に比べて簡単です。
 
