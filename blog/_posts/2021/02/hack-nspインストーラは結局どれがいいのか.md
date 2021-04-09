@@ -2,8 +2,7 @@
 title: "[Hack] NSPインストーラは結局どれがいいのか"
 date: "2021-02-13"
 description: "いろいろあるNSPインストーラの中でどれが一番便利なのか調べてみることにしました"
-category:
-  - Hack
+category: Hack
 ---
 
 ## NSP インストーラはいっぱいある

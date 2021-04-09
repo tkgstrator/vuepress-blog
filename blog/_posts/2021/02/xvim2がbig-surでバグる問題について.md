@@ -1,8 +1,7 @@
 ---
 title: "XVim2がBig Surでバグる問題について"
 date: "2021-02-09"
-category:
-  - 話題
+category: 話題
 ---
 
 ## XVim2
