@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap");
+
+body {
+    font-family: "Sawarabi Gothic", sans-serif !important;
+}
+
+.home {
+    max-width: 880px !important;
+}
+
+.post-nav-toc {
+    font-size: 14px !important;
+}
+
+.container {
+    max-width: 1440px !important;
+}
+/* 
+.post-nav-card.main-div {
+    width: 380px !important;
+}
+
+.info-card {
+    width: 380px !important;
+}
+
+@media (max-width: 1440px) and (min-width: 1280px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        float: left;
+        padding-left: 1rem;
+    }
+} */
