@@ -237,17 +237,22 @@ struct ContentView: View {
     }
     
     var body: some View {
-        LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 60, maximum: 80), spacing: 0), count: 3), alignment: .center, spacing: 10, pinnedViews: []) {
-            ForEach(Range(1...9)) { number in
-                Button(action: { addSign(sender: number)}, label: { Text("\(number)").frame(width: 60, height: 60, alignment: .center) })
-                    .overlay(Circle().stroke(Color.blue, lineWidth: 1))
-            }
-            .buttonStyle(CircleButtonStyle())
-            Button(action: {}, label: { Text("Cancel").frame(width: 60, height: 60, alignment: .center) })
-            Button(action: { addSign(sender: 0) }, label: { Text("0").frame(width: 60, height: 60, alignment: .center) })
+        GeometryReader { geometry in
+            LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 60, maximum: 80), spacing: 0), count: 3), alignment: .center, spacing: 10, pinnedViews: []) {
+                ForEach(Range(1...9)) { number in
+                    Button(action: { addSign(sender: number)}, label: { Text("\(number)").frame(width: 60, height: 60, alignment: .center) })
+                        .overlay(Circle().stroke(Color.blue, lineWidth: 1))
+                }
                 .buttonStyle(CircleButtonStyle())
-            Button(action: {}, label: { Text("Delete").frame(width: 60, height: 60, alignment: .center) })
+                Button(action: { biometricsAuth() }, label: { Image(systemName: "touchid").resizable().frame(width: 40, height: 40, alignment: .center) })
+                Button(action: { addSign(sender: 0) }, label: { Text("0").frame(width: 60, height: 60, alignment: .center) })
+                    .buttonStyle(CircleButtonStyle())
+                Button(action: {}, label: { Text("Delete").frame(width: 60, height: 60, alignment: .center) })
+            }
+            .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
         }
+        .edgesIgnoringSafeArea(.all)
+        .background(Color.white)
     }
     
     func addSign(sender: Int) {
@@ -268,6 +273,7 @@ struct CircleButtonStyle: ButtonStyle {
         configuration.label
             .foregroundColor(configuration.isPressed ? Color.white : Color.blue)
             .overlay(Circle().stroke(Color.blue, lineWidth: 1))
+            .contentShape(Circle()
             .background(Circle().foregroundColor(configuration.isPressed ? Color.blue : Color.clear))
     }
 }
