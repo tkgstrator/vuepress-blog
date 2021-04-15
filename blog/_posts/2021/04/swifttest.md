@@ -56,7 +56,7 @@ Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
 
 注意点としては「コピーする」は選択しなくて良いというところです。
 
-![](images/03.png)
+![](/assets/images/03.png)
 
 ちゃんとできると上の画像のようにSalmonStatsのライブラリを読み込んでくれます。
 
@@ -64,7 +64,7 @@ Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
 
 最後に、デモアプリに対してライブラリを追加します。
 
-![](images/04.png)
+![](/assets/images/04.png)
 
 ## デモアプリ形式の便利なところ
 
@@ -220,6 +220,6 @@ struct ContentView: View {
 
 Combineは非同期処理なのでデータの読み込みが終わるまでは0と表示されているが、読み込みが完了すると正しい63という値に修正される。
 
-![](images/06.png)
+![](/assets/images/06.png)
 
 ところで`onAppear`ってダサいなあって思っているので前みたいに`viewDidLoad`とかで呼び出せるようになってくれないかなあと。
