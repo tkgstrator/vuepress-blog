@@ -46,17 +46,17 @@ cloneしたらSalmonStatsディレクトリ以下にXcodeで新プロジェク�
 
 Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
 
-![](images/Screen%20Shot%202021-04-14%20at%209.21.16.png)
+![](images/01.png)
 
 この段階ではまだローカルパッケージが読み込まれていない。
 
-![](images/Screen%20Shot%202021-04-14%20at%209.29.54.png)
+![](images/02.png)
 
 次にこのデモアプリのプロジェクトに対してSalmonStatsのディレクトリをそのままドラッグアンドドロップしてライブラリを追加する。
 
 注意点としては「コピーする」は選択しなくて良いというところです。
 
-![](images/Screen%20Shot%202021-04-14%20at%209.31.40.png)
+![](images/03.png)
 
 ちゃんとできると上の画像のようにSalmonStatsのライブラリを読み込んでくれます。
 
@@ -64,7 +64,7 @@ Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
 
 最後に、デモアプリに対してライブラリを追加します。
 
-![](images/Screen%20Shot%202021-04-14%20at%2010.08.59.png)
+![](images/04.png)
 
 ## デモアプリ形式の便利なところ
 
@@ -220,6 +220,6 @@ struct ContentView: View {
 
 Combineは非同期処理なのでデータの読み込みが終わるまでは0と表示されているが、読み込みが完了すると正しい63という値に修正される。
 
-![](images/Simulator%20Screen%20Shot%20-%20iPhone%2011%20Pro%20Max%20-%202021-04-14%20at%2011.08.08.png)
+![](images/06.png)
 
 ところで`onAppear`ってダサいなあって思っているので前みたいに`viewDidLoad`とかで呼び出せるようになってくれないかなあと。
