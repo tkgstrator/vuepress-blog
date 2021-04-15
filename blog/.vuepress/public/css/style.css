@@ -8,8 +8,20 @@ body {
     max-width: 880px !important;
 }
 
+.banner {
+    height: 6em !important;
+}
+
 .post-nav-toc {
     font-size: 14px !important;
+}
+
+.header-anchor {
+    display: none !important;
+}
+
+table {
+    width: 100% !important;
 }
 
 .container {

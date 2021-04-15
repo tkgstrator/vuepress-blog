@@ -39,6 +39,10 @@ module.exports = {
   markdown: {
     lineNumbers: true,
     linkfy: true,
+    anchor: {
+      permalink: false,
+      permalinkSymbol: ""
+    }
   },
 
   // theme to use
@@ -53,11 +57,11 @@ module.exports = {
       nickname: "tkgling",
 
       description:
-        "神保町に本を詰まったビルを所有している紙使いのお姉さんがいます",
+        "神保町に本が詰まったビルを所有している紙使いのお姉さんがいます",
 
       email: "nasawake.am@gmail.com",
 
-      location: "あそこ",
+      location: "Kyoto",
 
       avatar: "https://avatars.githubusercontent.com/u/29420801?v=4",
 
@@ -86,6 +90,7 @@ module.exports = {
     header: {
       background: {
         // use random pattern
+        url: "/assets/background_blue.png",
         useGeo: true,
       },
 
@@ -134,8 +139,8 @@ module.exports = {
 
     // the content of navbar links
     nav: [
-      { text: "Home", link: "/", exact: true },
-      { text: "Posts", link: "/posts/", exact: false },
+      { text: "ホーム", link: "/", exact: true },
+      { text: "投稿一覧", link: "/posts/", exact: false },
     ],
   },
 
