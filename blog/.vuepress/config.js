@@ -39,6 +39,9 @@ module.exports = {
   markdown: {
     lineNumbers: true,
     linkfy: true,
+    plugins: {
+      "@centerforopenscience/markdown-it-video": {}
+    },
     anchor: {
       permalink: false,
       permalinkSymbol: ""

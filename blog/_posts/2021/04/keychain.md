@@ -80,6 +80,5 @@ keychain.remove(forKey: .iksmSession)
 
 NSDataやStringの保存には対応しているっぽいのですが、BoolやIntの保存は現状できないっぽい感じでしょうか。まあ必要とあらば上手く変換したりすればいけるのではないかと思います。
 
-
-
+@[youtube](https://www.youtube.com/watch?v=9fQr8ykquCA)
 
