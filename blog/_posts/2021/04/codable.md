@@ -5,7 +5,7 @@ description: JSONで受け取ったデータをCodableで変換するための�
 category: Swift
 ---
 
-# 変数名とキーが一致している場合
+## 変数名とキーが一致している場合
 
 ```json
 {
@@ -40,7 +40,7 @@ do {
 }
 ```
 
-# 変数名とキーが一致していない場合
+## 変数名とキーが一致していない場合
 
 変数名とキーが一致していない場合、いくつかの対応がある。
 
@@ -53,7 +53,7 @@ do {
 - 変数名をキーから決める
   - 確実に一意にはなるが、自分が使いたい変数名にならない場合がある
 
-## 自分で対応表を書く場合
+### 自分で対応表を書く場合
 
 例えば以下のような JSON を扱うことを考えます。
 
@@ -171,7 +171,7 @@ UserInfo(userId: 0, userName: "tkgling", userEmail: "tkgling@gmail.com")
 
 が、やってみればわかるのですが途方もなくめんどくさいです。プロパティが 10 くらいならやる気もおきますが、それを超えるとめんどうなだけです。
 
-## スネークケースからキャメルケースへの変換
+### スネークケースからキャメルケースへの変換
 
 単にスネークケースからキャメルケースに変換するだけであれば JSONDecoder の`convertFromSnakeCase`のプロパティが使えます。
 
@@ -205,7 +205,7 @@ struct UserInfo: Decodable {
 
 よって、対応表を書かなくとも一発でデータを取得することができます。
 
-## JSON のキーをプロパティ名にする
+### JSON のキーをプロパティ名にする
 
 こちらは Swift での命名規則よりも JSON 側の命名規則を優先する場合、または JSON 側がキャメルケースになっている場合などに使えます。
 
@@ -235,7 +235,7 @@ struct UserInfo: Decodable {
 }
 ```
 
-# 自動で型変換しよう
+## 自動で型変換しよう
 
 JSON が持っている型と、Swift で扱いたい型が違う場合があります。その際には`DateEncodingStrategy`と`DateDecodingStrategy`を使えば簡単に相互変換ができます。
 
@@ -279,9 +279,9 @@ UserInfo(userId: 0, userName: "tkgling", userEmail: "tkgling@gmail.com", created
 
 ただ、Realm などは Date 型にプライマリキーをつけられないなどの制約があるので、データベースに保存するつもりならわざわざ Date 型に変換する意味はないような気もします。
 
-# いろいろな構造の JSON に対する対応
+## いろいろな構造の JSON に対する対応
 
-## 配列の場合(Array)
+### 配列
 
 ではちょっと複雑化したネスト付きの JSON を考えよう。
 
@@ -314,7 +314,7 @@ UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", crea
 
 ちなみに今回は String 型で単純に受け取っていますが、以下のように好きな構造体を割り当てることもできます。
 
-## オブジェクトの配列の場合(ArrayObject)
+### オブジェクト配列
 
 オブジェクトを配列として持っている場合を考える。
 
@@ -360,7 +360,7 @@ struct UserInfo: Decodable {
 UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", createdAt: 2021-04-01 09:00:00 +0000, accounts: [Page_Contents.UserInfo.Account(id: "tkgling", createdAt: 2021-04-01 09:00:00 +0000), Page_Contents.UserInfo.Account(id: "tkgstrator", createdAt: 2021-04-01 09:00:00 +0000)])
 ```
 
-## オブジェクトの場合(Dictionary)
+### オブジェクト
 
 ```json
 {
@@ -457,7 +457,7 @@ UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", crea
 
 パターン 3 の場合は`accounts`自体はかならずあるが、中身のデータが有るかどうかがわからないのでこうなります。
 
-## キーが文字列型でないオブジェクト(Dictionary)
+### オブジェクト
 
 気が狂いそうになるのがこのパターン。Swift は変数名の先頭を数字にできないため、以下のような構造をしていると単純にデータをとってくることができなくなる。
 
@@ -493,7 +493,7 @@ struct UserInfo: Decodable {
 UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", createdAt: 2021-04-01 09:00:00 +0000, accounts: [2: "tkgstrator", 1: "tkgling"])
 ```
 
-## 配列をオブジェクトにしている場合 (Dictionary)
+### オブジェクトのオブジェクト
 
 ```json
 {
@@ -520,7 +520,7 @@ UserInfo(userId: 100, userName: "tkgling", userEmail: "tkgling@sample.com", crea
 
 これ、未だに自動で Decodable な struct に変換するための書き方がわからないです。
 
-## ルートがオブジェクトの配列の場合
+### ルートがオブジェクト
 
 最後にこういうパターンの対応作。
 
@@ -552,3 +552,78 @@ struct UserInfo: Decodable {
 // 実行結果
 [Page_Contents.UserInfo(id: "tkgling", createdAt: 2021-04-01 09:00:00 +0000), Page_Contents.UserInfo(id: "tkgstrator", createdAt: 2021-04-01 09:00:00 +0000)]
 ```
+
+## CodableからCodableへ
+
+例えば、Salmon Statsはシフト統計のデータを取得しようとすると以下のようなレスポンスを返す。
+
+```swift
+class ShiftStats: Codable {
+    // グローバルのみ対応
+    var global: Stats
+    struct Stats: Codable {
+        var bossAppearance3: Int
+        var bossAppearance6: Int
+        var bossAppearance9: Int
+        var bossAppearance12: Int
+        var bossAppearance13: Int
+        var bossAppearance14: Int
+        var bossAppearance15: Int
+        var bossAppearance16: Int
+        var bossAppearance21: Int
+        var bossAppearanceCount: Int
+        var bossElimination3: Int
+        var bossElimination6: Int
+        var bossElimination9: Int
+        var bossElimination12: Int
+        var bossElimination13: Int
+        var bossElimination14: Int
+        var bossElimination15: Int
+        var bossElimination16: Int
+        var bossElimination21: Int
+        var bossEliminationCount: Int
+        var clearGames: Int
+        var clearWaves: Int
+        var games: Int
+        var goldenEggs: Int
+        var powerEggs: Int
+        var rescue: Int
+    }
+}
+```
+
+一応`convertFromSnakeCase`を使えば自動でこの形に変換できるのだが、これをこのまま返すのは如何にもという感じがする。
+
+```swift
+class ShiftStats: Codable {
+    // グローバルのみ対応
+    var global: Stats
+    struct Stats: Codable {
+        var clearGames: Int
+        var clearWaves: Int
+        var games: Int
+        var goldenEggs: Int
+        var powerEggs: Int
+        var rescue: Int
+        var bossCounts: [Int]
+        var bossKillCounts: [Int]
+    }
+}
+```
+
+せめてこういった感じのレスポンスにすべきである。
+
+```swift
+static func publish<T: RequestProtocol>(_ request: T) -> Future<T.ResponseType, APIError> {
+  Future { promise in
+    // 中略
+    promise(.success(try decoder.decode(V.self, from: data)))
+  }
+}
+```
+
+ところがデータを処理する関数はジェネリクスを使ってこのように書かれている。
+
+要するにリクエストプロトコル自体に変換したい構造体ResponseTypeが指定されており、デコーダはその構造体に自動で変換しているというわけである。
+
+で、ここの処理を変更するわけにはいかない。ここを変えてしまうとCodableで自動変換することができなくなってしまう。よって、一度自動変換してプロパティに突っ込んだデータを人間が読みやすい構造体に変換してから返したいわけである。
