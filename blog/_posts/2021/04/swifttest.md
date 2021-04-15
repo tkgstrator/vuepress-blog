@@ -46,11 +46,11 @@ cloneしたらSalmonStatsディレクトリ以下にXcodeで新プロジェク�
 
 Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
 
-![](images/01.png)
+![](/assets/images/01.png)
 
 この段階ではまだローカルパッケージが読み込まれていない。
 
-![](images/02.png)
+![](/assets/images/02.png)
 
 次にこのデモアプリのプロジェクトに対してSalmonStatsのディレクトリをそのままドラッグアンドドロップしてライブラリを追加する。
 
