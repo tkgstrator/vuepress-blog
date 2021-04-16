@@ -142,12 +142,15 @@ module.exports = {
 
     // the content of navbar links
     nav: [
+      { text: "自己紹介", link: "/about/", exact: false },
       { text: "ホーム", link: "/", exact: true },
       { text: "投稿一覧", link: "/posts/", exact: false },
+      { text: "サポート", link: "/support/", exact: false },
     ],
   },
 
   plugins: [
+    require("./plugins/comments.js"),
     [
       "@vuepress/google-analytics",
       {

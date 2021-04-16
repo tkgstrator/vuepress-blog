@@ -10,7 +10,8 @@
   "repository": "/tkgstrator",
   "scripts": {
     "dev": "vuepress dev blog",
-    "build": "vuepress build blog"
+    "build": "vuepress build blog",
+    "build:lambda": "netlify-lambda build lambda"
   },
   "license": "MIT",
   "devDependencies": {
