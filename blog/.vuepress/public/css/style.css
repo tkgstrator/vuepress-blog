@@ -28,12 +28,9 @@ table {
   max-width: 1440px !important;
 }
 
-/* .center h1 {
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-} */
+.center h1 {
+  min-width: 110px;
+}
 /* 
 .post-nav-card.main-div {
     width: 380px !important;

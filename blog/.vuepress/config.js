@@ -53,7 +53,7 @@ module.exports = {
 
   themeConfig: {
     // language of this theme
-    lang: "ja-JP",
+    lang: require("./public/lang/ja-JP"),
 
     // personal information
     personalInfo: {
