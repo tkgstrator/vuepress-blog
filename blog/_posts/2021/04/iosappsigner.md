@@ -95,7 +95,7 @@ iOS App Signer は[ここ](https://dantheman827.github.io/ios-app-signer/)で配
           <key>kind</key>
           <string>software-package</string>
           <key>url</key>
-          <string>https://tkgling.netlify.com/resources/ipa/Twitter.ipa</string>
+          <string>https://tkgling.netlify.app/resources/ipa/Twitter.ipa</string>
         </dict>
       </array>
       <key>metadata</key>
@@ -124,7 +124,7 @@ iOS App Signer は[ここ](https://dantheman827.github.io/ios-app-signer/)で配
 Markdown だと以下のように書けば良い
 
 ```md
-[リンク](itms-services://?action=download-manifest&url=https://tkgling.netlify.com/resoureces/plist/twitterowl.plist)
+[リンク](itms-services://?action=download-manifest&url=https://tkgling.netlify.app/resources/plist/twitterowl.plist)
 ```
 
 注意点としては PLIST ファイルは必ず HTTPS プロトコルでアクセスしないといけない。今どき使っている人はいないだろうが、HTTP だとインストールができない。
