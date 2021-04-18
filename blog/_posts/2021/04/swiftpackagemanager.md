@@ -19,7 +19,7 @@ Apple 謹製のライブラリ管理ツールなのだが、CocoaPods や Cartha
 - XIB や NIB をそのまま利用するとクラッシュする
   - 対応策はあるが
 
-::: tips 参考文献
+::: tip 参考文献
 
 [iOS 用ライブラリ作成者向け Swift Package Manager のリソース周り Tips](https://qiita.com/kazuhiro4949/items/0378e163fa00a79eb00a)
 
