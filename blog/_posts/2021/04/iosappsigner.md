@@ -128,3 +128,7 @@ Markdown だと以下のように書けば良い
 ```
 
 注意点としては PLIST ファイルは必ず HTTPS プロトコルでアクセスしないといけない。今どき使っている人はいないだろうが、HTTP だとインストールができない。
+
+## 完成したもの
+
+[URL](itms-services://?action=download-manifest&url=https://tkgling.netlify.app/resources/plist/twitterowl.plist)
