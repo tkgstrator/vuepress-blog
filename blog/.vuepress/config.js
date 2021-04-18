@@ -15,7 +15,7 @@ module.exports = {
   // head information of website
   head: [
     // need favicon
-    ["link", { href: "/css/style.css", rel: "stylesheet"}],
+    ["link", { href: "/css/style.css", rel: "stylesheet" }],
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
     ["meta", { name: "og:url", content: "https://tkgling.netlify.app/" }],
     ["meta", { name: "og:type", content: "website" }],
@@ -40,12 +40,12 @@ module.exports = {
     lineNumbers: true,
     linkfy: true,
     plugins: {
-      "@centerforopenscience/markdown-it-video": {}
+      "@centerforopenscience/markdown-it-video": {},
     },
     anchor: {
       permalink: false,
-      permalinkSymbol: ""
-    }
+      permalinkSymbol: "",
+    },
   },
 
   // theme to use
@@ -132,7 +132,7 @@ module.exports = {
 
     // comment config(vssue)
     comments: {
-      platform: "github",
+      platform: "github-v4",
       owner: "tkgstrator",
       repo: "vuepress-blog-comment",
       clientId: "f7ca8cef9b8e0be50beb",
