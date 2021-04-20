@@ -1,7 +1,7 @@
 ---
-title: SwiftPackageManagerでローカルファイルを読み込む
+title: Swift Package Managerでローカルファイルを読み込む
 date: 2021-04-18
-description: SwiftPackageManagerでローカルファイルを読み込み、ライブラリとして使う方法について解説
+description: Swift Package Managerでローカルファイルを読み込み、ライブラリとして使う方法について解説
 category: Swift
 ---
 
@@ -149,7 +149,7 @@ public final class SalmonStats {
     public static let shared = SalmonStats()
     private var task: AnyCancellable?
     // 一回だけ呼び出して再利用するのでstaticで呼び出す
-    private static var shift: [CoopShift] {
+    static var shift: [CoopShift] {
         get {
             guard let json = Bundle.module.url(forResource: "coop", withExtension: "json") else { return [] }
             guard let data = try? Data(contentsOf: json) else { return [] }
@@ -177,3 +177,25 @@ Salmon Stats の API はリザルトを一件ずつ取得した場合には全�
 このため、ステージ ID などもいちいちアプリ側でとってこなければいけないという仕様になっている。
 
 これはライブラリ側で解決すべき問題だと考えているので、Salmon Stats ライブラリでは自動補完できるようにするのである。
+
+## 完成したもの
+
+いろいろあったが、無事に[Salmon Statsライブラリ](https://github.com/tkgstrator/SalmonStats)を完成させることができた。
+
+詳しくはREADMEに書いてあるのだが、以下のAPIを叩いてそのレスポンスを整形した上で返してくれる。
+
+| 内容                     | エンドポイント                          | パラメータ       | 
+| :----------------------: | :-------------------------------------: | :--------------: | 
+| リザルト一件取得         | results                                 | -                | 
+| リザルト複数件取得       | player/{nsaid}/results                  | raw, count, page | 
+| シフト記録取得           | schedules/{schedule_id}                 | -                | 
+| シフト統計取得           | players/{nsaid}/schedules/{schedule_id} | -                | 
+| ユーザデータ取得         | players/metadata                        | ids              | 
+| ユーザデータ概要複数取得 | players/metadata                        | ids              | 
+| ユーザ検索               | players/search                          | name             | 
+
+ユーザデータ複数取得にいつの間にかAPIが対応していたのだが、この記事を書くまで気づかなかったのでライブラリ側でまだ対応できていない。
+
+ただ、ユーザデータも複数件取得した場合にはいくつかのデータが抜け落ちた状態でレスポンスが返ってくる。
+
+あと、絶対必要だと思っていたのだが普通に名前検索機能も忘れていた。数日中にアップデートする予定である。
