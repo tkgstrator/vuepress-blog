@@ -1,6 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&display=swap");
 
 body {
   font-family: "Noto Sans JP", "Noto Serif JP" !important;
@@ -52,6 +52,11 @@ table {
         padding-left: 1rem;
     }
 } */
+
+.content img {
+  max-width: 80% !important;
+  max-height: 300px !important;
+}
 
 .embed-responsive {
   position: relative;
