@@ -45,7 +45,7 @@ Lan プレイとはニンテンドースイッチに実装されている隠し�
 
   - switchlanplay を実行するのに必要なパッケージです
 
-- [SwitchLanPlay](https://tkgstrator.work/switchlanplay/publish.htm)
+- [SwitchLanPlay](https://tkgstrator.work/switchlanplay/)
   - space 氏が開発した switchlanplay を GUI で簡単に扱えるようにしたものです
 
 MacOS は対応してはいますがファイルがないため全て手動で設定する必要があります。めんどくさいのであまりおすすめしません。
@@ -59,6 +59,7 @@ WinPcap は Windows10 向けのものも公開されていますが、そちら�
 ダウンロードしてインストールするだけです。
 
 万が一インストール出来ない場合は[C++再頒布パッケージ x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)を試してみてください。
+git p
 
 ## SwitchLanPlay
 
