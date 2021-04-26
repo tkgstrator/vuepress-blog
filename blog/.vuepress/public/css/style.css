@@ -71,6 +71,10 @@ table {
   content: "";
 }
 
+video {
+  width: 100%;
+}
+
 .embed-responsive .embed-responsive-item,
 .embed-responsive iframe,
 .embed-responsive embed,
