@@ -45,7 +45,7 @@ Lan プレイとはニンテンドースイッチに実装されている隠し�
 
   - switchlanplay を実行するのに必要なパッケージです
 
-- [SwitchLanPlay](https://tkgstrator.work/switchlanplay/)
+- [SwitchLanPlay](https://tkgstrator.work/switchlanplay/index.html)
   - space 氏が開発した switchlanplay を GUI で簡単に扱えるようにしたものです
 
 MacOS は対応してはいますがファイルがないため全て手動で設定する必要があります。めんどくさいのであまりおすすめしません。
@@ -66,7 +66,7 @@ git p
 同様にダウンロードしてインストールするだけです。
 
 ::: tip
-もしインストールが上手くいかない場合、この[オフラインインストーラ](https://cdn.discordapp.com/attachments/720612609132331050/836212462964441148/SwitchLanPlay.zip)をダウンロードしてみてください
+もしインストールが上手くいかない場合、この[オフラインインストーラ](https://cdn.discordapp.com/attachments/720612694667034646/836272289431421018/Offline_InstallerSwitchLanPlay.zip)をダウンロードしてみてください
 :::
 
 インストールが終わった起動して、サーバを選んでから CONNECT を押します。
