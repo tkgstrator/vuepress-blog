@@ -5,11 +5,11 @@ description: Nintendo Switch Online APIの実装マニュアルです
 category: Nintendo
 ---
 
-# Session Token
+## Session Token
 
 Access Token 取得のための Session Token を取得します。
 
-## リクエスト
+### リクエスト
 
 | パラメータ |                              値                               |
 | :--------: | :-----------------------------------------------------------: |
@@ -25,7 +25,7 @@ client_id=71b963c1b7b6d119&session_token_code=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJod
 
 JSON ではなく Form-Data で Body を送信します。
 
-## レスポンス
+### レスポンス
 
 ```json
 {
@@ -34,11 +34,11 @@ JSON ではなく Form-Data で Body を送信します。
 }
 ```
 
-# Access Token
+## Access Token
 
 Nintendo Switch Online のサービスに接続するための Access Token を取得します。
 
-## リクエスト
+### リクエスト
 
 | パラメータ |                          値                           |
 | :--------: | :---------------------------------------------------: |
@@ -56,7 +56,7 @@ Nintendo Switch Online のサービスに接続するための Access Token を�
 
 `client_id`, `grant_type`の値は固定値です。
 
-## レスポンス
+### レスポンス
 
 ```json
 {
@@ -70,13 +70,13 @@ Nintendo Switch Online のサービスに接続するための Access Token を�
 
 `id_token`の値は 1.10.0 現在死にステータスのためどこでも使われていません。
 
-# User Info
+## User Info
 
 Access Token からユーザ情報を取得する API です。
 
 Splatoon Token 取得時に生年月日などを渡す必要があるため取得しますが、生年月日などは適当に設定してもリクエストは通ります。ここで取得した生年月日をそのまま使うと 13 歳以下のアカウントの iksm session が取得できなくなるため、この API を叩く意味は実はあまりありません。
 
-## リクエスト
+### リクエスト
 
 |  パラメータ   |                        値                        |
 | :-----------: | :----------------------------------------------: |
@@ -87,7 +87,7 @@ Splatoon Token 取得時に生年月日などを渡す必要があるため取�
 
 GET リクエストなのでパラメータは存在しません。
 
-## レスポンス
+### レスポンス
 
 ```json
 {
@@ -140,13 +140,13 @@ GET リクエストなのでパラメータは存在しません。
 }
 ```
 
-# Splatoon Token
+## Splatoon Token
 
 Splatoon 用の Session Token を発行します。パラメータに f が必要なため s2s API と flapg API を使って f の値を計算する必要があります。
 
 ここではまだ Bearer の値がないため、空文字を指定して大丈夫です。
 
-## リクエスト
+### リクエスト
 
 |    パラメータ    |                          値                           |
 | :--------------: | :---------------------------------------------------: |
@@ -170,7 +170,7 @@ Splatoon 用の Session Token を発行します。パラメータに f が必�
 }
 ```
 
-## レスポンス
+### レスポンス
 
 ```json
 {
@@ -198,13 +198,13 @@ Splatoon 用の Session Token を発行します。パラメータに f が必�
 }
 ```
 
-# Splatoon Access Token
+## Splatoon Access Token
 
 Splatoon 用の Access Token を発行します。パラメータに f が必要なため s2s API と flapg API を使って f の値を計算する必要があります。
 
 Bearer には Splatoon Token を指定する必要があります。
 
-## リクエスト
+### リクエスト
 
 |    パラメータ    |                               値                                |
 | :--------------: | :-------------------------------------------------------------: |
@@ -226,7 +226,7 @@ Bearer には Splatoon Token を指定する必要があります。
 }
 ```
 
-## レスポンス
+### レスポンス
 
 ```json
 {
