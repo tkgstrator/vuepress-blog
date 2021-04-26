@@ -55,6 +55,7 @@ table {
 
 .content img {
   max-width: 80% !important;
+  width: auto;
   max-height: 300px !important;
 }
 
