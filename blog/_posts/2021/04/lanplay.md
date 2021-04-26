@@ -2,7 +2,7 @@
 title: "[決定版] SwitchLanPlay"
 date: 2021-04-26
 description: LanPlay導入方法のチュートリアルです
-category: Splatoon
+category: Splatoon2
 tags:
   - LanPlay
 ---
