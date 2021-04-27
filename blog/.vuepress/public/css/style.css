@@ -105,3 +105,19 @@ video {
 .embed-responsive-1by1::before {
   padding-top: 100%;
 }
+
+/* Vssueの設定 */
+
+.vssue-header-powered-by {
+  display: none;
+}
+
+.vssue-commnet-avatar img {
+  border-radius: 50%;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
