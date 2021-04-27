@@ -131,14 +131,14 @@ module.exports = {
     },
 
     // comment config(vssue)
-    comments: {
-      platform: "github-v4",
-      owner: "tkgstrator",
-      repo: "vuepress-blog-comment",
-      clientId: "f7ca8cef9b8e0be50beb",
-      clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
-      autoCreateIssue: process.env.NODE_ENV !== "development",
-    },
+    // comments: {
+    //   platform: "github-v4",
+    //   owner: "tkgstrator",
+    //   repo: "vuepress-blog-comment",
+    //   clientId: "f7ca8cef9b8e0be50beb",
+    //   clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
+    //   autoCreateIssue: process.env.NODE_ENV !== "development",
+    // },
 
     // the content of navbar links
     nav: [
@@ -151,10 +151,15 @@ module.exports = {
   },
 
   plugins: [
-    require("./plugins/comments.js"),
+    ['@vssue/vuepress-plugin-vssue', {
+      platform: 'github-v4',
+      owner: 'tkgstrator',
+      repo: 'vuepress-blog-comment',
+      clientId: "f7ca8cef9b8e0be50beb",
+      clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
+    }],
     [
-      "@vuepress/google-analytics",
-      {
+      "@vuepress/google-analytics", {
         ga: "UA-111335437-2", // UA-00000000-0
       },
     ],

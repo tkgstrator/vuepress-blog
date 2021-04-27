@@ -10,8 +10,7 @@
   "repository": "/tkgstrator",
   "scripts": {
     "dev": "vuepress dev blog",
-    "build": "vuepress build blog",
-    "build:lambda": "netlify-lambda build lambda"
+    "build": "vuepress build blog"
   },
   "license": "MIT",
   "devDependencies": {
@@ -22,8 +21,8 @@
   },
   "dependencies": {
     "@centerforopenscience/markdown-it-video": "^1.0.0",
-    "netlify-lambda": "^2.0.3",
-    "vuepress-theme-meteorlxy": "^1.9.0",
-    "wpxml2md": "^2.0.0"
+    "@vssue/api-github-v4": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
+    "vuepress-theme-meteorlxy": "^1.9.0"
   }
 }

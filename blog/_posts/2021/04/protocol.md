@@ -255,12 +255,12 @@ class Request: RequestType {
 ```swift
 // 型はRequestでなくRequestTypeにすること
 func remote(request: RequestType) -> Void {
-    print(request.method)
-    print(request.parameters)
-    print(request.headers)
-    print(request.path)
-    print(request.baseURL)
-    print(request.encoding)
+    print(request.method) // Request
+    print(request.parameters) // Request
+    print(request.path) // Request
+    print(request.headers) // RequestType
+    print(request.baseURL) // RequestType
+    print(request.encoding) // RequestType
     // すべてのデータにアクセスできる！！
 }
 
@@ -309,7 +309,7 @@ extension RequestType {
 
 要するに、コードを書く人間はエンコーディング方式を全く気にせずRequestクラス（ないしはRequestTypeプロトコルを適用したクラス）を書くことができるわけである。
 
-そして、デフォルトではPOSTリクエストであれば自動的にJSONEncoding.defaultが使われてしまうのだが、もしもあるリクエストでは違うエンコーディングが使いたければ、
+そして、デフォルトではPOSTリクエストであれば自動的にJSONEncoding.defaultが使われてしまうのだが、もしもあるリクエストはPOSTメソッドなのだがJSONEncoding.defaultとは違うエンコーディングが使いたければ、
 
 ```swift
 class Request: RequestType {
@@ -325,13 +325,67 @@ class Request: RequestType {
 ```swift
 // RequestTypeプロトコルとして呼び出す
 func remote(request: RequestType) -> Void {
-    print(request.encoding) // URLEncoding
-    print((request as! Request).encoding) // JSONEncoding.queryString
+    print(request.encoding) // RequsetType -> URLEncoding
+    print((request as! Request).encoding) // Request -> JSONEncoding.queryString
 }
 
 // Requestクラスとして呼び出す
 func remote(request: Request) -> Void {
-    print(request.encoding) // JSONEncoding.queryString
-    print((request as! Request).encoding) // JSONEncoding.queryString
+    print(request.encoding) // Request -> JSONEncoding.queryString
+    print((request as! Request).encoding) // Request -> JSONEncoding.queryString
 }
 ```
+
+ただ、下のRequestクラスとして呼び出すメソッドは書きたくない。これだとたった一つのRequestクラスでしか引数にできない。
+
+ライブラリとしては個別のRequestTypeプロトコルの適用クラスではなく、引数は常にRequestTypeプロトコル準拠の全てのクラスというようにしたいのである。
+
+### 読み込み側で対応してみる
+
+ジェネリクスで対応できないかとやってみた。
+
+```swift
+protocol RequestType {
+    var method: String { get }
+    var parameters: [String: Any]? { get }
+    var path: String { get }
+    
+    init(method: String, path: String, parameters: [String: Any]?)
+}
+
+extension RequestType {
+    var baseURL: String { "https://tkgling.netlify.app/api/" }
+    var headers: [String: String]? { nil }
+    var encoding: ParameterEncoding { URLEncoding.default }
+}
+
+class Request: RequestType {
+    var method: String
+    var parameters: [String : Any]?
+    var path: String
+    
+    required init(method: String, path: String, parameters: [String: Any]? = nil) {
+        self.method = method
+        self.parameters = parameters
+        self.path = path
+        self.encoding = JSONEncoding.queryString
+    }
+}
+
+// この三つは同値と思われる
+func remote(request: RequestType) -> Void {
+}
+
+func remote<T>(request: T) where T: RequestType -> Void {
+    print((request as! T).encoding) // RequsetType -> URLEncoding
+}
+
+func remote<T: RequestType>(request: T) -> Void {
+    print((request as! T).encoding) // RequsetType -> URLEncoding
+}
+```
+
+すると読み込み時ではちゃんとRequest型としているのに、`encoding`のプロパティを参照すると何故かRequestTypeのExtensionの値の方が参照されてしまう。
+
+しかしどうもクラスのプロパティを参照することはできないみたいなのでこちらの方向は諦めた。上手いことRequestTypeプロトコルの値を変えてしまうほうが楽そうだ。
+
