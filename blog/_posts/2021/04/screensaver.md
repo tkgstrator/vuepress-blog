@@ -2,9 +2,9 @@
 title: SwiftUIで一定時間無操作スクリーンセーバーを出す方法
 date: 2021-04-26
 description: スクリーンセーバー機能をSwiftUIで実装する方法のまとめ
-category: Swift
+category: プログラミング
 tags:
-    - iOS
+- Swift 
 layout: draft
 ---
 

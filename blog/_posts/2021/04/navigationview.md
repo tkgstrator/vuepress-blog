@@ -2,7 +2,9 @@
 title: NavigationViewの仕様について
 date: 2021-04-08
 description: NavigationViewはiPhoneとiPadで挙動が違うのでその仕様をメモする
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 # NavigationView の仕様

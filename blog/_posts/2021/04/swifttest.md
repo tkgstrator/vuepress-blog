@@ -2,7 +2,9 @@
 title: Swift Package Manager + テスト用デモアプリ 
 date: 2021-04-14
 description: Swift Package Managerで作成したライブラリをローカルで使う方法について考える
-category: Swift
+category: プログラミング
+tags:
+- Swift
 ---
 
 ## Swift Package Manager

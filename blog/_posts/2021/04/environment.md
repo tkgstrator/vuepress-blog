@@ -2,7 +2,9 @@
 title: SwiftUIでEnvironmentを使おう
 date: 2021-04-13
 description: 環境変数を理解することでコーディングが楽になります
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 ## EnvironmentValues

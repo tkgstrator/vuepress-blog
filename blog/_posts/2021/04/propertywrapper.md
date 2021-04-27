@@ -2,8 +2,10 @@
 title: Property Wrapperを便利に使ってみる
 date: 2021-04-19
 description: Swift5.1で導入されたProperty Wrapperを使うと何が便利なのか調べてみました
-category: Swift
+category: プログラミング
 layout: draft
+tags:
+- Swift 
 ---
 
 ## Property Wrapperとは

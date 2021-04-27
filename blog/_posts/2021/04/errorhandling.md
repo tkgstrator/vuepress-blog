@@ -2,7 +2,9 @@
 title: Swiftでのエラーの扱い
 date: 2021-04-08
 description: Swift では Error 型と NSError 型を使うことができる
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 # エラーの扱いについて

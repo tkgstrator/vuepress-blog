@@ -2,7 +2,10 @@
 title: iOS App Signerでアプリに署名しよう
 date: 2021-04-19
 description: iOS App Signerでアプリに署名し、Sideloadを使って365日間有効なIPAを作成するためのチュートリアルです
-category: Swift
+category: Hack
+tags:
+- Swift 
+- Sideload
 ---
 
 ## Sideload の必要性

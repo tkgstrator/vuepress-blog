@@ -2,7 +2,9 @@
 title: プロトコルとかクラスとか
 date: 2021-04-20
 description: プロトコルを使って柔軟にクラスを書いてみます
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 ## プロトコル

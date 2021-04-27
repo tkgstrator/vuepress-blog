@@ -2,7 +2,9 @@
 title: URLRequest を理解する
 date: 2021-04-08
 description: Alamofireのソースコードから理解を深めよう
-category: Swift
+category: プログラミング
+tags:
+- Swift
 ---
 
 # URLRequest はいいぞ

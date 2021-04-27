@@ -2,7 +2,9 @@
 title: ジェネリクス全然わからん
 date: 2021-04-10
 description: ジェネリクスの使い方を学ぶ
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 ## ジェネリクスを学ぼう

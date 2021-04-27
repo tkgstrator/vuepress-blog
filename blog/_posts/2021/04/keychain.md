@@ -2,7 +2,9 @@
 title: KeychainAccessでKeychainを簡単に扱おう
 date: 2021-04-15
 description: Keyhcainではそのままでは扱いにくいのだが、KeychainAccessというライブラリを使えば手軽に扱えます
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 ## Keychain
