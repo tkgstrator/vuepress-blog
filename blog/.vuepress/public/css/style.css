@@ -54,9 +54,7 @@ table {
 } */
 
 .content img {
-  max-width: 80% !important;
-  width: auto;
-  max-height: 300px !important;
+  width: 100% !important;
 }
 
 .embed-responsive {
@@ -112,8 +110,20 @@ video {
   display: none;
 }
 
-.vssue-commnet-avatar img {
+.vssue .vssue-new-comment .vssue-comment-avatar img {
   border-radius: 50%;
+}
+
+.vssue .vssue-comments .vssue-comment .vssue-comment-avatar img {
+  border-radius: 50%;
+}
+
+.vssue-pagination-per-page {
+  display: none;
+}
+
+.vssue .vssue-pagination .vssue-pagination-select {
+
 }
 
 select {

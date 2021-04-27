@@ -30,6 +30,7 @@ Windows 版であれば10分もあれば環境をつくることができます�
 部屋を立てている人が背景のサーモンがドット絵ではないことを確認してください。
 
 ドット絵になっている場合は LanPlay になっていないので部屋を解散してから再度立ててください。
+
 ![](https://pbs.twimg.com/media/EaItG7tX0AARjzx?format=png)
 
 この画像のように、背景のサーモンがドット絵になっている場合は LanPlay になっていません。
@@ -162,9 +163,9 @@ BUFFALO は基本的にどのモデルでも安定していると言われてい
 
 これ以上確実な対処法はありません。
 
-<div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B07VG66XX3?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B07VG66XX3 BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni..."><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/31AeYmG2AbL._SL500_.jpg" alt="BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni..." /></div><p class="wpap-title">BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni&#8230;</p><div class="wpap-price">1,279円<span class="wpap-date">(04/27/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div>
+<!-- <div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B07VG66XX3?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B07VG66XX3 BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni..."><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/31AeYmG2AbL._SL500_.jpg" alt="BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni..." /></div><p class="wpap-title">BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni&#8230;</p><div class="wpap-price">1,279円<span class="wpap-date">(04/27/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div>
 
-<div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B00AXTV624?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B00AXTV624 SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK"><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/41+maKBF0XL._SL500_.jpg" alt="SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK" /></div><p class="wpap-title">SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK</p><div class="wpap-price">257円<span class="wpap-date">(04/21/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div>
+<div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B00AXTV624?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B00AXTV624 SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK"><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/41+maKBF0XL._SL500_.jpg" alt="SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK" /></div><p class="wpap-title">SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK</p><div class="wpap-price">257円<span class="wpap-date">(04/21/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div> -->
 
 この二つを無線接続しているパソコンとスイッチの分だけ購入する必要があります。
 
@@ -176,7 +177,7 @@ LAN ケーブルの長さは環境によりけりなのですが、1mから1.5m�
 
 その場合は中継機を購入するなどして、無線が減衰しないようにします。
 
-<div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B084LFPC5R?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B084LFPC5R BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易..."><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/31TWSx8jIqL._SL500_.jpg" alt="BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易..." /></div><p class="wpap-title">BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易&#8230;</p><div class="wpap-price">3,717円<span class="wpap-date">(04/27/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div>
+<!-- <div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B084LFPC5R?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B084LFPC5R BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易..."><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/31TWSx8jIqL._SL500_.jpg" alt="BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易..." /></div><p class="wpap-title">BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易&#8230;</p><div class="wpap-price">3,717円<span class="wpap-date">(04/27/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div> -->
 
 また、この中継機は中継機自身に LAN ケーブルを挿すことができます。
 
@@ -186,9 +187,7 @@ LAN ケーブルの長さは環境によりけりなのですが、1mから1.5m�
 
 自分が接続できているかは以下の URL からも確認できます。
 
-ここの数字が増えれば接続できています。
-
-[http://ec2-13-231-102-57.ap-northeast-1.compute.amazonaws.com:11451/info](http://ec2-13-231-102-57.ap-northeast-1.compute.amazonaws.com:11451/info)
+[ここの数字](http://ec2-13-231-102-57.ap-northeast-1.compute.amazonaws.com:11451/info)が増えれば接続できています。
 
 それではみなさん、良き LanPlay ライフをお楽しみください。
 
