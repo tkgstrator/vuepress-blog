@@ -158,7 +158,7 @@ RPCS3 のセーブデータは`dev_hdd0/home/00000001/savedata`内にあるの�
 
 で、某掲示板によれば実機のセーブデータを RPCS3 に移植するのはコピーするだけと言われたのでバックアップをコピーしたら読み込みと同時にエミュレータがクラッシュしました。
 
-> ちなみに、F {PPU\[0x1000000\] Thread (main_thread) \[0x0048c8f8\]} VM: Access violation reading location 0x8000003f (unmapped memory) \[type=u32\]っていうエラーが表示されました。
+> ちなみに、F {PPU[0x1000000[ Thread (main_thread) [0x0048c8f8[} VM: Access violation reading location 0x8000003f (unmapped memory) [type=u32[っていうエラーが表示されました。
 
 で、どうも SAVE-DATA が暗号化されていることが原因ではないかという結論に至ったので BruteforceSaveData を使って復号することにしました。
 

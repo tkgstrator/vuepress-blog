@@ -37,7 +37,7 @@ protocol APIProtocol {
     var method: HTTPMethod { get }
     var baseURL: URL { get }
     var path: String { get set }
-    var headers: \[String: String\]? { get }
+    var headers: [String: String[? { get }
     var allowConstrainedNetworkAccess: Bool { get }
 }
 
@@ -46,7 +46,7 @@ extension APIProtocol {
         return URL(string: "https://app.splatoon2.nintendo.net/api/")!
     }
 
-    var headers: \[String: String\]? {
+    var headers: [String: String[? {
         return nil
     }
 
@@ -101,7 +101,7 @@ import SwiftyJSON
 
 struct NetworkPublisher {
 
-    private static let contentType = \["application/json"\]
+    private static let contentType = ["application/json"[
     private static let retryCount = 1
     static let decoder: JSONDecoder()
 
