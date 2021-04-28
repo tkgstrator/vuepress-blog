@@ -17,7 +17,7 @@ module.exports = {
     // need favicon
     ["link", { href: "/css/style.css", rel: "stylesheet" }],
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
-    ["meta", { name: "og:url", content: "https://tkgling.netlify.app/" }],
+    ["meta", { name: "og:url", content: "https://tkgstrator.work" }],
     ["meta", { name: "og:type", content: "website" }],
     [
       "meta",
@@ -142,44 +142,29 @@ module.exports = {
 
     // the content of navbar links
     nav: [
-      { text: "Home", link: "/" },
-      { text: "About", link: "/about/" },
-      { text: "Blog", link: "https://www.nxworld.net/" },
-      {
-        text: "More",
-        items: [
-          { text: "Twitter", link: "https://twitter.com/" },
-          { text: "GitHub", link: "https://github.com/" },
-          { text: "Dribbble", link: "https://dribbble.com/" },
-        ],
-      },
+      { text: "自己紹介", link: "/about/", exact: false },
+      { text: "投稿一覧", link: "/posts/", exact: false },
+      // { text: "コード開発", link: "/ipswitch/" },
+      { text: "まとめ", link: "/documents", exact: true },
+      { text: "サポート", link: "/support/", exact: false },
     ],
-    // nav: [
-    //   // { text: "自己紹介", link: "/about/", exact: false },
-    //   // { text: "ホーム", link: "/", exact: true },
-    //   // { text: "投稿一覧", link: "/posts/", exact: false },
-    //   {
-    //     text: "ドキュメント",
-    //     items: [
-    //       { text: "コード開発", link: "/ipswitch/" },
-    //       { text: "コード開発", link: "/ipswitch/" },
-    //     ],
-    //   },
-    //   // { text: "サポート", link: "/support/", exact: false },
-    // ],
   },
 
   plugins: [
-    ['@vssue/vuepress-plugin-vssue', {
-      platform: 'github-v4',
-      owner: 'tkgstrator',
-      repo: 'vuepress-blog-comment',
-      clientId: "f7ca8cef9b8e0be50beb",
-      clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
-    }],
     [
-      "@vuepress/google-analytics", {
-        ga: "UA-111335437-2", // UA-00000000-0
+      "@vssue/vuepress-plugin-vssue",
+      {
+        platform: "github-v4",
+        owner: "tkgstrator",
+        repo: "vuepress-blog-comment",
+        clientId: "f7ca8cef9b8e0be50beb",
+        clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
+      },
+    ],
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-111335437-2",
       },
     ],
   ],
