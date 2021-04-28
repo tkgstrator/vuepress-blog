@@ -2,7 +2,9 @@
 title: OAuth認証のための手順
 date: 2021-04-08
 description: Swift で OAuth の認証のためのコードを書くためのチュートリアル
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 # OAuth 認証のための手順

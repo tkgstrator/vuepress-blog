@@ -2,7 +2,9 @@
 title: ScrollView + Reader
 date: 2021-04-08
 description: GeometryReader や ScrollViewReaderの使い方をメモした
-category: Swift
+category: プログラミング
+tags:
+- Swift
 ---
 
 # ScrollViewReader

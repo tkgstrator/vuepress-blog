@@ -2,7 +2,9 @@
 title: SwiftUIでCompletionを使おう
 date: 2021-04-13
 description: SwiftUIでCompletionを使ったビューのコーディングを学びます
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 ## Completionの必要性

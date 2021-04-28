@@ -2,7 +2,9 @@
 title: JSON + Codable で面倒なJSONを一発変換
 date: 2021-04-08
 description: JSONで受け取ったデータをCodableで変換するためのチュートリアル
-category: Swift
+category: プログラミング
+tags:
+- Swift 
 ---
 
 ## 変数名とキーが一致している場合

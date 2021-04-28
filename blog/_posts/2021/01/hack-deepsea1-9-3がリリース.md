@@ -1,7 +1,7 @@
 ---
 title: "[Hack] DeepSea1.9.3 がリリース"
 date: "2021-01-06"
-category: CFW
+category: Hack
 ---
 
 ## DeepSea とは

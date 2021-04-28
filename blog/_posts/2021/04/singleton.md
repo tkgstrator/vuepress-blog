@@ -2,7 +2,9 @@
 title: Swift で Singleton を実装する
 date: 2021-04-08
 description: たった一つしかインスタンスを許容しない、Singleton を Swift で実装するためのメモ
-category: Swift
+category: プログラミング
+tags:
+- Swift
 ---
 
 # Swift5 + Singleton
