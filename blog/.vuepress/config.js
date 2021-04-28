@@ -127,7 +127,7 @@ module.exports = {
 
     // pagination config
     pagination: {
-      perPage: 10,
+      perPage: 20,
     },
 
     // comment config(vssue)
@@ -142,12 +142,31 @@ module.exports = {
 
     // the content of navbar links
     nav: [
-      { text: "自己紹介", link: "/about/", exact: false },
-      { text: "ホーム", link: "/", exact: true },
-      { text: "投稿一覧", link: "/posts/", exact: false },
-      { text: "コード開発", link: "/ipswitch/", exact: false },
-      { text: "サポート", link: "/support/", exact: false },
+      { text: "Home", link: "/" },
+      { text: "About", link: "/about/" },
+      { text: "Blog", link: "https://www.nxworld.net/" },
+      {
+        text: "More",
+        items: [
+          { text: "Twitter", link: "https://twitter.com/" },
+          { text: "GitHub", link: "https://github.com/" },
+          { text: "Dribbble", link: "https://dribbble.com/" },
+        ],
+      },
     ],
+    // nav: [
+    //   // { text: "自己紹介", link: "/about/", exact: false },
+    //   // { text: "ホーム", link: "/", exact: true },
+    //   // { text: "投稿一覧", link: "/posts/", exact: false },
+    //   {
+    //     text: "ドキュメント",
+    //     items: [
+    //       { text: "コード開発", link: "/ipswitch/" },
+    //       { text: "コード開発", link: "/ipswitch/" },
+    //     ],
+    //   },
+    //   // { text: "サポート", link: "/support/", exact: false },
+    // ],
   },
 
   plugins: [
