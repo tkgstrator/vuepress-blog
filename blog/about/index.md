@@ -5,7 +5,6 @@
   - Python, C, C++, Javascript, Swift
 - GitHub: [tkgstrator](https://github.com/tkgstrator)
 - Twitter: [tkgling](https://twitter.com/tkgling)
-- WordPress: [えむいーと愉快な仲間たち]()
 
 # 開発/運営しているもの
 
@@ -24,12 +23,15 @@
 space氏が開発したSwitchLanPlayの国内向けサーバを設立し運営中。
 
 ::: tip LanPlayとは
+
 「LAN プレイ」とは、複数のNintendo SwitchをLANケーブルでつなぎ、ローカルエリアネットワークを介して、通信プレイを行う対戦方法です。
 
 https://support.nintendo.co.jp/app/answers/detail/a_id/34661
 :::
 
 本来はローカルエリアネットワークでしかできないLanPlayを拡張してインターネット経由で遊べるようにしたものになります。
+
+設定方法は[この記事](https://tkgstrator.work/posts/2021/04/26/lanplay.html)で紹介しているのでどうぞ。
 
 ## [Ocean Calc](https://salmonrun-records.netlify.app/ocean/)
 
