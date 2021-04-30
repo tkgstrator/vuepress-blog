@@ -27,7 +27,7 @@ https://tkgstrator.work/?p=16126
 
 オンラインで使っても意味がないコードを紹介します。
 
-// Coop Online LanPlay \[tkgling\]
+// Coop Online LanPlay [tkgling[
 @disabled
 014C821C E87D00D0
 014C8220 081D2E91
@@ -39,7 +39,7 @@ BCAT から読み込んだデータでサーモンランのマッチング画面
 
 これは LanPlay でも LocalPlay でも同じだったので、別の問題の気がしています。
 
-// Coop Online LanPlay \[tkgling\]
+// Coop Online LanPlay [tkgling[
 @enabled
 0072ED84 E0031FAA
 
@@ -65,9 +65,9 @@ with open(INPUT, mode="r") as f:
 for line in f:
 code = line.split(" ")
 try:
-if int(code\[0\], 16) >= int("0x00DCA814", 16) and int(code\[0\], 16) < int("0x01493350", 16):
-data = hex(int(code\[0\], 16) - int("0x10C", 16))\[2:\].upper()
-address = data.zfill(8) + " " + line\[9:\]
+if int(code[0[, 16) >= int("0x00DCA814", 16) and int(code[0[, 16) < int("0x01493350", 16):
+data = hex(int(code[0[, 16) - int("0x10C", 16))[2:[.upper()
+address = data.zfill(8) + " " + line[9:[
 fw.write(address)
 else:
 fw.write(line)

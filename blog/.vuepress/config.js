@@ -16,8 +16,16 @@ module.exports = {
   head: [
     // need favicon
     ["link", { href: "/css/style.css", rel: "stylesheet" }],
+    [
+      "script",
+      {
+        "data-ad-client": "ca-pub-7107468397673752",
+        async: true,
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      },
+    ],
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
-    ["meta", { name: "og:url", content: "https://tkgling.netlify.app/" }],
+    ["meta", { name: "og:url", content: "https://tkgstrator.work" }],
     ["meta", { name: "og:type", content: "website" }],
     [
       "meta",
@@ -143,24 +151,34 @@ module.exports = {
     // the content of navbar links
     nav: [
       { text: "自己紹介", link: "/about/", exact: false },
-      // { text: "ホーム", link: "/", exact: true },
       { text: "投稿一覧", link: "/posts/", exact: false },
-      { text: "コード開発", link: "/ipswitch/", exact: false },
+      // { text: "コード開発", link: "/ipswitch/" },
+      { text: "まとめ", link: "/documents", exact: true },
       { text: "サポート", link: "/support/", exact: false },
     ],
   },
 
   plugins: [
-    ['@vssue/vuepress-plugin-vssue', {
-      platform: 'github-v4',
-      owner: 'tkgstrator',
-      repo: 'vuepress-blog-comment',
-      clientId: "f7ca8cef9b8e0be50beb",
-      clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
-    }],
     [
-      "@vuepress/google-analytics", {
-        ga: "UA-111335437-2", // UA-00000000-0
+      "vuepress-plugin-google-adsense",
+      {
+        adClient: "ca-pub-7107468397673752", // replace it with your adClient
+      },
+    ],
+    [
+      "@vssue/vuepress-plugin-vssue",
+      {
+        platform: "github-v4",
+        owner: "tkgstrator",
+        repo: "vuepress-blog-comment",
+        clientId: "f7ca8cef9b8e0be50beb",
+        clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
+      },
+    ],
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-111335437-2",
       },
     ],
   ],

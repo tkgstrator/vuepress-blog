@@ -39,9 +39,9 @@ https://gist.github.com/tkgstrator/3f190327b114ec6ce9d7405559e600fe
 
 JSON 形式と言われてもよくわからないと思うので、テンプレートを置いておくのでそのとおりに書いてみてください。
 
-IKSM_SESSION => \["IKSM_SESSION_1", "IKSM_SESSION_2"\]
+IKSM_SESSION => ["IKSM_SESSION_1", "IKSM_SESSION_2"[
 API_TOKEN => API_TOKEN
-JOB_NUM => \["0", "0"\]
+JOB_NUM => ["0", "0"[
 
 `IKSM_SESSION`と`JOB_NUM`だけは読み込みの都合上、ダブルクオーテーションで囲む必要があります。`API_TOKEN`だけはそのままであることに注意してください。
 

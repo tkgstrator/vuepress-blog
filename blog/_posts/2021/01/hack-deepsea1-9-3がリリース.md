@@ -46,7 +46,7 @@ https://tkgstrator.work/?p=27490
 
 DeepSea 1.9.3 用の Nosigpatch を有効化した上で CFW(SysNAND)を無効化する hekate_ipl.ini は以下の通り。
 
-\[config\]
+[config[
 autoboot=0
 autoboot_list=0
 bootwait=3
@@ -63,7 +63,7 @@ updater2p=1
 {}
 
 {--- Custom Firmware ---}
-\[CFW (EMUMMC)\]
+[CFW (EMUMMC)[
 emummcforce=1
 kip1patch=nosigchk
 fss0=atmosphere/fusee-secondary.bin
@@ -74,7 +74,7 @@ kip1=atmosphere/kips/\*
 {}
 
 {--- Stock ---}
-\[Stock (SYSNAND)\]
+[Stock (SYSNAND)[
 emummc_force_disable=1
 fss0=atmosphere/fusee-secondary.bin
 stock=1
