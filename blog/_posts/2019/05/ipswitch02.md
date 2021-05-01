@@ -24,12 +24,12 @@ tags:
 
 ```
 loc_864dc
-LDR     X1,     [SP,#0x6C0+var_660]
-ADRP    X2,     #aSpecialcost@PAGE ; "SpecialCost"
-SUB     X0,     X29, #-var_C8
-ADD     X2,     X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR     X19,    [SP,#0x6C0+var_468]
-BL      sub_19E4678
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+BL         sub_19E4678
 ```
 
 このとき、`BL sub_19E4678` というのは BL が返り値を持つサブルーチンであり、単に X1 レジスタに保存されているアドレスに値を入れればその値がまさにスペシャルコストになりました。
@@ -40,12 +40,12 @@ BL      sub_19E4678
 
 ```
 loc_864dc
-LDR     X1,     [SP,#0x6C0+var_660]
-ADRP    X2,     #aSpecialcost@PAGE ; "SpecialCost"
-SUB     X0,     X29, #-var_C8
-ADD     X2,     X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR     X19,    [SP,#0x6C0+var_468]
-STR     WZR,    [X1] // 0を代入に変更
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+STR        WZR, [X1] // 0を代入に変更
 ```
 
 「レジスタが持つアドレスが指し示すメモリの値を 0 にする」という命令は通常は二命令ないと実装できないのですが、ARM64 には読み込むと常に 0 を返すゼロレジスタと呼ばれる便利なものがあるので上のように一行で実装することができました。
@@ -59,11 +59,11 @@ STR     WZR,    [X1] // 0を代入に変更
 以下は X1 レジスタがもつアドレスのメモリの値を 255 にするアセンブラです。
 
 ```
-MOV   X19,  #255
-STR   X19,  [X1]
+MOV        X19,                    #255
+STR        X19,                    [X1]
 ```
 
-このように、0 以外の何かの値をメモリに代入しようとすれば最低でも二命令必要になります。ちなみに ARM の命令は 1 命令で 16 ビット(65535)までの代入に対応しているので任意の 32 ビットの値をレジスタに保存するためにはレジスタにコピーするだけで 32 / 16 = 2 命令必要になります。
+このように、0 以外の何かの値をメモリに代入しようとすれば最低でも二命令必要になります。ちなみに ARM の命令は 1 命令で 16 ビット（65535）までの代入に対応しているので任意の 32 ビットの値をレジスタに保存するためにはレジスタにコピーするだけで 32 / 16 = 2 命令必要になります。
 
 それをメモリに保存しようとすれば更に追加で一命令必要なので合計三命令です。スプラトゥーンでは実際に 64 ビットの値を扱うことはほとんどないので「三命令あれば好きな値をメモリに入れることができる」とおぼえておくと良いでしょう。
 
@@ -106,48 +106,49 @@ STR   X19,  [X1]
 
 ```
 loc_864dc
-LDR     X1,     [SP,#0x6C0+var_660]
-ADRP    X2,     #aSpecialcost@PAGE ; "SpecialCost"
-SUB     X0,     X29, #-var_C8
-ADD     X2,     X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR     X19,    [SP,#0x6C0+var_468]
-BL      sub_19E4678
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+BL         sub_19E4678
 ```
+
 ```
-// sub_19E4678
-STR   X21,  [SP,#-0x10+var_20]!
-STP   X20,  X19,  [SP,#0x20+var_10]
-STP   X29,  X30,  [SP,#0x20+var_s0]
-ADD   X29,  SP,   #0x20
-MOV   X21,  X0
-ADD   X0,   SP,   #0x20+var_18
-MOV   X20,  X2
-MOV   X19,  X1
-BL    sub_19E5030
-ADD   X1,   SP,   #0x20+var_18
-MOV   X0,   X21
-MOV   X2,   X20
-BL    sub_19E406C
-TBZ   W0,   #0,   loc_19E46EC
-ADD   X0,   SP,   #0x20+var_18
-BL    sub_19E505C
-AND   W8,   W0,   #0xFF
-CMP   W8,   #0xFF
-B.EQ  loc_19E46EC
-ADD   X0,   SP,   #0x20+var_18
-BL    sub_19E505C
-AND   W8,   W0,   #0xFF
-CMP   W8,   #0xD1
-B.NE  loc_19E46EC
-ADD   X0,   SP,   #0x20+var_18
-BL    sub_19E5064
-STR   W0,   [X19]
-MOV   W0, #1
-B     loc_19E46F0
-MOV   W0, WZR
-LDP   X29, X30,   [SP,#0x20+var_s0]
-LDP   X20, X19,   [SP,#0x20+var_10]
-LDR   X21, [SP+0x20+var_20],  #0x30
+sub_19E4678
+STR        X21, [SP,#-0x10+var_20]!
+STP        X20, X19, [SP,#0x20+var_10]
+STP        X29, X30, [SP,#0x20+var_s0]
+ADD        X29, SP, #0x20
+MOV        X21, X0
+ADD        X0, SP, #0x20+var_18
+MOV        X20, X2
+MOV        X19, X1
+BL         sub_19E5030
+ADD        X1, SP, #0x20+var_18
+MOV        X0, X21
+MOV        X2, X20
+BL         sub_19E406C
+TBZ        W0, #0, loc_19E46EC
+ADD        X0, SP, #0x20+var_18
+BL         sub_19E505C
+AND        W8, W0, #0xFF
+CMP        W8, #0xFF
+B.EQ       loc_19E46EC
+ADD        X0, SP, #0x20+var_18
+BL         sub_19E505C
+AND        W8, W0, #0xFF
+CMP        W8, #0xD1
+B.NE       loc_19E46EC
+ADD        X0, SP, #0x20+var_18
+BL        sub_19E5064
+STR        W0, [X19]
+MOV        W0, #1
+B          loc_19E46F0
+MOV        W0, WZR
+LDP        X29, X30, [SP,#0x20+var_s0]
+LDP        X20, X19, [SP,#0x20+var_10]
+LDR        X21, [SP+0x20+var_20],#0x30
 RET
 ```
 
@@ -167,7 +168,7 @@ RET
 |    値をゼロクリア    |      条件分岐      |
 |    関数のスキップ    |                    |
 
-本来の値を参照することができないということは、例えばサーモンランのクマブキアンロックのために `CoopAddition` の値を変更する必要があるのですが、クマブキだけを開放するといった細かいことはできないということです。
+本来の値を参照することができないということは、例えばサーモンランのクマブキアンロックのために CoopAddition の値を変更する必要があるのですが、クマブキだけを開放するといった細かいことはできないということです。
 
 そういう処理にする場合には複数の命令が必要なので、書き換えられる命令が一行しかない場合にはそういった柔軟な対応ができません。
 
