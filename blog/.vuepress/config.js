@@ -16,6 +16,14 @@ module.exports = {
   head: [
     // need favicon
     ["link", { href: "/css/style.css", rel: "stylesheet" }],
+    [
+      "script",
+      {
+        "data-ad-client": "ca-pub-7107468397673752",
+        async: true,
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      },
+    ],
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
     ["meta", { name: "og:url", content: "https://tkgstrator.work" }],
     ["meta", { name: "og:type", content: "website" }],
@@ -151,6 +159,12 @@ module.exports = {
   },
 
   plugins: [
+    [
+      "vuepress-plugin-google-adsense",
+      {
+        adClient: "ca-pub-7107468397673752", // replace it with your adClient
+      },
+    ],
     [
       "@vssue/vuepress-plugin-vssue",
       {
