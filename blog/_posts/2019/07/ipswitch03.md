@@ -187,7 +187,7 @@ GetRule() で何かしらを計算をして「その値が 2 だったら v14 �
 ```
 // CalcOnlineEvalPoint
 @disabled
-75BF7C 20008052 // MOV W0, #1 
+0075BF7C 20008052 // MOV W0, #1 
 ```
 
 が、特になにか変わったような感じもしませんでした。
