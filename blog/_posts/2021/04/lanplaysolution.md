@@ -193,7 +193,7 @@ LAN ケーブルの長さは環境によりけりなのですが、1mから1.5m�
 <img src="https://m.media-amazon.com/images/I/31TWSx8jIqL._SL200_.jpg" />
 <ul>
 <li><a href="https://www.amazon.co.jp/dp/B084LFPC5R" target="_blank">BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易パッケージ 日本メーカー【iPhone12/11/iPhone SE(第二世代) メーカー動作確認済み】</a></li>
-<li class="price">￥3,957</li>
+<li class="price">￥3,980</li>
 </ul>
 </div>
 
