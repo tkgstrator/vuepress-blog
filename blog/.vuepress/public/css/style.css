@@ -139,16 +139,19 @@ select {
 .vuepress-affiliate {
   max-width: 800px;
   display: flex;
-  border: solid gray;
+  border: solid #87cefa;
   border-radius: 10px;
   /* flex-direction: column; */
   justify-content: center;
   /* align-items: center; */
   margin: 0 auto;
+  margin-bottom: 10px;
 }
 
 .vuepress-affiliate img {
   max-width: 120px !important;
+  object-fit: contain;
+  /* height: auto !important; */
   padding-right: 10px;
   padding-left: 10px;
 }

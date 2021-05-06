@@ -9,6 +9,7 @@ tags:
 ---
 
 ## コードの自作の目的と意味
+
 IPSwitch でいろいろなコードを試している人はたくさんいるように思います。
 
 中にはコードを使うだけで楽しい人もいるかも知れませんが、「自分でもコードを見つけたい」と思っている人もいるかも知れません。
@@ -109,12 +110,12 @@ GHIDRA を起動させるためのバッチファイル内で最大メモリ使�
 
 ```
 loc_864dc
-LDR             X1, [SP,#0x6C0+var_660]
-ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR             X19, [SP,#0x6C0+var_468]
-BL              sub_19E4678
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+BL         sub_19E4678
 ```
 
 この五行がスペシャル必要量を設定しているサブルーチンになります。
@@ -125,21 +126,11 @@ BL              sub_19E4678
 
 ![](/assets/images/17.png)
 
-※どんな値が入っているかはここではわからない
-
 ![](/assets/images/18.png)
-
-※X29 に保存されているデータはアド レスかもしれないし、値かもしれない
 
 ![](/assets/images/19.png)
 
-※ただ、 #SC の値は常に 0 なのでこの動作に意味があるのかよくわかっていない
-
-※アドレスに定数を足して何をしているのかもよくわからない
-
 ![](/assets/images/20.png)
-
-※[] はそのアドレスの値を意味する
 
 ![](/assets/images/21.png)
 
@@ -164,8 +155,8 @@ BL              sub_19E4678
 上の例の場合は、X1 レジスタが参照先のメモリのアドレスを保持しているのでこれが利用できます。
 
 ```
-MOV             X20, #0
-STR             X20, [X1]
+MOV        X20, #0
+STR        X20, [X1]
 ```
 
 例えばこのように書けばアドレス XXX に保存されているデータの値を 0 に上書きすることができます。
@@ -179,7 +170,7 @@ STR             X20, [X1]
 そこで、読み込むと必ず 0 を返すゼロレジスタを利用します。
 
 ```
-STR             WZR, [X1]
+STR        WZR, [X1]
 ```
 
 こう書けば X1 の値を 0 にするコードが一行で書けてしまいます。
@@ -196,20 +187,20 @@ X1 レジスタが指し示すアドレスの値を 0 にするアセンブラ�
 
 ```
 // Before
-LDR             X1, [SP,#0x6C0+var_660]
-ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR             X19, [SP,#0x6C0+var_468]
-BL              sub_19E4678
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+BL         sub_19E4678
 
 // After
-LDR             X1, [SP,#0x6C0+var_660]
-ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR             X19, [SP,#0x6C0+var_468]
-STR             WZR, [X1]
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+STR        WZR, [X1]
 ```
 
 `BL sub_19E4678`の命令が書かれているアドレスは 864f0 ですので、これを`STR WZR, [X1]`という命令で上書きします。
@@ -243,12 +234,12 @@ STR             WZR, [X1]
 そして、今回のサブルーチンと全く同じ構造を持ったサブルーチンは多数あります。
 
 ```
-LDR             X1, [SP,#0xXXX]
-ADRP            X2, #XYZ ; Parameter
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #XYZ ; Parameter
-STR             X19, [SP,#0xXXX]
-BL              sub_ABCDEFG
+LDR        X1, [SP,#0xXXX]
+ADRP       X2, #XYZ ; Parameter
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #XYZ ; Parameter
+STR        X19, [SP,#0xXXX]
+BL         sub_ABCDEFG
 ```
 
 つまり、こういうサブルーチンであるなら、BL の命令を上書きしてパラメータの値を 0 にすることは簡単だということです。

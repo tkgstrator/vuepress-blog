@@ -11,7 +11,7 @@ tags:
 
 以下の記事を参考に進めてください。
 
-Windows 版であれば10分もあれば環境をつくることができます。
+Windows 版であれば 10 分もあれば環境をつくることができます。
 
 [[決定版] SwitchLanPlay](https://tkgstrator.work/posts/2021/04/26/lanplay.html)
 
@@ -63,7 +63,7 @@ LanPlay であればこのようにオンラインと同じサーモンのアイ
 
 パソコンで黒い画面が二重に起動していないことを確認してください。
 
-また、インターネット設定から IP アドレスが10.13.XXX.YYYの形になっていることを確認してください。
+また、インターネット設定から IP アドレスが 10.13.XXX.YYY の形になっていることを確認してください。
 
 ### 部屋が見えない場合(通信環境の問題)
 
@@ -81,7 +81,7 @@ LanPlay のサーバは東京にあり、LanPlay の通信にはタイムアウ�
 
 - 物理的な距離が離れている
 
-IP アドレス自体はちゃんとランダムな値にすれば重複する確率は1/65536ですが、誕生日とかに設定していると割と被ってしまうのでそういった値は避けるようにしましょう。
+IP アドレス自体はちゃんとランダムな値にすれば重複する確率は 1/65536 ですが、誕生日とかに設定していると割と被ってしまうのでそういった値は避けるようにしましょう。
 
 また、LanPlay のサーバは東京にあるため、東京から地理的に離れている人がホストをしていると入室していると時間がかかる場合があります。
 
@@ -99,9 +99,9 @@ IP アドレス自体はちゃんとランダムな値にすれば重複する�
 
 正直、この問題は解決方法がよく分かっていないです。
 
-バッファローのルータなら間違いなく動くと思うので、よくわからん人は「BUFFALO WiFi 無線LAN」とでも検索して買ってみましょう。
+バッファローのルータなら間違いなく動くと思うので、よくわからん人は「BUFFALO WiFi 無線 LAN」とでも検索して買ってみましょう。
 
-また、LanPlayには通信速度はあまり重要でなく、遅延(Ping)とパケロス(パケットロス)率が重要になってきます。
+また、LanPlay には通信速度はあまり重要でなく、遅延(Ping)とパケロス(パケットロス)率が重要になってきます。
 
 これは無線環境だとどうしても悪くなるので、安定して LanPlay をしたい場合はパソコン・ニンテンドースイッチ共に有線にしましょう。
 
@@ -115,7 +115,7 @@ IP アドレス自体はちゃんとランダムな値にすれば重複する�
 
 二オペではよほど通信環境が悪くない限り、ラグや回線落ちは発生しません。
 
-二人で落ちるのであれば、IPアドレスの重複や LanPlay の多重起動を疑ってみましょう。
+二人で落ちるのであれば、IP アドレスの重複や LanPlay の多重起動を疑ってみましょう。
 
 ### 三人以上で遊んだ場合
 
@@ -163,13 +163,25 @@ BUFFALO は基本的にどのモデルでも安定していると言われてい
 
 これ以上確実な対処法はありません。
 
-<!-- <div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B07VG66XX3?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B07VG66XX3 BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni..."><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/31AeYmG2AbL._SL500_.jpg" alt="BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni..." /></div><p class="wpap-title">BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Ni&#8230;</p><div class="wpap-price">1,279円<span class="wpap-date">(04/27/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div>
+<div class="vuepress-affiliate">
+<img src="https://m.media-amazon.com/images/I/31AeYmG2AbL._SL200_.jpg" />
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B07VG66XX3/?tag=tkgstrator0f-22" target="_blank">BUFFALO 有線LANアダプター LUA4-U3-AGTE-NBK ブラック Giga USB3.0対応 簡易パッケージ 日本メーカー 【Nintendo Switch動作確認済み】</a></li>
+<li class="price">￥1,580</li>
+</ul>
+</div>
 
-<div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B00AXTV624?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B00AXTV624 SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK"><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/41+maKBF0XL._SL500_.jpg" alt="SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK" /></div><p class="wpap-title">SANWA SUPPLY カテゴリ6極細LANケーブル 1m ブラック LA-SL6-01BK</p><div class="wpap-price">257円<span class="wpap-date">(04/21/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div> -->
+<div class="vuepress-affiliate">
+<img src="https://m.media-amazon.com/images/I/31DaYGepGqL._SL200_.jpg" />
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B008RVY4BU/?tag=tkgstrator0f-22" target="_blank">BUFFALO ツメの折れないLANケーブル カテゴリ6a ストレート フラットタイプ ブラック BSLS6AFU10BK</a></li>
+<li class="price">￥687</li>
+</ul>
+</div>
 
 この二つを無線接続しているパソコンとスイッチの分だけ購入する必要があります。
 
-LAN ケーブルの長さは環境によりけりなのですが、1mから1.5mもあれば十分だと思います。
+LAN ケーブルの長さは環境によりけりなのですが、1m から 1.5m もあれば十分だと思います。
 
 ### 中継機を買う
 
@@ -177,7 +189,13 @@ LAN ケーブルの長さは環境によりけりなのですが、1mから1.5m�
 
 その場合は中継機を購入するなどして、無線が減衰しないようにします。
 
-<!-- <div class="wpap-tpl wpap-tpl-detail wpap-tpl-amazon"><a rel="nofollow noopener" target="_blank" href="https://www.amazon.co.jp/dp/B084LFPC5R?tag=tkgstrator0f-22&#038;linkCode=ogi&#038;th=1&#038;psc=1" class="wpap-link" data-click-tracking="Amazon B084LFPC5R BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易..."><div class="wpap-image"><img src="https://m.media-amazon.com/images/I/31TWSx8jIqL._SL500_.jpg" alt="BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易..." /></div><p class="wpap-title">BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易&#8230;</p><div class="wpap-price">3,717円<span class="wpap-date">(04/27/2021 07:00時点)</span></div><div class="wpap-service">Amazon</div></a></div> -->
+<div class="vuepress-affiliate">
+<img src="https://m.media-amazon.com/images/I/31TWSx8jIqL._SL200_.jpg" />
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B084LFPC5R/?tag=tkgstrator0f-22" target="_blank">BUFFALO WiFi 無線LAN中継機 WEX-1166DHPS/N 11ac/n/a/g/b 866+300Mbps ハイパワー コンパクトモデル 簡易パッケージ 日本メーカー【iPhone12/11/iPhone SE(第二世代) メーカー動作確認済み】</a></li>
+<li class="price">￥3,980</li>
+</ul>
+</div>
 
 また、この中継機は中継機自身に LAN ケーブルを挿すことができます。
 
