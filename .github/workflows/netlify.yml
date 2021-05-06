@@ -29,7 +29,11 @@ jobs:
         run: yarn --check-files --frozen-lockfile --non-interactive
       - uses: actions/checkout@v2
 
-      - run: yarn build
+      - name: Build
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+        run: yarn build
 
       - run: npx netlify-cli deploy --dir=./blog/.vuepress/dist
         env:
