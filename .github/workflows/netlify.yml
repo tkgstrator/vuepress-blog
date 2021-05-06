@@ -19,13 +19,13 @@ jobs:
 
       - name: Cache node_modules
         id: node_modules_cache_id
-        uses: actions/cache@v2　// 1
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
 
       - name: Install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'　// 2
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn --check-files --frozen-lockfile --non-interactive
       - uses: actions/checkout@v2
 
