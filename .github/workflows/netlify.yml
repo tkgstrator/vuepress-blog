@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-        run: yarn build
+      - run: yarn build
 
       - run: npx netlify-cli deploy --dir=./blog/.vuepress/dist
         env:
