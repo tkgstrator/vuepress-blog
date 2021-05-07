@@ -151,7 +151,7 @@ select {
 .vuepress-affiliate img {
   max-width: 120px !important;
   object-fit: contain;
-  /* height: auto !important; */
+  margin-right: auto;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -159,6 +159,7 @@ select {
 .vuepress-affiliate ul {
   list-style: none;
   justify-content: center;
+  padding-right: 10px;
   /* margin: 0 auto; */
 }
 
