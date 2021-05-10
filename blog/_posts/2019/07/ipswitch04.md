@@ -42,9 +42,9 @@ tags:
 
 整数で指定するものは値段、ランク、ダメージなど整数で扱えるもの、文字列で指定するのはスペシャルの種類、ブキの名前などですね。
 
-tryGetIntByKey に関しては前回の記事で解説したので説明は不要でしょう。
+`tryGetIntByKey`に関しては前回の記事で解説したので説明は不要でしょう。
 
-さて、今回は文字列型を取得してそれをなんか計算して何かしらの値を返すサブルーチンである tryGetStringByKey() を使ってブキの開放を行なってみましょう。
+さて、今回は文字列型を取得してそれをなんか計算して何かしらの値を返すサブルーチンである`tryGetStringByKey()`を使ってブキの開放を行なってみましょう。
 
 ### ブキ情報パラメータ
 
@@ -95,8 +95,8 @@ Lockの値を設定するアドレスを載せておくので各自確かめて�
 
 |      Ver      | アドレス |
 | :-----------: | :------: |
-|     3.1.0     |  38EA4   |
-|     5.4.0     |  864F4   |
+|     3.1.0     | 00038EA4 |
+|     5.4.0     | 000864F4 |
 
 ```
 Lp::Utl::ByamlIter::tryGetIntByKey((Lp::Utl::ByamlIter *)&v269, (int *)&v260, "SpecialCost");
@@ -107,12 +107,12 @@ v120 = 0;
 
 擬似コードだとこのようになっているので、何かの変数に値を代入しているわけではありません。
 
-こういう場合は前回も説明したようにX1レジスタが示すアドレスに値を格納していることが多いです。
+こういう場合は前回も説明したように X1 レジスタが示すアドレスに値を格納していることが多いです。
 
 つまり、大雑把にいえば以下のようなコードを書きたいわけです。
 
 ```
-STR        "None", [X1]
+STR "None", [X1]
 ```
 
 ところがレジスタに文字列は代入できません、できるのは文字列があるポインタを代入することくらいです。
@@ -159,7 +159,7 @@ None が 0 なのがいいですね、0 に設定するのは楽なので。
 
 ## 擬似コード
 
-さて、ここまでの話をまとめると tryGetStringBykey() は文字列があるポインタを返すのでそのままでは上手く値を上書きできないということでした。
+さて、ここまでの話をまとめると`tryGetStringBykey()`は文字列があるポインタを返すのでそのままでは上手く値を上書きできないということでした。
 
 ところが、そのポインタを使って Enum（配列）のイテレータを返す`LockType::text()`というサブルーチンがあり、これを利用することで値を設定できそうという流れでした。
 
@@ -206,7 +206,7 @@ while (1)
 LABEL_244 : v263 = v120;
 ```
 
-さて、このサブルーチンをどういじっていいのかわからないと思いますが（ここを解析するのにすっごい時間がかかった）
+さて、このサブルーチンをどういじっていいのかわからないと思いますが（ここを解析するのにすっごい時間がかかった）。
 
 最終的に goto LABEL_244 に到達して v263=v120 という処理をおこなっていることに注目すれば何となく分かると思います。
 
@@ -218,10 +218,10 @@ LABEL_244 : v263 = v120;
 
 ```
 //  Before
-STR        W21, [SP,#0x424]
+STR W21, [SP,#0x424]
 
 // After
-STR        WZR, [SP,#0x424]
+STR WZR, [SP,#0x424]
 ```
 
 さて、これで常に Lock の値として None を返すコードが書けます。
@@ -241,13 +241,13 @@ STR        WZR, [SP,#0x424]
 ```
 LDR        X1, [SP,#0x630+var_5C8]
 ADRP       X2, #aPrice@PAGE ; "Price"
-SUB        X0, X29,                    #-var_C8 ; this
-ADD        X2, X2,                     #aPrice@PAGEOFF ; "Price"
+SUB        X0, X29, #-var_C8 ; this
+ADD        X2, X2, #aPrice@PAGEOFF ; "Price"
 BL         _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc ; Lp::Utl::ByamlIter::tryGetIntByKey(int *,char const*)
 LDR        X1, [SP,#0x630+var_5D0] ; int *
 ADRP       X2, #aRank@PAGE ; "Rank"
-SUB        X0, X29,                    #-var_C8 ; this
-ADD        X2, X2,                     #aRank@PAGEOFF ; "Rank"
+SUB        X0, X29, #-var_C8 ; this
+ADD        X2, X2, #aRank@PAGEOFF ; "Rank"
 BL         _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc ; Lp::Utl::ByamlIter::tryGetIntByKey(int *,char const*)
 ```
 
@@ -262,12 +262,12 @@ Lp::Utl::ByamlIter::tryGetIntByKey((Lp::Utl::ByamlIter *)&v269, &v262, "Rank");
 
 ```
 // Free Weapon
-STR        WZR, [X1]
+STR WZR, [X1]
 ```
 
 ```
 // Unlock All Weapon
-STR        WZR, [X1]
+STR WZR, [X1]
 ```
 
 これを ARM to HEX で変換してアドレスを追加して IPSwitch で使える形式にします。
