@@ -111,25 +111,25 @@ Game::Coop::PlayerDirector
   0x348 sead::IDisposer
   0x368 char char0x368
   0x370 Game::Coop::Player player[0]
-    8x370 mRoundBankedPowerIkuraNum
-    8x374 mGotGoldenIkuraNum
-    ex378 mRoundBankedGoldenIkuraNum
-    ex37C mTotalBankedGoldenIkuraNum 
+    0x370 mRoundBankedPowerIkuraNum
+    0x374 mGotGoldenIkuraNum
+    0x378 mRoundBankedGoldenIkuraNum
+    0x37C mTotalBankedGoldenIkuraNum
   0x470 Game::Coop::Player player[1]
-    ex470 mRoundBankedPowerIkuraNum
-    8x474 mGotGoldenIkuraNum
-    8x478 mRoundBankedGoldenIkuraNum
-    8x47C mTotalBankedGoldenIkuraNum
-  8x570 Game::Coop::Player player[2]
-    8x570 mRoundBankedPowerIkuraNum
+    0x470 mRoundBankedPowerIkuraNum
+    0x474 mGotGoldenIkuraNum
+    0x478 mRoundBankedGoldenIkuraNum
+    0x47C mTotalBankedGoldenIkuraNum
+  0x570 Game::Coop::Player player[2]
+    0x570 mRoundBankedPowerIkuraNum
     0x574 mGotGoldenIkuraNum
     0x578 mRoundBankedGoldenIkuraNum
-    8x57C mTotalBankedGoldenIkuraNum
-  8x670 Game::Coop::Player player[3]
-    8x678 mRoundBankedPowerIkuraNum
-    8x674 mGotGoldenIkuraNum
+    0x57C mTotalBankedGoldenIkuraNum
+  0x670 Game::Coop::Player player[3]
+    0x670 mRoundBankedPowerIkuraNum
+    0x674 mGotGoldenIkuraNum
     0x678 mRoundBankedGoldenIkuraNum
-    ex67C mTotalBankedGoldenIkuraNum
+    0x67C mTotalBankedGoldenIkuraNum
 ```
 
 つまり、`Game::Coop::PlayerDirector`のインスタンスのポインタが分かればそこから 370 バイト後ろにズラしたところに一人目のプレイヤーの`mRoundBankedPowerIkuraNum`のデータが入っています。
@@ -149,8 +149,8 @@ IPSwitch 向けコードを書くといっても最終的に機械語に翻訳�
 ### インスタンスのアドレスを読み込む
 
 | 目的のアドレス | Hook したいアドレス |
-| :-----------: | :----------------: |
-|   02D0C000    |      0104C000      |
+| :------------: | :-----------------: |
+|    02D0C000    |      0104C000       |
 
 計算の結果。
 
