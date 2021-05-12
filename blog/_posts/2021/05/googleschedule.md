@@ -62,7 +62,7 @@ def main():
             flow = InstalledAppFlow.from_client_secrets_file(
                 "credentials.json", SCOPES)
             creds = flow.run_local_server(port=0)
-        # 二回目以降はtoken.jsonを読み込む
+        # 二回目以降は token.json を読み込む
         with open("token.json", "w") as token:
             token.write(creds.to_json())
 
@@ -71,4 +71,27 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
+
+実行すると認証用の URL にとばされる。このとき、たとえプロジェクトを作成したアカウントであっても信頼できるユーザに追加されていないとアクセスが拒否されてしまう。
+
+OAuth 同意画面から「信頼できるユーザ」として追加するのを忘れないようにしておこう。
+
+## 予定の書き込み
+
+予定を書き込むには以下のフォーマットが使える。
+
+```python
+body = {
+    "summary": "SUMMARY"
+    "start": {
+        "dateTime": "START TIME WITH ISO FORMAT",
+        "timeZone": "TIMEZONE"
+    },
+    "end": {
+        "dateTime": "END TIME WITH ISO FORMAT",
+        "timeZone": "TIMEZONE"
+    },
+}
+event = service.events().insert(calendarId="primary", body=body).execute()
 ```
