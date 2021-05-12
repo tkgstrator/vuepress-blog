@@ -95,3 +95,27 @@ body = {
 }
 event = service.events().insert(calendarId="primary", body=body).execute()
 ```
+
+カレンダー ID は`primary`を設定しているけれど、自分が作成したカレンダー ID なら何でも使えます。
+
+例えば以前に解説した[サーモンランのシフトのカレンダー](https://tkgstrator.work/posts/2021/05/10/googlecalendar.html)の ID は`9ojdd871h0bjhutscdulijib1g@group.calendar.google.com`になります。この値はカレンダーの設定から「カレンダーの統合」を参照すれば見ることができます。
+
+`colorId`などで色を付けることもできるのですが、共有すると色の設定は消えてしまうのであまり意味がなかったりします。あくまで個人用の設定です。
+
+サーモンランのシフトをカレンダーに登録するときは UNIX のタイムスタンプを ISO フォーマットに変換して〜という処理を行いました。
+
+変換自体は以下のようなコードで行なえます。
+
+```python
+from datetime import datetime
+
+start_time = datetime.fromtimestamp(schedule["start_time"]).isoformat()
+```
+
+もしもコードを全文見たい方がいれば[GitHub Gist](https://gist.github.com/tkgstrator/030f5a98bea56b7e33c5e00cf897caf9)で公開しているのでご自由に改変してどうぞ。
+
+Salmonia シリーズでも利用している第 1 回から第 914 回までの全シフトの情報もついでに公開しているのでご自由にご利用下さい。
+
+というかこれ、次のシフトが公開されたときに自分でまたカレンダーに登録するために使いそうですね。
+
+記事は以上。
