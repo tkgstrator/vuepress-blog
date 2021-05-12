@@ -94,3 +94,5 @@ URL の入力画面になるのでカレンダーを追加します。
 <li class="price">￥770</li>
 </ul>
 </div>
+
+<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;src=OW9qZGQ4NzFoMGJqaHV0c2NkdWxpamliMWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=cGpxa3Mybzg5ZGlwZWR0c2lvbGZrdDI3bW9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=M2tydjk2bHZxNmgyM3YyZ3U4OGUyY3Y5cDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dmFxanJ2MGhrOHE2bHUxbW8zZW9wNHU2dmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23AD1457&amp;color=%23F09300&amp;color=%23009688&amp;color=%23B39DDB&amp;title=%E3%82%B7%E3%83%95%E3%83%88%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
