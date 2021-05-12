@@ -1,6 +1,6 @@
 ---
 title: PythonでGoogle Schedule APIを扱う
-date: 2021-05-10
+date: 2021-05-11
 description: Google Schedule APIを使って予定を自動で追加したり取得したりしてみます。
 category: プログラミング
 tags:
