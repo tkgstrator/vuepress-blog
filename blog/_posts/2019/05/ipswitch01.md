@@ -9,6 +9,7 @@ tags:
 ---
 
 ## コードの自作の目的と意味
+
 IPSwitch でいろいろなコードを試している人はたくさんいるように思います。
 
 中にはコードを使うだけで楽しい人もいるかも知れませんが、「自分でもコードを見つけたい」と思っている人もいるかも知れません。
@@ -38,7 +39,7 @@ IPSwitch でいろいろなコードを試している人はたくさんいる�
 |      Ver      | ELF(IDA) |  NSO(IDA)  |
 | :-----------: | :------: | :--------: |
 |     3.1.0     | 37106C4  | 71037106C4 |
-|     5.4.0     | 24178B5  | 71024178b5 |
+|     5.4.0     | 24178B5  | 71024178B5 |
 
 ::: tip
 `Shooter_Normal_H`でテキスト検索をすれば割りと早く見つけられると思います。
@@ -63,7 +64,7 @@ IPSwitch でいろいろなコードを試している人はたくさんいる�
 
 とにかくパラメータは多すぎるので、全部書ききることはできません。
 
-### 値を0にするコード
+### 値を 0 にするコード
 
 先程、最も書きやすいコードは実行ファイル内で定義されている変数を変更するものだと述べました。
 
@@ -91,7 +92,7 @@ GHIDRA を起動させるためのバッチファイル内で最大メモリ使�
 
 ![](/assets/images/14.png)
 
-アドレスは 71024178b5 で、その右を見ると XREF[2] の記述から 710008547c のもう一つ隣の 71000864e8 でこの値が使われていることがわかります。
+アドレスは 71024178B5 で、その右を見ると XREF[2] の記述から 710008547C のもう一つ隣の 71000864E8 でこの値が使われていることがわかります。
 
 ダブルクリックするとこのアドレスにとぶことができるので、実際にそのサブルーチンを見てみましょう。
 
@@ -108,44 +109,34 @@ GHIDRA を起動させるためのバッチファイル内で最大メモリ使�
 ## アセンブラを理解する
 
 ```
-loc_864dc
-LDR             X1, [SP,#0x6C0+var_660]
-ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR             X19, [SP,#0x6C0+var_468]
-BL              sub_19E4678
+loc_864DC
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+BL         sub_19E4678
 ```
 
 この五行がスペシャル必要量を設定しているサブルーチンになります。
 
-で、そのサブルーチンを実行したときのレジスタの動きはだいたいこんな感じ（自信がないので間違ってたら指摘ください）
+で、そのサブルーチンを実行したときのレジスタの動きはだいたいこんな感じ（自信がないので間違ってたら指摘ください）。
 
 ![](/assets/images/16.png)
 
 ![](/assets/images/17.png)
 
-※どんな値が入っているかはここではわからない
-
 ![](/assets/images/18.png)
-
-※X29 に保存されているデータはアド レスかもしれないし、値かもしれない
 
 ![](/assets/images/19.png)
 
-※ただ、 #SC の値は常に 0 なのでこの動作に意味があるのかよくわかっていない
-
-※アドレスに定数を足して何をしているのかもよくわからない
-
 ![](/assets/images/20.png)
-
-※[] はそのアドレスの値を意味する
 
 ![](/assets/images/21.png)
 
 ![](/assets/images/22.png)
 
-で、細かいことはさておいて最終的には X1 レジスタに入っているアドレスが指し示すメモリの値が SpecialCost として使われます。
+で、細かいことはさておいて最終的には X1 レジスタに入っているアドレスが指し示すメモリの値が`SpecialCost`として使われます。
 
 ![](/assets/images/23.png)
 
@@ -164,8 +155,8 @@ BL              sub_19E4678
 上の例の場合は、X1 レジスタが参照先のメモリのアドレスを保持しているのでこれが利用できます。
 
 ```
-MOV             X20, #0
-STR             X20, [X1]
+MOV X20, #0
+STR X20, [X1]
 ```
 
 例えばこのように書けばアドレス XXX に保存されているデータの値を 0 に上書きすることができます。
@@ -179,7 +170,7 @@ STR             X20, [X1]
 そこで、読み込むと必ず 0 を返すゼロレジスタを利用します。
 
 ```
-STR             WZR, [X1]
+STR WZR, [X1]
 ```
 
 こう書けば X1 の値を 0 にするコードが一行で書けてしまいます。
@@ -188,28 +179,28 @@ STR             WZR, [X1]
 
 X1 レジスタが指し示すアドレスの値を 0 にするアセンブラは`STR WZR, [X1]`と書くことができました。
 
-そして、本来こういった動作はサブルーチン 19e4678 で行われます。
+そして、本来こういった動作はサブルーチン 19E4678 で行われます。
 
 つまり、サブルーチンに入らずに単に X1 レジスタの値を変更してしまえば期待通りの動作をするはずです。
 
-よって、サブルーチン 19e4678 に分岐するための命令`BL sub_19E4678`自体を書き換えてしまいましょう。
+よって、サブルーチン 19E4678 に分岐するための命令`BL sub_19E4678`自体を書き換えてしまいましょう。
 
 ```
 // Before
-LDR             X1, [SP,#0x6C0+var_660]
-ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR             X19, [SP,#0x6C0+var_468]
-BL              sub_19E4678
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+BL         sub_19E4678
 
 // After
-LDR             X1, [SP,#0x6C0+var_660]
-ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR             X19, [SP,#0x6C0+var_468]
-STR             WZR, [X1]
+LDR        X1, [SP,#0x6C0+var_660]
+ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+STR        X19, [SP,#0x6C0+var_468]
+STR        WZR, [X1]
 ```
 
 `BL sub_19E4678`の命令が書かれているアドレスは 864f0 ですので、これを`STR WZR, [X1]`という命令で上書きします。
@@ -224,7 +215,7 @@ STR             WZR, [X1]
 
 このとき出力される ARM HEX の値をコピーします。
 
-これが ARM64 が解釈できる`STR WZR, [X1]` という命令になります。
+これが ARM64 が解釈できる`STR WZR, [X1]`という命令になります。
 
 ```
 // Special Cost 0 [tkgling]
@@ -243,12 +234,12 @@ STR             WZR, [X1]
 そして、今回のサブルーチンと全く同じ構造を持ったサブルーチンは多数あります。
 
 ```
-LDR             X1, [SP,#0xXXX]
-ADRP            X2, #XYZ ; Parameter
-SUB             X0, X29, #-var_C8
-ADD             X2, X2, #XYZ ; Parameter
-STR             X19, [SP,#0xXXX]
-BL              sub_ABCDEFG
+LDR        X1, [SP,#0xXXX]
+ADRP       X2, #XYZ ; Parameter
+SUB        X0, X29, #-var_C8
+ADD        X2, X2, #XYZ ; Parameter
+STR        X19, [SP,#0xXXX]
+BL         sub_ABCDEFG
 ```
 
 つまり、こういうサブルーチンであるなら、BL の命令を上書きしてパラメータの値を 0 にすることは簡単だということです。

@@ -61,7 +61,7 @@ module.exports = {
 
   themeConfig: {
     // language of this theme
-    lang: require("./public/lang/ja-JP"),
+    // lang: require("./public/lang/ja-JP"),
 
     // personal information
     personalInfo: {
@@ -173,6 +173,7 @@ module.exports = {
         repo: "vuepress-blog-comment",
         clientId: "f7ca8cef9b8e0be50beb",
         clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
+        autoCreateIssue: process.env.NODE_ENV !== "development",
       },
     ],
     [

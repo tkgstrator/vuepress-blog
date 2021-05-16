@@ -6,7 +6,7 @@ category: Hack
 
 ## ParamHash
 
-https://github.com/tkgstrator/ParamHash/releases/tag/v0.0.1
+[ParamHash](https://github.com/tkgstrator/ParamHash/releases/tag/v0.0.1)
 
 解説すると長くなるのだが、スプラトゥーン 2 では XML のパラメータファイルが BPRM, BYML, BYAML といったファイルに暗号化されている。
 
@@ -22,6 +22,7 @@ https://github.com/tkgstrator/ParamHash/releases/tag/v0.0.1
 
 あとはそのパラメータファイルを CRC32 でハッシュ化し、それを CSV として出力すれば良い。
 
+```python
 import zlib
 
 with open(INPUTFILE, mode="r") as f:
@@ -31,6 +32,7 @@ param = line.strip()
 hash = format(zlib.crc32(param.encode("ascii")) & 0xFFFFFFFF, "x")
 param = param.split(".")
 w.write(f"{hash},{param[0[}\\n")
+```
 
 それ自体は上のようなコードで実装できる。とても簡単である。
 
@@ -55,5 +57,9 @@ w.write(f"{hash},{param[0[}\\n")
 ### おまけ
 
 Python って本当に楽、あと焼き肉食べたい。
+
+で、気付いたのだがパラメータ名からハッシュにする際に型を無視してしまっているので逆変換はできないことに気付いた（ダメじゃん
+
+なので逆変換はしないでください！！
 
 記事は以上。
