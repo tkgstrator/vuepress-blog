@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #1"
 date: 2019-05-01
-description: IPSwitchで使えるコードを自作する方法についての解説#1です
+description: "IPSwitch で使えるコードを自作する方法についての解説 #1 です"
 category: Hack
 tags:
   - IPSwitch
@@ -45,7 +45,7 @@ IPSwitch でいろいろなコードを試している人はたくさんいる�
 `Shooter_Normal_H`でテキスト検索をすれば割りと早く見つけられると思います。
 :::
 
-これらは文字列なのでソースコードのコメントが削除された Ver3.1.0 以降の NSO であっても比較的読みやすいはずです。
+これらは文字列なのでソースコードのコメントが削除された 3.1.0 以降の NSO であっても比較的読みやすいはずです。
 
 ここから自分がいじりたいと思うパラメータを検索する必要があります。
 
@@ -109,13 +109,12 @@ GHIDRA を起動させるためのバッチファイル内で最大メモリ使�
 ## アセンブラを理解する
 
 ```
-loc_864DC
-LDR        X1, [SP,#0x6C0+var_660]
-ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB        X0, X29, #-var_C8
-ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR        X19, [SP,#0x6C0+var_468]
-BL         sub_19E4678
+000864DC                 LDR             X1, [SP,#0x6C0+var_660]
+000864E0                 ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
+000864E4                 SUB             X0, X29, #-var_C8
+000864E8                 ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+000864EC                 STR             X19, [SP,#0x6C0+src]
+000864F0                 BL              sub_19E4678
 ```
 
 この五行がスペシャル必要量を設定しているサブルーチンになります。
@@ -152,7 +151,7 @@ BL         sub_19E4678
 
 ではどうすればいいのかというと、メモリのアドレスを保持しているレジスタを利用するのです。
 
-上の例の場合は、X1 レジスタが参照先のメモリのアドレスを保持しているのでこれが利用できます。
+上の例の場合は、 X1 レジスタが参照先のメモリのアドレスを保持しているのでこれが利用できます。
 
 ```
 MOV X20, #0
@@ -187,25 +186,25 @@ X1 レジスタが指し示すアドレスの値を 0 にするアセンブラ�
 
 ```
 // Before
-LDR        X1, [SP,#0x6C0+var_660]
-ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB        X0, X29, #-var_C8
-ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR        X19, [SP,#0x6C0+var_468]
-BL         sub_19E4678
+000864DC                 LDR             X1, [SP,#0x6C0+var_660]
+000864E0                 ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
+000864E4                 SUB             X0, X29, #-var_C8
+000864E8                 ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+000864EC                 STR             X19, [SP,#0x6C0+src]
+000864F0                 BL              sub_19E4678
 
 // After
-LDR        X1, [SP,#0x6C0+var_660]
-ADRP       X2, #aSpecialcost@PAGE ; "SpecialCost"
-SUB        X0, X29, #-var_C8
-ADD        X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
-STR        X19, [SP,#0x6C0+var_468]
-STR        WZR, [X1]
+000864DC                 LDR             X1, [SP,#0x6C0+var_660]
+000864E0                 ADRP            X2, #aSpecialcost@PAGE ; "SpecialCost"
+000864E4                 SUB             X0, X29, #-var_C8
+000864E8                 ADD             X2, X2, #aSpecialcost@PAGEOFF ; "SpecialCost"
+000864EC                 STR             X19, [SP,#0x6C0+src]
+                         STR             WZR, [X1]
 ```
 
-`BL sub_19E4678`の命令が書かれているアドレスは 864f0 ですので、これを`STR WZR, [X1]`という命令で上書きします。
+`BL sub_19E4678`の命令が書かれているアドレスは 000864F0 ですので、これを`STR WZR, [X1]`という命令で上書きします。
 
-これはこのままではアセンブラですので、ARM64 が解釈できる機械語に治す必要があります。
+これはこのままではアセンブラですので、 ARM64 が解釈できる機械語に治す必要があります。
 
 以下のサイトで簡単に変換できるので試してみましょう。
 
@@ -234,15 +233,15 @@ STR        WZR, [X1]
 そして、今回のサブルーチンと全く同じ構造を持ったサブルーチンは多数あります。
 
 ```
-LDR        X1, [SP,#0xXXX]
-ADRP       X2, #XYZ ; Parameter
-SUB        X0, X29, #-var_C8
-ADD        X2, X2, #XYZ ; Parameter
-STR        X19, [SP,#0xXXX]
-BL         sub_ABCDEFG
+LDR             X1, [SP,#0xXXX]
+ADRP            X2, #XYZ ; Parameter
+SUB             X0, X29, #-var_C8
+ADD             X2, X2, #XYZ ; Parameter
+STR             X19, [SP,#0xXXX]
+BL              sub_ABCDEFG
 ```
 
-つまり、こういうサブルーチンであるなら、BL の命令を上書きしてパラメータの値を 0 にすることは簡単だということです。
+つまり、こういうサブルーチンであるなら、 BL の命令を上書きしてパラメータの値を 0 にすることは簡単だということです。
 
 ::: tip
 基本的には X1 レジスタが指し示す値を変更すれば反映されるはずです。
