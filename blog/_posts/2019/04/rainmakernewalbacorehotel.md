@@ -8,19 +8,19 @@ tags:
 ---
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-Gni3XkAEE75r?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-Gni3XkAEE75r?format=png)
 
-|項目|値|
-|---|---|
-| ノックアウト率 | 19.34% |
-| 平均ノックアウト時間 | 2:42 |
-| 勝利側平均カウント+ | 20 |
-| 勝利側平均カウント | 25 |
-| 敗北側平均カウント | 53 |
+|        項目         |   値   |
+|        :---:        | :---:  |
+|    ノックアウト率    | 19.34% |
+| 平均ノックアウト時間 |  2:42  |
+| 勝利側平均カウント+  |   20   |
+|  勝利側平均カウント  |   25   |
+|  敗北側平均カウント  |   53   |
 
 ## 概要
 
-![](https://pbs.twimg.com/media/Ec5t-FBXoAA0cYB?format=jpg&name=large)
+![](https://pbs.twimg.com/media/Ec5t-FBXoAA0cYB?format=jpg)
 
 基本的なルートは三つあるが、**青ルート以外は地雷**。
 
@@ -58,11 +58,11 @@ tags:
 青ルートはジェッパが強いぞ！！
 :::
 
-![](https://web.archive.org/web/20190418104950im_/https://tkgstrator.work/wp-content/uploads/2018/07/2018070501104258.png)
+![](https://pbs.twimg.com/media/E1jbiY5VUAARig2?format=png)
 
 ここの隅っこを復帰地点にしておくと狩られにくいです。
 
-![](https://web.archive.org/web/20190418104950im_/https://tkgstrator.work/wp-content/uploads/2018/07/2018070501104802.png)
+![](https://pbs.twimg.com/media/E1jbkiAUUAAJiER?format=png)
 
 **相手のリスポーン地点が丸見えなのがとにかく強い**。
 
@@ -85,7 +85,9 @@ tags:
 
 時間稼ぎする上では良いポイントなんだけど、バックしてまでこんなことしなくていいです。
 
-![](https://web.archive.org/web/20190418104950im_/https://tkgstrator.work/wp-content/uploads/2018/07/2018070417531759.png)
+![](https://pbs.twimg.com/media/E1jbmFbVgAElprz?format=png)
 
 **最後が塗れない床な上、いつでも水没して時間稼ぎができる**のでノックアウトは難しそう。
 :::
+
+記事は以上。
