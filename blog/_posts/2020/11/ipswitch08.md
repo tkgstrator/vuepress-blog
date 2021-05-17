@@ -113,7 +113,7 @@ Starlight だと簡単だったけど、それだと面白くないのでいつ�
 
 さて、ここまで調べたデータをまとめると以下のようになります。
 
-|               サブルーチン                |  5.4.0   |
+|                  クラス                  |  5.4.0   |
 |       Game::PlayerMgr::sInstance         | 02CFDCF8 |
 | Game::PlayerCloneHandle::sendSignalEvent | 0104C94C |
 | Game::PlayerMgr::getControlledPerformer  | 010E6D2C |
