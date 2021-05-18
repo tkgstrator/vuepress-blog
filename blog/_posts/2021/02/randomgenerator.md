@@ -1,27 +1,31 @@
 ---
-title: "スプラトゥーンの乱数実装ミスについて"
-date: "2021-02-15"
+title: スプラトゥーンの乱数実装ミスについて
+date: 2021-02-15
 category: Hack
+tags:
+  - サーモンラン
+  - Python
 ---
 
-## スプラトゥーンの乱数
+# スプラトゥーンの乱数
 
 スプラトゥーンの乱数生成器は以下のような Python コードで表現できます。
 
+```python
 class NSRandom:
-mSeed1 = 0x00000000
-mSeed2 = 0x00000000
-mSeed3 = 0x00000000
-mSeed4 = 0x00000000
+    mSeed1 = 0x00000000
+    mSeed2 = 0x00000000
+    mSeed3 = 0x00000000
+    mSeed4 = 0x00000000
 
-    def \_\_init\_\_(self):
+    def __init__(self):
         pass
 
     def init(self, seed):
-        self.mSeed1 = 0xFFFFFFFF & (0x6C078965 \* (seed ^ (seed >> 30)) + 1)
-        self.mSeed2 = 0xFFFFFFFF & (0x6C078965 \* (self.mSeed1 ^ (self.mSeed1 >> 30)) + 2)
-        self.mSeed3 = 0xFFFFFFFF & (0x6C078965 \* (self.mSeed2 ^ (self.mSeed2 >> 30)) + 3)
-        self.mSeed4 = 0xFFFFFFFF & (0x6C078965 \* (self.mSeed3 ^ (self.mSeed3 >> 30)) + 4)
+        self.mSeed1 = 0xFFFFFFFF & (0x6C078965 * (seed ^ (seed >> 30)) + 1)
+        self.mSeed2 = 0xFFFFFFFF & (0x6C078965 * (self.mSeed1 ^ (self.mSeed1 >> 30)) + 2)
+        self.mSeed3 = 0xFFFFFFFF & (0x6C078965 * (self.mSeed2 ^ (self.mSeed2 >> 30)) + 3)
+        self.mSeed4 = 0xFFFFFFFF & (0x6C078965 * (self.mSeed3 ^ (self.mSeed3 >> 30)) + 4)
 
     def getU32(self):
         n = self.mSeed1 ^ (0xFFFFFFFF & self.mSeed1 << 11)
@@ -31,6 +35,7 @@ mSeed4 = 0x00000000
         self.mSeed4 = (n ^ (n >> 8) ^ self.mSeed4 ^ (self.mSeed4 >> 19))
 
         return self.mSeed4
+```
 
 コードを見ると Xorshift に近い感じがするのですが、ひょっとしたら独自の乱数生成器なのかもしれません。排他的論理和とビットシフトしか使わないので非常に高速に乱数を生成できるのが強みです。
 
@@ -48,55 +53,59 @@ Ocean Calc によって初期シードからイベント内容などを先読み
 
 まず最初に初期シードから各 WAVE のイベント情報を決めるときのアルゴリズムと、各 WAVE の内容を決定する WAVE シードの選び方に問題があるのではないかと考えました。
 
-https://tkgstrator.work/?p=28395
-
+```python
 def getWaveInfo(self):
-mEventProb = [18, 1, 1, 1, 1, 1, 1[
-mTideProb = [1, 3, 1[
-self.rnd.init(self.mGameSeed)
+    mEventProb = [18, 1, 1, 1, 1, 1, 1]
+    mTideProb = [1, 3, 1]
+    self.rnd.init(self.mGameSeed)
 
     for wave in range(3):
         sum = 0
         for event in range(7):
             if (
                 (wave > 0)
-                and (self.mEvent[wave - 1[ != 0)
-                and (self.mEvent[wave - 1[ == event)
+                and (self.mEvent[wave - 1] != 0)
+                and (self.mEvent[wave - 1] == event)
             ):
                 continue
             sum += mEventProb[event[
-            if (self.rnd.getU32() \* sum >> 0x20) < mEventProb[event[:
-                self.mEvent[wave[ = event
+            if (self.rnd.getU32() * sum >> 0x20) < mEventProb[event]:
+                self.mEvent[wave] = event
         sum = 0
         for tide in range(3):
-            if tide == 0 and 1 <= self.mEvent[wave[ and self.mEvent[wave[ <= 3:
+            if tide == 0 and 1 <= self.mEvent[wave] and self.mEvent[wave] <= 3:
                 continue
-            sum += mTideProb[tide[
-            if (self.rnd.getU32() \* sum >> 0x20) < mTideProb[tide[:
-                self.mTide[wave[ = 0 if self.mEvent[wave[ == 6 else tide
+            sum += mTideProb[tide]
+            if (self.rnd.getU32() * sum >> 0x20) < mTideProb[tide]:
+                self.mTide[wave] = 0 if self.mEvent[wave] == 6 else tide
+```
 
 これは Python コードですが、WAVE の潮位やイベントを決める際には初期シードである mGameSeed を使って乱数生成器を初期化しています。
 
+```python
 def setWaveMgr(self):
-self.rnd.init(self.mGameSeed)
-self.rnd.getU32()
-self.mWaveMgr = [
-WaveMgr(0, self.mGameSeed),
-WaveMgr(1, self.rnd.getU32()),
-WaveMgr(2, self.rnd.getU32()),
-[
+    self.rnd.init(self.mGameSeed)
+    self.rnd.getU32()
+    self.mWaveMgr = [
+        WaveMgr(0, self.mGameSeed),
+        WaveMgr(1, self.rnd.getU32()),
+        WaveMgr(2, self.rnd.getU32())
+    ]
+```
 
 そして、WAVE でのオオモノシャケの出現などを決定する WAVE シードは初期シードから計算されるのですが、何故か WAVE1 の WAVE シードには初期シードが使われてしまっています。そして、意味もなく（全く何にも使われていない）一回無駄に乱数が生成されることがわかっています。
 
 これは確認のしようがない以上推測に委ねるしかないのですが、本来は以下のように三回ちゃんと初期シードから生成された乱数を WAVE シードにするはずが、任天堂の実装ミスで初期シードを WAVE シードにしてしまったのではないかと考えられるのです。
 
+```python
 def setWaveMgr(self):
-self.rnd.init(self.mGameSeed)
-self.mWaveMgr = [
-WaveMgr(0, self.rnd.getU32()),
-WaveMgr(1, self.rnd.getU32()),
-WaveMgr(2, self.rnd.getU32()),
-[
+    self.rnd.init(self.mGameSeed)
+    self.mWaveMgr = [
+        WaveMgr(0, self.rnd.getU32()),
+        WaveMgr(1, self.rnd.getU32()),
+        WaveMgr(2, self.rnd.getU32()),
+    ]
+```
 
 そしてこの WAVE シードの実装ミスと思われる不可解なコードがラッシュイベントにおけるランダム性に影響を与えることになりました。
 
@@ -112,7 +121,11 @@ WAVE1 は WAVE シードが初期シードになっているため、一番影�
 
 ラッシュは WAVE1 に発生した場合、何故か初手は 1 湧きになりにくいことが知られていました。1000 万通りくらい調べても初手 1 湧きがないので「ないだろう」という予想だったのですが、実際に調べてみることにした。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td></tr><tr><td class="has-text-align-center" data-align="center">干潮</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">通常</td><td class="has-text-align-center" data-align="center">0.0000%<br>0通り</td><td class="has-text-align-center" data-align="center">52.6085%<br>70050477通り</td><td class="has-text-align-center" data-align="center">47.3914%<br>63103715通り</td></tr><tr><td class="has-text-align-center" data-align="center">満潮</td><td class="has-text-align-center" data-align="center">0.0000%<br>0通り</td><td class="has-text-align-center" data-align="center">47.3500%<br>21131287通り</td><td class="has-text-align-center" data-align="center">52.6499%<br>23496525通り</td></tr></tbody></table>
+|      |     1 湧き      |         2 湧き          |         3 湧き          |
+| :--- | :-------------: | :---------------------: | :---------------------: |
+| 干潮 |        -        |            -            |            -            |
+| 通常 | 0.0000%(0 通り) | 52.6085%(70050477 通り) | 47.3914%(63103715 通り) |
+| 満潮 | 0.0000%(0 通り) | 47.3500%(21131287 通り) | 52.6499%(23496525 通り) |
 
 というわけで、実際に WAVE1 のラッシュは絶対に初手は 1 湧きではないことが確定しました。
 
@@ -128,7 +141,11 @@ WAVE1 は WAVE シードが初期シードになっているため、一番影�
 
 グリルに関しては初手湧きは正しく 1 湧きが発生しました。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td></tr><tr><td class="has-text-align-center" data-align="center">干潮</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">通常</td><td class="has-text-align-center" data-align="center">22.2694%<br>29718747通り</td><td class="has-text-align-center" data-align="center">38.8657%<br>51866811通り</td><td class="has-text-align-center" data-align="center">38.8649%<br>51865710通り</td></tr><tr><td class="has-text-align-center" data-align="center">満潮</td><td class="has-text-align-center" data-align="center">22.2440%<br>9930800通り</td><td class="has-text-align-center" data-align="center">38.8861%<br>17360628通り</td><td class="has-text-align-center" data-align="center">38.8699%<br>17353391通り</td></tr></tbody></table>
+|      |         1 湧き          |         2 湧き          |         3 湧き          |
+| :--- | :---------------------: | :---------------------: | :---------------------: |
+| 干潮 |            -            |            -            |            -            |
+| 通常 | 22.2694%(29718747 通り) | 38.8657%(51866811 通り) | 38.8649%(51865710 通り) |
+| 満潮 | 22.2440%(9930800 通り)  | 38.8861%(17360628 通り) | 38.8699%(17353391 通り) |
 
 ### キンシャケ探し
 
