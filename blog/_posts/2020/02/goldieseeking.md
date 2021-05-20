@@ -12,6 +12,34 @@ tags:
 
 データがメインなので面白いテクニックなどは掲載していません。
 
+## カンケツセン ID
+
+全て内部 ID で表記しています。Salmon Learn とは割り当てが異なるので注意してください。
+
+### シェケナダム
+
+![](https://pbs.twimg.com/media/E10-6dsUYAQbC6Y?format=png&name=large)
+
+### 難破船ドン・ブラコ
+
+::: warning ドンブラコのキンシャケ探しについて
+
+解析可能な 3.1.0 と現在のサインバージョンである 5.4.0 でカンケツセンの数が変化しているため、内部 ID も変わっている。そのため、内部 ID がはっきりと分かっていない。
+
+:::
+
+### 海上集落シャケト場
+
+![](https://pbs.twimg.com/media/E10-4ROVIAULkZ4?format=jpg&name=4096x4096)
+
+### トキシラズいぶし工房
+
+![](https://pbs.twimg.com/media/E10-49_VEAIN7oE?format=png&name=large)
+
+### 朽ちた箱舟ポラリス
+
+![](https://pbs.twimg.com/media/E10-5miVUAIUFTP?format=png&name=large)
+
 ## 最小開栓手順
 
 今回は手数を最小にする「最小手順」を紹介する。手数が最小となる開栓方法が複数存在するステージもあるが、今回はその中で一般的なものを紹介する。
