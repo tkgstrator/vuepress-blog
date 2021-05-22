@@ -58,8 +58,12 @@ td {
     }
 } */
 
-.content img {
+.content p img {
   max-width: 100% !important;
+  max-height: 400px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
 }
 
 .embed-responsive {

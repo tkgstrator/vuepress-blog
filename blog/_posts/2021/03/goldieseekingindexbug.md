@@ -5,17 +5,25 @@ description: "インデックスバグで偏りが生まれたキンシャケ探
 category: Splatoon2
 ---
 
-## WAVE1 の初手アタリ位置の偏り
+# インデックスバグについて
 
-https://tkgstrator.work/?p=28540
+[前回の記事](https://tkgstrator.work/posts/2021/02/15/randomgenerator.html)で WAVE1 に発生するキンシャケ探しにおいてアタリ位置が大きく偏っていることは解説したが、実際にどのくらい偏っているのかを調べたのが今回の記事の内容になります。
 
-前回の記事で WAVE1 に発生するキンシャケ探しにおいてアタリ位置が大きく偏っていることは解説したが、実際にどのくらい偏っているのかを調べたのが今回の記事の内容になります。
-
-### 通常潮位の場合
+## 通常潮位の場合
 
 前回の記事では絶対に初手でアタリ位置にならないポイントがあると述べましたが、それぞれのアタリの確率を全通り調べることでチェックしました。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">A</td><td class="has-text-align-center" data-align="center">B</td><td class="has-text-align-center" data-align="center">C</td><td class="has-text-align-center" data-align="center">D</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">G</td><td class="has-text-align-center" data-align="center">H</td><td class="has-text-align-center" data-align="center">I</td></tr><tr><td class="has-text-align-center" data-align="center">シェケナダム</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">12.2175%</td><td class="has-text-align-center" data-align="center">12.2274%</td><td class="has-text-align-center" data-align="center">12.4400%</td><td class="has-text-align-center" data-align="center">12.6129%</td><td class="has-text-align-center" data-align="center">12.7169%</td><td class="has-text-align-center" data-align="center">15.5655%</td><td class="has-text-align-center" data-align="center">11.1076%</td><td class="has-text-align-center" data-align="center">11.1121%</td></tr><tr><td class="has-text-align-center" data-align="center">ドンブラコ</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">13.6241%</td><td class="has-text-align-center" data-align="center">14.1779%</td><td class="has-text-align-center" data-align="center">14.4848%</td><td class="has-text-align-center" data-align="center">14.6779%</td><td class="has-text-align-center" data-align="center">18.0336%</td><td class="has-text-align-center" data-align="center">12.5000%</td><td class="has-text-align-center" data-align="center">12.5017%</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">シャケト場</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">12.2175%</td><td class="has-text-align-center" data-align="center">12.2274%</td><td class="has-text-align-center" data-align="center">12.4400%</td><td class="has-text-align-center" data-align="center">12.6129%</td><td class="has-text-align-center" data-align="center">12.7169%</td><td class="has-text-align-center" data-align="center">15.5655%</td><td class="has-text-align-center" data-align="center">11.1076%</td><td class="has-text-align-center" data-align="center">11.1121%</td></tr><tr><td class="has-text-align-center" data-align="center">トキシラズ</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">16.3615%</td><td class="has-text-align-center" data-align="center">17.0888%</td><td class="has-text-align-center" data-align="center">17.4402%</td><td class="has-text-align-center" data-align="center">20.5351%</td><td class="has-text-align-center" data-align="center">14.2890%</td><td class="has-text-align-center" data-align="center">14.2855%</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">ポラリス</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">16.3615%</td><td class="has-text-align-center" data-align="center">17.0888%</td><td class="has-text-align-center" data-align="center">17.4402%</td><td class="has-text-align-center" data-align="center">20.5351%</td><td class="has-text-align-center" data-align="center">14.2890%</td><td class="has-text-align-center" data-align="center">14.2855%</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr></tbody></table>
+|     | シェケナダム | ドンブラコ | シャケト場 | トキシラズ | ポラリス |
+| :-: | :----------: | :--------: | :--------: | :--------: | :------: |
+|  A  |   0.0000%    |  0.0000%   |  0.0000%   |  0.0000%   |    -     |
+|  B  |   12.2175%   |  13.6241%  |  12.2175%  |  16.3615%  |    -     |
+|  C  |   12.2274%   |  14.1779%  |  12.2274%  |  17.0888%  |    -     |
+|  D  |   12.4400%   |  14.4848%  |  12.4400%  |  17.4402%  |    -     |
+|  E  |   12.6129%   |  14.6779%  |  12.6129%  |  20.5351%  |    -     |
+|  F  |   12.7169%   |  18.0336%  |  12.7169%  |  14.2890%  |    -     |
+|  G  |   15.5655%   |  12.5000%  |  15.5655%  |  14.2855%  |    -     |
+|  H  |   11.1076%   |  12.5017%  |  11.1076%  |     -      |    -     |
+|  I  |   11.1121%   |     -      |  11.1121%  |     -      |    -     |
 
 通常のキンシャケ探しでは全てのアタリ位置に対して二つ以上ゴール候補が存在するので、どこがアタリ位置になるかは初期シードとカンケツセン数だけで決まります。
 
@@ -23,9 +31,19 @@ https://tkgstrator.work/?p=28540
 
 なので、開栓手数やコンテナとの距離などを考えなければトキシラズとポラリスにおいては初手 E を開けるのが最も良いということになります。
 
-### 満潮の場合
+## 満潮の場合
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">A</td><td class="has-text-align-center" data-align="center">B</td><td class="has-text-align-center" data-align="center">C</td><td class="has-text-align-center" data-align="center">D</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">G</td><td class="has-text-align-center" data-align="center">H</td><td class="has-text-align-center" data-align="center">I</td></tr><tr><td class="has-text-align-center" data-align="center">シェケナダム</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">28.4996%</td><td class="has-text-align-center" data-align="center">31.4996%</td><td class="has-text-align-center" data-align="center">19.9962%</td><td class="has-text-align-center" data-align="center">20.0045%</td></tr><tr><td class="has-text-align-center" data-align="center">ドンブラコ</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">50.0145%</td><td class="has-text-align-center" data-align="center">24.9789%</td><td class="has-text-align-center" data-align="center">25.0067%</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">シャケト場</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">28.4996%</td><td class="has-text-align-center" data-align="center">31.4996%</td><td class="has-text-align-center" data-align="center">19.9962%</td><td class="has-text-align-center" data-align="center">20.0045%</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">トキシラズ</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">28.4996%</td><td class="has-text-align-center" data-align="center">31.4996%</td><td class="has-text-align-center" data-align="center">19.9962%</td><td class="has-text-align-center" data-align="center">20.0045%</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">ポラリス</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">0.0000%</td><td class="has-text-align-center" data-align="center">50.0145%</td><td class="has-text-align-center" data-align="center">24.9789%</td><td class="has-text-align-center" data-align="center">25.0067%</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr></tbody></table>
+|     | シェケナダム | ドンブラコ | シャケト場 | トキシラズ | ポラリス |
+| :-: | :----------: | :--------: | :--------: | :--------: | :------: |
+|  A  |      -       |     -      |  0.0000%   |     -      |    -     |
+|  B  |      -       |     -      |  28.4996%  |     -      |    -     |
+|  C  |      -       |     -      |     -      |  0.0000%   |    -     |
+|  D  |      -       |     -      |     -      |  28.4996%  | 0.0000%  |
+|  E  |   0.0000%    |  0.0000%   |     -      |  31.4996%  | 50.0145% |
+|  F  |   28.4996%   |  50.0145%  |     -      |  19.9962%  | 24.9789% |
+|  G  |   31.4996%   |  24.9789%  |  31.4996%  |  20.0045%  | 25.0067% |
+|  H  |   19.9962%   |  25.0067%  |  19.9962%  |     -      |    -     |
+|  I  |   20.0045%   |     -      |  20.0045%  |     -      |    -     |
 
 ポラリスに関してはアタリ位置に対してゴール位置が一つしかないため、ゴール位置を決めるときに乱数を消費しません。その結果、本来 D の位置がアタリになるべき確率が全て E に吸収されるという（まるでモンティ・ホール問題）異常事態が発生しています。また、同様にドンブラコでも E のアタリ位置の確率が全て F に吸収されています。
 
@@ -41,33 +59,43 @@ https://tkgstrator.work/?p=28540
 
 ### 通常の場合
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">A</td><td class="has-text-align-center" data-align="center">B</td><td class="has-text-align-center" data-align="center">C</td><td class="has-text-align-center" data-align="center">D</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">G</td><td class="has-text-align-center" data-align="center">H</td><td class="has-text-align-center" data-align="center">I</td></tr><tr><td class="has-text-align-center" data-align="center">シェケナダム</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td></tr><tr><td class="has-text-align-center" data-align="center">ドンブラコ</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">シャケト場</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td></tr><tr><td class="has-text-align-center" data-align="center">トキシラズ</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">ポラリス</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr></tbody></table>
+A 以外のアタリ位置に関しては二連続同じ位置がアタリになるケースが存在することがわかりました。
 
-初手から二連続同じ位置のアタリがあるか
+::: tip 三連続の場合
 
 また、追加で調べたところ三連続同じアタリ位置も存在することがわかりました。
 
-つまり、通常潮位では使いみちがありません。
+確率に差がある可能性はありますが、現状通常潮位では使いみちがなさそうです。
+
+:::
 
 ### 満潮の場合
 
 WAVE1 の満潮の場合、ドンブラコとポラリス以外は同じ場所が初手から二連続でアタリになることは絶対にありません。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">A</td><td class="has-text-align-center" data-align="center">B</td><td class="has-text-align-center" data-align="center">C</td><td class="has-text-align-center" data-align="center">D</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">G</td><td class="has-text-align-center" data-align="center">H</td><td class="has-text-align-center" data-align="center">I</td></tr><tr><td class="has-text-align-center" data-align="center">シェケナダム</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td></tr><tr><td class="has-text-align-center" data-align="center">ドンブラコ</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">シャケト場</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">トキシラズ</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">ポラリス</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr></tbody></table>
-
-初手から二連続同じ位置のアタリがあるか
+|     | シェケナダム | ドンブラコ | シャケト場 | トキシラズ | ポラリス |
+| :-: | :----------: | :--------: | :--------: | :--------: | :------: |
+|  A  |      -       |     -      |     NO     |     -      |    -     |
+|  B  |      -       |     -      |     NO     |     -      |    -     |
+|  C  |      -       |     -      |     -      |     NO     |    -     |
+|  D  |      -       |     -      |     -      |     NO     |    NO    |
+|  E  |      NO      |     NO     |     -      |     NO     |   YES    |
+|  F  |      NO      |    YES     |     -      |     NO     |   YES    |
+|  G  |      NO      |    YES     |     NO     |     NO     |   YES    |
+|  H  |      NO      |    YES     |     NO     |     -      |    -     |
+|  I  |      NO      |     -      |     NO     |     -      |    -     |
 
 これが一体何に使えるんだということになりますが、例えばトキシラズだと対岸のどちらかがアタリなら、次は両方開ける必要がないケースが存在することになります。
 
-![](https://pbs.twimg.com/media/EuThKMKVgAA5CgT?format=png&name=small)
-
 トキシラズのカンケツセンの内部 ID はこのようになっていますが、例えば初手で C がアタリなら二回目は C は絶対ではアタリではありません。なので二回目は D を先にあけ、大なら E がアタリとわかるので C よりも優先して D を開けたほうが良いことがわかります。ちなみに D が小の場合は C が大か小かでアタリ位置が F か G かが変わってくるのでこの場合はどちらも開けなければ確定させることはできません。
 
-これが一つ増えて三連続となると、全てのステージで初手から三連続アタリとなるようなパターンは存在しません。
+::: tip 三連続
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">A</td><td class="has-text-align-center" data-align="center">B</td><td class="has-text-align-center" data-align="center">C</td><td class="has-text-align-center" data-align="center">D</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">G</td><td class="has-text-align-center" data-align="center">H</td><td class="has-text-align-center" data-align="center">I</td></tr><tr><td class="has-text-align-center" data-align="center">シェケナダム</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td></tr><tr><td class="has-text-align-center" data-align="center">ドンブラコ</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">シャケト場</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">トキシラズ</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr><tr><td class="has-text-align-center" data-align="center">ポラリス</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td></tr></tbody></table>
+WAVE1 の満潮キンシャケ探しで三連続同じ位置がアタリになるシードは存在しません。
 
-初手から三連続同じ位置のアタリがあるか
+かつてポラリスでコンテナ横が連続するシードで記録をだそうとしても WAVE2 と WAVE3 でしか見つからなかったのはこれが理由だったのですね、納得。
+
+:::
 
 ## 満潮の GraphNode 出力
 
@@ -77,7 +105,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ![](https://pbs.twimg.com/media/EuarthPUUAEyjRt?format=jpg&name=4096x4096)
 
-シェケナダム満潮
+### シェケナダム満潮
 
 1. 初手は必ず E ではない
 2. 初手と二回目は同じアタリ位置ではない
@@ -86,7 +114,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ![](https://pbs.twimg.com/media/EuaruS1VcAUJep9?format=png&name=4096x4096)
 
-ドンブラコ満潮
+### ドンブラコ満潮
 
 1. 初手は必ず E ではない
 2. 二回目と三回目は同じアタリ位置ではない
@@ -95,7 +123,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ![](https://pbs.twimg.com/media/Euaru3vVEAEDi0j?format=jpg&name=4096x4096)
 
-シャケト場満潮
+### シャケト場満潮
 
 1. 初手は必ず A ではない
 2. 初手と二回目は同じアタリ位置ではない
@@ -104,7 +132,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ![](https://pbs.twimg.com/media/EuarvuzUYAITqzV?format=jpg&name=4096x4096)
 
-トキシラズ満潮
+### トキシラズ満潮
 
 1. 初手は必ず C ではない
 2. 初手と二回目は同じアタリ位置ではない
@@ -113,7 +141,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ![](https://pbs.twimg.com/media/EuarwqyUUAYxXlM?format=png&name=4096x4096)
 
-ポラリス満潮
+### ポラリス満潮
 
 1. 初手は必ず D ではない
 2. 二回目と三回目は同じアタリ位置ではない
@@ -122,7 +150,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ちなみに、ポラリスとドンブラコは四回目以降のアタリ位置も調べてみたのですが「絶対にアタリにならないカンケツセン」は存在しませんでした。どうも、四回目以降については気にしなくて良さそうです。
 
-### 確率も計算させてみた
+::: tip 確率も計算させてみた
 
 プログラムのコーディングの問題で直接確率を出せなかったのでとりあえず場合の数だけ表示してみました。
 
@@ -130,7 +158,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ![](https://pbs.twimg.com/media/Eua6uxfVoAMKnmR?format=png&name=4096x4096)
 
-ポラリス満潮
+:::
 
 ちなみに四回目に偏りがあるかどうか調べてみたのですが、有意な差は見つかりませんでした。
 
@@ -142,31 +170,26 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 今までの最良手順は全てのアタリ位置が同様に確からしいという前提になっていましたが、その前提が崩れてしまったからです。
 
-https://tkgstrator.work/?p=12899
-
 以前の解析ではポラリス満潮については、最良手順で開栓をした場合に平均手数 2.00、最悪手数 3.00 であることがわかっています。また、理論的な下限として最悪手数 2.32 という値も得られています。
 
 更に良い開栓手順を考えて平均手数を 2.00 よりどのくらい下げることができるか考えてみましょう。
-
-### 考え方
 
 偏りがあったとしても、結局は手数を最小化すれば良いだけなので今までと同じ解析手法が使えます。
 
 プログラムを組んでもよいのですが、ヒューリスティックに解を求めてみましょう。
 
-![](https://pbs.twimg.com/media/EubJUqKUUAQrUZq?format=png&name=900x900)
-
-ポラリス満潮のカンケツセン内部 ID
-
-一回目
+### 一回目
 
 まず初手ですが、D が絶対にアタリではないのでカンケツセンが実質三つしかありません。なので二手で確実にアタリ位置を見つけることができます。例えば G を開けて大なら E で確定、小なら F で確定です。乱獲においては D あけがスタンダードになりつつありますが、WAVE1 であれば絶対に当たらない D を真っ先に開ける意味は全くないです。
 
 このとき、G をあけるか E を開けるかはなかなか難しい問題になります。G を最初にあければ盤石ですが、G をあけても無駄に終わる可能性が 50%もあるためです。しかし期待値を重視して E をあけてスカだった場合にコンテナ横がザコシャケまみれになります。連携ができていれば G スカからの即 E あけないしは F あけはできると思うので、初手 G が良いのかなという気はします。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">平均手数</td><td class="has-text-align-center" data-align="center">最悪手数</td></tr><tr><td class="has-text-align-center" data-align="center">初手G</td><td class="has-text-align-center" data-align="center">1.75</td><td class="has-text-align-center" data-align="center">2.00</td></tr><tr><td class="has-text-align-center" data-align="center">初手E</td><td class="has-text-align-center" data-align="center">1.50</td><td class="has-text-align-center" data-align="center">2.00</td></tr></tbody></table>
+|        | 平均手数 | 最悪手数 |
+| :----: | :------: | :------: |
+| 初手 G |   1.75   |   2.00   |
+| 初手 E |   1.50   |   2.00   |
 
-二回目
+### 二回目
 
 二回目は全てのカンケツセンがアタリ候補になりますが、二連続同じ場所になる確率が一番高いです。
 
@@ -174,13 +197,18 @@ https://tkgstrator.work/?p=12899
 
 ですが、一回目で G がアタリだった場合はこの 4%の恩恵を受けるために D ではなく G をあけたほうが僅かに得になります。
 
-三回目
+### 三回目
 
 二回目がアタリだったカンケツセンがアタリにならないため候補が三通りになります。
 
 一回目の場合は候補が三通りかつ偏りがありましたが、三回目の場合は偏りは存在しません。なので、前回アタリでなかったところを無視して最小手数となる手順を選択します。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">二回目のアタリ位置</td><td class="has-text-align-center" data-align="center">初手</td><td class="has-text-align-center" data-align="center">初手が大の場合</td><td class="has-text-align-center" data-align="center">初手が小の場合</td><td class="has-text-align-center" data-align="center">平均手数</td><td class="has-text-align-center" data-align="center">最悪手数</td></tr><tr><td class="has-text-align-center" data-align="center">D</td><td class="has-text-align-center" data-align="center">G</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">1.67</td><td class="has-text-align-center" data-align="center">2.00</td></tr><tr><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">-</td><td class="has-text-align-center" data-align="center">2.00</td><td class="has-text-align-center" data-align="center">3.00</td></tr><tr><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">D/G</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">G/D</td><td class="has-text-align-center" data-align="center">1.67</td><td class="has-text-align-center" data-align="center">2.00</td></tr><tr><td class="has-text-align-center" data-align="center">G</td><td class="has-text-align-center" data-align="center">D</td><td class="has-text-align-center" data-align="center">E</td><td class="has-text-align-center" data-align="center">F</td><td class="has-text-align-center" data-align="center">1.67</td><td class="has-text-align-center" data-align="center">2.00</td></tr></tbody></table>
+| 二回目のアタリ位置 | 初手 | 初手が大の場合 | 初手が小の場合 | 平均手数 | 最悪手数 |
+| :----------------: | :--: | :------------: | :------------: | :------: | :------: |
+|         D          |  G   |       E        |       F        |   1.67   |   2.00   |
+|         E          |  -   |       -        |       -        |   2.00   |   3.00   |
+|         F          | D/G  |       E        |      G/D       |   1.67   |   2.00   |
+|         G          |  D   |       E        |       F        |   1.67   |   2.00   |
 
 すると上のような図になります。二回目が E がアタリのときだけは有効活用することができません。D, F, G のどこをあけても必ず小になります。F がアタリだった場合は D でも G でも期待値は変わりません。
 
@@ -197,5 +225,3 @@ https://tkgstrator.work/?p=12899
 それは読者の皆様への宿題ということにしておこう（めんどくさい）
 
 記事は以上。
-
-https://www.amazon.co.jp/hz/wishlist/genericItemsPage/1OVWKJ7C5R9XK

@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #4"
 date: 2019-07-07
-description: IPSwitchで使えるコードを自作する方法についての解説#4です
+description: "IPSwitch で使えるコードを自作する方法についての解説 #4 です"
 category: Hack
 tags:
   - IPSwitch
@@ -77,21 +77,21 @@ Lock というところでブキが販売されているかどうかのチェッ
 
 要するに全てのブキに対して None を返せばロックが外れるという仕組みです。
 
-ただし、Rank 制限はこれとはまた別に引っかかってくるのでこちらも解除する必要があります。
+ただし、 Rank 制限はこれとはまた別に引っかかってくるのでこちらも解除する必要があります。
 
 ```
-ADRP       X2, #aLock@PAGE ; "Lock"
-SUB        X0, X29, #-var_C8 ; this
-ADD        X1, SP, #0x630+var_400 ; char **
-ADD        X2, X2, #aLock@PAGEOFF ; "Lock"
-STR        WZR, [SP,#0x630+var_20C]
-BL         _ZNK2Lp3Utl9ByamlIter17tryGetStringByKeyEPPKcS3_
-MOV        W21, WZR
+000864F4                 ADRP            X2, #aLock@PAGE ; "Lock"
+000864F8                 SUB             X0, X29, #-var_C8
+000864FC                 ADD             X1, SP, #0x6C0+src
+00086500                 ADD             X2, X2, #aLock@PAGEOFF ; "Lock"
+00086504                 STR             WZR, [SP,#0x6C0+var_26C]
+00086508                 BL              sub_19E4510
+0008650C                 MOV             W23, WZR
 ```
 
 このコードがどのように動いているかを考えましょう。
 
-Lockの値を設定するアドレスを載せておくので各自確かめてください。
+Lock の値を設定するアドレスを載せておくので各自確かめてください。
 
 |      Ver      | アドレス |
 | :-----------: | :------: |
@@ -131,7 +131,7 @@ Enum というのはこれまた大雑把にいうと配列のようなもので
 
 この辺、解釈超適当なので大幅に間違っている可能性アリ。
 
-そんな都合がいいサブルーチンある？と思うかもしれませんが、あります。
+「そんな都合がいいサブルーチンある？」と思うかもしれませんが、あります。
 
 ### Cmn::WeaponData::LockType::text_(int)
 
@@ -140,8 +140,8 @@ Enum というのはこれまた大雑把にいうと配列のようなもので
 このサブルーチン、あまりに長いので省略しますが次のような箇所を見てみるとたしかに Enum を使って TextPtr（テキストポインタ）を操作していそうなことがわかります。
 
 ```
-BL         _ZN4sead8EnumUtil10parseText_EPPcS1_i ; sead::EnumUtil::parseText_(char **,char *,int)
-STR        X21, [X24] ; Cmn::WeaponData::LockType::text_(int)::spTextPtr
+0009D800                 BL              sub_1720020
+0009D804                 STR             X21, [X24]
 ```
 
 ここでの各自のパラメータにおける Enum の値（これが正しい書き方なのかわからん）は以下のとおりです。
@@ -155,7 +155,7 @@ STR        X21, [X24] ; Cmn::WeaponData::LockType::text_(int)::spTextPtr
 | MissionBcat |  4   |
 |    Other    |  5   |
 
-None が 0 なのがいいですね、0 に設定するのは楽なので。
+None が 0 なのがいいですね、 0 に設定するのは楽なので。
 
 ## 擬似コード
 
@@ -210,11 +210,11 @@ LABEL_244 : v263 = v120;
 
 最終的に goto LABEL_244 に到達して v263=v120 という処理をおこなっていることに注目すれば何となく分かると思います。
 
-ここでは v120 は W21 レジスタで、v263 は [SP, #0x424] を意味しています。
+ここでは v120 は W21 レジスタで、 v263 は [SP, #0x424] を意味しています。
 
-つまり、W21 レジスタの中身を "わざわざ" メモリにコピーしているということです。
+つまり、 W21 レジスタの中身を "わざわざ" メモリにコピーしているということです。
 
-本来は W21 レジスタの中身をコピーしているところを None（Enum だと 0）をコピーすればいいのでゼロレジスタを使います。
+本来は W21 レジスタの中身をコピーしているところを None（ Enum だと 0 ）をコピーすればいいのでゼロレジスタを使います。
 
 ```
 //  Before
@@ -228,7 +228,7 @@ STR WZR, [SP,#0x424]
 
 ```
 // Unlock Weapon [tkgling]
-@enabled
+@disabled
 000865E8 FF2704B9 // STR WZR, [SP, #0x424]
 ```
 
@@ -239,19 +239,19 @@ STR WZR, [SP,#0x424]
 ついでなので値段も変更してしまいましょう。
 
 ```
-LDR        X1, [SP,#0x630+var_5C8]
-ADRP       X2, #aPrice@PAGE ; "Price"
-SUB        X0, X29, #-var_C8 ; this
-ADD        X2, X2, #aPrice@PAGEOFF ; "Price"
-BL         _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc ; Lp::Utl::ByamlIter::tryGetIntByKey(int *,char const*)
-LDR        X1, [SP,#0x630+var_5D0] ; int *
-ADRP       X2, #aRank@PAGE ; "Rank"
-SUB        X0, X29, #-var_C8 ; this
-ADD        X2, X2, #aRank@PAGEOFF ; "Rank"
-BL         _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc ; Lp::Utl::ByamlIter::tryGetIntByKey(int *,char const*)
+0008636C                 LDR             X1, [SP,#0x6C0+var_650]
+00086370                 ADRP            X2, #aPrice@PAGE ; "Price"
+00086374                 SUB             X0, X29, #-var_C8
+00086378                 ADD             X2, X2, #aPrice@PAGEOFF ; "Price"
+0008637C                 BL              sub_19E4678
+00086380                 LDR             X1, [SP,#0x6C0+var_658]
+00086384                 ADRP            X2, #aRank@PAGE ; "Rank"
+00086388                 SUB             X0, X29, #-var_C8
+0008638C                 ADD             X2, X2, #aRank@PAGEOFF ; "Rank"
+00086390                 BL              sub_19E4678
 ```
 
-以下のようにどちらも値をレジスタに直接代入していないので、[X1] レジスタにコピーするコードを書きましょう。
+以下のようにどちらも値をレジスタに直接代入していないので、 [X1] レジスタにコピーするコードを書きましょう。
 
 ```
 Lp::Utl::ByamlIter::tryGetIntByKey((Lp::Utl::ByamlIter *)&v269, &v261, "Price");
