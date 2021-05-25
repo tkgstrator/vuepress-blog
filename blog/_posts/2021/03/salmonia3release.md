@@ -1,12 +1,12 @@
 ---
-title: "Salmonia3をリリースした"
-date: "2021-03-20"
+title: Salmonia3をリリースした
+date: 2021-03-20
 category: プログラミング
 ---
 
 ## Salmonia3
 
-https://apps.apple.com/us/app/salmonia3/id1558344150
+[Salmonia3](https://apps.apple.com/us/app/salmonia3/id1558344150)
 
 秘密裏に進めていた Salmonia3 の App Store の審査ですが、二回のリジェクトを経て無事リリースすることができました。
 
@@ -56,7 +56,20 @@ Salmonia2 を使われていた方ならご存知かと思うのですが、Test
 
 ## Salmonia2 と 3 の比較
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">機能</td><td class="has-text-align-center" data-align="center">Salmonia2</td><td class="has-text-align-center" data-align="center">Salmonia3</td></tr><tr><td class="has-text-align-center" data-align="center">リザルト取得</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td></tr><tr><td class="has-text-align-center" data-align="center">リザルトアップロード</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr><tr><td class="has-text-align-center" data-align="center">リザルト詳細</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">△</td></tr><tr><td class="has-text-align-center" data-align="center">リザルト取り込み</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr><tr><td class="has-text-align-center" data-align="center">シフト統計</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr><tr><td class="has-text-align-center" data-align="center">将来のシフト閲覧</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">△</td></tr><tr><td class="has-text-align-center" data-align="center">WAVE記録閲覧</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr><tr><td class="has-text-align-center" data-align="center">複数アカウント</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr><tr><td class="has-text-align-center" data-align="center">ゲーミング機能</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr><tr><td class="has-text-align-center" data-align="center">広告表示</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">△</td></tr><tr><td class="has-text-align-center" data-align="center">Salmon Stats閲覧</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr><tr><td class="has-text-align-center" data-align="center">ステージ記録</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">✕</td></tr></tbody></table>
+|        機能         | Salmonia2 | Salmonia3 |
+| :-----------------: | :-------: | :-------: |
+|     リザルト取得     |    ◯     |    ◯     |
+| リザルトアップロード |    ◯     |    ✕     |
+|     リザルト詳細     |    ◯     |    △     |
+|   リザルト取り込み   |    ◯     |    ✕     |
+|      シフト統計      |    ◯     |    ✕     |
+|   将来のシフト閲覧   |    ◯     |    △     |
+|    WAVE 記録閲覧     |    ◯     |    ✕     |
+|    複数アカウント    |    ◯     |    ✕     |
+|    ゲーミング機能    |    ◯     |    ✕     |
+|       広告表示       |    ◯     |    △     |
+|  Salmon Stats 閲覧   |    ◯     |    ✕     |
+|     ステージ記録     |    ◯     |    ✕     |
 
 というわけで、現在のところはリザルトを取得してローカルに保存するだけの機能しかありません。
 
@@ -96,8 +109,12 @@ Salmonia1 の方は 3 の機能が充実次第、App Store から削除してサ
 
 あと、最近喫茶ステラと死神の蝶っていう美少女ゲームにでてくる四季ナツメさんが可愛いと思い始めています。
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=tkgstrator0f-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B08935SPLQ&linkId=d28798a81bcee0c009296fb56c834226"></iframe>
-
-四季ナツメさん
+<div class="vuepress-affiliate">
+<img src="https://m.media-amazon.com/images/I/512GMIqA2WL._SL200_.jpg"></img>
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B08935SPLQ/?tag=tkgstrator0f-22" target="_blank">喫茶ステラと死神の蝶 オリジナルサウンドトラック(ボックス付き)</a></li>
+<li class="price">￥4,979 (中古品)</li>
+</ul>
+</div>
 
 記事は以上。

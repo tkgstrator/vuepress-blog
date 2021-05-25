@@ -1,7 +1,6 @@
 ---
-title: "GAS版Salmoniaを複数アカウント対応した"
-date: "2021-02-04"
-description: "Android 版の Salmonia はリザルトアップロード機能しかなく、iOS 版のようにデータ分析などができない。よって、本記事は Android を所持している方向けで、そういう人はパソコンがあるなら絶対に導入したほうがいいです"
+title: GAS版Salmoniaを複数アカウント対応した
+date: 2021-02-04
 category: Splatoon2
 ---
 
@@ -17,10 +16,6 @@ iPhone や iPad があるならこれを導入した上で Salmonia2 を使え�
 
 GAS のアカウント開設や、設定の大まかな方法は以前と変わっていません。
 
-以下の記事を参考にしてください。
-
-https://tkgstrator.work/?p=28023
-
 また、iksm_session の取得には PC 版の Salmonia が必須です。
 
 最近コードを大幅に変えて安定性を向上させたので、ぜひともそっちを使ってみてください。
@@ -31,7 +26,7 @@ https://tkgstrator.work/?p=28023
 
 ### サブ垢対応のコード
 
-https://gist.github.com/tkgstrator/3f190327b114ec6ce9d7405559e600fe
+[Salmonia for GAS](https://gist.github.com/tkgstrator/3f190327b114ec6ce9d7405559e600fe)
 
 ### プロパティについて
 
@@ -39,9 +34,11 @@ https://gist.github.com/tkgstrator/3f190327b114ec6ce9d7405559e600fe
 
 JSON 形式と言われてもよくわからないと思うので、テンプレートを置いておくのでそのとおりに書いてみてください。
 
-IKSM_SESSION => ["IKSM_SESSION_1", "IKSM_SESSION_2"[
+```
+IKSM_SESSION => ["IKSM_SESSION_1", "IKSM_SESSION_2"]
 API_TOKEN => API_TOKEN
-JOB_NUM => ["0", "0"[
+JOB_NUM => ["0", "0"]
+```
 
 `IKSM_SESSION`と`JOB_NUM`だけは読み込みの都合上、ダブルクオーテーションで囲む必要があります。`API_TOKEN`だけはそのままであることに注意してください。
 

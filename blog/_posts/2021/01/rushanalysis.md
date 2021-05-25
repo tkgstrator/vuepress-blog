@@ -1,14 +1,16 @@
 ---
-title: "ラッシュいろいろ検証"
-date: "2021-01-31"
+title: ラッシュいろいろ検証
+date: 2021-01-31
 category: Splatoon2
+tags:
+  - サーモンラン
 ---
 
 ## 湧き方向とドロップ個数
 
 半径 600DU のジェットパックのジェットでタマヒロイやシャケを出現した瞬間にリスキルして、理想的な間引き環境を再現することを目的とした。
 
-https://www.youtube.com/watch?v=kqBfu25\_t8A
+@[youtube](https://www.youtube.com/watch?v=kqBfu25_t8A)
 
 全域ではないものの、かなり広範囲が射程内になっているためこれでリスキルできないような状況は発生しないと考えられるが...
 
@@ -18,21 +20,33 @@ https://www.youtube.com/watch?v=kqBfu25\_t8A
 
 何故かはわからないが、3 湧きが絶望的な遅さになった。シャケとタマヒロイのレートは 19 になるはずなのだが、実際に 19 付近をうろうろしていたのでキンシャケが消えているわけではないようだ。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">通常</td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td><td class="has-text-align-center" data-align="center">理論値</td></tr><tr><td class="has-text-align-center" data-align="center">キンシャケ数</td><td class="has-text-align-center" data-align="center">177</td><td class="has-text-align-center" data-align="center">179</td><td class="has-text-align-center" data-align="center">80</td><td class="has-text-align-center" data-align="center">180</td></tr><tr><td class="has-text-align-center" data-align="center">タマヒロイ</td><td class="has-text-align-center" data-align="center">0</td><td class="has-text-align-center" data-align="center">0</td><td class="has-text-align-center" data-align="center">0</td><td class="has-text-align-center" data-align="center">0</td></tr><tr><td class="has-text-align-center" data-align="center">シャケ</td><td class="has-text-align-center" data-align="center">3410</td><td class="has-text-align-center" data-align="center">3416</td><td class="has-text-align-center" data-align="center">1499</td><td class="has-text-align-center" data-align="center">3600</td></tr><tr><td class="has-text-align-center" data-align="center">赤イクラ</td><td class="has-text-align-center" data-align="center">20243</td><td class="has-text-align-center" data-align="center">20302</td><td class="has-text-align-center" data-align="center">8935</td><td class="has-text-align-center" data-align="center">20340</td></tr><tr><td class="has-text-align-center" data-align="center">詰まり</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">80.4%</td><td class="has-text-align-center" data-align="center">0.0%</td></tr></tbody></table>
+|     通常     | 1 湧き | 2 湧き | 3 湧き | 理論値 |
+| :---------: | :----: | :----: | :----: | :----: |
+| キンシャケ数 |  177   |  179   |   80   |  180   |
+|  タマヒロイ  |   0    |   0    |   0    |   0    |
+|    シャケ    |  3410  |  3416  |  1499  |  3600  |
+|   赤イクラ   | 20243  | 20302  |  8935  | 20340  |
+|    詰まり    |  0.0%  |  0.0%  | 80.4%  |  0.0%  |
 
 試しに上限の 32 体に引っかかっているフレーム数を計算したところ、なんと 600 秒(36000F)のうち 80%近くも上限に引っかかっていることが分かった。
 
 しかも気になるのはどう見てもシャケが詰まっているようには見えないというところである。これはトキシラズの 3 湧きがバグっていると言われても仕方がない気がする。
 
-なんと雑草（@[](https://twitter.com/workingAllDay)[workingAllDay](https://twitter.com/workingAllDay)）氏が同じような検証をしていてくれた。
+なんと[@workingAllDay](https://twitter.com/workingAllDay)氏が同じような検証をしていてくれた。
 
 やはり 3 湧きのシャケが湧いているはずなのに見えない状態（地形に埋まっているか、オブジェクトの隙間から落下している可能性が高い）になっているようだ。
 
 ハイパープレッサーでリスキルできることから、どこかのくぼみに引っかかっている可能性もある。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">満潮</td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td><td class="has-text-align-center" data-align="center">理論値</td></tr><tr><td class="has-text-align-center" data-align="center">キンシャケ数</td><td class="has-text-align-center" data-align="center">177</td><td class="has-text-align-center" data-align="center">179</td><td class="has-text-align-center" data-align="center">79</td><td class="has-text-align-center" data-align="center">180</td></tr><tr><td class="has-text-align-center" data-align="center">タマヒロイ</td><td class="has-text-align-center" data-align="center">0</td><td class="has-text-align-center" data-align="center">0</td><td class="has-text-align-center" data-align="center">0</td><td class="has-text-align-center" data-align="center">0</td></tr><tr><td class="has-text-align-center" data-align="center">シャケ</td><td class="has-text-align-center" data-align="center">3410</td><td class="has-text-align-center" data-align="center">3394</td><td class="has-text-align-center" data-align="center">1476</td><td class="has-text-align-center" data-align="center">3600</td></tr><tr><td class="has-text-align-center" data-align="center">赤イクラ</td><td class="has-text-align-center" data-align="center">20243</td><td class="has-text-align-center" data-align="center">20192</td><td class="has-text-align-center" data-align="center">8804</td><td class="has-text-align-center" data-align="center">20340</td></tr><tr><td class="has-text-align-center" data-align="center">詰まり</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">1.49%</td><td class="has-text-align-center" data-align="center">80.20%</td><td class="has-text-align-center" data-align="center">0.0%</td></tr></tbody></table>
+|     満潮     | 1 湧き | 2 湧き | 3 湧き | 理論値 |
+| :---------: | :----: | :----: | :----: | :----: |
+| キンシャケ数 |  177   |  179   |   79   |  180   |
+|  タマヒロイ  |   0    |   0    |   0    |   0    |
+|    シャケ    |  3410  |  3394  |  1476  |  3600  |
+|   赤イクラ   | 20243  | 20192  |  8804  | 20340  |
+|    詰まり    |  0.0%  | 1.49%  | 80.20% |  0.0%  |
 
-満潮の場合においては 2 湧きもわずかに詰まることが確認されたが、通常と同様に 3 湧きはやはり 80%以上も詰まることが明らかになった。
+満潮の場合においては 2 湧きもわずかに詰まることが確認されたが、通常と同様に 3 湧きはやはり 80% 以上も詰まることが明らかになった。
 
 ただ、実際には金イクラのドロップが発生するのでそれによって出現するタマヒロイがラッシュを加速させたりしてより複雑になるはずだ。
 
@@ -42,11 +56,23 @@ https://www.youtube.com/watch?v=kqBfu25\_t8A
 
 まずは、トキシラズ通常 2 湧きが最も加速する 9 個ドロップを試すことにした。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">通常</td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td><td class="has-text-align-center" data-align="center">理論値</td></tr><tr><td class="has-text-align-center" data-align="center">キンシャケ数</td><td class="has-text-align-center" data-align="center">173</td><td class="has-text-align-center" data-align="center">207</td><td class="has-text-align-center" data-align="center">62</td><td class="has-text-align-center" data-align="center">180</td></tr><tr><td class="has-text-align-center" data-align="center">タマヒロイ</td><td class="has-text-align-center" data-align="center">1138</td><td class="has-text-align-center" data-align="center">1215</td><td class="has-text-align-center" data-align="center">1105</td><td class="has-text-align-center" data-align="center">0</td></tr><tr><td class="has-text-align-center" data-align="center">シャケ</td><td class="has-text-align-center" data-align="center">3413</td><td class="has-text-align-center" data-align="center">3391</td><td class="has-text-align-center" data-align="center">1092</td><td class="has-text-align-center" data-align="center">3600</td></tr><tr><td class="has-text-align-center" data-align="center">赤イクラ</td><td class="has-text-align-center" data-align="center">27026</td><td class="has-text-align-center" data-align="center">27974</td><td class="has-text-align-center" data-align="center">13206</td><td class="has-text-align-center" data-align="center">20340</td></tr><tr><td class="has-text-align-center" data-align="center">詰まり</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">84.35%</td><td class="has-text-align-center" data-align="center">0.0%</td></tr></tbody></table>
+|     通常     | 1 湧き | 2 湧き | 3 湧き | 理論値 |
+| :---------: | :----: | :----: | :----: | :----: |
+| キンシャケ数 |  173   |  207   |   62   |  180   |
+|  タマヒロイ  |  1138  |  1215  |  1105  |   0    |
+|    シャケ    |  3413  |  3391  |  1092  |  3600  |
+|   赤イクラ   | 27026  | 27974  | 13206  | 20340  |
+|    詰まり    |  0.0%  |  0.0%  | 84.35% |  0.0%  |
 
 すると、1 湧きではほとんど割り込みの効果が得られず、3 湧きはキンシャケの出現数が更に減る結果となった。3 湧きがダメダメなことはまあおいとくとして、1 湧きと 2 湧きの差はどこから生まれたのだろう？
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">満潮</td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td><td class="has-text-align-center" data-align="center">理論値</td></tr><tr><td class="has-text-align-center" data-align="center">キンシャケ数</td><td class="has-text-align-center" data-align="center">206</td><td class="has-text-align-center" data-align="center">131</td><td class="has-text-align-center" data-align="center">132</td><td class="has-text-align-center" data-align="center">180</td></tr><tr><td class="has-text-align-center" data-align="center">タマヒロイ</td><td class="has-text-align-center" data-align="center">1217</td><td class="has-text-align-center" data-align="center">1217</td><td class="has-text-align-center" data-align="center">1212</td><td class="has-text-align-center" data-align="center">0</td></tr><tr><td class="has-text-align-center" data-align="center">シャケ</td><td class="has-text-align-center" data-align="center">3393</td><td class="has-text-align-center" data-align="center">2287</td><td class="has-text-align-center" data-align="center">2975</td><td class="has-text-align-center" data-align="center">3600</td></tr><tr><td class="has-text-align-center" data-align="center">赤イクラ</td><td class="has-text-align-center" data-align="center">27978</td><td class="has-text-align-center" data-align="center">21104</td><td class="has-text-align-center" data-align="center">24569</td><td class="has-text-align-center" data-align="center">20340</td></tr><tr><td class="has-text-align-center" data-align="center">詰まり</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">52.32%</td><td class="has-text-align-center" data-align="center">23.34%</td><td class="has-text-align-center" data-align="center">0.0%</td></tr></tbody></table>
+|     満潮     | 1 湧き | 2 湧き | 3 湧き | 理論値 |
+| :---------: | :----: | :----: | :----: | :----: |
+| キンシャケ数 |  206   |  131   |  132   |  180   |
+|  タマヒロイ  |  1217  |  1217  |  1212  |   0    |
+|    シャケ    |  3393  |  2287  |  2975  |  3600  |
+|   赤イクラ   | 27978  | 21104  | 24569  | 20340  |
+|    詰まり    |  0.0%  | 52.32% | 23.34% |  0.0%  |
 
 満潮の場合では経験則上 2 湧きが全然稼げないことはわかっていたが、実際にやってみると想像以上に稼げないことがわかった。
 
@@ -56,11 +82,15 @@ https://www.youtube.com/watch?v=kqBfu25\_t8A
 
 3.1.0 では朽ちた方舟ポラリスが実装されていないのだが、強制的にトキシラズいぶし工房のモデルデータを上書きすることで実装した。
 
-https://tkgstrator.work/?p=27418
-
 通常潮位はやる気が起きなかったので、満潮だけで検証することにした。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">満潮</td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td><td class="has-text-align-center" data-align="center">理論値</td></tr><tr><td class="has-text-align-center" data-align="center">キンシャケ数</td><td class="has-text-align-center" data-align="center">170</td><td class="has-text-align-center" data-align="center">182</td><td class="has-text-align-center" data-align="center">181</td><td class="has-text-align-center" data-align="center">180</td></tr><tr><td class="has-text-align-center" data-align="center">タマヒロイ</td><td class="has-text-align-center" data-align="center">1080</td><td class="has-text-align-center" data-align="center">1115</td><td class="has-text-align-center" data-align="center">1057</td><td class="has-text-align-center" data-align="center">0</td></tr><tr><td class="has-text-align-center" data-align="center">シャケ</td><td class="has-text-align-center" data-align="center">3424</td><td class="has-text-align-center" data-align="center">3417</td><td class="has-text-align-center" data-align="center">3421</td><td class="has-text-align-center" data-align="center">3600</td></tr><tr><td class="has-text-align-center" data-align="center">赤イクラ</td><td class="has-text-align-center" data-align="center">26666</td><td class="has-text-align-center" data-align="center">27058</td><td class="has-text-align-center" data-align="center">26667</td><td class="has-text-align-center" data-align="center">20340</td></tr><tr><td class="has-text-align-center" data-align="center">詰まり</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td></tr></tbody></table>
+|     通常     | 1 湧き | 2 湧き | 3 湧き | 理論値 |
+| :---------: | :----: | :----: | :----: | :----: |
+| キンシャケ数 |  170   |  182   |  181   |  180   |
+|  タマヒロイ  |  1080  |  1115  |  1057  |   0    |
+|    シャケ    |  3424  |  3417  |  3421  |  3600  |
+|   赤イクラ   | 26666  | 27058  | 26667  | 20340  |
+|    詰まり    |  0.0%  |  0.0%  |  0.0%  |  0.0%  |
 
 すると、1 湧きだけがその他に比べてキンシャケ数が少ないという結果が得られた。
 
@@ -68,7 +98,7 @@ https://tkgstrator.work/?p=27418
 
 この原因はなんだろうかと考えたとき、タマヒロイの出現位置が関係しているのではないかという発想が得られた。
 
-![](https://pbs.twimg.com/media/Es9YNvmVgAIaqgp?format=png&name=900x900)
+![](https://pbs.twimg.com/media/Es9YNvmVgAIaqgp?format=png)
 
 上図は大雑把な金イクラのドロップ位置によるタマヒロイの出現箇所を示したものである。
 
@@ -78,7 +108,13 @@ https://tkgstrator.work/?p=27418
 
 これを確かめるのは簡単で、金イクラのドロップ位置が必ず全て同じエリア内に落ちるような位置に移動してからジェットパックを吐いてデータを取ればよい。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">満潮</td><td class="has-text-align-center" data-align="center">1湧き</td><td class="has-text-align-center" data-align="center">2湧き</td><td class="has-text-align-center" data-align="center">3湧き</td><td class="has-text-align-center" data-align="center">理論値</td></tr><tr><td class="has-text-align-center" data-align="center">キンシャケ数</td><td class="has-text-align-center" data-align="center">206</td><td class="has-text-align-center" data-align="center">206</td><td class="has-text-align-center" data-align="center">206</td><td class="has-text-align-center" data-align="center">180</td></tr><tr><td class="has-text-align-center" data-align="center">タマヒロイ</td><td class="has-text-align-center" data-align="center">1217</td><td class="has-text-align-center" data-align="center">1217</td><td class="has-text-align-center" data-align="center">1217</td><td class="has-text-align-center" data-align="center">0</td></tr><tr><td class="has-text-align-center" data-align="center">シャケ</td><td class="has-text-align-center" data-align="center">3393</td><td class="has-text-align-center" data-align="center">3393</td><td class="has-text-align-center" data-align="center">3393</td><td class="has-text-align-center" data-align="center">3600</td></tr><tr><td class="has-text-align-center" data-align="center">赤イクラ</td><td class="has-text-align-center" data-align="center">27980</td><td class="has-text-align-center" data-align="center">27980</td><td class="has-text-align-center" data-align="center">27979</td><td class="has-text-align-center" data-align="center">20340</td></tr><tr><td class="has-text-align-center" data-align="center">詰まり</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td><td class="has-text-align-center" data-align="center">0.0%</td></tr></tbody></table>
+|     満潮     | 1 湧き | 2 湧き | 3 湧き | 理論値 |
+| :---------: | :----: | :----: | :----: | :----: |
+| キンシャケ数 |  206   |  206   |  206   |  180   |
+|  タマヒロイ  |  1217  |  1217  |  1217  |   0    |
+|    シャケ    |  3393  |  3393  |  3393  |  3600  |
+|   赤イクラ   | 27980  | 27980  |  27979 | 20340  |
+|    詰まり    |  0.0%  |  0.0%  |  0.0%  |  0.0%  |
 
 その結果、全ての湧き位置に対して完璧と言って差し支えないほどのデータを得ることができた。
 
@@ -120,11 +156,9 @@ https://tkgstrator.work/?p=27418
 
 金イクラをいくつ放置すれば最適になるのかは難しい問題であるが、少なくとも 9 個放置してそれなりの速度でリスキルしていればかなり得をするのは間違いない。
 
-だが、実際に 9 個も放置し続けるというのは容易ではない。せいぜい 5 個~6 個程度が限界であるようにも思う。
+だが、実際に 9 個も放置し続けるというのは容易ではない。せいぜい 5 ~ 6 個程度が限界であるようにも思う。
 
-https://tkgstrator.work/?p=28400
-
-前回の研究では 5 個放置してタマヒロイを 672 体たおした場合にはキンシャケはわずかに減ることがわかっている。これがたおしすぎて減っているのか、たおしてなさすぎて減っているのかはわからない。金イクラを 5 つドロップさせておくだけでも、理論上はキンシャケ出現数は増えるはずである。
+[前回の研究](https://tkgstrator.work/posts/2021/01/24/snatcherinjection.html)では 5 個放置してタマヒロイを 672 体たおした場合にはキンシャケはわずかに減ることがわかっている。これがたおしすぎて減っているのか、たおしてなさすぎて減っているのかはわからない。金イクラを 5 つドロップさせておくだけでも、理論上はキンシャケ出現数は増えるはずである。
 
 N=9 でタマヒロイを 1029 体出現させて 210 体のキンシャケが出現したことから考えると、タマヒロイ出現数と放置した金イクラの間が比例関係であればタマヒロイは 572 体ほどたおすのが良いということになる。
 

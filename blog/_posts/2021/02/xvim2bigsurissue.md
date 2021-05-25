@@ -1,6 +1,6 @@
 ---
-title: "XVim2がBig Surでバグる問題について"
-date: "2021-02-09"
+title: XVim2がBig Surでバグる問題について
+date: 2021-02-09
 category: 話題
 ---
 
@@ -16,17 +16,15 @@ Mac を初期化するたびに必ず導入していたのだが、どうも Big
 
 で、その署名はどうするかというと Xcode で Apple ID でログインすれば自動的に Xcode が署名を生成してくれるという仕組みになっている。この辺の仕組みについてはほとんど自動化されているので、Xcode で Apple ID でログインしなければならないということを真面目に意識している人は少ないだろう。
 
-![](https://pbs.twimg.com/media/EtiKSlvVIAY3Pge?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtiKSlvVIAY3Pge?format=png)
 
 で、どうもこの Apple ID へログインするためのセッションを開始できないバグが発生したようだ。
 
 XVim2 でプラグインを読み込ませるために Xcode に自己証明書で署名を上書きしているのが問題な気はしている。
 
-![](https://pbs.twimg.com/media/EtiKWICVgAI2x7R?format=png&name=small)
+![](https://pbs.twimg.com/media/EtiKWICVgAI2x7R?format=png)
 
-エラーが発生してログインセッションが始まらない
-
-https://github.com/XVimProject/XVim2/issues/340
+[On macOS Big Sur, after codesign Xcode and try to login to my account, got "Couldn’t communicate with a helper application"])(https://github.com/XVimProject/XVim2/issues/340)
 
 最初はなんのバグかわからなかったのだが、調べていると XVim2 の issue として挙がっているのを確認した。一応関連する issue は見て回ったが、どうも現段階で抜本的な解決方法はないようだ。
 
@@ -38,7 +36,7 @@ https://github.com/XVimProject/XVim2/issues/340
 
 ### App Store からダウンロードし直す
 
-![](https://pbs.twimg.com/media/EtlTyotUcAMvWFP?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtlTyotUcAMvWFP?format=png)
 
 時間はかかったが、インストールし直すとなんの障害もなくログインすることができた。
 
@@ -54,9 +52,11 @@ Admob を Xcode12 で動かそうとすると、Info.plist にパラメータを
 
 そんなときに以下のサイトをお見かけして解決しました。
 
-https://exgyaruo.com/swift/terminating-app-due-to-uncaught-exception-gadinvalidinitializationexception
+[【Swift5】Terminating app due to uncaught exception ‘GADInvalidInitializationException’](https://exgyaruo.com/swift/terminating-app-due-to-uncaught-exception-gadinvalidinitializationexception)
 
+```
 <key>GADIsAdManagerApp</key>
 <true/>
+```
 
 Info.plist に追加で上の内容を追記すればいいらしいです。

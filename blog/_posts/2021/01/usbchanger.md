@@ -1,6 +1,6 @@
 ---
-title: "USB切替器を買ったら便利だった"
-date: "2021-01-13"
+title: USB切替器を買ったら便利だった
+date: 2021-01-13
 category: Amazon
 ---
 

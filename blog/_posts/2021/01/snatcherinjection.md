@@ -1,7 +1,9 @@
 ---
-title: "ラッシュにおける割り込み効果を調べてみる"
-date: "2021-01-24"
+title: ラッシュにおける割り込み効果を調べてみる
+date: 2021-01-24
 category: Splatoon2
+tags:
+  - サーモンラン
 ---
 
 ## 割り込み効果
@@ -32,9 +34,11 @@ category: Splatoon2
 
 イベントは SeedHack を使って WAVE1 が満潮ラッシュとなるような WAVE を厳選した。
 
-// SeedHack [tkgling[
+```
+// SeedHack [tkgling]
 @enabled
 00208C74 C07280D2
+```
 
 潮位に関してはこれも同じようにシード厳選をしても良かったのだが、完全に同一の条件にしたかったため Starlight の Realtime EventChanger を使って強制的に潮位を切り替えた。
 
@@ -42,17 +46,21 @@ category: Splatoon2
 
 100 秒では割り込みの成否の運に左右されすぎるので、1WAVE あたりの長さを 6 倍の 600 秒として運の要素を可能な限り下げた。
 
-// Change WaveTotalFrame [tkgling[
+```
+// Change WaveTotalFrame [tkgling]
 @enabled
 005975F8 00949152
+```
 
 ### 無操作切断チェック
 
 スプラトゥーンでは 60 秒間の無操作が続くと、強制的に通信が切断されてしまうためそれらを無効化するパッチを当てました。
 
-// Disable MovelessPlayerChecker [tkgling[
+```
+// Disable MovelessPlayerChecker [tkgling]
 @enabled
 00DD5F14 09C28152
+```
 
 ### 湧き方向固定化
 
@@ -64,19 +72,33 @@ Starlight からも固定化はできるのだが、めんどくさかったの�
 
 以下のように設定し、実質的な無限ジェッパとジェットパックのジェットによるリスキルを行った。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">パラメータ</td><td class="has-text-align-center" data-align="center">値</td></tr><tr><td class="has-text-align-center" data-align="center">111ebbaf</td><td class="has-text-align-center" data-align="center">100</td></tr><tr><td class="has-text-align-center" data-align="center">22d7439b</td><td class="has-text-align-center" data-align="center">18</td></tr><tr><td class="has-text-align-center" data-align="center">35580034</td><td class="has-text-align-center" data-align="center">300000</td></tr><tr><td class="has-text-align-center" data-align="center">7dc0fbab</td><td class="has-text-align-center" data-align="center">300000</td></tr><tr><td class="has-text-align-center" data-align="center">b52074db</td><td class="has-text-align-center" data-align="center">300000</td></tr><tr><td class="has-text-align-center" data-align="center">f8cd525c</td><td class="has-text-align-center" data-align="center">600</td></tr></tbody></table>
+| パラメータ |   値   |
+| :-------: | :----: |
+| 111ebbaf  |  100   |
+| 22d7439b  |   18   |
+| 35580034  | 300000 |
+| 7dc0fbab  | 300000 |
+| b52074db  | 300000 |
+| f8cd525c  |  600   |
 
 ## 予想される理論値
 
-ラッシュのパラメータは完全解析できているので、600 秒あれば 30\*6=180 体のキンシャケが出現しなければいけない。
+ラッシュのパラメータは完全解析できているので、600 秒あれば 30 × 6 = 180 体のキンシャケが出現しなければいけない。
 
-タマヒロイは 213F に一回リスポーンするはずなので、600 秒（36000F）最適なリスキルができていれば放置してある金イクラの数\*169 体のタマヒロイが湧くはずである。
+タマヒロイは 213F に一回リスポーンするはずなので、600 秒（36000F）最適なリスキルができていれば放置してある金イクラの数 × 169 体のタマヒロイが湧くはずである。
 
 今回は、満潮のラッシュが何故か稼げないことで有名なトキシラズいぶし工房に絞って検証を行った。
 
 ### 通常潮位の場合
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">NT</td><td class="has-text-align-center" data-align="center">Goldie</td><td class="has-text-align-center" data-align="center">Snatcher</td><td class="has-text-align-center" data-align="center">Power Eggs</td></tr><tr><td class="has-text-align-center" data-align="center">N=0</td><td class="has-text-align-center" data-align="center">178</td><td class="has-text-align-center" data-align="center">0</td><td class="has-text-align-center" data-align="center">20299</td></tr><tr><td class="has-text-align-center" data-align="center">N=1</td><td class="has-text-align-center" data-align="center">178</td><td class="has-text-align-center" data-align="center">136</td><td class="has-text-align-center" data-align="center">21105</td></tr><tr><td class="has-text-align-center" data-align="center">N=5</td><td class="has-text-align-center" data-align="center">175</td><td class="has-text-align-center" data-align="center">672</td><td class="has-text-align-center" data-align="center">24289</td></tr><tr><td class="has-text-align-center" data-align="center">N=10</td><td class="has-text-align-center" data-align="center">192</td><td class="has-text-align-center" data-align="center">1344</td><td class="has-text-align-center" data-align="center">28555</td></tr><tr><td class="has-text-align-center" data-align="center">N=15</td><td class="has-text-align-center" data-align="center">190</td><td class="has-text-align-center" data-align="center">1983</td><td class="has-text-align-center" data-align="center">32338</td></tr><tr><td class="has-text-align-center" data-align="center">N=19</td><td class="has-text-align-center" data-align="center">157</td><td class="has-text-align-center" data-align="center">2524</td><td class="has-text-align-center" data-align="center">35125</td></tr></tbody></table>
+|  NT  | Goldie | Snatcher | Power Eggs |
+| :--: | :----: | :------: | :--------: |
+| N=0  |  178   |    0     |   20299    |
+| N=1  |  178   |   136    |   21105    |
+| N=5  |  175   |   672    |   24289    |
+| N=10 |  192   |   1344   |   28555    |
+| N=15 |  190   |   1983   |   32338    |
+| N=19 |  157   |   2524   |   35125    |
 
 タマヒロイを湧かせない場合はほぼ理論値の 178 体のキンシャケをたおすことができた。また、足りない 2 体についても 1 体はこちらに向かってきていたが削りきれず、もう 1 体は出現した瞬間にタイムアップとなるので実質 180 体全ての位置は把握できた格好になる。
 
@@ -98,7 +120,9 @@ N=1 ではキンシャケ撃破数こそ同じものの出現ペースは少し�
 
 N=9 とか N=11 でもっと良い結果が得られるかもしれないが、今回は N=10 を再現することを目標とする。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">NT</td><td class="has-text-align-center" data-align="center">Goldie</td><td class="has-text-align-center" data-align="center">Snatcher</td><td class="has-text-align-center" data-align="center">Power Eggs</td></tr><tr><td class="has-text-align-center" data-align="center">N=10</td><td class="has-text-align-center" data-align="center">32</td><td class="has-text-align-center" data-align="center">224</td><td class="has-text-align-center" data-align="center">4759</td></tr></tbody></table>
+|  NT  | Goldie | Snatcher | Power Eggs |
+| :--: | :----: | :------: | :--------: |
+| N=10 |   32   |   224    |    4759    |
 
 ここでまず注目すべきは赤イクラ数 4759 である。87 納品のときでさえ 3469 しか赤イクラを稼げなかったのにこれよりも更に 1300 も稼がなくてはいけないことになる。赤イクラを稼ぐことが目的ではないといえ、かなり稼ぐプレイが求められるのは間違いない。
 
@@ -106,11 +130,11 @@ N=9 とか N=11 でもっと良い結果が得られるかもしれないが、�
 
 ラッシュの最初のキンシャケがきて撃破し、金イクラをドロップさせるまでに 10 秒かかるとすると、実際にタマヒロイをリスキルできるのは残りの 90 秒ということになる。
 
-![](https://pbs.twimg.com/media/EsdcB-nU0AA1RXj?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EsdcB-nU0AA1RXj?format=png)
 
 そこでタマヒロイをたおすまでの要フレームと放置すべき金イクラの数をグラフにしたものが上のものになる。
 
-ここから「ジェットパックのリスキルでも平均して 25F 程度はかかっていそう」ということがわかる。実際にはこれよりももっともっと時間がかかるので 60F 以上と考えても問題なさそうだ。となると、11~12 個放置しておくというのが良さそうだということになる。
+ここから「ジェットパックのリスキルでも平均して 25F 程度はかかっていそう」ということがわかる。実際にはこれよりももっともっと時間がかかるので 60F 以上と考えても問題なさそうだ。となると、11 ~ 12 個放置しておくというのが良さそうだということになる。
 
 体感的にはもっと少ないほうが上手く割り込みさせられていた気がするので、これは意外な結果になりました。次回やるときは、このくらい放置するのを実際に試してみたいと思います。
 

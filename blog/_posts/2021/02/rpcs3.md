@@ -1,6 +1,6 @@
 ---
-title: "PS3エミュレータRPCS3を使ってみよう"
-date: "2021-02-01"
+title: PS3エミュレータRPCS3を使ってみよう
+date: 2021-02-01
 category: Hack
 ---
 
@@ -15,8 +15,8 @@ PS3 が 35880 円って、新品の PS4 より高くないですか？
 ### 推奨スペック
 
 - CPU
-  - Intel 4 コア 8 スレッドか 6 コア以上(Haswell 以降)
-  - AMD 6 コア 12 スレッドか 8 コア以上(Ryzen のみ)
+  - Intel 4 コア 8 スレッドか 6 コア以上（Haswell 以降）
+  - AMD 6 コア 12 スレッドか 8 コア以上（Ryzen のみ）
 - GPU
   - AMD か NVIDIA で Vulkan に互換性がある GPU
 - MEM
@@ -27,22 +27,22 @@ PS3 が 35880 円って、新品の PS4 より高くないですか？
 
 公式ページによると、動作リストは次のように分類されているらしい。
 
-- Playable(59.65%)
+- Playable（59.65%）
   - グリッチなどがなく、最後まで遊べる
-- Ingame(33.63%)
+- Ingame（33.63%）
   - 深刻なグリッチや十分でないパフォーマンスで最後まで遊べない
-- Intro(6.38%)
+- Intro（6.38%）
   - 映像が表示されるがメニューまで進めない
-- Loadable(0.25%)
+- Loadable（0.25%）
   - 画面が真っ黒のままだが、フレームレートは表示される
-- Nothing(0.09%)
+- Nothing（0.09%）
   - 何も起こらない
 
 というわけで、最後まで遊べるかどうかはわからないものの全体の 93%以上のゲームは「一応遊べる」レベルでは動作することがわかります。
 
 動作リストの詳細は以下から見れます。
 
-https://rpcs3.net/compatibility
+[RPCS3 - Compatibility List](https://rpcs3.net/compatibility)
 
 ## 導入方法
 
@@ -54,7 +54,7 @@ https://rpcs3.net/compatibility
 
 Windows か Linux でしか動作しないので注意。
 
-https://rpcs3.net/download
+[RPCS3 - Download](https://rpcs3.net/download)
 
 ダウンロードしたら圧縮ファイルを解凍してから起動しましょう。
 
@@ -64,7 +64,7 @@ https://rpcs3.net/download
 
 PS3 のファームウェアは公式で配布されているのでありがたく頂戴します。
 
-https://www.playstation.com/en-us/support/hardware/ps3/system-software/
+[PS3 System software](https://www.playstation.com/en-us/support/hardware/ps3/system-software/)
 
 ダウンロードができたら、RPCS3 のメニューから「File」→「Install Firmware」を選択してインストールします。
 
@@ -74,31 +74,31 @@ https://www.playstation.com/en-us/support/hardware/ps3/system-software/
 
 今はパソコンのドライブからもゲームを吸い出せる場合があるようですが、自分は改造済みの PS3 を持っているので Multiman を使ってゲームを吸い出しました。
 
-![](https://pbs.twimg.com/media/EtCUEojUUAQzDtD?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtCUEojUUAQzDtD?format=png)
 
 PS3 からパソコンにコピーするには FTP を使うしかないのですが（USB は FAT32 にしか対応しておらず、4GB 以上のゲームは分割されてしまう）、FTP でファイルをコピーするときはフォルダとしてコピーするより ISO としてコピーしたほうが速いです。
 
 ただ、Multiman でゲームのバックアップをとると一旦フォルダに展開されてしまうので再度 ISO に圧縮するという方法をとりました。
 
-![](https://pbs.twimg.com/media/EtCUFyUU0AEfFz0?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtCUFyUU0AEfFz0?format=png)
 
 注意点としてはゲームを Mutliman の XMB から直接 ISO 化するのではなく、ファイルマネージャーを使ってフォルダを ISO 化したほうが良いということです。
 
 そうしないと、ゲーム名に日本語が入っている場合にファイルが文字化けしてしまいいろいろとめんどくさいことになります。
 
-![](https://pbs.twimg.com/media/EtCUGNyVcAUF5uE?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtCUGNyVcAUF5uE?format=png)
 
 ISO 化してペーストを選択すると ISO イメージを作成してくれます。
 
-![](https://pbs.twimg.com/media/EtCUHd2VEAMcFMF?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtCUHd2VEAMcFMF?format=png)
 
 7GB 弱のゲームで 11 分ほどかかったので、30 分くらいあればどんなゲームでもバックアップできるのではないかと思います。
 
-![](https://pbs.twimg.com/media/EtDDcasU4AISgUU?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EtDDcasU4AISgUU?format=png)
 
 バックアップができたら FTP でパソコンに転送します。
 
-![](https://pbs.twimg.com/media/EtCXB3xUYAAt5wP?format=png&name=large)
+![](https://pbs.twimg.com/media/EtCXB3xUYAAt5wP?format=png)
 
 全部で 40GB くらいあったので転送には 1 時間ちょっとかかりました。ここも注意点としては PS3 は有線接続をしたほうがいいです。速度が 10 倍くらい違うので、有線接続をしましょう！！！！
 
@@ -106,7 +106,7 @@ ISO 化してペーストを選択すると ISO イメージを作成してく�
 
 展開できたら、フォルダごと RPCS3 にドラッグアンドドロップすればゲームを読み込んでくれます。
 
-![](https://pbs.twimg.com/media/EtDDdneU4AIVulM?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EtDDdneU4AIVulM?format=png)
 
 ## アップデータ
 
@@ -114,23 +114,23 @@ PS3 はニンテンドースイッチとは違って認証無しでアップデ�
 
 いろいろソフトはあるのですが個人的には PS3 Game Updater 1.41 がめちゃくちゃわかりやすくてオススメです。
 
-http://www.mediafire.com/?zfhemfd1np43trz
+[PS3 Game Updater 1.41](https://www.mediafire.com/file/zfhemfd1np43trz/PS3_Game_Updater_1.41.rar/file)
 
 ネットの広大な海を彷徨っていると、自分が使っているやつと同じソフトがミラーとしてアップロードされていたので紹介しておきます。
 
-![](https://pbs.twimg.com/media/EtGMpOYVEAE1lpg?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtGMpOYVEAE1lpg?format=png
 
-![](https://pbs.twimg.com/media/EtGM_wSU4Akp0b4?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtGM_wSU4Akp0b4?format=png)
 
 アップデータは PKG として保存されるので、HDD などに保存しておきましょう。
 
 ### アップデータのインストール
 
-![](https://pbs.twimg.com/media/EtGNFwiVcAQv9uO?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EtGNFwiVcAQv9uO?format=png)
 
 アップデータのインストールは RPCS3 の「File」から「Install Packages/Raps」で行えます。
 
-![](https://pbs.twimg.com/media/EtGNLYrVgAAUVYU?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EtGNLYrVgAAUVYU?format=png)
 
 一度に複数の PKG がインストールできるので便利です。
 
@@ -144,7 +144,7 @@ reActPSN 自体が使い方がよくわからん（むずかしい）上に、�
 
 実機の場合は正しくパッケージングした DLC であっても有料コンテンツの場合は reActPSN を使わないと有効化できなかったのですが、RPCS3 の場合はインストールするだけで有効化できました。
 
-![](https://pbs.twimg.com/media/EtDvhL-VEAMxwEp?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtDvhL-VEAMxwEp?format=png)
 
 有効化されたアーシャのアトリエ DLC のオディーリアさん
 
@@ -158,33 +158,33 @@ RPCS3 のセーブデータは`dev_hdd0/home/00000001/savedata`内にあるの�
 
 で、某掲示板によれば実機のセーブデータを RPCS3 に移植するのはコピーするだけと言われたのでバックアップをコピーしたら読み込みと同時にエミュレータがクラッシュしました。
 
-> ちなみに、F {PPU[0x1000000[ Thread (main_thread) [0x0048c8f8[} VM: Access violation reading location 0x8000003f (unmapped memory) [type=u32[っていうエラーが表示されました。
+ちなみに、`F {PPU[0x1000000] Thread (main_thread) [0x0048c8f8]} VM: Access violation reading location 0x8000003f (unmapped memory) [type=u32]`っていうエラーが表示されました。
 
 で、どうも SAVE-DATA が暗号化されていることが原因ではないかという結論に至ったので BruteforceSaveData を使って復号することにしました。
 
-https://digiex.net/threads/ps3-bruteforce-save-data-v4-6-download.13884/
+[PS3 Bruteforce Save Data v4.6 Download](https://digiex.net/threads/ps3-bruteforce-save-data-v4-6-download.13884/)
 
 これが効いたのかどうかはよくわからないのですが、セーブデータを Decrypt するとちゃんと読み込むことができるようになりました。
 
-![](https://pbs.twimg.com/media/EtDshQPVEAQ9y63?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtDshQPVEAQ9y63?format=png)
 
 よくわからんけど読み込みに成功した実機セーブデータ
 
 ## 実際に遊んでみた
 
-https://www.youtube.com/watch?v=-\_ZPXH4iL\_8
+@[youtube](https://www.youtube.com/watch?v=-_ZPXH4iL_8)
 
 ### コントローラについて
 
 PS3 のコントローラは失くしてしまったので代わりにプロコンを使いました。
 
-https://github.com/Davidobot/BetterJoy
+[BetterJoy](https://github.com/Davidobot/BetterJoy/releases)
 
 BetterJoy というソフトをつかえば有線接続という条件はあるもののメチャクチャ簡単に接続できました。ちなみに、Blutooth 接続であれば BetterJoy は不要です。
 
 設定から XInput を選べば何も設定せずに、想定通りの動きをしてくれます。
 
-![](https://pbs.twimg.com/media/EtGZueoVcAMVpzl?format=png&name=large)
+![](https://pbs.twimg.com/media/EtGZueoVcAMVpzl?format=png)
 
 ### 画質の上げ方
 
@@ -192,7 +192,7 @@ BetterJoy というソフトをつかえば有線接続という条件はある�
 
 設定から GPU の項目を弄るだけなので簡単ですが、GPU の設定なのに画質を上げると CPU 使用率が上がります。つまり、どこまで画質を上げられるかは CPU の性能に引っかかってくるということです。
 
-![](https://pbs.twimg.com/media/EtGd8SHUYAQSE13?format=png&name=medium)
+![](https://pbs.twimg.com/media/EtGd8SHUYAQSE13?format=png)
 
 - Renderer
   - Vulkan で良い
@@ -209,15 +209,13 @@ BetterJoy というソフトをつかえば有線接続という条件はある�
 - Resolution Scale Threshold
   - いじらないほうが良いらしい
 
-1080p vs 720p
+@[youtube](https://www.youtube.com/watch?v=XGXHrmfQrzs)
 
-![](https://tkgstrator.work/wp-content/uploads/2021/02/1080p.webp)![](https://tkgstrator.work/wp-content/uploads/2021/02/720p.webp)
+**1080p vs 720p**
 
 かなり見た目が違うので、ここは可能であれば解像度を上げておきたい。
 
-2160p vs 1080p
-
-![](https://tkgstrator.work/wp-content/uploads/2021/02/2160p.webp)![](https://tkgstrator.work/wp-content/uploads/2021/02/1080p.webp)
+**2160p vs 1080p**
 
 見た目ではそこまで変わらないような気もするが、うちは 4K モニタを使っているので 4K で実際にプレイしてみるとネイティブ 4K と 2K のアップコンバートではかなり違いがでる。
 

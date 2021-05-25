@@ -1,6 +1,6 @@
 ---
-title: "ぶっこわれたiPhone8を修理してみた"
-date: "2021-01-18"
+title: ぶっこわれたiPhone8を修理してみた
+date: 2021-01-18
 category: 話題
 ---
 
@@ -16,7 +16,9 @@ category: 話題
 
 今まで一度も非公式の方法で修理していないらしいので、Apple Store で修理してもいいのですがいかんせん高いのでやめておきました。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">値段</td></tr><tr><td class="has-text-align-center" data-align="center">Apple</td><td class="has-text-align-center" data-align="center">16400円</td></tr><tr><td class="has-text-align-center" data-align="center">非公式</td><td class="has-text-align-center" data-align="center">4800円</td></tr></tbody></table>
+|  Apple  | 非公式 |
+| :-----: | :----: |
+| 16400円 | 4800円 |
 
 まず目を引くのが Apple で修理した場合の修理費 16400 円というところです。いやいや、いくら何でも四年も前のデバイスでそれは高すぎでしょう。
 
@@ -68,9 +70,9 @@ LCD シールドも交換しないといけない
 
 ## 手順
 
-https://www.ifixit.com/Guide/iPhone+8+LCD+and+Digitizer+Replacement/111552
+[iPhone 8 LCD and Digitizer Replacement](https://www.ifixit.com/Guide/iPhone+8+LCD+and+Digitizer+Replacement/111552)
 
-[Parts and Tools](https://www.ifixit.com/Device/iPhone_6s#Section_Parts_and_Tools)
+[iPhone 6s Repair](https://www.ifixit.com/Device/iPhone_6s#Section_Parts_and_Tools)
 
 iFixit のこの手順に従えばできます。
 
@@ -82,6 +84,6 @@ iFixit のこの手順に従えばできます。
 
 ただ、不良品が一定の割合で混入していると思うのでそういうときにちゃんと英語で交渉できるかが大事。
 
-https://www.aliexpress.com/item/4000735285145.html
+[Grade AAAA+++ for iPhone 6 6S 6P 6SP 7 7P 8 8Plus LCD with Perfect 3D Touch Screen Digitizer Assembly for iPhone 5S 5 5C Screen](https://www.aliexpress.com/item/4000735285145.html)
 
 記事は以上。

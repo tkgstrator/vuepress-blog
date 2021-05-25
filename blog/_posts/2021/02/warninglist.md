@@ -1,7 +1,9 @@
 ---
-title: "サーモンラン注意人物リストをつくってみた"
-date: "2021-02-19"
+title: サーモンラン注意人物リストをつくってみた
+date: 2021-02-19
 category: Splatoon2
+tags:
+  - サーモンラン
 ---
 
 ## サーモンランにはブロックが効かない
@@ -14,7 +16,7 @@ category: Splatoon2
 
 ## 注意人物リストをつくった
 
-https://festive-morse-4a7fe5.netlify.app/
+[Warning Players List](https://festive-morse-4a7fe5.netlify.app/)
 
 ただ、単純にリストをつくっても当然相手は名前を変えることも考えられるし、画像だって変えるだろう（まあ画像は変えても確かめるすべはないが）
 

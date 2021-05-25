@@ -1,14 +1,12 @@
 ---
 title: "[Hack] Edizonでチートを有効化する"
-date: "2021-01-08"
+date: 2021-01-08
 category: Hack
 ---
 
 ## Edizon
 
-https://github.com/WerWolv/EdiZon
-
-Edizon とはセーブデータマネージャであり、更に付随機能としてチートコードを有効化することもできる便利なアプリです。
+[Edizon](https://github.com/WerWolv/EdiZon)とはセーブデータマネージャであり、更に付随機能としてチートコードを有効化することもできる便利なアプリです。
 
 なんで今までそんな便利なアプリの解説記事を書かなかったかというと、スプラトゥーンに限って言えば Edizon よりも IPSwitch を使う機会の方が圧倒的に多いためです。
 
@@ -34,25 +32,25 @@ BID はリージョンが異なっても同じである場合が多いですね�
 
 なぜなら、チートコードの開発はバージョン 1.0.0 に対してが最も行われているためです。
 
-![](https://pbs.twimg.com/media/ErJ8M5rVoAA7A0c?format=jpg&name=large)
+![](https://pbs.twimg.com/media/ErJ8M5rVoAA7A0c?format=png)
 
 ### GAME ID
 
 まず、Edizon をひらき、該当するゲームを選択します。
 
-![](https://pbs.twimg.com/media/ErJ8LveVQAENDFV?format=jpg&name=large)
+![](https://pbs.twimg.com/media/ErJ8LveVQAENDFV?format=png)
 
 すると、ゲーム ID が表示されます。
 
 ここで、逆転裁判のゲーム ID は`0100CB000A142000`であることがわかりました。
 
-![](https://pbs.twimg.com/media/ErJ8Ma1VQAE1AHx?format=jpg&name=large)
+![](https://pbs.twimg.com/media/ErJ8Ma1VQAE1AHx?format=png)
 
 ### ディレクトリの作成
 
 ゲーム ID がわかったら、チートコードを適応させるためにまずは必要なフォルダを作成します。
 
-今回の場合ですと、SD カードに`/atmosphere/contents/0100CB000A142000/cheats`のフォルダを作成します。
+今回の場合ですと、SD カードに`sdmc:/atmosphere/contents/0100CB000A142000/cheats`のフォルダを作成します。
 
 ここでさっき調べたゲーム ID が必要になってくるわけだな。
 
@@ -72,11 +70,11 @@ BID はリージョンが異なっても同じである場合が多いですね�
 
 いろいろサイトがあると思うのですが、とりあえずここで調べてみるのが手っ取り早そうな気はします。
 
-https://github.com/ibnux/switch-cheat
+[switch-cheat](https://github.com/ibnux/switch-cheat)
 
 逆転裁判のタイトル ID は`0100CB000A142000`なのでそれで検索をかけてみると見事ヒットしました。
 
-![](https://pbs.twimg.com/media/ErJ-31xUYAE0M6U?format=jpg&name=large)
+![](https://pbs.twimg.com/media/ErJ-31xUYAE0M6U?format=png)
 
 色が反転しているところがタイトル ID で、その右が BID になります。
 
@@ -84,13 +82,13 @@ BID のリストが一つしかないということはバージョン 1.0.0 の
 
 ここで BID をクリックするとチートコードのファイルがひらきます。
 
-![](https://pbs.twimg.com/media/ErJ_BCEU0AAzJJo?format=jpg&name=large)
+![](https://pbs.twimg.com/media/ErJ_BCEU0AAzJJo?format=png
 
 コードとしては「全てのエピソード開放」「心証減らない」の二つがあるようです。
 
 ここで右側の「Raw」のボタンを押すことで、実際のファイルを開くことができます。
 
-![](https://pbs.twimg.com/media/ErJ_GC4VkAAuVhT?format=png&name=small)
+![](https://pbs.twimg.com/media/ErJ_GC4VkAAuVhT?format=png)
 
 このようにファイルを開くことができたら、右クリックから「ファイルとして保存」を選択して好きなところに保存しましょう。
 
@@ -102,7 +100,7 @@ BID のリストが一つしかないということはバージョン 1.0.0 の
 
 保存したテキストファイルを先ほど作成した cheats フォルダの中にコピーします。
 
-![](https://pbs.twimg.com/media/ErKAPKtUYAIKk7z?format=png&name=large)
+![](https://pbs.twimg.com/media/ErKAPKtUYAIKk7z?format=png)
 
 これで、準備は完了です。
 
