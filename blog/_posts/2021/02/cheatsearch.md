@@ -1,12 +1,12 @@
 ---
-title: "チート検索でお金は稼げるか"
-date: "2021-02-03"
-category: Hack
+title: チート検索でお金は稼げるか
+date: 2021-02-03
+category: 話題
 ---
 
 ## 2ch 創設者西村博之氏への質問
 
-https://www.youtube.com/watch?v=fC1PjNLxszU
+@[youtube](https://www.youtube.com/watch?v=fC1PjNLxszU)
 
 まずは一分足らずの上の動画を見ていただきたいのであるが、チートコードを探すのが大好きな投稿者がそのスキルを活かす仕事はあるかどうかを問うているのである。
 

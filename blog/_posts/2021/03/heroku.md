@@ -1,6 +1,6 @@
 ---
-title: "HerokuでTwitterのOAuthを実装してみた"
-date: "2021-03-18"
+title: HerokuでTwitterのOAuthを実装してみた
+date: 2021-03-18
 category: プログラミング
 ---
 
@@ -10,13 +10,13 @@ category: プログラミング
 
 これから先、Twitter OAuth をしたくなったときに直ぐにできるのはありがたい。
 
-https://jp.heroku.com/
+[Heroku](https://jp.heroku.com/)
 
 なんかよくわからんけどすごいサービス。
 
 とりあえずアカウントを解説します。
 
-https://elements.heroku.com/buttons/tyfkda/twitter-oauth-test
+[Elements Marketplace: twitter-oauth-test](https://elements.heroku.com/buttons/tyfkda/twitter-oauth-test)
 
 やりたいことはこれなんですけど、これは Ruby なので PHP でも同じことができるかチャレンジします。
 
@@ -24,19 +24,19 @@ https://elements.heroku.com/buttons/tyfkda/twitter-oauth-test
 
 まずは Twitter の Developer 申請を行って API Key と API Key Secret が取得できるようにしましょう。
 
-![](https://pbs.twimg.com/media/EwwYOvkVoAI_nZi?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EwwYOvkVoAI_nZi?format=png)
 
 ### Heroku に環境変数をセットする
 
 Settings から環境変数をセットします。
 
-![](https://pbs.twimg.com/media/EwwXNq9VkAQaCWK?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EwwXNq9VkAQaCWK?format=png)
 
 ### composer のインストール
 
 twitteroauth や dotenv をインストールするために必要なのでインストールします。
 
-https://github.com/tkgstrator/ikastapi
+[ikastapi](https://github.com/tkgstrator/ikastapi)
 
 めんどくさい場合はここから clone してきても良い。
 
@@ -46,15 +46,17 @@ https://github.com/tkgstrator/ikastapi
 
 dotenv は.env ファイルから環境変数を PHP に読み込ませるための便利なツールなのでそれを利用します。
 
+```
 // .env
 CONSUMER_KEY=""
 CONSUMER_KEY_SECRET=""
+```
 
 こんな感じでキーをベタ書きしておきます。
 
 ## コールバック用の PHP ファイルの作成
 
-https://gist.github.com/tkgstrator/827e4fca6c6ec4198c2d6a65877a86ac
+[Twitter OAuth](https://gist.github.com/tkgstrator/827e4fca6c6ec4198c2d6a65877a86ac)
 
 こんな感じで index.php と callback.php を設定したら GitHub にプッシュするだけです。
 
@@ -62,7 +64,7 @@ Twitter Developer の方で callbackURL として Heroku の URL を通してお
 
 ## 完成したやつ
 
-https://ikastagram.herokuapp.com/
+[ikastagram](https://ikastagram.herokuapp.com/)
 
 するとサーバレスで簡単に OAuth 認証用の URL が作成できます。
 

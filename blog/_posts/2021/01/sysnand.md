@@ -1,6 +1,6 @@
 ---
 title: "[Hack] 一台のプロコンをEmuNANDとSysNANDで使い分ける方法"
-date: "2021-01-14"
+date: 2021-01-14
 category: Hack
 ---
 
@@ -8,7 +8,7 @@ category: Hack
 
 プロコンに限らず、ジョイコンも EmuNAND と SysNAND でペアリング問題が発生します。
 
-というのも、どうもコントローラは「本体固有の ID+NAND 情報」の二つと紐付けられているらしいのです。
+というのも、どうもコントローラは「本体固有の ID + NAND 情報」の二つと紐付けられているらしいのです。
 
 本体固有の ID というのは不変なものですから、本体の基板交換以外で変わることはなく心配しなくてよいのですが、NAND の情報については「本体の初期化」などでいくらでも変わってしまいます。
 
@@ -26,13 +26,13 @@ SysNAND はジョイコン、EmuNAND はプロコンといった使い分けで�
 
 ## 解決方法
 
-![](https://pbs.twimg.com/media/Err5YYOVgAQlEbS?format=jpg&name=large)
+![](https://pbs.twimg.com/media/Err5YYOVgAQlEbS?format=png)
 
 まず、プロコンの有線通信をオンにします。こうすることで、ペアリング問題が発生している状態であってもプロコンを使うことができるようになります。
 
 ただし、ケーブルを抜いた瞬間認識できなくなってしまうのでこの段階ではまだ解決していません。
 
-![](https://pbs.twimg.com/media/Err5YYfVEAAEC65?format=jpg&name=large)
+![](https://pbs.twimg.com/media/Err5YYfVEAAEC65?format=png)
 
 次にコントローラの解除をします。
 
@@ -42,7 +42,7 @@ SysNAND はジョイコン、EmuNAND はプロコンといった使い分けで�
 
 ただし、これで正しくペアリングができるのは有線接続のみで、無線接続はまだバグったままです。
 
-![](https://pbs.twimg.com/media/Err5Yo1UwAAjO39?format=jpg&name=large)
+![](https://pbs.twimg.com/media/Err5Yo1UwAAjO39?format=png)
 
 最後にコントローラの設定から「コントローラを探す」を選択します。
 

@@ -31,7 +31,7 @@ setup.exe を起動するとインストールが始まり、iTunes と iCloud �
 
 インストールできたらデバイスとパソコンを有線で接続して（一応 Wi-Fi 経由でもできるが、こちらのほうが確実）、Install AltStore からデバイスを選択。
 
-![](https://pbs.twimg.com/media/ErWBZCwUYAEXKMW?format=png&name=small)
+![](https://pbs.twimg.com/media/ErWBZCwUYAEXKMW?format=png)
 
 Apple ID でのログインを求められるので入力すると、デバイス側に AltStore がインストールされる。
 
@@ -39,7 +39,7 @@ Apple ID でのログインを求められるので入力すると、デバイ�
 
 ## 非公式アプリたち
 
-https://iosninja.io/ipa-library
+[IPA Library](https://iosninja.io/ipa-library)
 
 公式アプリに byld を追加して機能を強化した改造アプリとでも呼ぶべきアプリたちが公開されているのがこの iOS Ninja である。
 

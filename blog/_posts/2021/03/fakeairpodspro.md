@@ -42,7 +42,7 @@ category: 話題
 
 ## 公式サイトで買ってみた
 
-https://www.joom.com/en
+[Joom. Easy shopping, fast shipping](https://www.joom.com/en)
 
 ぼくが買ったときにはすでに残り数個だったのですが、もう売り切れてしまったようです。
 
@@ -50,21 +50,15 @@ JR-T03 とか JR-T03S とかありますけど、JR-T03S PRO なのでちゃん�
 
 PRO じゃないやつなら結構あるんですけどね、なぜかこのモデルは品薄のようで Aliexpress や Alibaba でも見つかりませんでした。
 
-![](https://pbs.twimg.com/media/Ewq1xVNUcAI-p_H?format=jpg&name=large)
-
-外箱
+![](https://pbs.twimg.com/media/Ewq1xVNUcAI-p_H?format=png)
 
 マイナーモデルチェンジ版は微妙に外の箱のイヤホンの配置が違うのでここでまずは区別をつけると良いかもしれません。
 
-![](https://pbs.twimg.com/media/Ewq1xVkUYAEzCK6?format=jpg&name=large)
-
-中身
+![](https://pbs.twimg.com/media/Ewq1xVkUYAEzCK6?format=png)
 
 AirPods Pro と同じような感じですが、ロゴが入っているので違うとわかります。
 
-![](https://pbs.twimg.com/media/Ewq1xXAUYAA29IM?format=jpg&name=large)
-
-設定画面
+![](https://pbs.twimg.com/media/Ewq1xXAUYAA29IM?format=png)
 
 H1 チップ搭載なのでノイズキャンセリングや外部音取り込みモードの表示も出ます。
 
@@ -72,9 +66,7 @@ H1 チップが搭載されていても実際にはノイズキャンセリン�
 
 ただ、ソニー製のノイズキャンセリングを知っているのでそれに比べたらやはりワンランク劣っていると感じました。
 
-![](https://pbs.twimg.com/media/Ewq1xWYVIAAxopf?format=jpg&name=large)
-
-ペアリング
+![](https://pbs.twimg.com/media/Ewq1xWYVIAAxopf?format=png)
 
 ちゃんと JR-T03S Pro と表示されます。
 

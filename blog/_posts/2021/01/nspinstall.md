@@ -1,6 +1,6 @@
 ---
 title: "[2021年決定版] CFWにNSPをインストールしよう"
-date: "2021-01-17"
+date: 2021-01-17
 category: Hack
 ---
 
@@ -10,7 +10,7 @@ category: Hack
 
 NSP はゲームのカートリッジ、または eShop からダウンロードしたダウンロード版ゲームや体験版や DLC、または配布されたアップデートなどが該当します。
 
-NSP をゲームから抽出するには[HACGUI](https://tkgstrator.work/?p=27553)か[NXDumpTool](https://tkgstrator.work/?p=27328)を使うのが基本的な手順となりますが、この際に署名付きでダンプしないとパッチをあてていない CFW ではインストールができないので以下の手順を読んで正しく署名付きで NSP を作成するようにしてください。
+NSP をゲームから抽出するには[HACGUI](https://github.com/shadowninja108/HACGUI/releases)か[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)を使うのが基本的な手順となりますが、この際に署名付きでダンプしないとパッチをあてていない CFW ではインストールができないので以下の手順を読んで正しく署名付きで NSP を作成するようにしてください。
 
 HACGUI と NXDumpTool の使い方は上のリンク参照！
 
@@ -18,11 +18,16 @@ HACGUI と NXDumpTool の使い方は上のリンク参照！
 
 以下の表が HACGUI と NXDumpTool の比較表です
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center"></td><td class="has-text-align-center" data-align="center">HACGUI</td><td class="has-text-align-center" data-align="center">NXDumpTool</td></tr><tr><td class="has-text-align-center" data-align="center">カートリッジ版</td><td class="has-text-align-center" data-align="center">×</td><td class="has-text-align-center" data-align="center">△<br>※署名にバグあり？</td></tr><tr><td class="has-text-align-center" data-align="center">ダウンロード版</td><td class="has-text-align-center" data-align="center">△<br>※制限あり</td><td class="has-text-align-center" data-align="center">◯<br>※オプションが必須</td></tr><tr><td class="has-text-align-center" data-align="center">アップデータ</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td></tr><tr><td class="has-text-align-center" data-align="center">DLC</td><td class="has-text-align-center" data-align="center">◯</td><td class="has-text-align-center" data-align="center">◯</td></tr></tbody></table>
+|               |      HACGUI       |        NXDumpTool         |
+| :-----------: | :---------------: | :-----------------------: |
+| カートリッジ版 |         ×         | △ <br> ※署名にバグあり？ |
+| ダウンロード版 | △ <br> ※制限あり | ◯ <br> ※オプションが必須 |
+|  アップデータ  |        ◯         |            ◯             |
+|      DLC      |        ◯         |            ◯             |
 
 ◯ は署名付きで正しくダンプし、パッチをあてていない CFW でインストール可能な NSP が作成できることを意味しています。じゃあ気になる △ はなんなのかということになるわけです。
 
-NXDumpTool でカートリッジ版をダンプ
+**NXDumpTool でカートリッジ版をダンプ**
 
 署名付きで正しくダンプしたつもりでも、スプラトゥーンの場合は何故か署名でエラーを吐かれてインストールすることができません。
 
@@ -30,7 +35,7 @@ NXDumpTool でカートリッジ版をダンプ
 
 HACGUI はそもそもカートリッジ版をダンプすることができないので、この問題は発生しません。
 
-HACGUI でダウンロード版をダンプ
+**HACGUI でダウンロード版をダンプ**
 
 HACGUI でダウンロード版をダンプすると署名付き NSP ができるのですが、この署名は personalized ticket と呼ばれるチケットでありダンプした NAND でしか効果を発揮しません。
 
@@ -38,15 +43,11 @@ HACGUI でダウンロード版をダンプすると署名付き NSP ができ�
 
 よっって、このケースでは HACGUI は実際には使い物にならないケースが多いです。
 
-NXDumpTool でダウンロード版をダンプ
+**NXDumpTool でダウンロード版をダンプ**
 
 NXDumpTool にはダウンロード版の personalized ticket を common ticket に変換する機能が備わっています。
 
 この署名変換機能があるおかげで、ダウンロード版のゲームを Sigpatch なしに起動することができるようになります。
-
-どのように設定すれば署名を切り替えられるかは以下の記事を読んでください。
-
-https://tkgstrator.work/?p=27328
 
 ## 非署名の NSP をインストールしたい
 
@@ -58,7 +59,7 @@ https://tkgstrator.work/?p=27328
 
 ### Sigpatch Updater
 
-https://github.com/ITotalJustice/sigpatch-updater/releases/tag/v0.1.3
+[sigpatch-updater](https://github.com/ITotalJustice/sigpatch-updater/releases)
 
 Sigpatch を GitHub のリリースページから自動で取得してくれるアプリがあります。
 
@@ -68,17 +69,14 @@ Sigpatch を GitHub のリリースページから自動で取得してくれる
 
 当然ですが、リリース直後はその FW や CFW に対するパッチに更新されていない場合もあります。
 
-Sigpatch Updater の使い方については以下のリンクを参考にどうぞ。
-
-https://tkgstrator.work/?p=27490
-
 ### hekate_ipl.ini
 
 Sigpatch Updater は Sigpatch をダウンロードしてくれますが、有効化はしてくれないのでパッチを読み込むように hekate_ipl.ini を更新する必要があります。
 
 特に難しいことはなくて、以下のように書き換えれば Sigpatch を読み込んでくれます。
 
-[config[
+```
+[config]
 autoboot=0
 autoboot_list=0
 bootwait=3
@@ -95,7 +93,7 @@ updater2p=1
 {}
 
 {--- Custom Firmware ---}
-[CFW (EMUMMC)[
+[CFW (EMUMMC)]
 emummcforce=1
 kip1patch=nosigchk
 fss0=atmosphere/fusee-secondary.bin
@@ -106,12 +104,13 @@ kip1=atmosphere/kips/\*
 {}
 
 {--- Stock ---}
-[Stock (SYSNAND)[
+[Stock (SYSNAND)]
 emummc_force_disable=1
 fss0=atmosphere/fusee-secondary.bin
 stock=1
 icon=bootloader/res/icon_switch.bmp
 {}
+```
 
 これは DeepSea 1.9.4 向けの hekate_ipl.ini ですが、他のバージョンでも（極端に hekate のバージョンが低くなければ）同じ書き方で動作すると思います。
 

@@ -1,7 +1,9 @@
 ---
-title: "通常潮位イベントなしで72納品できそうなシードまとめ"
-date: "2021-01-09"
+title: 通常潮位イベントなしで72納品できそうなシードまとめ
+date: 2021-01-09
 category: Splatoon2
+tags:
+  - サーモンラン
 ---
 
 ## 誰向けなの
@@ -14,19 +16,19 @@ category: Splatoon2
 
 まず最初に、72 納品をしようとおもったら WAVE3 が通常潮位のイベントなしである必要がある。
 
-ところが、通常潮位のイベントなしというのは 3/4\*3/5=9/20 の確率で発生する。
+ところが、通常潮位のイベントなしというのは 3/4 × 3/5 = 9/20 の確率で発生する。
 
-全通りが 43 億もあるので、9/20 に減らした程度では候補が多すぎて Python で細かい厳選が行えないのだ。そこで今回は C++のプログラムに改良を加え「WAVE3 が通常潮位イベントなし+カタパ出現しない+タワー出現しない」という風に制約をつけて出力できるようにした。
+全通りが 43 億もあるので、9/20 に減らした程度では候補が多すぎて Python で細かい厳選が行えないのだ。そこで今回は C++のプログラムに改良を加え「WAVE3 が通常潮位イベントなし + カタパ出現しない + タワー出現しない」という風に制約をつけて出力できるようにした。
 
 ### 出現するオオモノで絞る
 
 七種類のオオモノのうち、二種類が常にでないということは五種類から出続けるということなので、
 
-そのシードの期待値は全体のおよそ(5/7)^24=0.00031111943 と見積もることができる。
+そのシードの期待値は全体のおよそ (5/7)^24 = 0.00031111943 と見積もることができる。
 
 となれば、通常イベントなしがくる確率 9/20 と合わせて、全体の 0.00014000374 程度になるはずである。ここまで確率を減らせれば候補を十分絞ることができ、
 
-2^32\*(5/7)^24\*9/20=601311.512458 と、約 60 万通りほど残るのではないかという予想が立てられる。
+2^32 × (5/7)^24 × 9/20 = 601311.512458 と、約 60 万通りほど残るのではないかという予想が立てられる。
 
 実際、プログラムを動かしたところ 609829 通りのシードを得ることができた。
 
@@ -46,15 +48,19 @@ category: Splatoon2
 
 この猶予が長くなれば長くなるほど、移動速度が遅く詰まりやすいオオモノであるといえるわけである。
 
-https://gungeespla.github.io/salmon\_route/
+[サーモンラン ルートマップ](https://gungeespla.github.io/salmon_route/)
 
-どのオオモノが寄ってくるまでにどのくらい時間がかかるかは、実際に計測しても良かったのだがめんどくさかったので@GungeeSpla 氏が作成したサーモンランルートマップを利用した。
+どのオオモノが寄ってくるまでにどのくらい時間がかかるかは、実際に計測しても良かったのだがめんどくさかったので[@GungeeSpla](https://twitter.com/GungeeSpla)氏が作成したサーモンランルートマップを利用した。
 
 それによると 3 湧きのバクダンがコンテナに寄るまでに最も時間がかかり、約 40 秒かかることがわかった。その他のオオモノは全て 30 秒以内に寄ってきているので、バクダンだけがぶっちぎりで遅いわけである。
 
 30 秒以内に寄るのであれば、猶予は 30 秒あればいいので、ここではカタパッドとタワーを除いたオオモノの猶予時間を以下のように設定した。
 
-<table><tbody><tr><td class="has-text-align-center" data-align="center">猶予</td><td class="has-text-align-center" data-align="center">オオモノの種類</td></tr><tr><td class="has-text-align-center" data-align="center">20秒以内</td><td class="has-text-align-center" data-align="center">モグラ</td></tr><tr><td class="has-text-align-center" data-align="center">30秒</td><td class="has-text-align-center" data-align="center">テッパン<br>ヘビ<br>コウモリ</td></tr><tr><td class="has-text-align-center" data-align="center">40秒</td><td class="has-text-align-center" data-align="center">バクダン</td></tr></tbody></table>
+|   猶予   |         オオモノの種類          |
+| :------: | :----------------------------: |
+| 20秒以内 |             モグラ              |
+|   30秒   | テッパン <br> ヘビ <br> コウモリ |
+|   40秒   |            バクダン             |
 
 この湧き間隔制約をつけた上で、先程絞ったシードからどのくらい減らせるかが問題になるわけである。
 
@@ -80,49 +86,55 @@ https://gungeespla.github.io/salmon\_route/
 
 すると、2 通りまで絞ることができました。
 
+```
 02CBBA0A
 B5A17BC6
+```
 
 このどっちかで 72 納品ができるといいなあ、なんて思っていたりします。
 
 ちなみにドンブラコの場合は 7 回目は 1 湧きではなく 3 湧きの方が得なので、次のシードになります。
 
+```
 033D3BEF
 604E20CB
 A676A682
+```
 
 ## IPSwitch
 
 せっかくなので、直ぐに使える IPSwitch 形式のコードも置いておきます。
 
+```
 // NT WAVE3 Polaris
 @disabled
-00XXXXXX 6059A0D2404197F2
-
-// NT WAVE3 Polaris
-@disabled
-00XXXXXX 20B4B6D2C0788FF2
+00208C74 6059A0D2404197F2
 
 // NT WAVE3 Polaris
 @disabled
-00XXXXXX 20C7B0D2A07D93F2
+00208C74 20B4B6D2C0788FF2
+
+// NT WAVE3 Polaris
+@disabled
+00208C74 20C7B0D2A07D93F2
 
 // NT WAVE3 Bay
 @disabled
-00XXXXXX A067A0D2E07D87F2
+00208C74 A067A0D2E07D87F2
 
 // NT WAVE3 Bay
 @disabled
-00XXXXXX C009ACD2601984F2
+00208C74 C009ACD2601984F2
 
 // NT WAVE3 Bay
 @disabled
-00XXXXXX C0CEB4D240D094F2
+00208C74 C0CEB4D240D094F2
+```
 
-アドレス部はナイショですが、GHIDRA でうまいこと検索したらすぐに見つかります。
+最新のバージョンのアドレスははナイショですが、GHIDRA でうまいこと検索したらすぐに見つかります。
 
 5.3.0 までのアドレスは以下のレポジトリから確認できるので、その辺を調べてみてください。
 
-https://github.com/tkgstrator/StarlightSeedHack
+[StarlightSeedHack](https://github.com/tkgstrator/StarlightSeedHack)
 
 バグかはしりませんが、このパッチを当てた状態でイカッチャで三つ目のステージを遊ぶと必ずクラッシュします。なぜなのかはわかりません。

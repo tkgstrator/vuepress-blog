@@ -1,7 +1,9 @@
 ---
-title: "サーモンランのWAVE内容を先読みする方法と解説"
-date: "2021-01-22"
+title: サーモンランのWAVE内容を先読みする方法と解説
+date: 2021-01-22
 category: Hack
+tags:
+  - サーモンラン
 ---
 
 ## WAVE 内容とは
@@ -242,23 +244,21 @@ mRnd.init(self.rnd.getU32())
 
 霧イベントについては、どの関数がドロップ数を決めているかまでは分かっているのですが「どの乱数生成器が使われているか」がわかっていないため、予測することができていません。
 
-https://tkgstrator.work/?p=28012
-
 まあこれが一番解析しやすそうな気はするので、誰か頼んだ。
 
 ## Ocean Calc
 
-https://salmonrun-records.netlify.app/ocean/
+[LanPlay Records](https://salmonrun-records.netlify.app/ocean/)
 
 で、今まで紹介した全アルゴリズムを搭載した WAVE 内容予測アプリがこの Ocean Calc です。
 
 計算アルゴリズムはオンラインプレイでも LanPlay でも同じなので、一度遊んだシードを特定することができれば、それ以後の全ての湧き方向やイベント内容を先読みすることができます。
 
-https://www.youtube.com/watch?v=uX9lMgpcrlA&feature=youtu.be
+@[youtube](https://www.youtube.com/watch?v=uX9lMgpcrlA)
 
 例えば、ポラリス満潮キンシャケ探しの現在の世界記録である 122 納品を達成したときのシードは`0xFABAD087`であることがわかっています。
 
-https://salmonrun-records.netlify.app/ocean/?seed=0xFABAD087
+[LanPlay Records](https://salmonrun-records.netlify.app/ocean/?seed=0xFABAD087)
 
 上のリンクで実際にどんな WAVE 内容なのかがチェックできるので、ズレていないことを確かめてみてください。
 
@@ -274,7 +274,7 @@ SeedHack 自体は初期シードを変更しているだけですので、言�
 
 で、その呼び寄せたい WAVE はキンシャケ探しのアタリ位置なども事前に計算しているので、一回も外すことなくアタリを当てられるというだけです。
 
-https://www.youtube.com/watch?v=0P9IlQ-9ciM&list=PLV0lOxAyFdpmDV8hSqZjDzAXGH8Z1D5IO
+@[youtube](https://www.youtube.com/watch?v=0P9IlQ-9ciM)
 
 自分がアップロードしている多くの LanPlay の動画はこのハックを使って理想の WAVE を呼び寄せています。でないと「いい WAVE」がくるのを待って水没を繰り返すのが時間の無駄だからです。
 
@@ -282,6 +282,6 @@ https://www.youtube.com/watch?v=0P9IlQ-9ciM&list=PLV0lOxAyFdpmDV8hSqZjDzAXGH8Z1D
 
 ちなみに 404 納品を達成したシードは以下のリンクから見れます。
 
-https://salmonrun-records.netlify.app/ocean/?seed=0xFABAD087
+[LanPlay Records](https://salmonrun-records.netlify.app/ocean/?seed=0xFABAD087)
 
 記事は以上、勝ったなガハハ。

@@ -19,7 +19,7 @@ IPSwitch とは pchtxt（パッチテキスト）を読み込み、.ips 形式�
 
 つぎに ipswitch フォルダ内に名前は何でもいいので、フォルダを作成します。
 
-あとはそのつくったフォルダの中にpchtxt形式のコードファイルをコピーします。
+あとはそのつくったフォルダの中に pchtxt 形式のコードファイルをコピーします。
 
 例えとしては、こんな感じです。
 
@@ -29,15 +29,15 @@ IPSwitch とは pchtxt（パッチテキスト）を読み込み、.ips 形式�
 
 また、インターネットで誰かが公開しているものを使うという手も考えられます。
 
-[スプラトゥーン２ チートコード](https://takaharu422.github.io/Splatoon2.github.io/ja.html)
+[スプラトゥーン2 チートコード](https://takaharu422.github.io/Splatoon2.github.io/ja.html)
 
 ## Switch側の設定
 
 hbmenu から IPSwitch を起動します。
 
-Toggle Patch Text Contentsで A ボタンを押して進めます。
+Toggle Patch Text Contents で A ボタンを押して進めます。
 
-今回は 5.4.0 向けのコードを有効化したかったので 5.4.0.pchtxt でA ボタンを押すと、ファイル内に記述されているコードがロードされます。
+今回は 5.4.0 向けのコードを有効化したかったので 5.4.0public.pchtxt で A ボタンを押すと、ファイル内に記述されているコードがロードされます。
 
 ![](/assets/images/12.jpg)
 

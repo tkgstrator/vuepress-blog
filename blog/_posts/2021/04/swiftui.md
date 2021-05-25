@@ -33,7 +33,7 @@ struct ContentView: View {
 }
 ```
 
-親ビューは子ビュー(PlaceholderView)の配列を持っておき、タップされるとその子ビューが持つメソッドである animateState()が呼ばれるという仕組みである。
+親ビューは子ビュー（PlaceholderView）の配列を持っておき、タップされるとその子ビューが持つメソッドである`animateState()`が呼ばれるという仕組みである。
 
 で、子ビューを以下のように定義する。
 
@@ -62,7 +62,7 @@ struct PlaceholderView: View, Identifiable {
 
 で、これを実行してみると確かに`Placeholder.animateState()`は呼び出されているのだが、`animateState()`内で backgroundColor の値を変えているのに Debug Area で内部データを見てみると変わっていない。
 
-色々原因が思いつくのだが、その理由の一つは@State の値はそれ自身か子ビューからしか変更することができないという制約ため。この場合だと PlaceholderView の親ビューである ContentView から変更されようとしているので動かないというわけだ。
+色々原因が思いつくのだが、その理由の一つは @State の値はそれ自身か子ビューからしか変更することができないという制約ため。この場合だと PlaceholderView の親ビューである ContentView から変更されようとしているので動かないというわけだ。
 
 ## 改善手法
 
