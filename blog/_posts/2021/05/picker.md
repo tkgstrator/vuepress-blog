@@ -49,7 +49,7 @@ enum FruitType: String, CaseIterable {
 }
 ```
 
-![](https://pbs.twimg.com/media/E14fo5uVIAEsCmU?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E15HulIVkAIKGQ_?format=jpg&name=4096x4096)
 
 ### バグを含むコード
 
@@ -84,7 +84,7 @@ enum FruitType: String, CaseIterable {
 }
 ```
 
-![](https://pbs.twimg.com/media/E14fo5qVIAs8HGx?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E15HulHUUAM4aKR?format=jpg&name=4096x4096)
 
 ## バグの原因について
 
