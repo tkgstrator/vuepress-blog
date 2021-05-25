@@ -546,8 +546,6 @@ RET
 
 なんでこういうコードになっているかというと、それは以前のコードを見ていただきたいのですが、その記事が若干わかりにくいので簡単に解説。
 
-https://tkgstrator.work/?p=27289
-
 ![](https://pbs.twimg.com/media/EW0DrbuWAAEbRE3?format=png&name=4096x4096)
 
 クラスの構造
@@ -562,7 +560,7 @@ https://tkgstrator.work/?p=27289
 
 同じように sendSignalEvent をに上書きをします。
 
-// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [5.3.1[
+// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [5.3.1]
 0104CA58 ADRP X0, #0xXXXXX000
 0104CA5C LDR X0, [X0, #0xYYY[
 0104CA60 LDR X0, [X0[

@@ -1,12 +1,12 @@
 ---
-title: "SplatNet2のライブラリを更新している"
-date: "2021-03-26"
+title: SplatNet2のライブラリを更新している
+date: 2021-03-26
 category: プログラミング
 ---
 
 ## SplatNet2 ライブラリ
 
-https://github.com/tkgstrator/SplatNet2/tree/develop
+[SplatNet2](https://github.com/tkgstrator/SplatNet2/tree/develop)
 
 Swift で簡単に API を叩けるライブラリ、のつもりで作成したのだがあまりにもゴミコードだったので泣いています。
 
@@ -16,7 +16,7 @@ iOS13 以降には Combine という面白い仕組みがあるのでこれを�
 
 Salmonia3 は以下の参考記事を利用させていただいて Realm にデータを書き込む際に Codable を使って一気に変換しているのですが、よく考えたら API のレスポンスをライブラリが上手く整形してやればこんな処理は不要なわけです。
 
-https://qiita.com/cottpan/items/b75abd5d4e4ce73e00f2
+[【Swift4】Realm+Codableを使ったお手軽なDB Part.1（モデル編）](https://qiita.com/cottpan/items/b75abd5d4e4ce73e00f2)
 
 つまり、何らかのクラスや構造体を返してしまえばいちいちキーなんて使わなくてもメンバ変数を使ってパパっと値をとってこれるわけです。
 
@@ -26,7 +26,7 @@ https://qiita.com/cottpan/items/b75abd5d4e4ce73e00f2
 
 というわけで以下の記事を参考に Combine を使ってタスクを渡してそれをクロージャで処理できるライブラリをつくることにしました。
 
-https://qiita.com/shira-shun/items/778e65308f26860664fc
+[Combine+Alamofire+SwiftUIでAPI実行](https://qiita.com/shira-shun/items/778e65308f26860664fc)
 
 クロージャを使う仕組みは`@escaping`を使うのと対して変わらないのですが、API を叩く際のプロトコルを決めておくことで新しいエンドポイントがでたときにも柔軟に対応することができます。
 
