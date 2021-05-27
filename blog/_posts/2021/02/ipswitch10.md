@@ -2,8 +2,10 @@
 title: "[IPSwitch] 誰でもできるコード開発 #10"
 date: 2021-02-14
 category: Hack
+description: "インスタンスを利用するコードの移植方法について学びます"
 tags:
   - IPSwitch
+  - コード開発
 ---
 
 # [IPSwitch] 誰でもできるコード開発 #10

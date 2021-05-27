@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #7"
 date: 2020-05-27
-description: "IPSwitch で使えるコードを自作する方法についての解説 #7 です"
+description: "ナイスをHookしてチーム変更するコードの実装方法を学びます"
 category: Hack
 tags:
   - IPSwitch
@@ -196,7 +196,7 @@ BL 命令というのは簡単にいえばジャンプ命令で、ジャンプ�
 class Game::PlayerMgr {
     Game::Player* getControlledPerformer();
 }
- 
+
 int main() {
   Game::Player *mPlayer = Game::PlayerMgr::getControlledPerformer();
 }
@@ -211,7 +211,7 @@ int main() {
 class Game::PlayerMgr {
     Game::Player* getControlledPerformer(Game::PlayerMgr * __hidden this);
 }
- 
+
 int main() {
   Game::Player *mPlayer = Game::PlayerMgr::getControlledPerformer();
 }
@@ -230,8 +230,8 @@ BL 命令はインスタンスのアドレスを読み込むのと違ってオ�
 また、 BL 命令をコールするアドレスですが、今回は 0104C960 とします（本来この値は BL 命令を書く場所によって変わります）。
 
 | getControlledPerformer() | BL 命令をコールするアドレス |
-| :----------------------: | :------------------------: |
-|         010E6D2C         |          0104C960          |
+| :----------------------: | :-------------------------: |
+|         010E6D2C         |          0104C960           |
 
 ここまでわかれば、 BL 命令を書くのは簡単です。
 
@@ -333,7 +333,7 @@ X8 レジスタを反転させる NOT X8（ X8 レジスタの値を反転させ
 NOT 演算があれば 1 ならば 0 、 0 ならば 1 が出力できます。
 
 | NOT | 0 を入力 | 1 を入力 |
-| :-: | :------: | :-----: |
+| :-: | :------: | :------: |
 |  -  | 1 を出力 | 0 を出力 |
 
 が、この命令はないのでこれは実装できません。

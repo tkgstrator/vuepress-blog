@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #3"
 date: 2019-07-02
-description: "IPSwitch で使えるコードを自作する方法についての解説 #3 です"
+description: "関数の返り値を変更して、サーモンランを弄る方法について学びます"
 category: Hack
 tags:
   - IPSwitch
@@ -50,16 +50,16 @@ if(x0 == 1){
 
 つまり、 BL 命令は分岐先で何か処理をしたあとで X0/W0 レジスタに値をセットする命令だということです。
 
-## _ZN4Game4Coop3Utl7GetRuleEv
+## \_ZN4Game4Coop3Utl7GetRuleEv
 
-さて、BL命令について理解したら`_ZN4Game4Coop3Utl7GetRuleEv`というサブルーチンに注目してみましょう。
+さて、BL 命令について理解したら`_ZN4Game4Coop3Utl7GetRuleEv`というサブルーチンに注目してみましょう。
 
 アドレスは以下にメモしておきますので、 IDA Pro なり GHIDRA なりで確認してみてください。
 
-|   バージョン   |  アドレス  |
-| :-----------: | :--------: |
-|     3.1.0     |  005C3368  |
-|     5.4.0     |  0075E6DC  |
+| バージョン | アドレス |
+| :--------: | :------: |
+|   3.1.0    | 005C3368 |
+|   5.4.0    | 0075E6DC |
 
 さて、この`Game4Coop3Utl7GetRuleEv`（以下、`GetRule()`と省略する）というなんだか長くてややこしいサブルーチンですが全体を見ると面白いことに気付きます。
 
@@ -75,7 +75,7 @@ __int64 __fastcall Game::Coop::Utl::GetRule(Game::Coop::Utl *__hidden this)
 0075E6F8                 RET
 ```
 
-最終的に RET 命令で値をリターンしていることはわかり、さらにサブルーチンの定義から __int64 型（ 64 ビット整数）を返していることがわかります。
+最終的に RET 命令で値をリターンしていることはわかり、さらにサブルーチンの定義から \_\_int64 型（ 64 ビット整数）を返していることがわかります。
 
 ではこのサブルーチンがどのように使われているかを調べます。
 
@@ -110,8 +110,8 @@ v13 = *(_QWORD *)(v7 + 8);
 
 実はこの`GetRule()`は遊んでいるサーモンランの種類によって返り値が異なります。
 
-|     種類      | GetRule() |  機械語  |
-| :-----------: | :-------: | :------: |
+|      種類      | GetRule() |  機械語  |
+| :------------: | :-------: | :------: |
 |   オンライン   |     1     | 20008052 |
 |   イカッチャ   |     2     | 40008052 |
 | チュートリアル |     3     | 60008052 |
@@ -126,16 +126,16 @@ v13 = *(_QWORD *)(v7 + 8);
 
 以下のコードは全て 5.4.0 向けです。
 
-|               サブルーチン                | アドレス  |
-| :---------------------------------------: | :------: |
-| Game::Coop::GuideDirector::showMessage_() | 006FF36C |
-|    Game::Coop::Moderator::Moderator()     | 0072ED40 |
-|   Game::SeqCoopResult::SeqCoopResult()    | 0074E80C |
-|       Game::Coop::Setting::reset()        | 0075BF54 |
+|                サブルーチン                | アドレス |
+| :----------------------------------------: | :------: |
+| Game::Coop::GuideDirector::showMessage\_() | 006FF36C |
+|     Game::Coop::Moderator::Moderator()     | 0072ED40 |
+|    Game::SeqCoopResult::SeqCoopResult()    | 0074E80C |
+|        Game::Coop::Setting::reset()        | 0075BF54 |
 
 さて、それぞれ弄るとどんな結果になるのか見てましょう。
 
-**showMessage_()**
+**showMessage\_()**
 
 ここを弄ると...！！
 
@@ -193,7 +193,7 @@ v13 = *(_QWORD *)(v7 + 8);
 
 ここはオンラインもオフラインも似たようなことをしているみたいです。
 
-## _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc
+## \_ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc
 
 次もいろいろなことに使えそうなサブルーチンを紹介します。
 

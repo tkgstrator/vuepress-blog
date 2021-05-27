@@ -1,10 +1,11 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #11"
 date: 2021-05-24
+description: "条件文の書き方を学び、リアルタイムスペシャル変更コードを改良します"
 category: Hack
 tags:
   - IPSwitch
-style: draft
+  - コード開発
 ---
 
 # [IPSwitch] 誰でもできるコード開発 #11

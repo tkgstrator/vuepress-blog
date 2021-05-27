@@ -8,10 +8,12 @@
 
 Nintendo Switch の改造に関するまとめページです。
 
-## IPSwitch
+## [IPSwitch](/ipswitch/)
 
 IPSwitch で使えるコード開発チュートリアルです。
 
 ## ガチホコカウントマップ
 
 ガチホコバトルでどこまで進めばどのくらいカウントを進められるかをメモしたマップです。
+
+### [ホテルニューオートロ](/posts/2019/01/01/newalbacorehotel.html)

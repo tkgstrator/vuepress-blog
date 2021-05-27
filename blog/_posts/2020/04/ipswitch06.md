@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #6"
 date: 2020-04-30
-description: "IPSwitch で使えるコードを自作する方法についての解説 #6 です"
+description: "ナイスを押したときの挙動を変更して、任意コードを実行する方法について学びます"
 category: Hack
 tags:
   - IPSwitch
