@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #7"
 date: 2020-05-27
-description: ナイスを押したときの挙動を変更して、任意コードを実行する方法について学びます
+description: ナイスやカモンを上書きしてリアルタイムチーム変更をする方法について解説しています。
 category: Hack
 tags:
   - IPSwitch

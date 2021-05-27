@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #5"
 date: 2019-09-12
-description: ガチマッチの試合時間をなるべく長くするコードの実装方法を学びます
+description: ガチマッチやナワバリバトルでの試合時間を変更するコードについて解説しています。
 category: Hack
 tags:
   - IPSwitch

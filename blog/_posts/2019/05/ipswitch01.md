@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #1"
 date: 2019-05-01
-description: "IPSwitch で使えるコードを自作する方法についての解説 #1 です"
+description: スペシャル消費量を0にするためのコードの書き方を解説しています。
 category: Hack
 tags:
   - IPSwitch
