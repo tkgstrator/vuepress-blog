@@ -39,13 +39,13 @@ Toggle Patch Text Contents で A ボタンを押して進めます。
 
 今回は 5.4.0 向けのコードを有効化したかったので 5.4.0public.pchtxt で A ボタンを押すと、ファイル内に記述されているコードがロードされます。
 
-![](/assets/images/12.jpg)
+![](https://pbs.twimg.com/media/E2cR9kiVUAA3qT6?format=png)
 
 赤色表示は無効化されているコードなので有効化したいもので A ボタンを押して逐次好きなようにカスタマイズしてください。
 
 カスタマイズができたら最後に Y ボタンを押して .ips ファイルを出力します。
 
-![](/assets/images/13.jpg)
+![](https://pbs.twimg.com/media/E2cR_wnVEAIeDJG?format=png)
 
 All Done と表示されたらコード出力が完了したので + ボタンで hbmenu に、HOME ボタンで HOME メニューに戻れます。
 

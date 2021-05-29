@@ -516,7 +516,7 @@ RET
 
 ただ、既存の ARM to HEX Converter にはバグ（それともややこしい仕様？）があり、BL 命令を変換すると変なオフセットがつけられてしまいます。
 
-![](/assets/images/25.png)
+![](https://pbs.twimg.com/media/E2cUkNIVoAU7JOm?format=png)
 
 同じ命令を三回書いているのに、ARM64 の変換結果が毎回違うというおかしなことになります。
 
