@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #2"
 date: 2019-05-09
-description: 任意の値をレジスタにセットして、反映させるための方法を学びます
+description: レジスタに任意の値を代入する方法について解説しています。
 category: Hack
 tags:
   - IPSwitch
