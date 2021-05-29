@@ -1,9 +1,10 @@
 ---
-title: "[Hack] Starlight+Docker Install Guide"
+title: "[Hack] Starlight + Docker Install Guide"
 date: 2020-05-19
-description: Dockerを用いたStarlightの導入ガイド。 
+description: Dockerを用いたStarlightの導入ガイドです
 category: Hack
-tags: Starlight
+tags: 
+  - Starlight
 ---
 
 ## Starlight をアプデした
