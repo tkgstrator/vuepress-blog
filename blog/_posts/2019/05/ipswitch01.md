@@ -92,7 +92,7 @@ call "%~dp0support\\launch.bat" bg Ghidra "%MAXMEM%" "" ghidra.GhidraRun %\*
 
 GHIDRA を起動させるためのバッチファイル内で最大メモリ使用量が指定できるので、変更しましょう。
 
-![](/assets/images/14.png)
+![](https://pbs.twimg.com/media/E2cSHEYUUAY7PZm?format=png)
 
 アドレスは 71024178B5 で、その右を見ると XREF[2] の記述から 710008547C のもう一つ隣の 71000864E8 でこの値が使われていることがわかります。
 
@@ -102,7 +102,7 @@ GHIDRA を起動させるためのバッチファイル内で最大メモリ使�
 サブルーチンというのは、関数（メソッド）内で動く関数みたいなイメージです。
 :::
 
-![](/assets/images/15.png)
+![](https://pbs.twimg.com/media/E2cSJXdVcAEw4eK?format=png)
 
 ここのサブルーチンの上五行の命令を覚えておきましょう。
 
@@ -121,23 +121,51 @@ GHIDRA を起動させるためのバッチファイル内で最大メモリ使�
 
 で、そのサブルーチンを実行したときのレジスタの動きはだいたいこんな感じ（自信がないので間違ってたら指摘ください）。
 
-![](/assets/images/16.png)
+![](https://pbs.twimg.com/media/E2cUAhWVEAMzsja?format=png)
 
-![](/assets/images/17.png)
+SP からアドレス XXX だけズラしたところのアドレスに格納されている値を X1 にコピーする。
 
-![](/assets/images/18.png)
+![](https://pbs.twimg.com/media/E2cUC0hUcAAQ5GF?format=png)
 
-![](/assets/images/19.png)
+PC + #SC のアドレスを X2 にコピーする。
 
-![](/assets/images/20.png)
+※どんな値が入っているかはここではわからない。
 
-![](/assets/images/21.png)
+![](https://pbs.twimg.com/media/E2cUE5jVIAAMmEz?format=png)
 
-![](/assets/images/22.png)
+X29 - #YYY の計算結果を X0 に保存する。
+
+※X29 に保存されているデータはアド レスかもしれないし、値かもしれな。
+
+![](https://pbs.twimg.com/media/E2cUG9_VoAExApK?format=png)
+
+X2 + #SC の値を X2 にコピーする。
+
+※ただ、#SC の値は常に 0 なのでこの 動作に意味があるのかよくわかっていない。
+
+※アドレスに定数を足して何をしているのかもよくわからない。
+
+![](https://pbs.twimg.com/media/E2cULU7UcAEA45r?format=png)
+
+SP + #ZZZ のアドレスにある値を X19 にコピーする。
+
+※[] はそのアドレスの値を意味する。
+
+![](https://pbs.twimg.com/media/E2cUNzVVkAI8lPu?format=png)
+
+サブルーチン 19E4678 に分岐する。
+
+![](https://pbs.twimg.com/media/E2cUQhVVIAM-diu?format=png)
+
+命令を実行したあとのレジスタの状況はこんな感じになっています。
+
+このあと結局どの値を SC として使われるのかはサブルーチンの中身を見なければわかりません。
 
 で、細かいことはさておいて最終的には X1 レジスタに入っているアドレスが指し示すメモリの値が`SpecialCost`として使われます。
 
-![](/assets/images/23.png)
+![](https://pbs.twimg.com/media/E2cUT05VkAA-KI1?format=png)
+
+サブルーチン 19E4678 は X1 にスペシャル必要数のデータが保存されているメモリのアドレスをコピーする。
 
 レジスタはこのあとも何度も更新されてしまうので、ここの値を変えることに意味はありません。
 
@@ -210,7 +238,7 @@ X1 レジスタが指し示すアドレスの値を 0 にするアセンブラ�
 
 [Online ARM to HEX Converter](http://armconverter.com/)
 
-![](/assets/images/24.png)
+![](https://pbs.twimg.com/media/E2cUgdlUUAApUdB?format=png)
 
 このとき出力される ARM HEX の値をコピーします。
 

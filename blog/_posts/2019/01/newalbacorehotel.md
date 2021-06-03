@@ -7,7 +7,7 @@ tags:
   - ガチホコカウントマップ
 ---
 
-## ホテルニューオートロ
+# ホテルニューオートロ
 
 ![](https://pbs.twimg.com/media/Ec5t-FBXoAA0cYB?format=jpg)
 
