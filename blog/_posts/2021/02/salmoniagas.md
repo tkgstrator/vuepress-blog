@@ -20,7 +20,13 @@ GAS のアカウント開設や、設定の大まかな方法は以前と変わ�
 
 最近コードを大幅に変えて安定性を向上させたので、ぜひともそっちを使ってみてください。
 
-[Windows 版 Salmonia 1.10.0](https://cdn.discordapp.com/attachments/619618040417484801/806417639185448960/Salmonia.exe)
+[Windows 版 Salmonia 1.11.0](https://github.com/tkgstrator/Salmonia/releases/tag/v1.11.0)
+
+::: tip 最新のバージョン
+
+古いバージョンの Salmonia を使っていると正しく iksm_session が取得できないので気をつけてください。
+
+:::
 
 え、じゃあ何が変わったんだとなるわけですが、複数アカウントに対応したのが今回の一番の目玉です。
 
