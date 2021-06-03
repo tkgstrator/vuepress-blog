@@ -7,9 +7,11 @@ tags:
   - ガチホコカウントマップ
 ---
 
+# アンチョビットゲームズ
+
 ![](https://pbs.twimg.com/media/Ecf-BHpWsAAEU_c?format=jpg&name=large)
 
-# 基本情報
+## 基本情報
 
 ![](https://pbs.twimg.com/media/EV-Gp0pXkAArUby?format=png&name=large)
 
@@ -39,13 +41,13 @@ tags:
 
 :::
 
-### 赤ルートから運ぼうとするとこうなる
+#### 赤ルートから運ぼうとするとこうなる
 
 (https://tkgstrator.work/wp-content/uploads/2019/04/20190422002405098.jpg)
 
 (https://tkgstrator.work/wp-content/uploads/2019/04/2019042200240509.jpg)
 
-## 緑ルートについて
+### 緑ルートについて
 
 緑ルートは無難なのだが、最初カウントを減らすのに時間がかかってしまうのが難点。
 
@@ -56,6 +58,8 @@ tags:
 ::: tip 緑ルートについて
 
 全く選択肢にないわけではなく、後述する青ルートが見張られていて侵入困難な場合は緑ルートから攻めることになります。
+
+:::
 
 ### 青ルートについて
 

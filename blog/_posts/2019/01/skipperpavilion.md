@@ -7,6 +7,8 @@ tags:
   - ガチホコカウントマップ
 ---
 
+# ムツゴ楼
+
 ![](https://pbs.twimg.com/media/EcUz6S_XYAEEOJ2?format=jpg&name=large)
 
 ## 基本情報

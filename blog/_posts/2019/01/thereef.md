@@ -7,6 +7,8 @@ tags:
   - ガチホコカウントマップ
 ---
 
+# バッテラストリート
+
 ![](https://pbs.twimg.com/media/EcFk3w9X0AIASfr?format=jpg&name=large)
 
 ## 基本情報
@@ -42,6 +44,8 @@ tags:
 (https://tkgstrator.work/wp-content/uploads/2018/12/2018120802544312.png)
 
 緑ルートは相手からの死角になっているので攻撃を受けにくく、青ルートよりも進む場合があるので臨機応変に動けるようにしたいところ。
+
+## エリア
 
 ### 安全エリア
 
