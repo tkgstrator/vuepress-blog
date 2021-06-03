@@ -7,6 +7,8 @@ tags:
   - ガチホコカウントマップ
 ---
 
+# アロワナモール
+
 ![](https://pbs.twimg.com/media/Ec7pkD7WsAAUMNO?format=jpg&name=large)
 
 ## 基本情報

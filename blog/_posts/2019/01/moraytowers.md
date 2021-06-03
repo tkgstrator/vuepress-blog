@@ -7,6 +7,8 @@ tags:
   - ガチホコカウントマップ
 ---
 
+# タチウオパーキング
+
 ![](https://pbs.twimg.com/media/Ecp1u1aWoAAXKjb?format=jpg&name=large)
 
 ## 基本情報
@@ -26,6 +28,8 @@ tags:
 カウント自体は70くらい進めておけば80%近い勝率があるのでこのあたりを目標に。
 
 ## 概要
+
+## エリア
 
 ### 危険エリア
 
