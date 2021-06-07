@@ -1,10 +1,10 @@
 ---
-title: ContentView自体にタップ判定をつけよう 
+title: ContentView自体にタップ判定をつけよう
 date: 2021-05-06
-description: ContentViewやそれ以上のルートビューにonTapGestureをつけると思わぬ不具合を生んでしまいます 
+description: ContentViewやそれ以上のルートビューにonTapGestureをつけると思わぬ不具合を生んでしまいます
 category: プログラミング
 tags:
-- Swift
+  - Swift
 ---
 
 # タップジェスチャーを取得する方法
@@ -15,7 +15,7 @@ tags:
 
 ![](https://pbs.twimg.com/media/E0r0uuyUYAAHOKL?format=jpg&name=large)
 
-要するにタップしたときの挙動がTabView自体に備わっているのでめんどくさいことになるのである。
+要するにタップしたときの挙動が TabView 自体に備わっているのでめんどくさいことになるのである。
 
 ## デモアプリ
 
@@ -48,10 +48,9 @@ struct ContentView: View {
 }
 ```
 
-ではこのTabView自体がタップされたときに別の挙動をしたい場合はどうすればよいだろうか。単純に思いつくのはTabView自体にも`onTapGesture()`を追加する方法である。TabView自体に`onTapGesture()`を追加してどういう意味があるのかと思うだろうが、ちょっと前の記事で触れたように「指定時間操作がなければ別の画面に遷移する」というような機能を実装しようとしたら「最後にアプリを操作した時間」というのが必要になる。
+ではこの TabView 自体がタップされたときに別の挙動をしたい場合はどうすればよいだろうか。単純に思いつくのは TabView 自体にも`onTapGesture()`を追加する方法である。TabView 自体に`onTapGesture()`を追加してどういう意味があるのかと思うだろうが、ちょっと前の記事で触れたように「指定時間操作がなければ別の画面に遷移する」というような機能を実装しようとしたら「最後にアプリを操作した時間」というのが必要になる。
 
 よって、最も大きいビュー自体をタップされたかどうかを検知する必要があるというわけだ。
-
 
 ### TabView
 
@@ -84,11 +83,11 @@ struct ContentView: View {
 }
 ```
 
-で、やってみればわかるのだがこのアプリは想定通りの動作をしない。というのもTabView自体がタップされた場所で`$selection`の値を変更してタブを切り替えるという動作が実装されているからだ。
+で、やってみればわかるのだがこのアプリは想定通りの動作をしない。というのも TabView 自体がタップされた場所で`$selection`の値を変更してタブを切り替えるという動作が実装されているからだ。
 
-つまり、TabView自体に`onTapGesture()`をつけた時点でそちらの機能が優先されてしまい、タブが切り替わらなくなってしまうのである。
+つまり、TabView 自体に`onTapGesture()`をつけた時点でそちらの機能が優先されてしまい、タブが切り替わらなくなってしまうのである。
 
-第一、この方式はあまり推奨されない。何故ならこれだとTabViewのタップされた判定しかとってこれないからだ。他のビューでも同様にタップされたかの判定を書く必要が生じるが、それはオブジェクト指向に反する。
+第一、この方式はあまり推奨されない。何故ならこれだと TabView のタップされた判定しかとってこれないからだ。他のビューでも同様にタップされたかの判定を書く必要が生じるが、それはオブジェクト指向に反する。
 
 ### App.swift
 
@@ -112,7 +111,7 @@ struct TouchDemoApp: App {
 
 どうしたものかと頭を悩ませていたのだが、世界中の知識が集まる[StackOverflow](https://stackoverflow.com/questions/63927489/how-to-track-all-touches-across-swiftui-app)に解決策が載っていた。
 
-まず、以下のようなExtensionを作成する。これはSwiftUIというよりはObjective-Cに近いのではないかと勝手に思っている。
+まず、以下のような Extension を作成する。これは SwiftUI というよりは Objective-C に近いのではないかと勝手に思っている。
 
 ```swift
 extension UIApplication {
@@ -137,7 +136,7 @@ extension UIApplication: UIGestureRecognizerDelegate {
 }
 ```
 
-最後にこの関数を`onAppear()`を使ってContentView自体に適用する。
+最後にこの関数を`onAppear()`を使って ContentView 自体に適用する。
 
 ```swift
 @main
@@ -157,6 +156,6 @@ struct TouchDemoApp: App {
 <img src="https://m.media-amazon.com/images/I/416ZqsPCCjL._SL500_.jpg" />
 <ul>
 <li><a href="https://www.amazon.co.jp/dp/4815604061/?tag=tkgstrator0f-22" target="_blank">SwiftUI 徹底入門</a></li>
-<li class="price">￥7,054 (コレクター商品)</li>
+<li class="price">￥7,054</li>
 </ul>
 </div>
