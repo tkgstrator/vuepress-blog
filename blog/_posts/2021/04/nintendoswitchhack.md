@@ -61,6 +61,14 @@ RCM に入るためには特定のピンをショートさせる必要がある�
 
 すごく便利なのでこれは持っておいたほうがいいと思います。
 
+<div class="vuepress-affiliate">
+<img src="https://m.media-amazon.com/images/I/31MOz9wtBkL._SL200_.jpg"></img>
+<ul>
+<li><a href="https://www.amazon.co.jp/dp/B07J6P93MB/?tag=tkgstrator0f-22" target="_blank">スイッチ用 RCMジグ RCMツール ショートコネクタ RCMクリップ 収納ケース付き (レッド)</a></li>
+<li class="price">￥680</li>
+</ul>
+</div>
+
 ### hekate
 
 RCM から起動できるユーティリティツールのこと。
@@ -97,13 +105,13 @@ NAND のバックアップを取っていないと、Nintendo Switch はブリ�
 
 CFW としては atmosphere や SXOS などが有名ですね。
 
-### atmosphere
+### Atmosphere
 
 Github で公開されているオープンソースの CFW のこと。
 
 更新がものすごく速いことで有名です。
 
-[atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases)
+[Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases)
 
 ### DeepSea
 
