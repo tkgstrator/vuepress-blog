@@ -75,14 +75,6 @@ IF 文を使って書こうとするとこのように長くなってしまう�
 
 基本的にどのプログラミング言語も三項演算子をサポートしており、IF 文よりも簡潔に書ける場合が多いので覚えておくと良い。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/41WsbBrdkzL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08QML1J43/?tag=tkgstrator0f-22" target="_blank">Samsung EVO Plus マイクロSDカード 128GB microSDXC UHS-I U3 100MB/s Full HD & 4K UHD Nintendo Switch 動作確認済 MB-MC128HA/EC 国内正規保証品</a></li>
-<li class="price">￥2,130</li>
-</ul>
-</div>
-
 ### 三項演算子のルール
 
 三項演算子は以下のように記述できる。
@@ -141,8 +133,8 @@ NZCV は条件フラグと呼ばれる特殊なレジスタで、計算の結果
 | :-: | :------------: | :----------------: |
 |  N  |     x < 0      |       x >= 0       |
 |  Z  |     x = 0      |       x != 0       |
-|  C  |  桁あふれ発生   |    桁あふれなし     |
-|  V  | オーバーフロー  | オーバーフローなし  |
+|  C  |  桁あふれ発生  |    桁あふれなし    |
+|  V  | オーバーフロー | オーバーフローなし |
 
 - N (Negative or Not)
   - 計算結果が負かどうかを判定する
@@ -161,7 +153,7 @@ LO というのは先程の三項演算子内の`NZCV is LO`という擬似コ�
 
 全部は覚えなくていいけど、いくつか覚えておくと条件文が書きやすくなります。
 
-| サフィックス  |     意味      |     フラグ      |
+| サフィックス |     意味      |     フラグ      |
 | :----------: | :-----------: | :-------------: |
 |      EQ      |     Equal     |      Z = 1      |
 |      NE      |   Not Equal   |      Z = 0      |
@@ -187,14 +179,6 @@ LO というのは先程の三項演算子内の`NZCV is LO`という擬似コ�
 
 フラグの方はあくまでも人間的にわかりやすい書き方なので`C = 0`と書いてあるが、プログラミング的には IF (`C == 0`) という意味になる。
 :::
-
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/51JDwVG3fbL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B07BPYN93K/?tag=tkgstrator0f-22" target="_blank">『ウマ箱』第1コーナー(アニメ『ウマ娘 プリティーダービー』トレーナーズBOX) [Blu-ray]</a></li>
-<li class="price">￥10,873</li>
-</ul>
-</div>
 
 ## ここまでの流れ
 
@@ -286,14 +270,6 @@ LO サフィックスは C(キャリーフラグ)が 0 ということしか見�
 
 なので LO(`C = 0`のみチェック)よりも LS(`C = 0`または`Z = 1`)で判定したほうが良かった。
 :::
-
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/41i-GD4F2oL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B07X779ZK5/?tag=tkgstrator0f-22" target="_blank">Nintendo Switch Lite ターコイズ</a></li>
-<li class="price">￥21,899</li>
-</ul>
-</div>
 
 ## コードを修正しよう
 
@@ -467,14 +443,6 @@ ARM to HEX Converter で BL 命令を変換するとナゾのオフセットが�
 0104C994 C0035FD6 // RET
 ```
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/51KXnwvydwL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B072FHHZFJ/?tag=tkgstrator0f-22" target="_blank">【任天堂純正品】Nintendo Switch Proコントローラー スプラトゥーン2エディション</a></li>
-<li class="price">￥7,185</li>
-</ul>
-</div>
-
 ## IF 文の書き方まとめ
 
 |        三項演算子         |               アセンブラ                |                    IF 文                     |
@@ -508,11 +476,3 @@ ARM to HEX Converter で BL 命令を変換するとナゾのオフセットが�
 `0104C974 4110839A // CSEL X1, X2, X3, NE`とすれば条件文と中身のどちらも反転させるので「反転の反転」で元のコードと同じ効果を持ちます。
 
 記事は以上。
-
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/31MOz9wtBkL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B07J6P93MB/?tag=tkgstrator0f-22" target="_blank">スイッチ用 RCMジグ RCMツール ショートコネクタ RCMクリップ 収納ケース付き (レッド)</a></li>
-<li class="price">￥680</li>
-</ul>
-</div>

@@ -9,11 +9,11 @@ tags:
 
 # コンブトラック
 
-![](https://pbs.twimg.com/media/Ec4AGjHXoAM5v8P?format=jpg&name=large)
+![](https://pbs.twimg.com/media/Ec4AGjHXoAM5v8P?format=png)
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-GdkDWsAAUUfw?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-GdkDWsAAUUfw?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |
@@ -48,7 +48,3 @@ tags:
 ### 籠城
 
 コンブトラックは自陣までスーパージャンプなしに戻ることができないので、完全な籠城ポイントは存在しない。
-
-## 実践動画
-
-最後の直線は防衛側も止めやすいとはいっても、こんな感じで突っ込んできていては進軍側がどんどん有利になるだけである。

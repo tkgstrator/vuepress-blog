@@ -9,11 +9,11 @@ tags:
 
 # モズク農園
 
-![](https://pbs.twimg.com/media/EcfwSsDXYAAhUo_?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EcfwSsDXYAAhUo_?format=png)
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-GgiDWAAMQJju?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-GgiDWAAMQJju?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |
@@ -33,9 +33,9 @@ tags:
 
 初動で相手が網側を見ていないことをマップで確認してからこのルートを選択したい。このルートからくるのは長射程ブキであるスピナーやチャージャーであることが多いので、それらのブキが相手にいるかどうかを確認しているだけでかなり奇襲の成功率が違ってくる。
 
-https://video.twimg.com/ext\_tw\_video/996295626617847809/pu/vid/1280x720/zAsrVVUto3UuTX4i.mp4
+<video controls src="https://video.twimg.com/ext_tw_video/996295626617847809/pu/vid/1280x720/zAsrVVUto3UuTX4i.mp4"></video>
 
-安定ルートを使う際の最後の直線はバブルを置いておけば中を通って簡単に30台までは進めてしまう。また、ハイパープレッサーもささるので防衛側は相手のスペシャルがたまっていると苦しい戦いを強いられることになる。
+安定ルートを使う際の最後の直線はバブルを置いておけば中を通って簡単に 30 台までは進めてしまう。また、ハイパープレッサーもささるので防衛側は相手のスペシャルがたまっていると苦しい戦いを強いられることになる。
 
 この通路は防衛側からすると非常に戦いにくい場所なので、さっさと自陣リスポーン前を通って安全エリアまでガチホコを運んでしまおう。
 

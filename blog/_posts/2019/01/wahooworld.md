@@ -9,11 +9,11 @@ tags:
 
 # スメーシーワールド
 
-![](https://pbs.twimg.com/media/EcaLPCYWsAADBCh?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EcaLPCYWsAADBCh?format=png)
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-GpbNXkAAsaTC?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-GpbNXkAAsaTC?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |
@@ -45,12 +45,12 @@ tags:
 
 ## エリア
 
+### 安全エリア
+
+自陣左側の高台付近は比較的安全です。
+
 ### 危険エリア
 
 自陣ゴール前の広場が荒らされていると一気にホコを進められる可能性があるため危ないです。
 
 ここは必ず自陣の色ですぐに塗り替えすようにしましょう。
-
-### 安全エリア
-
-自陣左側の高台付近は比較的安全です。

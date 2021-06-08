@@ -130,7 +130,7 @@ v13 = *(_QWORD *)(v7 + 8);
 
 |                サブルーチン                | アドレス |
 | :----------------------------------------: | :------: |
-| Game::Coop::GuideDirector::showMessage\_() | 006FF36C |
+| Game::Coop::GuideDirector::showMessage_() | 006FF36C |
 |     Game::Coop::Moderator::Moderator()     | 0072ED40 |
 |    Game::SeqCoopResult::SeqCoopResult()    | 0074E80C |
 |        Game::Coop::Setting::reset()        | 0075BF54 |

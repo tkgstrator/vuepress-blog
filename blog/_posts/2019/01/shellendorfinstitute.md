@@ -13,7 +13,7 @@ tags:
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-GjljWkAM43Rr?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-GjljWkAM43Rr?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |
@@ -25,23 +25,23 @@ tags:
 
 ## 概要
 
-5.0.0で大幅改修されたことでどん詰まりだった赤ルートに希望の光がでてきました。といってもやっぱり遠いので人数有利で手っ取り早くカウントを進めたいときは不向き。
+5.0.0 で大幅改修されたことでどん詰まりだった赤ルートに希望の光がでてきました。といってもやっぱり遠いので人数有利で手っ取り早くカウントを進めたいときは不向き。
 
 ## 変更点
 
-(https://tkgstrator.work/wp-content/uploads/2019/07/2019073118533264.jpg)
+(https://pbs.twimg.com/media/E3GWBt8UYAEDarZ?format=png)
 
 屋根の高さがかなり低くなり、見通しが良くなりました。
 
-(https://tkgstrator.work/wp-content/uploads/2019/07/2019073118534483.jpg)
+(https://pbs.twimg.com/media/E3GWEDOVgAUiuo3?format=png)
 
-改修前はただの直方体だったのですが、アップデートでT字型になりました。
+改修前はただの直方体だったのですが、アップデートで T 字型になりました。
 
-(https://tkgstrator.work/wp-content/uploads/2019/07/2019073118535441.jpg)
+(https://pbs.twimg.com/media/E3GWF6YVcAEXkgQ?format=png)
 
 以前は選択するとほぼ確実にホコを落として停滞する時間稼ぎの場所だったのですが、かなり見通しが良くなりました。
 
-(https://tkgstrator.work/wp-content/uploads/2019/07/2019073118541835.jpg)
+(https://pbs.twimg.com/media/E3GWH2MVUAEEQ96?format=png)
 
 高さがだいぶ低くなったので単射程ブキでも上が狙いやすくなっています。
 

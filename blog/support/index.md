@@ -14,13 +14,13 @@
 
 ### BTC/ビットコイン
 
-受け取りアドレス:32Yx91qqtQo4wW5LuKhxcwfe5hDTChgxAQ 
+受け取りアドレス: `32Yx91qqtQo4wW5LuKhxcwfe5hDTChgxAQ`
 
 ### XRP/リップル
 
-受け取りアドレス: rpct6vuKL2bcJq9FFygAsYNMVXyXirwPeL
+受け取りアドレス: `rpct6vuKL2bcJq9FFygAsYNMVXyXirwPeL`
 
-宛先タグ: 76690685
+宛先タグ: `76690685`
 
 ## アマゾンギフト券
 
@@ -28,8 +28,8 @@
 
 ## [PayPal](https://paypal.me/salmonia)
 
-PayPalアカウントでの受け取りにも対応しています。
+PayPal アカウントでの受け取りにも対応しています。
 
 ## [PayPay](https://qr.paypay.ne.jp/4MmLv1faPVCKdP6z)
 
-最近PayPayにも対応しました。
+最近 PayPay にも対応しました。

@@ -150,10 +150,9 @@ module.exports = {
 
     // the content of navbar links
     nav: [
-      { text: "自己紹介", link: "/about/", exact: false },
       { text: "投稿一覧", link: "/posts/", exact: false },
-      // { text: "コード開発", link: "/ipswitch/" },
-      { text: "まとめ", link: "/documents/", exact: false },
+      { text: "自己紹介", link: "/about/", exact: false },
+      { text: "ドキュメント", link: "/documents/", exact: false },
       { text: "サポート", link: "/support/", exact: false },
     ],
   },

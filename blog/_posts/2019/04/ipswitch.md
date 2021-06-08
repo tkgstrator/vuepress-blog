@@ -9,9 +9,9 @@ tags:
 
 ## IPSwitch
 
-IPSwitch とは pchtxt（パッチテキスト）を読み込み、.ips 形式のパッチとして出力するツールのこと。
+IPSwitch とは pchtxt（パッチテキスト）を読み込み、IPS 形式のパッチとして出力するツールのこと。
 
-これがあるだけでわざわざ自分で .ips ファイルを書かなくてもコードを実際に使える形式に変換してくれます。
+これがあるだけでわざわざ自分で IPS ファイルを書かなくてもコードを実際に使える形式に変換してくれます。
 
 [IPSwitch](https://github.com/3096/ipswitch/releases)
 
@@ -31,7 +31,7 @@ IPSwitch とは pchtxt（パッチテキスト）を読み込み、.ips 形式�
 
 [スプラトゥーン2 チートコード](https://takaharu422.github.io/Splatoon2.github.io/ja.html)
 
-## Switch側の設定
+## Switch 側の設定
 
 hbmenu から IPSwitch を起動します。
 
@@ -43,7 +43,7 @@ Toggle Patch Text Contents で A ボタンを押して進めます。
 
 赤色表示は無効化されているコードなので有効化したいもので A ボタンを押して逐次好きなようにカスタマイズしてください。
 
-カスタマイズができたら最後に Y ボタンを押して .ips ファイルを出力します。
+カスタマイズができたら最後に Y ボタンを押して IPS ファイルを出力します。
 
 ![](https://pbs.twimg.com/media/E2cR_wnVEAIeDJG?format=png)
 

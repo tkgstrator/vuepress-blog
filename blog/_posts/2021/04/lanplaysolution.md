@@ -2,7 +2,7 @@
 title: "LanPlayが始まらないときの解決チュートリアル"
 date: 2021-04-27
 description: LanPlayで遊んでいて困ったときはここを読んでみるといいかもしれません
-category: Splatoon2
+category: Nintendo
 tags:
   - LanPlay
 ---

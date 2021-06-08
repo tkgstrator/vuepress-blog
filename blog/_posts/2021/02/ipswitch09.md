@@ -73,21 +73,21 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 
 例えば、サーモンランに関するインスタンスはこれだけあります。
 
-|            クラス            |  3.1.0   |               意味               |
-| :--------------------------: | :------: | :------------------------------: |
-|   Game::Coop::RewardConfig   | 04157FB0 |                -                 |
-|    Game::Coop::RuleConfig    | 04158008 |       パラメータを設定する        |
-|   Game::Coop::LevelsConfig   | 04160E00 |    詳細なパラメータを設定する     |
+|            クラス            |  3.1.0   |                意味                |
+| :--------------------------: | :------: | :--------------------------------: |
+|   Game::Coop::RewardConfig   | 04157FB0 |                 -                  |
+|    Game::Coop::RuleConfig    | 04158008 |        パラメータを設定する        |
+|   Game::Coop::LevelsConfig   | 04160E00 |     詳細なパラメータを設定する     |
 |     Game::Coop::Setting      | 04160E08 | キケン度やステージなどの設定を司る |
-|  Game::VictoryClamDirector   | 04162050 |                -                 |
-|   Game::Coop::CameraHolder   | 04164DF0 |                -                 |
-|     Game::Coop::GraphMgr     | 04164E40 |        GraphNode を司る？         |
-|   Game::Coop::ItemDirector   | 04165738 |                -                 |
-|  Game::Coop::EnemyDirector   | 04165740 |        シャケを司るクラス         |
+|  Game::VictoryClamDirector   | 04162050 |                 -                  |
+|   Game::Coop::CameraHolder   | 04164DF0 |                 -                  |
+|     Game::Coop::GraphMgr     | 04164E40 |         GraphNode を司る？         |
+|   Game::Coop::ItemDirector   | 04165738 |                 -                  |
+|  Game::Coop::EnemyDirector   | 04165740 |         シャケを司るクラス         |
 |  Game::Coop::PlayerDirector  | 04165DB8 | サーモンランのプレイヤー情報を司る |
 |  Game::Coop::EventDirector   | 04167BC0 |     夜イベントなどの情報を司る     |
-|  Game::Coop::SeaSurfaceMgr   | 04167C20 |         潮位の変化を司る          |
-|  Game::Coop::GuideDirector   | 04167E18 |                -                 |
+|  Game::Coop::SeaSurfaceMgr   | 04167C20 |          潮位の変化を司る          |
+|  Game::Coop::GuideDirector   | 04167E18 |                 -                  |
 |    Game::Coop::Moderator     | 04168C78 |        クマサンの挙動を司る        |
 | Game::Coop::ResultPlayReport | 04169050 |        リザルトデータを司る        |
 
@@ -291,12 +291,12 @@ RET
 
 それぞれのパラメータの意味をいかに解説します。
 
-| パラメータ |                                   意味                                    |
-| :--------: | :----------------------------------------------------------------------: |
-|   XXXXX    |                 Game::PlayerMgr のアドレスを使って計算する                 |
+| パラメータ |                                    意味                                     |
+| :--------: | :-------------------------------------------------------------------------: |
+|   XXXXX    |                 Game::PlayerMgr のアドレスを使って計算する                  |
 |    YYY     | XXXXX000 に対するオフセット <br> Game::PlayerMgr のアドレスを使って計算する |
-|  AAAAAAAA  |            Game::PlayerMgr::getControlledPerformer のアドレス             |
-|  BBBBBBBB  |                         この命令が書かれるアドレス                         |
+|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
+|  BBBBBBBB  |                         この命令が書かれるアドレス                          |
 
 これらの値を計算するためにはあと二つのアドレスがわからなければいけません。
 
@@ -318,7 +318,7 @@ RET
 
 ### Game::PlayerMgr::getControlledPerformer
 
-|               サブルーチン               |  3.1.0   |  5.4.0   |
+|              サブルーチン               |  3.1.0   |  5.4.0   |
 | :-------------------------------------: | :------: | :------: |
 | Game::PlayerMgr::getControlledPerformer | 00F07B1C | 010E6D2C |
 
@@ -391,7 +391,7 @@ RET
 
 これは別にこのサブルーチンでなくても他のサブルーチンでも代用できます。
 
-|               サブルーチン                |  3.1.0   |  5.4.0   |
+|               サブルーチン               |  3.1.0   |  5.4.0   |
 | :--------------------------------------: | :------: | :------: |
 | Game::PlayerCloneHandle::sendSignalEvent | 00E797FC | 0104C94C |
 
@@ -477,21 +477,21 @@ RET
 
 あとはこの四つのパラメータを計算したら終わりです。
 
-| パラメータ |                                    意味                                    |
-| :--------: | :-----------------------------------------------------------------------: |
+| パラメータ |                                    意味                                     |
+| :--------: | :-------------------------------------------------------------------------: |
 |  XXXXX000  |         下三桁が 0 の値 Game::PlayerMgr のアドレスを使って計算する          |
 |    YYY     | XXXXX000 に対するオフセット <br> Game::PlayerMgr のアドレスを使って計算する |
-|  AAAAAAAA  |            Game::PlayerMgr::getControlledPerformer のアドレス             |
-|  BBBBBBBB  |                         この命令が書かれるアドレス                         |
+|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
+|  BBBBBBBB  |                         この命令が書かれるアドレス                          |
 
 これらを計算するのに必要なデータも載せます。
 
-| パラメータ |                        求め方                        |    値    |
-| :--------: | :-------------------------------------------------: | :------: |
-|   XXXXX    |                     計算式は後述                     |  01CB1   |
-|    YYY     |          Game::PlayerMgr のアドレスの下三桁          |   CF8    |
-|  AAAAAAAA  |  Game::PlayerMgr::getControlledPerformer のアドレス | 010E6D2C |
-|  BBBBBBBB  |              BL 命令が書かれるアドレス               | 0104C960 |
+| パラメータ |                       求め方                       |    値    |
+| :--------: | :------------------------------------------------: | :------: |
+|   XXXXX    |                    計算式は後述                    |  01CB1   |
+|    YYY     |         Game::PlayerMgr のアドレスの下三桁         |   CF8    |
+|  AAAAAAAA  | Game::PlayerMgr::getControlledPerformer のアドレス | 010E6D2C |
+|  BBBBBBBB  |             BL 命令が書かれるアドレス              | 0104C960 |
 
 ここで XXXXX 以外の値は簡単にわかります。問題は XXXXX なのですが、これは
 
@@ -665,12 +665,12 @@ Game::Coop::PlayerDirector
 0104C94C NOP
 ```
 
-| パラメータ |                                   意味                                    |
-| :--------: | :----------------------------------------------------------------------: |
-|   XXXXX    |                 Game::PlayerMgr のアドレスを使って計算する                 |
+| パラメータ |                                    意味                                     |
+| :--------: | :-------------------------------------------------------------------------: |
+|   XXXXX    |                 Game::PlayerMgr のアドレスを使って計算する                  |
 |    YYY     | XXXXX000 に対するオフセット <br> Game::PlayerMgr のアドレスを使って計算する |
-|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス            |
-|  BBBBBBBB  |                         この命令が書かれるアドレス                         |
+|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
+|  BBBBBBBB  |                         この命令が書かれるアドレス                          |
 
 ```
 Game::Coop::PlayerDirector : 02D0CEE0 → 02CD0

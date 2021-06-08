@@ -9,11 +9,11 @@ tags:
 
 # ホッケふ頭
 
-![](https://pbs.twimg.com/media/EcwfdLQXsAIuumR?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EcwfdLQXsAIuumR?format=png)
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-GeXVWkAALMeq?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-GeXVWkAALMeq?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |

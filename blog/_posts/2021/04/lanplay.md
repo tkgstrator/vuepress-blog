@@ -2,7 +2,7 @@
 title: "[決定版] SwitchLanPlay"
 date: 2021-04-26
 description: LanPlay導入方法のチュートリアルです
-category: Splatoon2
+category: Nintendo
 tags:
   - LanPlay
 ---
@@ -58,7 +58,7 @@ WinPcap は Windows10 向けのものも公開されていますが、そちら�
 
 ダウンロードしてインストールするだけです。
 
-万が一インストール出来ない場合は[C++再頒布パッケージ x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)を試してみてください。
+万が一インストールできない場合は[C++再頒布パッケージ x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)を試してみてください。
 git p
 
 ## SwitchLanPlay
