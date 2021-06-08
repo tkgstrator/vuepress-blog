@@ -9,11 +9,11 @@ tags:
 
 # バッテラストリート
 
-![](https://pbs.twimg.com/media/EcFk3w9X0AIASfr?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EcFk3w9X0AIASfr?format=png)
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-GaJ-XsAEQC7O?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-GaJ-XsAEQC7O?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |
@@ -41,7 +41,7 @@ tags:
 
 青ルートは最短ルートですが、最後に塗れない床があるので緑ルートとどちらを選択するか悩むところです。
 
-(https://tkgstrator.work/wp-content/uploads/2018/12/2018120802544312.png)
+(https://pbs.twimg.com/media/E3GW3XPUUAQWkL1?format=png)
 
 緑ルートは相手からの死角になっているので攻撃を受けにくく、青ルートよりも進む場合があるので臨機応変に動けるようにしたいところ。
 
@@ -55,12 +55,8 @@ tags:
 
 ## 小技
 
-判定を利用したテクニック
+- 判定を利用したテクニック
 
-普通にジャンプしてもカウントは1も進まないのですが、何故かゴール方向に向けてスティックを傾けながらジャンプするとカウント27まで進みます。
+普通にジャンプしてもカウントは 1 も進まないのですが、何故かゴール方向に向けてスティックを傾けながらジャンプするとカウント 27 まで進みます。
 
 ただし、こんなことやる余裕があるなら普通にスロープに向かってジャンプしたほうがマシです。
-
-## 実践動画
-
-ボムの位置とそれまでの相手の動きから左は見られていないことがわかったので、そういうときはこういうホコ運びもできます。

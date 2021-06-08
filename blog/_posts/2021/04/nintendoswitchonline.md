@@ -1,6 +1,6 @@
 ---
 title: Nintendo Switch Online APIドキュメント
-date: 2021-04-27
+date: 2021-04-26
 description: Nintendo Switch Online APIの実装マニュアルです
 category: Nintendo
 ---

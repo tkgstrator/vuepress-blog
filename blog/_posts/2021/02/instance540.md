@@ -129,10 +129,10 @@ YYY = EE0
 ```
 // Infinite Golden Eggs [tkgling]
 @disabled
-00667398 48018052 // Boss Salmonids
 0066739C 0031881A // Salmonids
-0068D680 40018052 // Bagman
+0068D680 40018052 // Snatchers
 006CF59C 40018052 // Chinooks
+00667398 48018052 // Boss Salmonids
 ```
 
 シャケが金イクラを 10 個ドロップするようになります。ただし、キンシャケ探しのキンシャケ・ラッシュのキンシャケ・霧のキンシャケ・グリルの四つのオオモノについては別パラメータで設定されているため変化しません。

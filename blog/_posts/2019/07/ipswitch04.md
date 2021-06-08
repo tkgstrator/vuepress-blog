@@ -280,6 +280,12 @@ STR WZR, [X1]
 0008637C 3F0000B9 // STR WZR, [X1]
 ```
 
+```
+// Unlock All Weapon [tkgling]
+@disabled
+00086390 3F0000B9 // STR WZR, [X1]
+```
+
 ## 全ブキ開放
 
 やろうと思ったのですが、クマブキやその他の未リリースブキの開放のためのパラメータがわかんなかったので中途半端になっちゃいました。
@@ -289,8 +295,8 @@ STR WZR, [X1]
 ```
 // Unlock All Weapon [tkgling]
 @disabled
+0008637C 3F0000B9 // STR WZR, [X1]
 00086390 3F0000B9 // STR WZR, [X1]
-00086350 000080D2 // MOV X0, #0
 000865E8 FF2704B9 // STR WZR, [SP, #0x424]
 ```
 

@@ -18,12 +18,12 @@ HACGUI と NXDumpTool の使い方は上のリンク参照！
 
 以下の表が HACGUI と NXDumpTool の比較表です
 
-|               |      HACGUI       |        NXDumpTool         |
-| :-----------: | :---------------: | :-----------------------: |
-| カートリッジ版 |         ×         | △ <br> ※署名にバグあり？ |
+|                |      HACGUI      |        NXDumpTool        |
+| :------------: | :--------------: | :----------------------: |
+| カートリッジ版 |        ×         | △ <br> ※署名にバグあり？ |
 | ダウンロード版 | △ <br> ※制限あり | ◯ <br> ※オプションが必須 |
 |  アップデータ  |        ◯         |            ◯             |
-|      DLC      |        ◯         |            ◯             |
+|      DLC       |        ◯         |            ◯             |
 
 ◯ は署名付きで正しくダンプし、パッチをあてていない CFW でインストール可能な NSP が作成できることを意味しています。じゃあ気になる △ はなんなのかということになるわけです。
 
@@ -100,7 +100,7 @@ fss0=atmosphere/fusee-secondary.bin
 atmosphere=1
 logopath=bootloader/bootlogo.bmp
 icon=bootloader/res/icon_payload.bmp
-kip1=atmosphere/kips/\*
+kip1=atmosphere/kips/*
 {}
 
 {--- Stock ---}

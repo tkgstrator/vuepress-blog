@@ -9,7 +9,7 @@ tags:
 
 # ホテルニューオートロ
 
-![](https://pbs.twimg.com/media/Ec5t-FBXoAA0cYB?format=jpg)
+![](https://pbs.twimg.com/media/Ec5t-FBXoAA0cYB?format=png)
 
 ## 基本情報
 
@@ -67,7 +67,9 @@ tags:
 
 相手のリスポーン地点が丸見えなのがとにかく強く、キルできなくても相手に対して常にプレッシャーをかけることができる。ジェットパックでなくとも、ある程度射程がありボムが投げられるブキがこの位置まですすめることができれば勝ちパターンに入る。
 
-@[youtube](https://youtu.be/I_2C76piqhQ?t=4m40s)
+@[youtube](https://www.youtube.com/watch?v=I_2C76piqhQ)
+
+4 分 40 秒以降。
 
 ## エリア
 

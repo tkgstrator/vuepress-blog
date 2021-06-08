@@ -11,7 +11,7 @@ XML の派生である YAML などをニンテンドー独自の暗号化で難�
 
 復号ツールが公開されているのでそれをまずはダウンロードしてきます。
 
-## [TheFourthDimension](https://github.com/exelix11/TheFourthDimension/)
+## [TheFourthDimension](https://github.com/exelix11/TheFourthDimension)
 
 スーパーマリオオデッセイ用のプログラムなのですが、スプラトゥーン 2 と同じく bprm v3 の暗号化が施されているのでこのツールで復号化することができます。
 

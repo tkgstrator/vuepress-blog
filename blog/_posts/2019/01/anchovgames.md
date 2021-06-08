@@ -9,11 +9,11 @@ tags:
 
 # アンチョビットゲームズ
 
-![](https://pbs.twimg.com/media/Ecf-BHpWsAAEU_c?format=jpg&name=large)
+![](https://pbs.twimg.com/media/Ecf-BHpWsAAEU_c?format=png)
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EV-Gp0pXkAArUby?format=png&name=large)
+![](https://pbs.twimg.com/media/EV-Gp0pXkAArUby?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |
@@ -43,9 +43,9 @@ tags:
 
 #### 赤ルートから運ぼうとするとこうなる
 
-(https://tkgstrator.work/wp-content/uploads/2019/04/20190422002405098.jpg)
+(https://pbs.twimg.com/media/E3GV3suUcAEe6Cp?format=png)
 
-(https://tkgstrator.work/wp-content/uploads/2019/04/2019042200240509.jpg)
+(https://pbs.twimg.com/media/E3GV6R5VEAohh-u?format=png)
 
 ### 緑ルートについて
 
@@ -65,7 +65,7 @@ tags:
 
 安定かつ最短ルートなので特に何かしらの条件がついていなければこのルートを選択するのが良い。
 
-実は前に突っ込むだけでカウント 67 までなら減らせるのでとりあえずリードを奪いたいときは前に進めば 67 カウントというのは覚えておくと便利かもしれない
+実は前に突っ込むだけでカウント 67 までなら減らせるのでとりあえずリードを奪いたいときは前に進めば 67 カウントというのは覚えておくと便利かもしれない。
 
 もし上に進みたいのであれば、ガチホコバリアを割ったときにプロペラが回転して上下に動く床が跳ね上がってしまうので、誰かが床の側面を塗らないといけないことに注意。
 
