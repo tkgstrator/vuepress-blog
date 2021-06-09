@@ -5,7 +5,7 @@ description: "インデックスバグで偏りが生まれたキンシャケ探
 category: Splatoon2
 ---
 
-# インデックスバグについて
+## インデックスバグについて
 
 [前回の記事](https://tkgstrator.work/posts/2021/02/15/randomgenerator.html)で WAVE1 に発生するキンシャケ探しにおいてアタリ位置が大きく偏っていることは解説したが、実際にどのくらい偏っているのかを調べたのが今回の記事の内容になります。
 
@@ -103,7 +103,7 @@ WAVE1 の満潮キンシャケ探しで三連続同じ位置がアタリにな�
 
 Python が遅すぎるので全部で 4000 万通りある中で 100 万通りしか検証していないため、ここで取得漏れしている組み合わせがあるかもしれませんが、まあ多分ないでしょう（無責任
 
-![](https://pbs.twimg.com/media/EuarthPUUAEyjRt?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EuarthPUUAEyjRt?format=png)
 
 ### シェケナダム満潮
 
@@ -112,7 +112,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 三つ目からは普通に候補が五つでてきているのでそれ以上の面白い成果は特にありません。
 
-![](https://pbs.twimg.com/media/EuaruS1VcAUJep9?format=png&name=4096x4096)
+![](https://pbs.twimg.com/media/EuaruS1VcAUJep9?format=png)
 
 ### ドンブラコ満潮
 
@@ -121,7 +121,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 ドンブラコについては少し変わっていて、初回と二回目は連続する可能性があるものの、二回目と三回目は違うアタリ位置になるようです。
 
-![](https://pbs.twimg.com/media/Euaru3vVEAEDi0j?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/Euaru3vVEAEDi0j?format=png)
 
 ### シャケト場満潮
 
@@ -130,7 +130,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 というわけで、シャケト場はシェケナダムと同じようですね。
 
-![](https://pbs.twimg.com/media/EuarvuzUYAITqzV?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/EuarvuzUYAITqzV?format=png)
 
 ### トキシラズ満潮
 
@@ -139,7 +139,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 というわけで、トキシラズはシャケト場やシェケナダムと同じようですね。
 
-![](https://pbs.twimg.com/media/EuarwqyUUAYxXlM?format=png&name=4096x4096)
+![](https://pbs.twimg.com/media/EuarwqyUUAYxXlM?format=png)
 
 ### ポラリス満潮
 
@@ -156,7 +156,7 @@ Python が遅すぎるので全部で 4000 万通りある中で 100 万通り�
 
 プログラムで 0x1000000 通り調べようとしたらミスって 0x1000001 通り出力されているのですが、そこはスルーでお願いします。実際には WAVE1 が満潮キンシャケ探しであるシードは 4000 万通りもあるので、全体の 2.5%くらいしか調べられていないのですが、まあこれだけ調べれば洩れている組み合わせはないと思います。
 
-![](https://pbs.twimg.com/media/Eua6uxfVoAMKnmR?format=png&name=4096x4096)
+![](https://pbs.twimg.com/media/Eua6uxfVoAMKnmR?format=png)
 
 :::
 

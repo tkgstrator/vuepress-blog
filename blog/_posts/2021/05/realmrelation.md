@@ -8,7 +8,7 @@ tags:
   - Realm
 ---
 
-# Realm がクラッシュする問題
+## Realm がクラッシュする問題
 
 Realm はモバイル向けのデータベースで、軽量かつ高速でいろいろなアプリで利用されています。
 
@@ -378,7 +378,7 @@ class Dog: Object {
 
 ### NavigationView の場合
 
-![](https://pbs.twimg.com/media/E2JMfZqVcAAqmdU?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E2JMfZqVcAAqmdU?format=png)
 
 NavigationView の場合は`objectWillChange`を指定しなくても`NavigationLink`で遷移すると`ForEach`の中身が自動で再レンダリングされるようだ。
 
@@ -408,7 +408,7 @@ From {
 
 ### TabView の場合
 
-![](https://pbs.twimg.com/media/E2JMixiVIAIwiUu?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E2JMixiVIAIwiUu?format=png)
 
 TabView の場合、NavigationView のように別のビューが表示されている扱いではなく「全てのタブが同時に表示されている」ような状態になっている。
 

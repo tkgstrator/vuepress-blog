@@ -7,7 +7,7 @@ tags:
   - Swift
 ---
 
-# SwiftUI における Alignment とは
+## SwiftUI における Alignment とは
 
 Alignment とは要するに「右揃え」「中央揃え」「左揃え」のようなテキストやオブジェクトなどのグループをどこを基準に揃えるかというパラメータのことである。
 
@@ -69,7 +69,7 @@ var body: some View {
 }
 ```
 
-![](https://pbs.twimg.com/media/E1T3fUXVEAAvrFL?format=png&name=4096x4096)
+![](https://pbs.twimg.com/media/E1T3fUXVEAAvrFL?format=png)
 
 |  テキストが一つ  |    -     |  HStack  |  VStack  |  ZStack  |
 | :--------------: | :------: | :------: | :------: | :------: |
@@ -84,7 +84,7 @@ var body: some View {
 
 つまり、SwiftUI においては何もしなければ「中央揃え」が適用されるということになります。
 
-![](https://pbs.twimg.com/media/E1T70nyVkAUEPXp?format=png&name=4096x4096)
+![](https://pbs.twimg.com/media/E1T70nyVkAUEPXp?format=png)
 
 |  テキストが二つ  |    -     |  HStack  |  VStack  |  ZStack  |
 | :--------------: | :------: | :------: | :------: | :------: |
@@ -110,11 +110,11 @@ VStack のイメージはこんな感じで、何もしなければコンテナ�
 
 コンテナ自体の大きさが可変であるため「コンテナ内の上から順番に積み上げていく」という意味である`top`を指定することができないというわけです。
 
-![](https://pbs.twimg.com/media/E1T_vyiUcAEEhTp?format=png&name=4096x4096)
+![](https://pbs.twimg.com/media/E1T_vyiUcAEEhTp?format=png)
 
 しかし、SwiftUI には`Frame Alignment`というものがあるので、例えば`frame(height: 200)`などを指定してコンテナのサイズを固定させて上から積み上げていくというのは需要がありそうな気もします。
 
-![](https://pbs.twimg.com/media/E1UA9hfUUAETs9b?format=png&name=4096x4096)
+![](https://pbs.twimg.com/media/E1UA9hfUUAETs9b?format=png)
 
 ::: warning middle じゃないじゃん
 
@@ -152,7 +152,7 @@ var body: some View {
 
 何故なら VStack の幅は可変で常に内部のオブジェクトぴったりになるように大きさが変わっているからです。つまり、VStack(または HStack に対して)`Frame Alignment`だけを指定するのは全く意味がありません。ダグドリオに十万ボルトするくらい意味がないです。
 
-![](https://pbs.twimg.com/media/E1UKtENUcAEney1?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E1UKtENUcAEney1?format=png)
 
 ::: tip Frame Alignment について
 
@@ -164,7 +164,7 @@ var body: some View {
 
 点線の部分は実際には見えないので、オブジェクトだけが左に寄ったように見えるわけです。
 
-![](https://pbs.twimg.com/media/E1ULaWoVkAcOB-n?format=png&name=large)
+![](https://pbs.twimg.com/media/E1ULaWoVkAcOB-n?format=png)
 
 ```swift
 // 確認用コード

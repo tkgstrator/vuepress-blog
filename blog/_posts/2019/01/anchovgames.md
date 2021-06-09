@@ -41,7 +41,7 @@ tags:
 
 :::
 
-#### 赤ルートから運ぼうとするとこうなる
+### 赤ルートから運ぼうとするとこうなる
 
 (https://pbs.twimg.com/media/E3GV3suUcAEe6Cp?format=png)
 

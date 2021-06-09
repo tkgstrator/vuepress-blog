@@ -4,7 +4,7 @@ date: 2021-04-10
 description: ジェネリクスの使い方を学ぶ
 category: プログラミング
 tags:
-- Swift 
+  - Swift
 ---
 
 ## ジェネリクスを学ぼう

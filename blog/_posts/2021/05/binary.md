@@ -5,7 +5,7 @@ description: 我々は10進法の他に2進法、8進法、16進法などを使�
 category: 話題
 ---
 
-# 誰にとっても 10 進法である
+## 誰にとっても 10 進法である
 
 Daniel Stenberg 氏により投稿されたツイートが[こちら](https://twitter.com/bagder/status/1389605985422036994?s=20)
 
@@ -31,7 +31,7 @@ Never forget: every base is base 10
 
 シチュエーション的にはおそらくある星にでかけた宇宙飛行士が現地の知的生命体と会話している場面だと思われる。地面には四つの石が落ちており、それを見て会話をしているというわけだ。
 
-![](https://pbs.twimg.com/media/E0jfOJXWQAIfs2O?format=png&name=360x360)
+![](https://pbs.twimg.com/media/E0jfOJXWQAIfs2O?format=png)
 
 以下、大雑把な意訳を載せる。
 
@@ -41,7 +41,7 @@ Never forget: every base is base 10
 
 ::: tip 4 進法について
 
-10 進法を使う我々は 0~9 までの 10 この数字で数を表現し、10 番目になると桁を一つ繰り上げる。4 進法の場合は 0~3 までの 4 つの数字を使うというわけだ。
+10 進法を使う我々は 0 ~ 9 までの 10 この数字で数を表現し、10 番目になると桁を一つ繰り上げる。4 進法の場合は 0 ~ 3 までの 4 つの数字を使うというわけだ。
 
 :::
 

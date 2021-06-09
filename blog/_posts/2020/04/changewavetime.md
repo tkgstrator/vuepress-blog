@@ -1,7 +1,7 @@
 ---
 title: "[Hack] サーモンランで早退・残業できるコード"
 date: 2020-04-07
-description:
+description: サーモンランのWAVE数や時間をする変更コード
 category: Hack
 tags:
   - IPSwitch

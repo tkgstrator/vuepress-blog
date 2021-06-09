@@ -7,7 +7,7 @@ tags:
   - Python
 ---
 
-# Google Schedule API
+## Google Schedule API
 
 [ここ](https://console.developers.google.com/start/api?id=calendar&hl=ja)からプロジェクト作成と API の有効化を行なう。
 

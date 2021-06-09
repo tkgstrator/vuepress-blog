@@ -103,7 +103,7 @@ NAND のバックアップを取っていないと、Nintendo Switch はブリ�
 
 公式が配布しているシステムファームウェアを改造して自作プログラムが動作するようにしたもの。当然、公式は未公認なのでインストールしているのがバレると本体の修理を拒否されたりします。
 
-CFW としては atmosphere や SXOS などが有名ですね。
+CFW としては Atmosphere や SXOS などが有名ですね。
 
 ### Atmosphere
 
@@ -115,7 +115,7 @@ Github で公開されているオープンソースの CFW のこと。
 
 ### DeepSea
 
-Micro SD に展開するだけで CFW（atmosphere）が起動する環境が整えられるパッケージのこと。
+Micro SD に展開するだけで CFW（Atmosphere）が起動する環境が整えられるパッケージのこと。
 
 [DeepSea](https://github.com/Team-Neptune/DeepSea/releases)
 

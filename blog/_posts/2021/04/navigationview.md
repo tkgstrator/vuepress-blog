@@ -4,10 +4,10 @@ date: 2021-04-08
 description: NavigationViewはiPhoneとiPadで挙動が違うのでその仕様をメモする
 category: プログラミング
 tags:
-- Swift 
+  - Swift
 ---
 
-# NavigationView の仕様
+## NavigationView の仕様
 
 今回はわかりやすくするため、左側の画面を Master、右側の画面を Detail と呼ぶことにします。
 
@@ -29,7 +29,7 @@ NavivationView の理解として最も重要なのは次の点でしょう。
 - iPhone の場合
   - NavigationView を入れ子にすると TOP が Master となり、二つ目以降は無視される
 
-## MasterView と DetailView
+### MasterView と DetailView
 
 ソースコードが肥大化したときにわかりにくくなるので、MasterView と DetailView の二つを作成して見やすくします。
 
@@ -52,7 +52,7 @@ struct DetailView: View {
 }
 ```
 
-## 完成させたい UI
+### 完成させたい UI
 
 目標としては iOS の標準の設定アプリのようなものですが、それを更に拡張したものとなります。
 
@@ -65,9 +65,9 @@ struct DetailView: View {
 - 起動直後に Detail が表示されている
   - Master の表示と非表示で Detail の画面サイズは動的に変化する
 
-# NavigationView の理解を深める
+## NavigationView の理解を深める
 
-## MasterView だけ NavigationView に入れる
+### MasterView だけ NavigationView に入れる
 
 でははじめに NavigationView に MasterView を入れてみます
 
@@ -90,7 +90,7 @@ struct ContentView: View {
 - MasterView の表示/非表示で DetailView のサイズが変わらない
   - 常にフルスクリーンのような状態になっている
 
-## Master と Detail のどちらも NavigationView に入れる
+### Master と Detail のどちらも NavigationView に入れる
 
 ```swift
 import SwiftUI
@@ -113,7 +113,7 @@ NavigationLink を入れ子にすると TOP である MasterView が Master と�
 - MasterView の表示/非表示で DetailView のサイズが変わらない
   - 常にフルスクリーンのような状態になっている
 
-## NaviationViewStyle を設定する
+### NaviationViewStyle を設定する
 
 SwiftUI において NavigationView には三つのスタイルが用意されています
 
@@ -143,7 +143,7 @@ struct ContentView: View {
 
 が、結果として何も変わりませんでした。iPhone でも iPad でも変わらなかったのでなんの効果があるのかわかりませんでした。
 
-## navigationBarHidden
+### navigationBarHidden
 
 NavigationBar を非表示にできる`.navigationBarHidden()`という仕組みがあるのでそれを利用してみます。
 
@@ -153,7 +153,7 @@ NavigationBar を非表示にできる`.navigationBarHidden()`という仕組み
 
 `.navigationBarHidden()`を使うと Navigation の機能は残したまま、各種表示を非表示にできます。
 
-## NavigationTitle の適用方法
+### NavigationTitle の適用方法
 
 iOS14 からは`.navigationTitle()`が使えます。重要な点としてはこれは NavigationView 内の View に対して使わないと効かないということです。
 
@@ -167,7 +167,7 @@ iOS14 からは`.navigationTitle()`が使えます。重要な点としてはこ
 
 ```
 
-## 一つ前の画面に戻る
+### 一つ前の画面に戻る
 
 ボタンを押すと何らかの処理を実行し、その進行状況を表示するビューに遷移するとします。
 
@@ -233,9 +233,9 @@ struct ProgressView: View {
 
 注意点としては`wrappedValue.dismiss()`は画面の表示を切り替える動作のためメインスレッドで実行する必要があります。`DispatchQueue.global`を使う際は`DispatchQueue.main.async`を使うなどして必ずメインスレッドで実行するようにコーディングしましょう。
 
-# NavigationLink の仕様
+## NavigationLink の仕様
 
-## タップして遷移したい場合
+### タップして遷移したい場合
 
 ボタンとしてタップしたら画面が遷移するような仕様を満たす使い方である。
 
@@ -250,7 +250,7 @@ struct ProgressView: View {
 }
 ```
 
-## コードから遷移したい場合
+### コードから遷移したい場合
 
 ではボタンを押さず、プログラムが何らかの処理をした結果で自動的に遷移したい場合はどうするか。
 
@@ -306,7 +306,7 @@ struct ProgressView: View {
 
 これで基本的な場合についてはうまく動作させられるが、`List`ではたとえ`EmptyView()`であっても検知されて空っぽのカラムが作成されるという問題がある。`List`の場合は ZStack で対応するのが良いだろう。
 
-# 結局どうすべきなのか
+## 結局どうすべきなのか
 
 ここまでの検証から以下のことがわかっている。
 
@@ -327,7 +327,7 @@ struct ProgressView: View {
 - NavigationLink を使うと常に Detail が更新される
   - 一つ前の画面に戻りたいときは presentationMode を使うべきである
 
-## どういう仕様にするか
+### どういう仕様にするか
 
 登録制のアプリの場合、起動直後に表示したいのはアカウント作成やログインを促す画面である。
 
@@ -379,7 +379,7 @@ StackNavigationViewStyle の仕様を変えるのは面倒なので、フラグ�
 
 しかし、そうするなら最初からそうすればいいだけで、ViewModifier はつくらなくて良かったのではないかという気もしてくる。
 
-## MasterVeiw
+### MasterVeiw
 
 あまり想定はしていなかったのだが`presentationMode`で View が Master かどうかをチェックできるようだ。StackNavigationViewStyle の場合は NavigationView の一つ目の View の`presentationMode`が false になるためそこにログインのために必要な View を表示するようにすれば良い。
 
@@ -415,7 +415,7 @@ struct LoginView: View {
 
 この View 切り替えの仕組みと先程の ViewModifier を使えば仕様を満たすことができそうだ。
 
-# TabView との組み合わせ
+## TabView との組み合わせ
 
 さて、List にデータが多い場合目的の値を調べるのにずっと下の方までスクロールしなければならないような状況が考えられる。
 
@@ -423,19 +423,19 @@ struct LoginView: View {
 
 タブからフィルタリングするのも良いが、まずはこの新機能を試してみたい。
 
-## SidebarListStyle
+### SidebarListStyle
 
 listStyle としてこれを設定すると、Sidebar として使えるようになる。具体的にはリストをセクションごとに区切って閉じたり開いたりすることができるようになる。ただし、これには問題点があって、初期化の際にすべてのカラムが開けられた状態で表示されてしまう。
 
 つまり、下の方まで見に行こうとしたら上から順番にリストを閉じていかなければならず、余計に手間がかかってしまう。今後のアップデートで改善されるかもしれないが、すぐに使えるような便利な機能ではなさそうだった。
 
-## NavigationView で Sidebar を実装する
+### NavigationView で Sidebar を実装する
 
 NavigationView は iPad であれば三つまで入れることができるのだが、三つ目を入れると一つ目の View を Landscape でも固定することができなくなってしまう。
 
 つまり Apple 公式サイトで紹介されている[このアプリ](https://developer.apple.com/design/human-interface-guidelines/ios/views/split-views/)のようなレイアウトをつくることができない。常に Master を表示することができるオプションがあればいいのだが、少し調べた感じでは見つからなかった。
 
-## Tabbar+NavigationView
+### Tabbar+NavigationView
 
 Apple ではあまり推奨されていないような書き方がされていたが、一応使える。
 
@@ -467,7 +467,7 @@ struct ContentView: View {
 
 NavigationView の方が上位（TabView はあくまでも Detail に対してのみ有効）なので、メニューを表示するとタブの幅は自動的に狭くなる。
 
-## PageTabViewStyle
+### PageTabViewStyle
 
 ```swift
 

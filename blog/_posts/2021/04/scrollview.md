@@ -4,10 +4,10 @@ date: 2021-04-08
 description: GeometryReader や ScrollViewReaderの使い方をメモした
 category: プログラミング
 tags:
-- Swift
+  - Swift
 ---
 
-# ScrollViewReader
+## ScrollViewReader
 
 ScrollViewReader は iOS14 以降で使える List や ScrollView で使える便利な機能である。
 
@@ -72,9 +72,9 @@ var body: some View {
 
 よって、完成するコードは上のようになる。
 
-# 横スクロールを実装する
+## 横スクロールを実装する
 
-## TabView を使う
+### TabView を使う
 
 愚直な方法が TabView を利用する方法である。
 
@@ -96,7 +96,7 @@ struct ContentView: View {
 
 画面下部に表示される Index を押せば一応画面は遷移できるが小さくて押しにくいので微妙だったりする。これは ScrollViewReader を組み合わせ上手くできる。
 
-## ScrollView + LazyHStack を使う
+### ScrollView + LazyHStack を使う
 
 Lazy なので呼び出されるまで画面を描画せず、そのためメモリを消費しにくいという利点がある。
 

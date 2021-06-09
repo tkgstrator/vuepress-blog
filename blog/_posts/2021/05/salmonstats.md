@@ -7,4 +7,4 @@ tags:
   - PHP
 ---
 
-# Salmon Stats API
+## Salmon Stats API

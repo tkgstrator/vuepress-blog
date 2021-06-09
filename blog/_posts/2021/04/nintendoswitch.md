@@ -5,7 +5,7 @@ description: Nintendo Switchの改造についてのドキュメントです
 category: Hack
 ---
 
-# Nintendo Switch Hack
+## Nintendo Switch Hack
 
 ::: danger オンラインプレイについて
 
@@ -23,9 +23,9 @@ CFW でインターネットに接続する際は 90DNS を必ず使うように
 
 ::: tip 何故 DeepSea を使うのですか
 
-CFW は atmosphere が更新が早く、一番使われています。
+CFW は Atmosphere が更新が早く、一番使われています。
 
-ただ、atmosphere 単体では他のツール等が入っておらず、初心者の方は使い勝手が悪いです。DeepSea は atmosphere やその他の便利なツールが一括になっているオールインワンパケージであり、ファイルを解凍してコピーするだけで導入できるのが特徴です。
+ただ、Atmosphere 単体では他のツール等が入っておらず、初心者の方は使い勝手が悪いです。DeepSea は Atmosphere やその他の便利なツールが一括になっているオールインワンパケージであり、ファイルを解凍してコピーするだけで導入できるのが特徴です。
 
 :::
 

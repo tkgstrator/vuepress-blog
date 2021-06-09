@@ -5,7 +5,7 @@ description: インターネット界隈でよく目にするponponpainの謎に
 category: 話題
 ---
 
-# ponponpain とは
+## ponponpain とは
 
 そもそも ponponpain とは何かということになるのだが、これはつまりお腹が痛いということを意味する。
 

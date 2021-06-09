@@ -1,14 +1,14 @@
 ---
 title: SwiftUIでタップされた座標を取得する方法
 date: 2021-05-31
-description:
+description: SwiftUIでタップイベントを取得する方法について
 category: プログラミング
 tags:
   - Swift
   - SwiftUI
 ---
 
-# SwiftUI でタップイベントを取得する
+## SwiftUI でタップイベントを取得する
 
 SwiftUI でタップされたイベントを取得するのであれば適当な View に[`onTapGesture()`](https://developer.apple.com/documentation/swiftui/tapgesture)をつければよいのだが`ontapGesture()`はタップされたときにクロージャ内の処理を実行してくれるが、そのときにどこの座標がタップされたのかは教えてくれない。
 

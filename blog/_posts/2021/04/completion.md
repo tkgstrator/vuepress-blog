@@ -4,7 +4,7 @@ date: 2021-04-13
 description: SwiftUIでCompletionを使ったビューのコーディングを学びます
 category: プログラミング
 tags:
-- Swift 
+  - Swift
 ---
 
 ## Completionの必要性

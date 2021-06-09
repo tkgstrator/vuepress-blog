@@ -1,7 +1,7 @@
 ---
 title: "[Hack] IPSwitchコード作成を楽にするIPSw1tchつくった"
 date: 2020-05-20
-description:
+description: IPSwitchのコード開発における面倒な手順をやってくれるツールです
 category: Hack
 tags:
   - IPSwitch

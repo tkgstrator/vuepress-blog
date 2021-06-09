@@ -8,7 +8,7 @@ tags:
 layout: draft
 ---
 
-# [Vision](https://developer.apple.com/documentation/vision)とは
+## [Vision](https://developer.apple.com/documentation/vision)とは
 
 Apple のドキュメントによると映像や画像からさまざまなタスクをこなすアルゴリズムをまとめたものだという。Vision 自体は iOS11 以降使えるので、現在利用されている iOS デバイスのほとんど全て(今更 iOS11 以下を使っている人は超少数派だろう)で動作するということになる。
 

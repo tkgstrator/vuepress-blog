@@ -13,7 +13,7 @@ tags:
 
 ## 基本情報
 
-![](https://pbs.twimg.com/media/EdDX8RDWsAEQRfi?format=png&name=large)
+![](https://pbs.twimg.com/media/EdDX8RDWsAEQRfi?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |

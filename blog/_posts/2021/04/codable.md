@@ -4,7 +4,7 @@ date: 2021-04-08
 description: JSONで受け取ったデータをCodableで変換するためのチュートリアル
 category: プログラミング
 tags:
-- Swift 
+  - Swift
 ---
 
 ## 変数名とキーが一致している場合
