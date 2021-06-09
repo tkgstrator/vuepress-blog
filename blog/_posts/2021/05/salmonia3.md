@@ -1,7 +1,7 @@
 ---
 title: Salmonia開発記
 date: 2021-05-05
-description: ライブラリを開発していたら妙なところで詰まったのでメモしておきます。あと、開発進捗もしてます
+description: ライブラリを開発していたら妙なところで詰まったのでメモ&開発進捗をしておきます
 category: プログラミング
 tags:
   - Swift

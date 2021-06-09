@@ -1,5 +1,5 @@
 ---
-title: SwiftUI の再レンダリングの仕組みを理解する
+title: SwiftUIの再レンダリングの仕組みを理解する
 date: 2021-04-08
 description: 親ビューから子ビューの再レンダリングをするための書き方について
 category: プログラミング

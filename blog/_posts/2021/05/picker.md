@@ -1,7 +1,7 @@
 ---
 title: Pickerでチェックボックスが表示されないバグ
 date: 2021-05-21
-description: SwiftUIでビューを作成しているときに、Pickerが正しく動作しないバグに遭遇したので解決法をまとめました。
+description: SwiftUIでビューを作成しているときに、Pickerが正しく動作しないバグに遭遇したので解決法をまとめました
 category: プログラミング
 tags:
   - Swift

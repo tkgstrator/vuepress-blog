@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #6"
 date: 2020-04-30
-description: ナイスやカモンを上書きしてリアルタイムイクラ取得をする方法について解説しています。
+description: ナイスやカモンを上書きしてリアルタイムイクラ取得をする方法について解説しています
 category: Hack
 tags:
   - IPSwitch
