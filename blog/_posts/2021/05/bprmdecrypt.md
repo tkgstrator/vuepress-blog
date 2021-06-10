@@ -5,7 +5,7 @@ description: スプラトゥーンではXMLを暗号化したBPRMなどのファ
 category: Hack
 ---
 
-# BPRM/BYAML/BYML とは
+## BPRM/BYAML/BYML とは
 
 XML の派生である YAML などをニンテンドー独自の暗号化で難読化したもの。
 

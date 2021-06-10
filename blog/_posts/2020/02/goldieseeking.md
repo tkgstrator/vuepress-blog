@@ -1,12 +1,13 @@
 ---
 title: "[夜イベント] キンシャケ探しデータベース"
 date: 2020-02-24
+description: サーモンランの夜イベントにおけるキンシャケ探しに関するデータです
 category: Splatoon2
 tags:
   - サーモンラン
 ---
 
-# データベース
+## データベース
 
 キンシャケ探しに関するデータを載せています。
 
@@ -18,7 +19,7 @@ tags:
 
 ### シェケナダム
 
-![](https://pbs.twimg.com/media/E10-6dsUYAQbC6Y?format=png&name=large)
+![](https://pbs.twimg.com/media/E10-6dsUYAQbC6Y?format=png)
 
 ### 難破船ドン・ブラコ
 
@@ -30,15 +31,15 @@ tags:
 
 ### 海上集落シャケト場
 
-![](https://pbs.twimg.com/media/E10-4ROVIAULkZ4?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E10-4ROVIAULkZ4?format=png)
 
 ### トキシラズいぶし工房
 
-![](https://pbs.twimg.com/media/E10-49_VEAIN7oE?format=png&name=large)
+![](https://pbs.twimg.com/media/E10-49_VEAIN7oE?format=png)
 
 ### 朽ちた箱舟ポラリス
 
-![](https://pbs.twimg.com/media/E10-5miVUAIUFTP?format=png&name=large)
+![](https://pbs.twimg.com/media/E10-5miVUAIUFTP?format=png)
 
 ## 最小開栓手順
 

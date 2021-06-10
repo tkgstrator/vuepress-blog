@@ -7,13 +7,13 @@ tags:
   - Swift
 ---
 
-# タップジェスチャーを取得する方法
+## タップジェスチャーを取得する方法
 
 タイトルだけ見て「なんだそれ」って思った方もいるかも知れない。ただ単にタップされたかどうかをとってきたいのであれば、`onTapGesture()` を使えば苦もなく実装できるからだ。
 
 ところがこれでは上手くいかないような状況がある。というのも`onTapGesture()`は同時に一つしか実行できないためだ。これがどういうふうに困るかというのは次の図を見ればわかるのではないかと思う。
 
-![](https://pbs.twimg.com/media/E0r0uuyUYAAHOKL?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E0r0uuyUYAAHOKL?format=png)
 
 要するにタップしたときの挙動が TabView 自体に備わっているのでめんどくさいことになるのである。
 

@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #4"
 date: 2019-07-07
-description: BYAMLなどの暗号化されたXMLのデータを読み取ってその値を変更する方法について解説しています。
+description: BYAMLなどの暗号化されたXMLのデータを読み取ってその値を変更する方法について解説しています
 category: Hack
 tags:
   - IPSwitch

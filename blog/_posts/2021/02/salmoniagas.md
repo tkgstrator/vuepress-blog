@@ -48,11 +48,11 @@ JOB_NUM => ["0", "0"]
 
 `IKSM_SESSION`と`JOB_NUM`だけは読み込みの都合上、ダブルクオーテーションで囲む必要があります。`API_TOKEN`だけはそのままであることに注意してください。
 
-![](https://pbs.twimg.com/media/EtYPFKAVkAEjv4s?format=png&name=medium)
+![](https://pbs.twimg.com/media/EtYPFKAVkAEjv4s?format=png)
 
 こんな感じで書き込めたら今まで通り指定したトリガーで実行されます。
 
-![](https://pbs.twimg.com/media/EtYQDKaUcAAPV-a?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EtYQDKaUcAAPV-a?format=png)
 
 こんな感じでどんどんリザルトを自動取得してくれます。実はアップロードが正しくできているかは未確認なのだが、多分大丈夫でしょう（ヨシ
 

@@ -4,10 +4,10 @@ date: 2021-04-30
 description: 生体認証を使ったロックの仕組みをつくる
 category: プログラミング
 tags:
-- Swift 
+  - Swift
 ---
 
-# 生体認証ロック
+## 生体認証ロック
 
 以前も記事で解説したのだが、Swiftでは`LocalAuthentication`をインポートするだけで簡単に生体認証の仕組みをつくることができる。
 

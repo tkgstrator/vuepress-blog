@@ -4,7 +4,7 @@ date: 2021-04-15
 description: Keyhcainではそのままでは扱いにくいのだが、KeychainAccessというライブラリを使えば手軽に扱えます
 category: プログラミング
 tags:
-- Swift 
+  - Swift
 ---
 
 ## Keychain

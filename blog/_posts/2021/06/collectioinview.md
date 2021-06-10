@@ -8,7 +8,7 @@ tags:
   - SwiftUI
 ---
 
-# CollectionView
+## CollectionView
 
 CollectionView は UiKit では実装されていたものの、SwiftUI では消されてしまった悲しき存在の一つ。
 

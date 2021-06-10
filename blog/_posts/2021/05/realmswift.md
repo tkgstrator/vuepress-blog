@@ -8,7 +8,7 @@ tags:
   - Realm
 ---
 
-# Realm + SwiftUI
+## Realm + SwiftUI
 
 Realm は SwiftUI を公式サポートしていないのでいろいろ対応が必要になりますが、その一つがデータ更新時にビューの再レンダリングに対応していないことが挙げられます。
 

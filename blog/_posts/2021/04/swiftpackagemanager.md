@@ -4,7 +4,7 @@ date: 2021-04-18
 description: Swift Package Managerでローカルファイルを読み込み、ライブラリとして使う方法について解説
 category: プログラミング
 tags:
-- Swift
+  - Swift
 ---
 
 ## SwiftPackageManager

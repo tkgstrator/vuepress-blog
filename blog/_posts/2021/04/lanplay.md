@@ -7,7 +7,7 @@ tags:
   - LanPlay
 ---
 
-# LanPlay とは
+## LanPlay とは
 
 Lan プレイとはニンテンドースイッチに実装されている隠し機能を使って同一 LAN 内で通信を可能にする仕組みです。
 
@@ -35,7 +35,7 @@ Lan プレイとはニンテンドースイッチに実装されている隠し�
 |                  Splatoon 2                   | OFW/CFW |
 |                  Titan Quest                  | OFW/CFW |
 
-# LanPlay の導入
+## LanPlay の導入
 
 リンクが張ってあるのでダウンロードしてください。
 
@@ -50,18 +50,18 @@ Lan プレイとはニンテンドースイッチに実装されている隠し�
 
 MacOS は対応してはいますがファイルがないため全て手動で設定する必要があります。めんどくさいのであまりおすすめしません。
 
-## [WinPcap](https://www.winpcap.org/install/default.htm)のインストール
+### [WinPcap](https://www.winpcap.org/install/default.htm)のインストール
 
 WinPcap は Windows10 向けのものも公開されていますが、そちらでは動作しません。
 
-## C++再頒布パッケージ
+### C++再頒布パッケージ
 
 ダウンロードしてインストールするだけです。
 
 万が一インストールできない場合は[C++再頒布パッケージ x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)を試してみてください。
 git p
 
-## SwitchLanPlay
+### SwitchLanPlay
 
 同様にダウンロードしてインストールするだけです。
 
@@ -90,7 +90,7 @@ Server IP: 13.231.102.57
 LanPlay に接続できなくなってしまいます。
 :::
 
-## Nintendo Switch の設定
+### Nintendo Switch の設定
 
 <video controls src="https://video.twimg.com/ext_tw_video/1386658146014298115/pu/vid/1280x720/fCXFvEnZYgoqY9ve.mp4"></video>
 
@@ -123,7 +123,7 @@ Server IP: 13.231.102.57
 
 設定後に接続テストを行い、`[DEBUG]: IConnection::IConnecton`と表示されたら接続成功です。
 
-## スプラトゥーンの設定
+### スプラトゥーンの設定
 
 イカッチャで左スティック押し込み+L+R を同時押しして三秒間固定すれば LanPlay に切り替わります。
 

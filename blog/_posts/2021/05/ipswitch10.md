@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #10"
 date: 2021-05-24
-description: 条件文を利用するリアルタイムスペシャル変更コードの改善方法について解説しています。
+description: 条件文を利用するリアルタイムスペシャル変更コードの改善方法について解説しています
 category: Hack
 tags:
   - IPSwitch

@@ -7,7 +7,7 @@ tags:
   - サーモンラン
 ---
 
-# サーモンラン用カレンダー
+## サーモンラン用カレンダー
 
 2022 年 1 月までの全シフト情報はわかっているので、その JSON を Google Calendar API を使ってカレンダーに登録しました。
 
@@ -33,17 +33,17 @@ tags:
 
 まずは[Google Calendar](https://calendar.google.com/calendar)をひらきます。
 
-![](https://pbs.twimg.com/media/E1Bb7bzVgAEEBRM?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E1Bb7bzVgAEEBRM?format=png)
 
 左下にある「他のカレンダー」の右側にある「＋」をクリックして、「URL で追加」を押します。
 
-![](https://pbs.twimg.com/media/E1Bb-omUUAAzt4A?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E1Bb-omUUAAzt4A?format=png)
 
 URL の入力画面になるのでカレンダーを追加します。
 
-![](https://pbs.twimg.com/media/E1BcrwZVcAISeHX?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E1BcrwZVcAISeHX?format=png)
 
-![](https://pbs.twimg.com/media/E1BcwlPVoAMY78e?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E1BcwlPVoAMY78e?format=png)
 
 すると無事にカレンダーに予定を全部取り込むことができました。
 

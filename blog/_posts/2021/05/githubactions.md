@@ -5,7 +5,7 @@ description: GitHub Actionsの存在は知っていたのですが、使って�
 category: プログラミング
 ---
 
-# GitHub Actions
+## GitHub Actions
 
 そもそもGitHub Actionsとは何だということになるのだが、詳しくはGitHubの公式ページを見るのが良い。そこには次のように記されている。
 

@@ -1,15 +1,15 @@
 ---
 title: OAuth認証のための手順
 date: 2021-04-08
-description: Swift で OAuth の認証のためのコードを書くためのチュートリアル
+description: SwiftでOAuthの認証のためのコードを書くためのチュートリアル
 category: プログラミング
 tags:
-- Swift 
+  - Swift
 ---
 
-# OAuth 認証のための手順
+## OAuth 認証のための手順
 
-## Verifier と Challenge
+### Verifier と Challenge
 
 S256 という認証システムを使う場合、Verifier と Challenge の関係は以下のようになる。
 
@@ -24,7 +24,7 @@ import Fundation
 
 暗号化ライブラリを使うので CryptoKit を、Data 型を扱うので Fundation を import しておこう。
 
-## ランダム文字列: Verifier
+### ランダム文字列: Verifier
 
 OAuth で認証するためには Verifier と Challenge と呼ばれる二つのパラメータが必要になってくる。Verifier はある程度長い（64 や 128 が推奨されているようだ）ランダム文字列であり、Challenge は Verifier の SHA256 のハッシュとなっている。
 

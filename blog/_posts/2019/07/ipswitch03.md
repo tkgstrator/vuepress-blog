@@ -1,7 +1,7 @@
 ---
 title: "[IPSwitch] 誰でもできるコード開発 #3"
 date: 2019-07-02
-description: 関数の返り値自体を変更して、イカッチャのナゾの声をクマサンに変更する方法を解説しています。
+description: 関数の返り値自体を変更して、イカッチャのナゾの声をクマサンに変更する方法を解説しています
 category: Hack
 tags:
   - IPSwitch

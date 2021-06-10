@@ -1,13 +1,13 @@
 ---
 title: Pickerでチェックボックスが表示されないバグ
 date: 2021-05-21
-description: SwiftUIでビューを作成しているときに、Pickerが正しく動作しないバグに遭遇したので解決法をまとめました。
+description: SwiftUIでビューを作成しているときに、Pickerが正しく動作しないバグに遭遇したので解決法をまとめました
 category: プログラミング
 tags:
   - Swift
 ---
 
-# Picker が正しく表示されない
+## Picker が正しく表示されない
 
 Picker でチェックボックスが表示されないバグは[stack overflow](https://stackoverflow.com/questions/58103437/swiftui-picker-in-form-does-not-show-checkmark)でも報告されていて、いろいろ解決法が載っていますが、この方法では解決しません。
 
@@ -49,7 +49,7 @@ enum FruitType: String, CaseIterable {
 }
 ```
 
-![](https://pbs.twimg.com/media/E15HulIVkAIKGQ_?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E15HulIVkAIKGQ_?format=png)
 
 ### バグを含むコード
 
@@ -84,7 +84,7 @@ enum FruitType: String, CaseIterable {
 }
 ```
 
-![](https://pbs.twimg.com/media/E15HulHUUAM4aKR?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E15HulHUUAM4aKR?format=png)
 
 ## バグの原因について
 

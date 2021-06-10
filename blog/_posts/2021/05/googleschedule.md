@@ -1,13 +1,13 @@
 ---
 title: PythonでGoogle Schedule APIを扱う
 date: 2021-05-11
-description: Google Schedule APIを使って予定を自動で追加したり取得したりしてみます。
+description: Google Schedule APIを使って予定を自動で追加したり取得したりしてみます
 category: プログラミング
 tags:
   - Python
 ---
 
-# Google Schedule API
+## Google Schedule API
 
 [ここ](https://console.developers.google.com/start/api?id=calendar&hl=ja)からプロジェクト作成と API の有効化を行なう。
 
