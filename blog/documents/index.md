@@ -8,7 +8,7 @@
 
 Nintendo Switch の改造に関するまとめページです。
 
-## [IPSwitch](/ipswitch/)
+## [IPSwitch](/ipswitch)
 
 IPSwitch で使えるコード開発チュートリアルです。
 
