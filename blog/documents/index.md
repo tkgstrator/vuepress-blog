@@ -8,10 +8,10 @@
 
 Nintendo Switch の改造に関するまとめページです。
 
-## [IPSwitch](/posts/2019/01/01/ipswitch.html)
+## [IPSwitch](/ipswitch/)
 
 IPSwitch で使えるコード開発チュートリアルです。
 
-## [ガチホコカウントマップ](/posts/2019/01/01/rainmakermap.html)
+## [ガチホコカウントマップ](/rainmaker/)
 
 ガチホコバトルでどこまで進めばどのくらいカウントを進められるかをメモしたマップです。

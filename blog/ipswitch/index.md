@@ -1,14 +1,4 @@
----
-title: IPSwitchコード開発まとめページ
-date: 2019-01-01
-description: IPSwitchのコード開発をまとめたものです
-category: Hack
-tags:
-  - IPSwitch
-  - コード開発
----
-
-# IPSwitch のコード開発チュートリアル
+# IPSwitch コード開発
 
 ここでは IPSwitch でつかえるスプラトゥーン用のコード開発の方法について解説していきます。
 

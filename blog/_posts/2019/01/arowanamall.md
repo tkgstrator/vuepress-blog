@@ -1,7 +1,7 @@
 ---
 title: アロワナモール
 date: 2019-01-01
-description: アロワナモールのガチホコマップです
+description: カウント20まで進められるかどうかが勝敗の鍵を分けると言っても過言ではありません
 category: Splatoon2
 tags:
   - ガチホコカウントマップ

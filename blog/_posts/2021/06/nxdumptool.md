@@ -1,13 +1,14 @@
 ---
 title: "[Hack] NXDumpToolでNSPをバックアップしよう"
 date: 2021-06-10
+description: NXDumpToolの使い方です
 category: Hack
 tags:
   - CFW
   - NSP
 ---
 
-# [NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)
+## [NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)
 
 > この記事は以前公開していたものを加筆・修正したものになります
 
@@ -25,11 +26,11 @@ Ticket はゲームカードごとに固有のものであり、ゲームのイ�
 
 固有のものであるということは、同時に二つの Ticket を持つ NSP がオンラインプレイをしていれば一方がコピーされたものであることがわかります。つまり、海賊行為は容易に任天堂に BAN されます。
 
-![](https://pbs.twimg.com/media/EW5mDtsX0AM4y6P?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EW5mDtsX0AM4y6P?format=png)
 
 Goldleaf の場合、インストール時に`The NSP has a ticket to be imported`とあれば取り込むための証明書が NSP に含まれていることを意味します。
 
-![](https://pbs.twimg.com/media/EW5mDYIXkAAJ5Kt?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EW5mDYIXkAAJ5Kt?format=png)
 
 証明書が NSP に含まれていない場合、`The NSP doesn't have a ticket`と表示されます。
 
@@ -51,21 +52,21 @@ Goldleaf の場合、インストール時に`The NSP has a ticket to be importe
 
 :::
 
-![](https://pbs.twimg.com/media/E3fAbbsUUAEK7Bc?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E3fAbbsUUAEK7Bc?format=png)
 
 起動するとこんな画面がでてくると思います。カートリッジからダンプしたい場合は`Dump gamecard content`を選択します。ダウンロード版の場合は`Dump installed SD card / eMMC content`を選択します。
 
 今回はダウンロード版の場合の解説をしますが、カートリッジ版とほとんど同じです。
 
-![](https://pbs.twimg.com/media/E3fAbbuVEAATtBj?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E3fAbbuVEAATtBj?format=png)
 
 ではスプラトゥーンの BASE をダンプしてみましょう。
 
-![](https://pbs.twimg.com/media/E3fAbcFVcAA2cwK?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E3fAbcFVcAA2cwK?format=png)
 
 選択するとこのような画面が表示されると思うのですが`Nintendo Submission Package (NSP) dump`を選択します。
 
-![](https://pbs.twimg.com/media/E3fAcoVVUAETe6y?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E3fAcoVVUAETe6y?format=png)
 
 ここで、もし BASE も UPD もインストールされている場合は選択肢が表示されます。
 
@@ -78,7 +79,7 @@ Goldleaf の場合、インストール時に`The NSP has a ticket to be importe
 
 ### 設定項目
 
-![](https://pbs.twimg.com/media/E3fAco9VEAE04i1?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E3fAco9VEAE04i1?format=png)
 
 ::: warning BASE のダンプについて
 
@@ -121,7 +122,7 @@ Goldleaf の場合、インストール時に`The NSP has a ticket to be importe
 
 BASE をダンプするときとほとんど同じです。
 
-![](https://pbs.twimg.com/media/E3fGlXgVcAIPDmR?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E3fGlXgVcAIPDmR?format=png)
 
 設定は変えなくて良いでしょう。
 
@@ -141,7 +142,7 @@ BASE をダンプするときとほとんど同じです。
 
 NSZ とは NSP を圧縮したパッケージファイルであり、実質的には NSP と同じものです。
 
-NSP を NSZ にすることでだいたい 10%~20%ほどの容量を節約することができますが、その代償としてインストール時に圧縮状態を解除する必要があるため余計に時間がかかります。
+NSP を NSZ にすることでだいたい 10% ~ 20%ほどの容量を節約することができますが、その代償としてインストール時に圧縮状態を解除する必要があるため余計に時間がかかります。
 
 要するに、時間と容量のトレードオフ関係ということです。昨今はストレージの大容量化が進んでいるため、NSP をわざわざ NSZ に圧縮する必要はないと考えています。
 

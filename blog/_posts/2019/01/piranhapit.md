@@ -1,7 +1,7 @@
 ---
 title: ショッツル鉱山
 date: 2019-01-01
-description: ショッツル鉱山のガチホコマップです
+description: カウント27まで進められるジャンプポイントはぜひとも覚えておきましょう
 category: Splatoon2
 tags:
   - ガチホコカウントマップ
