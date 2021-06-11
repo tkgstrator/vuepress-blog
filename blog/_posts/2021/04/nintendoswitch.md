@@ -3,6 +3,8 @@ title: Nintendo Switch Hackまとめページ
 date: 2021-04-28
 description: Nintendo Switchの改造についてのドキュメントです
 category: Hack
+tags:
+  - CFW
 ---
 
 ## Nintendo Switch Hack

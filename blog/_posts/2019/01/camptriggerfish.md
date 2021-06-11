@@ -1,7 +1,7 @@
 ---
 title: モンガラキャンプ場
 date: 2019-01-01
-description: モンガラキャンプ場のガチホコマップです
+description: 進みにくいが最短の中央ルートと、遅いが確実な左ルートを状況に応じて選択する必要があります
 category: Splatoon2
 tags:
   - ガチホコカウントマップ
@@ -55,6 +55,10 @@ tags:
 
 また、左ルートはじわじわと押していくルートなのでホコ持ちはあんまりガンガン攻め込まないほうがいいこともある。金網上の仲間のアシストや相手のインクレール方向を撃って応援が来れないようにするといった動きを心掛けたい。
 
+<video controls src="https://video.twimg.com/ext_tw_video/1006530846852026369/pu/vid/1280x720/RTnMwnlQxr4pFwT6.mp4"</video>
+
+中央ルート突破の例です。
+
 ## エリア
 
 ### 安全エリア
@@ -77,4 +81,6 @@ tags:
 
 ## 小技
 
-真下でジャンプすればとれる
+<video controls src="https://video.twimg.com/ext_tw_video/1120000988645957632/pu/vid/1280x720/NjuYKppgynwohIev.mp4"</video>
+
+真下でジャンプすればとれる。

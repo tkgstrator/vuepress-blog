@@ -1,16 +1,17 @@
 ---
 title: "[Hack] Nosigpatchを簡単に導入するSigpatch Updaterとは"
 date: 2021-06-10
+description: Sigpatch Updaterの使い方です
 category: Hack
 tags:
   - CFW
 ---
 
-# Sigpatch とは
+## Sigpatch とは
 
 > この記事は以前公開していたものを加筆・修正したものになります
 
-当ブログでも再三に渡って説明しているのだが、atmosphere には海賊版対策として署名のない NSP はインストールも起動もできない仕組みが備わっています。
+当ブログでも再三に渡って説明しているのだが、Atmosphere には海賊版対策として署名のない NSP はインストールも起動もできない仕組みが備わっています。
 
 コレ自体はとても良い機能なのですが、この機能があると自分でカートリッジから NSP をダンプした場合にも署名を保存しておかないとインストールできなくなってしまいます。
 
@@ -18,7 +19,7 @@ Tinfoil のような非公式アプリを Applet Mode 以外で起動させる�
 
 ## [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater/releases/tag/v0.1.3)
 
-![](https://pbs.twimg.com/media/EmVSlw_WEAIeXEs?format=jpg&name=large)
+![](https://pbs.twimg.com/media/EmVSlw_WEAIeXEs?format=png)
 
 ダウンロードした NRO を switch フォルダ以下にコピーするだけです。
 
@@ -89,7 +90,7 @@ icon=bootloader/res/icon_switch.bmp
 
 EmuMMC を利用している多くの方は OFW を SysNAND で動かしてオンラインプレイを遊び、CFW は EmuMMC で動かして遊んでいるという方が多いと思います。
 
-オンラインプレイで遊ぶためには 90DNS を設定できないので(設定するとオンラインにつながらない)、SysNAND では 90DNS を設定していないことになります。その状態で誤って CFW で起動してしまうと「オンラインに繋げる=即 BAN」となってしまうため「誤って CFW(SysNAND)を選択すること」が即座に BAN に直結してしまいます。
+オンラインプレイで遊ぶためには 90DNS を設定できないので（設定するとオンラインにつながらない）、SysNAND では 90DNS を設定していないことになります。その状態で誤って CFW で起動してしまうと「オンラインに繋げる=即 BAN」となってしまうため「誤って CFW(SysNAND)を選択すること」が即座に BAN に直結してしまいます。
 
 このようなたった一つのミスで BAN されることを防ぐためにも、SysNAND で CFW を読み込むような設定はオフにすべきです。
 
@@ -115,8 +116,8 @@ EmuMMC を利用している多くの方は OFW を SysNAND で動かしてオ�
 
 ## Sigpatch を使いたくない方のために
 
-いちいち Sigpatch を使うのがめんどくさいという方はそもそも NSP をダンプするときに証明書(Ticket)付きでダンプすれば良いです。
+いちいち Sigpatch を使うのがめんどくさいという方はそもそも NSP をダンプするときに証明書（Ticket）付きでダンプすれば良いです。
 
 ゲームのバックアップを NSP で保存するためには[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool)というツールを使うのが最も手っ取り早いです。
 
-NXDumpTool の使い方に関してはこの記事で解説しているのでどうぞ。
+NXDumpTool の使い方に関しては[この記事](https://tkgstrator.work/posts/2021/06/10/nxdumptool.html)で解説しているのでどうぞ。

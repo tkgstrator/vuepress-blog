@@ -2,6 +2,8 @@
 title: "[Hack] Edizonでチートを有効化する"
 date: 2021-01-08
 category: Hack
+tags:
+  - CFW
 ---
 
 ## Edizon

@@ -3,6 +3,8 @@ title: Nintendo Switch Hack用語集
 date: 2021-04-27
 description: Nintendo Switchの改造で知っておきたい用語集です
 category: Hack
+tags:
+  - CFW
 ---
 
 ## ファイルシステム
