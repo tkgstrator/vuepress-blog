@@ -75,7 +75,7 @@ category: Splatoon2
 
 つまり、調べるのはイカちゃんがジャンプして再び地面に足をつくまでの時間なのです。これならば複雑な計算を必要とせずに計測できますね！！
 
-![](images/image.png)
+![](https://pbs.twimg.com/media/E348LssVoAAMmMm?format=png)
 
 1 フレーム目。
 
@@ -115,13 +115,13 @@ $s=\frac{1}{2}×9.80665×(0.5)^2=1.22583125$
 
 ## 身長を測定する
 
-![](images/2019010818551299.png)
+![](https://pbs.twimg.com/media/E348NBhVkAMUsKo?format=png)
 
 電信柱とイカちゃん。
 
 電信柱の目印とイカちゃんの身長がほぼ同じことに注目していただきたい。
 
-![](images/image-1.png)
+![](https://pbs.twimg.com/media/E348OQ4VcAczVUT?format=png)
 
 ジャンプ！
 
@@ -139,7 +139,7 @@ $s=\frac{1}{2}×9.80665×(0.5)^2=1.22583125$
 
 それが amiibo の撮影で行えるヒメちゃんとの身長比較です。
 
-![](images/2019010819074425.png)
+![](https://pbs.twimg.com/media/E348Pb5VEAEancy?format=png)
 
 ヒメちゃんとの比較。
 
