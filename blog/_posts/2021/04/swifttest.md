@@ -1,5 +1,5 @@
 ---
-title: Swift Package Manager + テスト用デモアプリ 
+title: Swift Package Manager + テスト用デモアプリ
 date: 2021-04-14
 description: Swift Package Managerで作成したライブラリをローカルで使う方法について考える
 category: プログラミング
@@ -11,11 +11,11 @@ tags:
 
 Swift Package Manager（以下、SPM）で作成したライブラリをデモアプリに組み込んでテストしたいと思うときがある。
 
-が、SPMはGitのレポジトリから取り込む形にしか対応しているように見えない。実はローカルで使う方法もあるのだが、今回はその方法を紹介する。
+が、SPM は Git のレポジトリから取り込む形にしか対応しているように見えない。実はローカルで使う方法もあるのだが、今回はその方法を紹介する。
 
-### Salmon Statsライブラリ
+### Salmon Stats ライブラリ
 
-[Swiftで使えるSalmon Statsライブラリ](https://github.com/tkgstrator/SalmonStats)をSPMで開発したのだが、でもアプリがついていないのでいまいちわかりにくい感じになっている。
+[Swift で使える Salmon Stats ライブラリ](https://github.com/tkgstrator/SalmonStats)を SPM で開発したのだが、でもアプリがついていないのでいまいちわかりにくい感じになっている。
 
 ちなみに現在対応しているのは次の機能。
 
@@ -27,9 +27,9 @@ Swift Package Manager（以下、SPM）で作成したライブラリをデモ�
 - ユーザメタデータの取得
   - バイト回数とかのデータ
 - ユーザのリザルトの取得
-  - 最大200件まで取得 
+  - 最大 200 件まで取得
 
-というわけで、まずはGitHubからSalmon Statsライブラリを取得する。
+というわけで、まずは GitHub から Salmon Stats ライブラリを取得する。
 
 ```bash
 git clone git@github.com:tkgstrator/SalmonStats.git
@@ -42,11 +42,11 @@ Receiving objects: 100% (73/73), 15.29 KiB | 5.10 MiB/s, done.
 Resolving deltas: 100% (20/20), done.
 ```
 
-cloneしたらSalmonStatsディレクトリ以下にXcodeで新プロジェクトを作成する。
+clone したら SalmonStats ディレクトリ以下に Xcode で新プロジェクトを作成する。
 
 ### 新プロジェクトを作成
 
-Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
+Xcode から`SalmonStatsDemo`という新プロジェクトを作成する。
 
 ![](/assets/images/01.png)
 
@@ -54,13 +54,13 @@ Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
 
 ![](/assets/images/02.png)
 
-次にこのデモアプリのプロジェクトに対してSalmonStatsのディレクトリをそのままドラッグアンドドロップしてライブラリを追加する。
+次にこのデモアプリのプロジェクトに対して SalmonStats のディレクトリをそのままドラッグアンドドロップしてライブラリを追加する。
 
 注意点としては「コピーする」は選択しなくて良いというところです。
 
 ![](/assets/images/03.png)
 
-ちゃんとできると上の画像のようにSalmonStatsのライブラリを読み込んでくれます。
+ちゃんとできると上の画像のように SalmonStats のライブラリを読み込んでくれます。
 
 ちなみに、プロジェクトを作成するときに`IDETemplateMacros.plist`を作成しておくと便利です。詳しくは[カピ通信](https://capibara1969.com/1151/)さんが解説されています。
 
@@ -70,13 +70,13 @@ Xcodeから`SalmonStatsDemo`という新プロジェクトを作成する。
 
 ## デモアプリ形式の便利なところ
 
-SPMで読み込んだ場合にはライブラリのソースコードを変更できないという問題がありますが、このようにローカルでライブラリを読み込んだ場合にはライブラリのコードを変えながらデモアプリでチェックできます。
+SPM で読み込んだ場合にはライブラリのソースコードを変更できないという問題がありますが、このようにローカルでライブラリを読み込んだ場合にはライブラリのコードを変えながらデモアプリでチェックできます。
 
-GitHubなどにコミットする必要もなく、手間が省けるというわけです。
+GitHub などにコミットする必要もなく、手間が省けるというわけです。
 
 ### 既存のバグ
 
-CombineExpectationsをライブラリに追加したままローカルやSPMで別のアプリに追加するとクラッシュします。
+CombineExpectations をライブラリに追加したままローカルや SPM で別のアプリに追加するとクラッシュします。
 
 ```swift
 import PackageDescription
@@ -106,11 +106,11 @@ let package = Package(
 )
 ```
 
-どうもCombineExpectationsはtestTargetにしか追加してはダメなようだった。
+どうも CombineExpectations は testTarget にしか追加してはダメなようだった。
 
 ### サンプルコード
 
-例えば以下のようなコードを書けばSalmon Statsから10万番目のリザルトを取得できる。
+例えば以下のようなコードを書けば Salmon Stats から 10 万番目のリザルトを取得できる。
 
 イニシャライザで宣言するとビューを呼び出す前にアクセスしてしまうので`onAppear`で宣言するのが適切かもしれない。
 
@@ -122,7 +122,7 @@ import Combine
 
 struct ContentView: View {
     @State private var task: AnyCancellable?
-    
+
     var body: some View {
         Text("Hello, world!")
             .padding()
@@ -151,7 +151,7 @@ import Combine
 
 struct ContentView: View {
     private var task: AnyCancellable?
-    
+
     init() {
         task = SalmonStats.shared.getResult(resultId: 100000)
             .sink(receiveCompletion: { completion in
@@ -172,9 +172,9 @@ struct ContentView: View {
 }
 ```
 
-ただ、SwiftUIはstruct型なのでクロージャの中でselfを書き換えることができない。これはmutatingでも同じことである。詳しくは[ここのGitHub Gist](https://gist.github.com/takasek/1c92935ceafb8340eb7fbc9d0f8379eb)を読めばいいことがあるかもしれない。
+ただ、SwiftUI は struct 型なのでクロージャの中で self を書き換えることができない。これは mutating でも同じことである。詳しくは[ここの GitHub Gist](https://gist.github.com/takasek/1c92935ceafb8340eb7fbc9d0f8379eb)を読めばいいことがあるかもしれない。
 
-よって、イニシャライザを使った場合は受け取ったデータであるresopnseを処理することができない。なので普通に`onAppear`でいいような気がしてきました。
+よって、イニシャライザを使った場合は受け取ったデータである resopnse を処理することができない。なので普通に`onAppear`でいいような気がしてきました。
 
 ## デモアプリ
 
@@ -187,7 +187,7 @@ import Combine
 struct ContentView: View {
     @State private var result: Response.ResultCoop?
     @State private var task: AnyCancellable?
-    
+
     var body: some View {
         List {
             HStack {
@@ -200,7 +200,7 @@ struct ContentView: View {
             getResultFromSalmonStats()
         }
     }
-    
+
     func getResultFromSalmonStats() {
         task = SalmonStats.shared.getResult(resultId: 100000)
                     .sink(receiveCompletion: { completion in
@@ -220,7 +220,7 @@ struct ContentView: View {
 
 ビルドすると以下のように表示できる。
 
-Combineは非同期処理なのでデータの読み込みが終わるまでは0と表示されているが、読み込みが完了すると正しい63という値に修正される。
+Combine は非同期処理なのでデータの読み込みが終わるまでは 0 と表示されているが、読み込みが完了すると正しい 63 という値に修正される。
 
 ![](/assets/images/06.png)
 

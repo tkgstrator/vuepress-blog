@@ -183,7 +183,7 @@ LDR X0, [X0]         // this (Game::PlayerMgr sInstance)
 BL _ZNK4Game9PlayerMgr22getControlledPerformerEv
 ```
 
-この C++ 擬似コードと ARM64 命令は等価だぞ。
+この C++擬似コードと ARM64 命令は等価だぞ。
 
 BL 命令というのは簡単にいえばジャンプ命令で、ジャンプした先のアドレスの命令を実行したあとで RET 命令で BL 命令の次の命令を実行します。
 
@@ -198,7 +198,7 @@ BL 命令というのは簡単にいえばジャンプ命令で、ジャンプ�
 class Game::PlayerMgr {
     Game::Player* getControlledPerformer();
 }
- 
+
 int main() {
   Game::Player *mPlayer = Game::PlayerMgr::getControlledPerformer();
 }
@@ -213,7 +213,7 @@ int main() {
 class Game::PlayerMgr {
     Game::Player* getControlledPerformer(Game::PlayerMgr * __hidden this);
 }
- 
+
 int main() {
   Game::Player *mPlayer = Game::PlayerMgr::getControlledPerformer();
 }
@@ -320,7 +320,7 @@ if (X0 == 0)
   return 1;
 ```
 
-これを C++ 擬似コードで表すと上のようになるのですが、実は ARM で IF 文を実装しようとするとコスト（命令数がたくさん必要）でやっかいです。
+これを C++擬似コードで表すと上のようになるのですが、実は ARM で IF 文を実装しようとするとコスト（命令数がたくさん必要）でやっかいです。
 
 ここは IF 文を使わずに出力することを考えましょう。
 

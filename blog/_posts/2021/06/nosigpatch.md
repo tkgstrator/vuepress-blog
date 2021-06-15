@@ -17,7 +17,7 @@ tags:
 
 Tinfoil のような非公式アプリを Applet Mode 以外で起動させるにも Sigpatch が必要になってきますので、使いたい方は導入必須です。
 
-## [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater/releases/tag/v0.1.3)
+## [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater/releases)
 
 ![](https://pbs.twimg.com/media/EmVSlw_WEAIeXEs?format=png)
 

@@ -9,7 +9,7 @@ tags:
 
 ## 生体認証ロック
 
-以前も記事で解説したのだが、Swiftでは`LocalAuthentication`をインポートするだけで簡単に生体認証の仕組みをつくることができる。
+以前も記事で解説したのだが、Swift では`LocalAuthentication`をインポートするだけで簡単に生体認証の仕組みをつくることができる。
 
 が、実際にはそれだけでは想定している動作が実現できないのでサンプルコードを使ってデモアプリを作成してみようと思う。
 
@@ -24,14 +24,15 @@ tags:
 - ロックを解除すると最後にひらいていた画面が表示される
 
 また、生体認証をキャンセルした場合次のような挙動を示した
+
 - 生体認証をキャンセル
 - 画面をバックグラウンドにしてから復帰すると再度生体認証が自動表示
 
 大事になるのは「生体認証が自動で表示」と「バックグラウンドでロックがかかる」という点だと思われる。「生体認証が自動で表示」に関しては`onAppear`で対応できそうな気がするが「バックグラウンドでロックがかかる」というのはバックグラウンドに移行したことを検知できないと実装できない。どうやってその仕組みを実装するのだろうか。
 
-## Environmentをつかう
+## Environment をつかう
 
-これも以前解説したのだが、SwiftUIにはいくつかの環境変数が自動でセットされている。あとはそれを呼び出すだけで使えるのである。
+これも以前解説したのだが、SwiftUI にはいくつかの環境変数が自動でセットされている。あとはそれを呼び出すだけで使えるのである。
 
 その中に`scenePhase`というものがあり、これは`active`, `inactive`, `background`の三つの状態のいずれかを保持している。これらを使えば上手く仕様を満たすことができそうだ。
 
@@ -43,12 +44,11 @@ tags:
 
 で、ここで次のようなフローチャートを考える。
 
-
-| 状態       | 生体認証 | パスコード認証 | 
-| :--------: | :------: | :------------: | 
-| Biometrics | OK       | OK             | 
-| Enter      | -        | OK             | 
-| Wrong      | -        | OK            | 
+|    状態    | 生体認証 | パスコード認証 |
+| :--------: | :------: | :------------: |
+| Biometrics |    OK    |       OK       |
+|   Enter    |    -     |       OK       |
+|   Wrong    |    -     |       OK       |
 
 ![](/assets/images/biometricsflowchart01.png)
 
@@ -99,9 +99,9 @@ import LocalAuthentication
 
 class AppLocker: ObservableObject {
     @Published var isAppLocked: Bool = false // アプリがロックされているか
-    
+
     @Published var isBiometricsEnabled: Bool = false // 生体認証が有効化されているかどうか
-    
+
     private var isBiometricsAvailable: Bool { // 生体認証が利用可能かどうか
         return LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
     }
@@ -203,7 +203,7 @@ import SwiftUI
 
 struct AppHomeView: View {
     @EnvironmentObject var appLocker: AppLocker
-    
+
     var body: some View {
         ZStack {
             if !appLocker.isAppLocked {
@@ -219,21 +219,21 @@ struct AppHomeView: View {
 }
 ```
 
-## scenePhaseのバグ
+## scenePhase のバグ
 
-scenePhaseに由来するバグではないのだが、ここの判定はこのままでは意図しない動作を引き起こす。
+scenePhase に由来するバグではないのだが、ここの判定はこのままでは意図しない動作を引き起こす。
 
 というのも、この`scenePhase`の値が変化したチェックは`ContentView()`で行われているためである。つまり、生体認証画面のポップアップが表示された段階で`ContentView()`は`.inactive`になってしまい、
 
-- ContentView()が表示
+- `ContentView()`が表示
 - `.active`になるので生体認証画面が表示
-  - この時点でContentView()が`.inactive`になる
+  - この時点で`ContentView()`が`.inactive`になる
   - 生体認証を終える
-- ContentView()が`.active`になる 
+- `ContentView()`が`.active`になる
 
 という処理が行われ、結果として何度認証を繰り返してもキャンセルしても無限に生体認証ダイアログが表示されてしまう。
 
-これを回避するためにはContentViewがバックグラウンドに移行した段階で何らかのフラグを設定し、生体認証を一回終えた時点でそのフラグを回収するような処理が考えられる。
+これを回避するためには ContentView がバックグラウンドに移行した段階で何らかのフラグを設定し、生体認証を一回終えた時点でそのフラグを回収するような処理が考えられる。
 
 ```swift
 // App.swift
@@ -278,15 +278,15 @@ import LocalAuthentication
 
 class AppLocker: ObservableObject {
     @Published var isAppLocked: Bool = true // アプリがロックされているか
-    
+
     @Published var isBiometricsEnabled: Bool = false // 生体認証が有効化されているかどうか
-    
+
     @Published var isFirstLaunch: Bool = true // 初回のチェックかどうかを調べる
-    
+
     private var isBiometricsAvailable: Bool { // 生体認証が利用可能かどうか
         return LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
     }
-    
+
     func authorizeWithBiometrics() {
         if isFirstLaunch {
             isFirstLaunch.toggle()

@@ -44,7 +44,7 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 
 ```
 // Got 9999 Power Eggs by Signal [tkgling] [3.1.0]
-@enabled
+@disabled
 00E797FC 60970190 // ADRP X0, #0x32EC000
 00E79800 00DC46F9 // LDR X0, [X0, #0xDB8]
 00E79804 000040F9 // LDR X0, [X0]         // X0 = PlayerDirector

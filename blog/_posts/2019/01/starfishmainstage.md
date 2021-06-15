@@ -47,11 +47,11 @@ tags:
 
 ゴール前は自陣リスポーン地点に近いものの、ひらけているため相手の応援もきやすく、またスペシャルがささりやすい地形をしているのでここにホコを放置することは避けたい。
 
-(https://pbs.twimg.com/media/E3GZEvmUUAMJQP0?format=png)
+![](https://pbs.twimg.com/media/E3GZEvmUUAMJQP0?format=png)
 
 どうしても危ない場合はここの大穴から落として中央にガチホコを戻してしまおう。ただし、それも一時凌ぎにすぎないことは覚えておくように。
 
-(https://pbs.twimg.com/media/E3GZGmAVoAIRHuI?format=png)
+![](https://pbs.twimg.com/media/E3GZGmAVoAIRHuI?format=png)
 
 ### イカビーコンポイント
 

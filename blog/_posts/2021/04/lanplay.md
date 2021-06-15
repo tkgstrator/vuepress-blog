@@ -46,7 +46,7 @@ Lan プレイとはニンテンドースイッチに実装されている隠し�
   - switchlanplay を実行するのに必要なパッケージです
 
 - [SwitchLanPlay](https://tkgstrator.work/switchlanplay/index.html)
-  - space 氏が開発した switchlanplay を GUI で簡単に扱えるようにしたものです
+  - [@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play/releases)を GUI で簡単に扱えるようにしたものです
 
 MacOS は対応してはいますがファイルがないため全て手動で設定する必要があります。めんどくさいのであまりおすすめしません。
 
@@ -66,7 +66,9 @@ git p
 同様にダウンロードしてインストールするだけです。
 
 ::: tip
+
 もしインストールが上手くいかない場合、この[オフラインインストーラ](https://cdn.discordapp.com/attachments/720612694667034646/836272289431421018/Offline_InstallerSwitchLanPlay.zip)をダウンロードしてみてください
+
 :::
 
 インストールが終わった起動して、サーバを選んでから CONNECT を押します。
@@ -85,9 +87,11 @@ Server IP: 13.231.102.57
 `pcap loop start`の後で`Server IP: 13.231.102.57`と表示された場合は接続が成功しています。
 
 ::: danger
+
 この黒い画面が二つ以上ひらいたままにならないようにしてください。
 
 LanPlay に接続できなくなってしまいます。
+
 :::
 
 ### Nintendo Switch の設定
@@ -97,7 +101,9 @@ LanPlay に接続できなくなってしまいます。
 「設定」から「インターネット設定」を開き、次のように設定します。
 
 ::: tip
+
 動画内では DNS は下の推奨設定と異なっていますが、推奨設定で問題ありません。
+
 :::
 
 |                 |       項目       |      値       |                              注釈                              |
@@ -125,7 +131,7 @@ Server IP: 13.231.102.57
 
 ### スプラトゥーンの設定
 
-イカッチャで左スティック押し込み+L+R を同時押しして三秒間固定すれば LanPlay に切り替わります。
+イカッチャで L スティック押し込み + L +R を同時押しして三秒間固定すれば LanPlay に切り替わります。
 
 右下の黄色いスタンプマークが消えていれば LanPlay に切り替わっています。
 

@@ -49,7 +49,7 @@ BCAT から読み込んだデータでサーモンランのマッチング画面
 
 ```
 // Coop Online LanPlay [tkgling]
-@enabled
+@disabled
 0072ED84 E0031FAA
 ```
 

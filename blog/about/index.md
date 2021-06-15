@@ -19,15 +19,16 @@
 
 - 対応 OS: iOS14.0 - iOS14.4.2
 
-## [LanPlay](https://discord.gg/sWZeWFruSx)
+## [LanPlay](https://discord.gg/vUVBJFAKvZ)
 
-space 氏が開発した SwitchLanPlay の国内向けサーバを設立し運営中。
+[@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play/releases) の国内向けサーバを設立し運営中。
 
 ::: tip LanPlay とは
 
 「LAN プレイ」とは、複数の Nintendo Switch を LAN ケーブルでつなぎ、ローカルエリアネットワークを介して、通信プレイを行う対戦方法です。
 
 https://support.nintendo.co.jp/app/answers/detail/a_id/34661
+
 :::
 
 本来はローカルエリアネットワークでしかできない LanPlay を拡張してインターネット経由で遊べるようにしたものになります。

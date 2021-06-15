@@ -12,7 +12,7 @@ layout: draft
 
 そもそも Property Wrapper がいったいなんなのかよくわかっていなかったので調べてみました。
 
-[SwiftUIのProperty Wrappersまとめ](https://qiita.com/favolabo/items/67308dbcf88f3bc1d65f)の記事が参考になったので載せておきます。
+[こちらの記事](https://qiita.com/favolabo/items/67308dbcf88f3bc1d65f)が参考になったので載せておきます。
 
 これによると「変数をラッピングして get や set を制御するための仕組み」とあります。しかし、Swift では普通に get や set を実行できるので、わざわざ Property Wrapper を使う必要がないような気もします。
 
@@ -41,7 +41,7 @@ struct HelloWorld {
 
 この構造体は外部から参照できない内部プロパティ`text`を保持しており、その値は最初は空文字です。そして、`text`自体にはアクセスできないものの計算プロパティである`wrappedValue`を介して間接的に`text`の中身を参照できます。
 
-単に参照(get)した場合は`text`の中身は空文字のままなので空文字が返ってきますが、`wrappedValue`に一度でも値を代入した場合は`text`の値が書き換えられます。
+単に参照（get）した場合は`text`の中身は空文字のままなので空文字が返ってきますが、`wrappedValue`に一度でも値を代入した場合は`text`の値が書き換えられます。
 
 ```swift
 var world = HelloWorld()

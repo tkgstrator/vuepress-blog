@@ -60,9 +60,7 @@ NXDumpTool にはダウンロード版の personalized ticket を common ticket 
 
 そこで、非署名の NSP をインストールする仕組みが考えられました。それが、Sigpatch です。
 
-### Sigpatch Updater
-
-[sigpatch-updater](https://github.com/ITotalJustice/sigpatch-updater/releases)
+### [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater/releases)
 
 Sigpatch を GitHub のリリースページから自動で取得してくれるアプリがあります。
 

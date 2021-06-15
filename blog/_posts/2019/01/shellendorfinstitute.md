@@ -9,7 +9,7 @@ tags:
 
 # デボン海洋博物館
 
-(画像不明)
+（画像不明）
 
 ## 基本情報
 
@@ -29,19 +29,19 @@ tags:
 
 ## 変更点
 
-(https://pbs.twimg.com/media/E3GWBt8UYAEDarZ?format=png)
+![](https://pbs.twimg.com/media/E3GWBt8UYAEDarZ?format=png)
 
 屋根の高さがかなり低くなり、見通しが良くなりました。
 
-(https://pbs.twimg.com/media/E3GWEDOVgAUiuo3?format=png)
+![](https://pbs.twimg.com/media/E3GWEDOVgAUiuo3?format=png)
 
 改修前はただの直方体だったのですが、アップデートで T 字型になりました。
 
-(https://pbs.twimg.com/media/E3GWF6YVcAEXkgQ?format=png)
+![](https://pbs.twimg.com/media/E3GWF6YVcAEXkgQ?format=png)
 
 以前は選択するとほぼ確実にホコを落として停滞する時間稼ぎの場所だったのですが、かなり見通しが良くなりました。
 
-(https://pbs.twimg.com/media/E3GWH2MVUAEEQ96?format=png)
+![](https://pbs.twimg.com/media/E3GWH2MVUAEEQ96?format=png)
 
 高さがだいぶ低くなったので単射程ブキでも上が狙いやすくなっています。
 

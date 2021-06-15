@@ -21,7 +21,7 @@ tags:
 
 Swift では`main`スレッドと`global`スレッドの二つが存在する。
 
-`main`スレッドでは`Main Queue`のみが実行され、`global`スレッドでは`Global Queue`だけが実行される。どちらのスレッドに処理(`Queue`)を追加するかは基本的にシステムが自動的に行なってくれるのだが`DispatchQueue`を指定することで任意のスレッドに処理を渡すことができる。
+`main`スレッドでは`Main Queue`のみが実行され、`global`スレッドでは`Global Queue`だけが実行される。どちらのスレッドに処理（`Queue`）を追加するかは基本的にシステムが自動的に行なってくれるのだが`DispatchQueue`を指定することで任意のスレッドに処理を渡すことができる。
 
 `Global Queue`には実行優先度があり、高い方から順に`high`, `default`, `low`, `background`となっている。
 
@@ -131,7 +131,7 @@ private func runDispatchQueue() {
 
 では次に`DispatchQueue.global`を使い、処理を`Global Queue`として渡すことにする。
 
-`DispatchQueue.global`には`async(非同期)`と`async(同期)`の二つがあり、更に並列処理か逐次処理がある。つまり、全部で四通りの実行の仕方があることになる。
+`DispatchQueue.global`には async（非同期）と async（同期）の二つがあり、更に並列処理か逐次処理がある。つまり、全部で四通りの実行の仕方があることになる。
 
 ただし、今回は負荷をかけないためのコーディングについて考えるので並列処理（同時に複数実行）は考えず、逐次処理（同時に一つだけ実行）を考える。
 

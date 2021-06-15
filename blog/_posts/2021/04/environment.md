@@ -9,7 +9,7 @@ tags:
 
 ## EnvironmentValues
 
-[Appleのドキュメント](https://developer.apple.com/documentation/swiftui/environmentvalues)にたくさん載っているのでこれを学んでいきましょう。
+[Apple のドキュメント](https://developer.apple.com/documentation/swiftui/environmentvalues)にたくさん載っているのでこれを学んでいきましょう。
 
 ### locale
 
@@ -17,11 +17,11 @@ tags:
 
 ### timeZone
 
-タイムゾーンを取得する。Swiftでは`TimeZone.current`で取得することもできるが、環境変数を使うほうが良さそうである。
+タイムゾーンを取得する。Swift では`TimeZone.current`で取得することもできるが、環境変数を使うほうが良さそうである。
 
 ### lineLimit
 
-テキストで折返しをするかどうかの環境変数。1だと折り返さず三点リーダで省略される。
+テキストで折返しをするかどうかの環境変数。1 だと折り返さず三点リーダで省略される。
 
 ### lineSpacing
 
@@ -33,7 +33,7 @@ tags:
 
 テキストにおける指定フォントサイズに対して何%まで小さくすることを認めるかの環境変数。
 
-例えば、0.5としておいてフォントサイズを20と指定すればデバイスや表示したい文字の長さによってフォントサイズを10まで小さくする。
+例えば、0.5 としておいてフォントサイズを 20 と指定すればデバイスや表示したい文字の長さによってフォントサイズを 10 まで小さくする。
 
 ### sizeCategory
 
@@ -72,4 +72,4 @@ present.wrappedValue.dismiss()
 画像のサイズを指定できる。`small`, `medium`, `large`の三つがあった気がするが
 `large`でも全然大きくなくて困る。
 
-`extraLarge`みたいなEnumが欲しい、実装方法ないのかな。
+`extraLarge`みたいな Enum が欲しい、実装方法ないのかな。

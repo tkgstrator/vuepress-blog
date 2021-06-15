@@ -39,13 +39,13 @@ tags:
 
 ### 中央ルート
 
-(https://pbs.twimg.com/media/E3GWhX1VcAYZxIU?format=png)
+![](https://pbs.twimg.com/media/E3GWhX1VcAYZxIU?format=png)
 
 防衛側が常に高所にいるため、地理的に攻める側が圧倒的に不利です。
 
 真正面からぶつかってもなかなかカウントが進まないので、このルートは臨機応変に動くことが大切です。
 
-(https://pbs.twimg.com/media/E3GWjagVoAAGFsn?format=png)
+![](https://pbs.twimg.com/media/E3GWjagVoAAGFsn?format=png)
 
 まずはブロックを塗ってここの高台を占拠してしまいましょう。
 
@@ -63,7 +63,7 @@ tags:
 
 相手が中央付近に二人いるのであれば、これは問答無用で青ルートを選択しましょう。この状態で緑ルートを選択するのはホコを止められてしまう恐れがあります。
 
-(https://pbs.twimg.com/media/E3GWld_VoAI2mWF?format=png)
+![](https://pbs.twimg.com/media/E3GWld_VoAI2mWF?format=png)
 
 青ルートを選択した場合は、このブロック横（気持ち少し奥）がぎりぎりホコショットがカウント 32 の位置まで届きます。
 
@@ -79,7 +79,7 @@ tags:
 
 なぜ左側が安全なのかは以下の図を見ればすぐに分かります。
 
-(https://pbs.twimg.com/media/E3GWoZ0VoAAEHoh?format=png)
+![](https://pbs.twimg.com/media/E3GWoZ0VoAAEHoh?format=png)
 
 こちらがカウントリードしていて、延長に入って相手がホコを取って最後の攻撃にでたところを想像してください。
 
@@ -90,11 +90,11 @@ tags:
   - 待ち伏せしていれば勝手に相手から近づいてくる
   - 迎撃が非常に楽なので安全
 
-また、これらのエリアはこちら側のカウント 80 ほどの場所なので例えば相手がカウント 30 まで進めなければ逆転できないとしたら、ホコを一度も落とさずに 20 + 70 でカウントを 90 も進めるのと同じくらい難しいことになります。
+また、これらのエリアはこちら側のカウント 80 ほどの場所なので例えば相手がカウント 30 まで進めなければ逆転できないとしたら、ホコを一度も落とさずに $20+70$ でカウントを 90 も進めるのと同じくらい難しいことになります。
 
 中央よりも相手陣側にホコがあるのは非常に安全なのです。
 
-(https://pbs.twimg.com/media/E3GWqpNUcAU0GOX?format=png)
+![](https://pbs.twimg.com/media/E3GWqpNUcAU0GOX?format=png)
 
 逆にホコがあると最も危険なのはここのエリアです。
 
@@ -104,7 +104,7 @@ tags:
 
 また、中央に戻すのも難しいので水没してしまうのも一つの手でしょう。
 
-(https://pbs.twimg.com/media/E3GWsZHVoAgDitu?format=png)
+![](https://pbs.twimg.com/media/E3GWsZHVoAgDitu?format=png)
 
 エンガワ河川敷はホコの初期位置が取りにくい場所にあるため、水没でホコを中央に戻せば十分仲間の復帰と防衛の準備をすることができます。
 
@@ -118,7 +118,7 @@ tags:
 
 - 判定を利用したテクニック
 
-(https://pbs.twimg.com/media/E3GWvT7VEAYH1QS?format=png)
+![](https://pbs.twimg.com/media/E3GWvT7VEAYH1QS?format=png)
 
 このブロック付近は判定がちょっと変わっているエリアがあるので、そこを使うと比較的安全にカウントを 25 まで進めることができます。
 
@@ -128,7 +128,7 @@ tags:
 
 - 左ルートの壁際のカウント
 
-(https://pbs.twimg.com/media/E3GWxCgVEAI8iYd?format=png)
+![](https://pbs.twimg.com/media/E3GWxCgVEAI8iYd?format=png)
 
 左ルートを選択した場合は、手前の壁を登るよりも正面に突っ込んだほうがカウントが進みます。
 
@@ -136,7 +136,7 @@ tags:
 
 - デッドゾーン
 
-(https://pbs.twimg.com/media/E3GWy1HVgAQaFJw?format=png)
+![](https://pbs.twimg.com/media/E3GWy1HVgAQaFJw?format=png)
 
 この緑色のエリアは一見カウントが進みそうですが、カウントが 74 よりもすすみません。
 

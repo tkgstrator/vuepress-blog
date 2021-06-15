@@ -11,7 +11,7 @@ tags:
 
 Alignment とは要するに「右揃え」「中央揃え」「左揃え」のようなテキストやオブジェクトなどのグループをどこを基準に揃えるかというパラメータのことである。
 
-で、Alignment については[SwiftUI の Alignment Guide まとめ](https://qiita.com/shiz/items/0c41d20a2cb7b0748875)の記事で@shiz 氏がまとめてくれていたりする。
+で、Alignment については[こちらの記事](https://qiita.com/shiz/items/0c41d20a2cb7b0748875)ででまとめてくれていたりする。
 
 ただ、それを読んだだけでは自分がしっかりと理解できなかったのでその解説となります。
 
@@ -150,7 +150,7 @@ var body: some View {
 }
 ```
 
-何故なら VStack の幅は可変で常に内部のオブジェクトぴったりになるように大きさが変わっているからです。つまり、VStack(または HStack に対して)`Frame Alignment`だけを指定するのは全く意味がありません。ダグドリオに十万ボルトするくらい意味がないです。
+何故なら VStack の幅は可変で常に内部のオブジェクトぴったりになるように大きさが変わっているからです。つまり、VStack（または HStack に対して）`Frame Alignment`だけを指定するのは全く意味がありません。ダグドリオに十万ボルトするくらい意味がないです。
 
 ![](https://pbs.twimg.com/media/E1UKtENUcAEney1?format=png)
 

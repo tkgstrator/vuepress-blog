@@ -43,9 +43,9 @@ tags:
 
 ### 赤ルートから運ぼうとするとこうなる
 
-(https://pbs.twimg.com/media/E3GV3suUcAEe6Cp?format=png)
+![](https://pbs.twimg.com/media/E3GV3suUcAEe6Cp?format=png)
 
-(https://pbs.twimg.com/media/E3GV6R5VEAohh-u?format=png)
+![](https://pbs.twimg.com/media/E3GV6R5VEAohh-u?format=png)
 
 ### 緑ルートについて
 

@@ -1,5 +1,5 @@
 ---
-title: "[二日目]Apple Reviewの審査に通るまで"
+title: "[二日目] Apple Reviewの審査に通るまで"
 date: 2021-01-15
 category: プログラミング
 ---
