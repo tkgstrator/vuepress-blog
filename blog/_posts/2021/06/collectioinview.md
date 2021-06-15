@@ -16,7 +16,7 @@ CollectionView は UiKit では実装されていたものの、SwiftUI では�
 
 ## 実装してみる
 
-実装にあたり[SwiftUI で画像をページングする](https://qiita.com/yuki_m/items/b2ee2f93e1eb94aaf079)を参考にさせていただきました。
+実装にあたり[こちらの記事](https://qiita.com/yuki_m/items/b2ee2f93e1eb94aaf079)を参考にさせていただきました。
 
 ### 主な仕様
 
@@ -99,6 +99,7 @@ struct ContentView: View {
 Notification が呼ばれた段階ではステータスバーの高さが無視されているのか、常に 20 だけ`geometry.size`がズレてしまう問題があった。
 
 そのため、わざわざステータスバーの高さを取得してその分だけ余計に計算している。が、ステータスーバーを非表示にしていたらなんかズレそうな気もする。
+
 :::
 
 記事は以上。

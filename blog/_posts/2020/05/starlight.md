@@ -3,7 +3,7 @@ title: "[Hack] Starlight + Docker Install Guide"
 date: 2020-05-19
 description: Dockerを用いたStarlightの導入ガイドです
 category: Hack
-tags: 
+tags:
   - Starlight
 ---
 
@@ -44,7 +44,7 @@ WSL2 で Ubuntu18.04 をインストールしつつ、Docker 環境を整える�
 
 で、無事に Docker がインストールできたとしましょう。
 
-### Dockerの設定
+### Docker の設定
 
 `docker info`と入力して、どんな反応が返ってくるか調べます。
 
@@ -77,7 +77,7 @@ sudo apt upgrade
 sudo apt install -y python3 make
 ```
 
-### Starlightの導入
+### Starlight の導入
 
 ここからはものすごく簡単です。
 
@@ -91,7 +91,7 @@ make
 
 もしわからないことがあれば以下のリンクから Discord サーバに参加して、直接きいていただければ返事します。
 
-[LanPlay-JP](https://discord.gg/yxdpXcZGpa)
+[LanPlay-JP](https://discord.gg/vUVBJFAKvZ)
 
 ## おまけ
 

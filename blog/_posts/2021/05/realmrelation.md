@@ -108,7 +108,7 @@ for dog in dogs {
 
 :::
 
-この問題を解決するのが逆方向の参照(バックリンク)である`Linking Object`になります。
+この問題を解決するのが逆方向の参照（バックリンク）である`Linking Object`になります。
 
 ## Linking Object
 
@@ -177,7 +177,7 @@ SwiftUI は構造体を使っているため、プロパティが変化したこ
 
 `Realm -> observe -> Closure -> @Published -> SwiftUI`という流れで再レンダリングがかかります。
 
-これらの仕様については[SwiftUI と Realm を連携して UI を自動更新する](https://qiita.com/chocoyama/items/af172b32f492b706c96d)の記事が大変参考になりました。
+これらの仕様については[こちらの記事](https://qiita.com/chocoyama/items/af172b32f492b706c96d)が大変参考になりました。
 
 ```swift
 import Combine
@@ -339,7 +339,7 @@ class Person: Object {
 
 ::: tip Realm の挙動について
 
-今回のように`Person -> Dog`のリレーションがある場合、`Person`にデータを追加する際は必ず「子(Dog)」→「親(Person)」の順でデータベースの更新がかかるので、`Person`クラスの変更だけをチェックするような仕組みにすれば良い。
+今回のように`Person -> Dog`のリレーションがある場合、`Person`にデータを追加する際は必ず「子（Dog）」→「親（Person）」の順でデータベースの更新がかかるので、`Person`クラスの変更だけをチェックするような仕組みにすれば良い。
 
 :::
 

@@ -9,7 +9,7 @@ tags:
 
 ## Swift5 + Singleton
 
-今回 Singleton を学ぶにあたって[シングルトンを Swift5 で実装する](https://qiita.com/satoru_pripara/items/725b66fd0dfb301cd80c)を参考にさせていただいた。
+今回 Singleton を学ぶにあたって[こちらの記事](https://qiita.com/satoru_pripara/items/725b66fd0dfb301cd80c)を参考にさせていただいた。
 
 非常にわかりやすかったのでこの記事を読むよりもおすすめしたい。
 

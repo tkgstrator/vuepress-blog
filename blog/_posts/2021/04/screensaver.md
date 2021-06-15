@@ -232,7 +232,7 @@ struct ContentView: View {
 
 今回は軽い動作なのでメインスレッドで実行していますが、`DispatchQueue.global()`などを指定してもよいのではないかと思います。
 
-これらの挙動については[【iOS】Combine フレームワークでの Scheduler の使い方
+こちら
 ](https://qiita.com/shiz/items/9dc8e9a96f399b6c7246)の記事が大変参考になりました。
 
 単純に Timer だけを使うコードに比べて少し長いコードになりましたが、非表示になったときに unsubscribe が呼ばれるので利便性の高いコードになったのではないでしょうか。
@@ -297,7 +297,7 @@ struct ContentView: View {
 }
 ```
 
-最後にタップした時間を`lastTappedTime`として保存しておき、`subscribe()`で一秒ごとに`screenSaver`の中身を更新し、それの timestamp を求めて lastTappedTime よりも 10 秒以上経過していたら透明度を変更して ClockView()を表示させるような内容になっています。
+最後にタップした時間を`lastTappedTime`として保存しておき、`subscribe()`で一秒ごとに`screenSaver`の中身を更新し、それの timestamp を求めて lastTappedTime よりも 10 秒以上経過していたら透明度を変更して`ClockView()`を表示させるような内容になっています。
 
 最初は lastTappedTime を持つ構造体をつくってそれにマッピングしようかとも思ったのですが毎回初期化されてしまうため意味がありませんでした。
 

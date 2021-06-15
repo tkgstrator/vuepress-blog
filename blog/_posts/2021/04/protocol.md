@@ -11,13 +11,15 @@ tags:
 
 プロトコルを学ぶにあたって、なぜプロトコルが必要なのかを理解しておく必要がある。
 
-これに関しては[Swiftのプロトコルについて](https://qiita.com/Howasuto/items/546e615325f9feca55f7)の記事が大変参考になりました。
+これに関しては[こちらの記事](https://qiita.com/Howasuto/items/546e615325f9feca55f7)が大変参考になりました。
 
 ::: tip
+
 「プロトコルはクラスや構造体が実装するプロパティとメソッドの最低限の決まり事を設定する機能」とおぼえておけば良い
+
 :::
 
-同様の機能としてスーパークラスというものがあるが、Swiftの構造体にはスーパークラスという概念がない。そのため、代わりにプロトコルを使うというわけである。
+同様の機能としてスーパークラスというものがあるが、Swift の構造体にはスーパークラスという概念がない。そのため、代わりにプロトコルを使うというわけである。
 
 ## プロトコルのメリット
 
@@ -29,7 +31,7 @@ tags:
 
 ### 構造体にもつかえる
 
-先程も述べたようにSwiftでは構造体に対して継承ができません。
+先程も述べたように Swift では構造体に対して継承ができません。
 
 が、プロトコルであればほとんど同じようなことができます。
 
@@ -39,29 +41,29 @@ tags:
 
 ## プロトコルを考える
 
-APIと通信を行なうためには以下のような情報が必要になります。
+API と通信を行なうためには以下のような情報が必要になります。
 
-- 基本URL
-  - APIサーバのURL
+- 基本 URL
+  - API サーバの URL
   - "https://tkgling.netlify.app/api/"
 - パス
   - "session_token"
 - エンドポイント
-  - たたくAPIのURL
-  - 基本URLとパスの組み合わせ
+  - たたく API の URL
+  - 基本 URL とパスの組み合わせ
   - "https://tkgling.netlify.app/api/session_token"
 - メソッド
-  - POSTとかGETとかPUTとか
+  - POST とか GET とか PUT とか
 - ヘッダー
   - 認証情報を入れたりとか
 - エンコーディング方式
-  - URLエンコードかJSONエンコードかパラメータエンコードか
+  - URL エンコードか JSON エンコードかパラメータエンコードか
 - パラメータ
-  - Bodyに入れるデータ
+  - Body に入れるデータ
 
-なのでこれらを全部プロトコルで定義してしまえばいいような気がしますが、パラメータはメソッドがGETのときには不要ですし、ライブラリ化するときには一つのAPIサーバに対して通信することを想定しているのですから基本URLも不要です。
+なのでこれらを全部プロトコルで定義してしまえばいいような気がしますが、パラメータはメソッドが GET のときには不要ですし、ライブラリ化するときには一つの API サーバに対して通信することを想定しているのですから基本 URL も不要です。
 
-パスと基本URLがあればいいのでエンドポイントも不要ですし、ヘッダーが常に認証情報しか保たないのであればこれもやはり不要です。エンコーディング方式も「POSTとPUT以外であればURLエンコード」というような仕様になっていれば、実際に必要なのは次の三つの情報になります。
+パスと基本 URL があればいいのでエンドポイントも不要ですし、ヘッダーが常に認証情報しか保たないのであればこれもやはり不要です。エンコーディング方式も「POST と PUT 以外であれば URL エンコード」というような仕様になっていれば、実際に必要なのは次の三つの情報になります。
 
 ## プロトコルを書いてみる
 
@@ -91,7 +93,7 @@ class Request: RequestType {
 
 そして以下のように実行してみます。
 
-POSTという値でメソッドを初期化しているので、当然結果はPOSTが出力されます。
+POST という値でメソッドを初期化しているので、当然結果は POST が出力されます。
 
 ```swift
 let request = Request(method: "POST", path: "session_token")
@@ -99,9 +101,9 @@ print(request.method) // POST
 print((request as RequestType).method) // POST
 ```
 
-### Extensionで拡張する
+### Extension で拡張する
 
-次に、Extensionで拡張して既に定義されているプロパティに何らかの値を持たせてみます。
+次に、Extension で拡張して既に定義されているプロパティに何らかの値を持たせてみます。
 
 ```swift
 protocol RequestType {
@@ -127,9 +129,9 @@ class Request: RequestType {
 }
 ```
 
-するとこれも先程と同じくどちらもPOSTという値を返します。
+するとこれも先程と同じくどちらも POST という値を返します。
 
-どうやら、Extensionで何らかの値を設定してもクラス側で上書きされる（またはExtensionの値よりもクラスの値が優先して呼び出される）ようです。
+どうやら、Extension で何らかの値を設定してもクラス側で上書きされる（または Extension の値よりもクラスの値が優先して呼び出される）ようです。
 
 ```swift
 let request = Request(method: "POST", path: "session_token")
@@ -139,9 +141,9 @@ print((request as RequestType).method) // POST
 
 ### パラメータを消してみる
 
-Extensionで定義しているのでプロトコルからmethodを取り除いてみます。
+Extension で定義しているのでプロトコルから method を取り除いてみます。
 
-するとプロトコルを適用しているRequestは必ずしもmethodプロパティをもつ必要がなくなります。
+するとプロトコルを適用している Request は必ずしも method プロパティをもつ必要がなくなります。
 
 ```swift
 protocol RequestType {
@@ -198,9 +200,9 @@ class Request: RequestType {
 }
 ```
 
-クラスからもプロパティを消して`request.method`が呼び出すことができるのかどうかは気になるところなのですが、RequestクラスはRequestTypeを継承しているため問題なく呼び出すことができます。
+クラスからもプロパティを消して`request.method`が呼び出すことができるのかどうかは気になるところなのですが、Request クラスは RequestType を継承しているため問題なく呼び出すことができます。
 
-そして、このときは（当たり前ですが）Extension側のプロパティが呼ばれるということです。
+そして、このときは（当たり前ですが）Extension 側のプロパティが呼ばれるということです。
 
 ```swift
 let request = Request(path: "session_token")
@@ -210,19 +212,19 @@ print((request as RequestType).method) // GET
 
 ここまでをまとめるとこうなります。
 
-つまり、プロトコルには宣言されていないがExtensionで宣言したプロパティは、静的型付けをして呼び出すとExtension側の値が呼び出されるということになります。
+つまり、プロトコルには宣言されていないが Extension で宣言したプロパティは、静的型付けをして呼び出すと Extension 側の値が呼び出されるということになります。
 
-| プロトコル宣言 | Extension | クラス宣言 | メソッド | 値            | 
-| :----------------: | :---------------: | :------------: | :--------------: | :-----------: | 
-| あり               | あり              | 必須           | 静的/動的        | クラス    | 
-| あり               | なし              | 必須           | 静的/動的        | クラス    | 
-| なし               | あり              | あり           | 静的             | Extension | 
-| なし               | あり              | あり           | 動的             | クラス    | 
-| なし               | あり              | なし           | 静的/動的        | Extension |
+| プロトコル宣言 | Extension | クラス宣言 | メソッド  |    値     |
+| :------------: | :-------: | :--------: | :-------: | :-------: |
+|      あり      |   あり    |    必須    | 静的/動的 |  クラス   |
+|      あり      |   なし    |    必須    | 静的/動的 |  クラス   |
+|      なし      |   あり    |    あり    |   静的    | Extension |
+|      なし      |   あり    |    あり    |   動的    |  クラス   |
+|      なし      |   あり    |    なし    | 静的/動的 | Extension |
 
 ## この仕様を利用する
 
-この仕様を利用すれば必須パラメータはプロトコルに直接書き、オプショナルなパラメータはExtensionに書いてそのプロトコルを継承したクラスを書くのがスマートな方法になりそうです。
+この仕様を利用すれば必須パラメータはプロトコルに直接書き、オプショナルなパラメータは Extension に書いてそのプロトコルを継承したクラスを書くのがスマートな方法になりそうです。
 
 ```swift
 protocol RequestType {
@@ -250,7 +252,7 @@ class Request: RequestType {
 }
 ```
 
-このデータに対しては以下のようにアクセスできる。Requestクラスで定義しておらず、必須でないプロパティにアクセスできるのは便利な気がしている。
+このデータに対しては以下のようにアクセスできる。Request クラスで定義しておらず、必須でないプロパティにアクセスできるのは便利な気がしている。
 
 もしもユーザがそれらのプロパティが必要だと思えば、クラスに書いてしまえばいいのである。
 
@@ -272,7 +274,7 @@ remote(request: request)
 
 ## 計算プロパティにしてみる
 
-現在のExtensionはこの様になっているが、エンコーディングの部分はメソッドの値によって動的に切り替えたいわけである。
+現在の Extension はこの様になっているが、エンコーディングの部分はメソッドの値によって動的に切り替えたいわけである。
 
 ```swift
 extension RequestType {
@@ -282,9 +284,9 @@ extension RequestType {
 }
 ```
 
-単純に`self.method`で切り替えるようにすると後で上書きしたときに（今回の場合はgetしかmethodに設定されていないので上書きされることはないが）データを正しくとってくることができなくなってしまう。
+単純に`self.method`で切り替えるようにすると後で上書きしたときに（今回の場合は get しか method に設定されていないので上書きされることはないが）データを正しくとってくることができなくなってしまう。
 
-よって、encodingの値を参照する度に毎回methodの値を調べ、その値によって変わるような仕組みにしたいのである。
+よって、encoding の値を参照する度に毎回 method の値を調べ、その値によって変わるような仕組みにしたいのである。
 
 これは計算プロパティで簡単に実装できる。つまり、以下のように書けば良い。
 
@@ -292,7 +294,7 @@ extension RequestType {
 extension RequestType {
     var baseURL: String { "https://tkgling.netlify.app/api/" }
     var headers: [String: String]? { nil }
-    var encoding: ParameterEncoding { 
+    var encoding: ParameterEncoding {
         get {
             switch self.method {
                 case .post:
@@ -307,11 +309,11 @@ extension RequestType {
 }
 ```
 
-これの良いところは全ての設定をRequestTypeプロトコルで行なうことで、実際にRequestクラスを書くユーザに対しては秘匿になっている点である。
+これの良いところは全ての設定を RequestType プロトコルで行なうことで、実際に Request クラスを書くユーザに対しては秘匿になっている点である。
 
-要するに、コードを書く人間はエンコーディング方式を全く気にせずRequestクラス（ないしはRequestTypeプロトコルを適用したクラス）を書くことができるわけである。
+要するに、コードを書く人間はエンコーディング方式を全く気にせず Request クラス（ないしは RequestType プロトコルを適用したクラス）を書くことができるわけである。
 
-そして、デフォルトではPOSTリクエストであれば自動的にJSONEncoding.defaultが使われてしまうのだが、もしもあるリクエストはPOSTメソッドなのだがJSONEncoding.defaultとは違うエンコーディングが使いたければ、
+そして、デフォルトでは POST リクエストであれば自動的に JSONEncoding.default が使われてしまうのだが、もしもあるリクエストは POST メソッドなのだが JSONEncoding.default とは違うエンコーディングが使いたければ、
 
 ```swift
 class Request: RequestType {
@@ -322,7 +324,7 @@ class Request: RequestType {
 
 勝手に自分でエンコーディングを設定すればよいのである。
 
-ただし、これはRequestクラスのプロパティとして設定されているのでRequestTypeプロトコルで呼び出したメソッドに対してはそのまま`request.encoding`と呼び出すと予期しない値を参照してしまう。
+ただし、これは Request クラスのプロパティとして設定されているので RequestType プロトコルで呼び出したメソッドに対してはそのまま`request.encoding`と呼び出すと予期しない値を参照してしまう。
 
 ```swift
 // RequestTypeプロトコルとして呼び出す
@@ -338,9 +340,9 @@ func remote(request: Request) -> Void {
 }
 ```
 
-ただ、下のRequestクラスとして呼び出すメソッドは書きたくない。これだとたった一つのRequestクラスでしか引数にできない。
+ただ、下の Request クラスとして呼び出すメソッドは書きたくない。これだとたった一つの Request クラスでしか引数にできない。
 
-ライブラリとしては個別のRequestTypeプロトコルの適用クラスではなく、引数は常にRequestTypeプロトコル準拠の全てのクラスというようにしたいのである。
+ライブラリとしては個別の RequestType プロトコルの適用クラスではなく、引数は常に RequestType プロトコル準拠の全てのクラスというようにしたいのである。
 
 ### 読み込み側で対応してみる
 
@@ -351,7 +353,7 @@ protocol RequestType {
     var method: String { get }
     var parameters: [String: Any]? { get }
     var path: String { get }
-    
+
     init(method: String, path: String, parameters: [String: Any]?)
 }
 
@@ -365,7 +367,7 @@ class Request: RequestType {
     var method: String
     var parameters: [String : Any]?
     var path: String
-    
+
     required init(method: String, path: String, parameters: [String: Any]? = nil) {
         self.method = method
         self.parameters = parameters
@@ -387,7 +389,6 @@ func remote<T: RequestType>(request: T) -> Void {
 }
 ```
 
-すると読み込み時ではちゃんとRequest型としているのに、`encoding`のプロパティを参照すると何故かRequestTypeのExtensionの値の方が参照されてしまう。
+すると読み込み時ではちゃんと Request 型としているのに、`encoding`のプロパティを参照すると何故か RequestType の Extension の値の方が参照されてしまう。
 
-しかしどうもクラスのプロパティを参照することはできないみたいなのでこちらの方向は諦めた。上手いことRequestTypeプロトコルの値を変えてしまうほうが楽そうだ。
-
+しかしどうもクラスのプロパティを参照することはできないみたいなのでこちらの方向は諦めた。上手いこと RequestType プロトコルの値を変えてしまうほうが楽そうだ。

@@ -41,7 +41,7 @@ tags:
 
 青ルートは最短ルートですが、最後に塗れない床があるので緑ルートとどちらを選択するか悩むところです。
 
-(https://pbs.twimg.com/media/E3GW3XPUUAQWkL1?format=png)
+![](https://pbs.twimg.com/media/E3GW3XPUUAQWkL1?format=png)
 
 緑ルートは相手からの死角になっているので攻撃を受けにくく、青ルートよりも進む場合があるので臨機応変に動けるようにしたいところ。
 

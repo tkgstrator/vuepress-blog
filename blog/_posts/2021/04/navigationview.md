@@ -435,7 +435,7 @@ NavigationView は iPad であれば三つまで入れることができるの�
 
 つまり Apple 公式サイトで紹介されている[このアプリ](https://developer.apple.com/design/human-interface-guidelines/ios/views/split-views/)のようなレイアウトをつくることができない。常に Master を表示することができるオプションがあればいいのだが、少し調べた感じでは見つからなかった。
 
-### Tabbar+NavigationView
+### Tabbar + NavigationView
 
 Apple ではあまり推奨されていないような書き方がされていたが、一応使える。
 

@@ -7,20 +7,20 @@ tags:
   - Swift
 ---
 
-## iOSにおける生体認証
+## iOS における生体認証
 
-iOSではFaceIDとTouchIDの二つの生体認証がパスコード認証とは別に利用できる。
+iOS では FaceID と TouchID の二つの生体認証がパスコード認証とは別に利用できる。
 
 今回はその生体認証をアプリに組み込む方法について学ぶ。まず前提として、パスコードを含めた認証システムを使うには`import LocalAuthentication`を読み込む必要がある。
 
 ### 認証のプロセス
 
-* 生体認証が可能かどうかチェックする
-  * ここでパスコード認証を許可するかどうかを設定できる
-* 可能であれば生体認証を行なう
-  * または生体認証をキャンセルしてパスコード認証を行なう
+- 生体認証が可能かどうかチェックする
+  - ここでパスコード認証を許可するかどうかを設定できる
+- 可能であれば生体認証を行なう
+  - または生体認証をキャンセルしてパスコード認証を行なう
 
-パスコード認証を許可するかどうかのフラグが何故あるかというと、iPhone5以前のデバイスではTouchIDやFaceIDが使用不可であり、そもそもそれ以降のデバイスでも生体認証を登録していないユーザがいるためである。
+パスコード認証を許可するかどうかのフラグが何故あるかというと、iPhone5 以前のデバイスでは TouchID や FaceID が使用不可であり、そもそもそれ以降のデバイスでも生体認証を登録していないユーザがいるためである。
 
 というわけで全通りパターン分けをするとこのようになる。
 
@@ -29,7 +29,7 @@ func biometricsAuth() {
     let context = LAContext()
     let reason = "This app uses Touch ID / Face ID to secure your data."
     var authError: NSError?
-    
+
     if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
             if success {
@@ -44,7 +44,7 @@ func biometricsAuth() {
 }
 ```
 
-指紋認証のためのボタンはSF symbolsで定義されている`touchid`というやつが使える。
+指紋認証のためのボタンは SF symbols で定義されている`touchid`というやつが使える。
 
 ## 前回のコードとくっつける
 
@@ -64,7 +64,7 @@ struct PasscodeView: View {
         self.completionHandler = completionHandler
         self.passcode = passcode
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
             LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 60, maximum: 80), spacing: 0), count: 3), alignment: .center, spacing: 10, pinnedViews: []) {
@@ -84,7 +84,7 @@ struct PasscodeView: View {
         .edgesIgnoringSafeArea(.all)
         .background(Color.white)
     }
-    
+
     func addSign(sender: Int) {
         if sender == passcode {
             completionHandler(.success(true))
@@ -92,12 +92,12 @@ struct PasscodeView: View {
             completionHandler(.success(false))
         }
     }
-    
+
     func biometricsAuth() {
         let context = LAContext()
         let reason = "This app uses Touch ID / Face ID to secure your data."
         var authError: NSError?
-        
+
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
                 if success {

@@ -47,11 +47,11 @@ extension String {
 
 ポイントとしては予め使われる可能性のある文字を文字列にしておき、そこから一文字区切りの配列をつくるという点である。そしてその配列からランダムに 128 回値を選び、それらを結合するというわけである。単に map を使うと String 型ではなく Character 型の配列になってしまうので型変換をする。
 
-文字列から配列をつくるにあたって、[【swift】文字列を一文字ずつに分割する時の Array("hoge")の型について](https://qiita.com/rondine-jumpei/items/a298bf4e0612166e5dd5)のコードが大変参考になりました。
+文字列から配列をつくるにあたって、[こちらのコード](https://qiita.com/rondine-jumpei/items/a298bf4e0612166e5dd5)が大変参考になりました。
 
 128 回ループして結合するというコードはとりあえず For 文で書いたのだがとてもダサいのでなんとかしたい所存である。
 
-気になる点としては暗号論的に安全な乱数になっているかというところであるが、まあ気にしなくても多分大丈夫だろう、多分。もしも randomElement()に何らかの偏りがある場合、Verifier を推察される可能性があり、危険である。
+気になる点としては暗号論的に安全な乱数になっているかというところであるが、まあ気にしなくても多分大丈夫だろう、多分。もしも`randomElement()`に何らかの偏りがある場合、Verifier を推察される可能性があり、危険である。
 
 ## SHA256: Challenge
 
@@ -79,7 +79,7 @@ extension String {
 
 ちなみに、上のようなコードを書くと文字列を経由してしまい失敗する。こちらは単に SHA256 のハッシュが欲しい場合に使うと良い。
 
-SHA256 ハッシュ作成に関しては[PKCE の code_challenge 生成](https://rono23.com/posts/pkec-code-challenge/)のページが大変参考になりました。
+SHA256 ハッシュ作成に関しては[こちらのページ](https://rono23.com/posts/pkec-code-challenge/)が大変参考になりました。
 
 ## Base64Encode: Challenge
 
@@ -98,6 +98,6 @@ extension SHA256.Digest {
 }
 ```
 
-なので非常に冗長になるが、base64EncodedString()を拡張して PKCE 用の Base64 文字列を返すようにした。
+なので非常に冗長になるが、`base64EncodedString()`を拡張して PKCE 用の Base64 文字列を返すようにした。
 
 この状態で`E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`を Verifier として設定し、Challenge を計算すると正しく`E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM`を得ることができた。

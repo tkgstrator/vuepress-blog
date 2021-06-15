@@ -7,15 +7,15 @@ tags:
   - Swift
 ---
 
-## Completionの必要性
+## Completion の必要性
 
-正直な話を言うと、SwiftUIでCompletionが使えなくてもさほど困らない。困らないのだが、あった方が嬉しいのである。
+正直な話を言うと、SwiftUI で Completion が使えなくてもさほど困らない。困らないのだが、あった方が嬉しいのである。
 
 例えば、イカのような仕様を満たすビューを書きたいとする。
 
-* NavigationLinkを踏むとパスコード入力画面を表示
-* パスコードが合っていれば別のビューに遷移
-* 間違っていればそのままの画面を表示
+- NavigationLink を踏むとパスコード入力画面を表示
+- パスコードが合っていれば別のビューに遷移
+- 間違っていればそのままの画面を表示
 
 要するにパスコードチェックを目的のビューとの間にはさもうというわけだ。
 
@@ -31,9 +31,9 @@ ZStack {
 }
 ```
 
-パスコード認証が通ったかどうかの情報をStateで保持しておき、その値をPasscodeLock内で変化させる。通れば`isAuthorized`が`true`になり、`true`になればNavigationLinkが動作して別のビューに遷移する。
+パスコード認証が通ったかどうかの情報を State で保持しておき、その値を PasscodeLock 内で変化させる。通れば`isAuthorized`が`true`になり、`true`になれば NavigationLink が動作して別のビューに遷移する。
 
-ただ、これをやると`isAuthorized`という変数をビューに渡さなければいけないのがめんどうだし、何よりZStackを使って実装するのが如何にもゴミコードという感じがする。
+ただ、これをやると`isAuthorized`という変数をビューに渡さなければいけないのがめんどうだし、何より ZStack を使って実装するのが如何にもゴミコードという感じがする。
 
 `PasscodeLock`はパスコードが通ったかどうかだけをチェックしてほしいのである。
 
@@ -42,7 +42,7 @@ ZStack {
 
 Button(action: { isPresented.toggle() }, label: { Text("AUTHORIZE") })
 DestinationView()
-    .passcodeLock(isPresented: $isPresented) { 
+    .passcodeLock(isPresented: $isPresented) {
         PasscodeLockView() { completion in
             switch completion {
                 case .finished:
@@ -54,8 +54,7 @@ DestinationView()
     }
 ```
 
-
-例えばこのような記述ができるとありがたい。パスコードが通ったどうかをcompletionで返し、その値によって親ビュー側で分岐処理を書きたい。
+例えばこのような記述ができるとありがたい。パスコードが通ったどうかを completion で返し、その値によって親ビュー側で分岐処理を書きたい。
 
 ```swift
 @State var isPresented: Bool = false
@@ -65,17 +64,17 @@ ZStack {
     PasscodeLockView() { completion in
         switch completion {
             case .finished:
-                isPresented.toggle() 
+                isPresented.toggle()
             case .failure(let error):
-                print(error) 
-        }    
+                print(error)
+        }
     }
 }
 ```
 
-こういう書き方もできる。が、これは結局ZStackを使っているのでゴミコード具合はあまり変わっていない気もする。
+こういう書き方もできる。が、これは結局 ZStack を使っているのでゴミコード具合はあまり変わっていない気もする。
 
-まあ実際にどうやって使うかはさておき、Completionを返すようなビューは書けるのかどうかが気になるわけである。似たような仕組みを持つものに[BetterSafariView](https://github.com/stleamist/BetterSafariView)があり、これの書き方はかなり参考になる。
+まあ実際にどうやって使うかはさておき、Completion を返すようなビューは書けるのかどうかが気になるわけである。似たような仕組みを持つものに[BetterSafariView](https://github.com/stleamist/BetterSafariView)があり、これの書き方はかなり参考になる。
 
 ```swift
 .webAuthenticationSession(isPresented: $startingWebAuthenticationSession) {
@@ -89,7 +88,7 @@ ZStack {
 }
 ```
 
-これは要するに`isPresented`の値がtrueであれば`WebAuthenticationSession()`が呼び出され、それが閉じるときにcallBakcURLとerrorが返ってくるという仕組みになっている。
+これは要するに`isPresented`の値が true であれば`WebAuthenticationSession()`が呼び出され、それが閉じるときに callBakcURL と error が返ってくるという仕組みになっている。
 
 これはまさに求めていた仕様そのものである。
 
@@ -107,7 +106,7 @@ public init(
 }
 ```
 
-重要となるのはここで、イニシャライザでcompletionHandlerを指定しているのがわかる。で、ここまではわかるのだ。
+重要となるのはここで、イニシャライザで completionHandler を指定しているのがわかる。で、ここまではわかるのだ。
 
 `self.completionHandler`に`completionHandler`をくっつけているのだが、`self.completionHandler`というのがよくわからないのである。
 
@@ -125,14 +124,13 @@ let callbackURLScheme: String?
 let completionHandler: CompletionHandler　// <- CompletionHandler
 ```
 
-`typealias`というのはC++でいうところの`define`のようなものだと勝手に思っている。つまり、上のコードは以下のコードと等価ということになる。
+`typealias`というのは C++でいうところの`define`のようなものだと勝手に思っている。つまり、上のコードは以下のコードと等価ということになる。
 
 ```swift
 let completionHandler = ASWebAuthenticationSession.CompletionHandler
 ```
 
-だが困ったことに作ろうとしている`PasscodeLockView`にはこのようなcompletionHandlerが存在しない。どうしたらいいのだろうか。
-
+だが困ったことに作ろうとしている`PasscodeLockView`にはこのような completionHandler が存在しない。どうしたらいいのだろうか。
 
 ## 発展させる
 
@@ -142,37 +140,37 @@ let completionHandler = ASWebAuthenticationSession.CompletionHandler
 
 これらはそれぞれ
 
-* Enter
-  *  パスコードを入力して一致するかチェックする
-* Set
-  * 新たにパスコードを入力する
-  * 古いパスコードは要求されない
-* Change
-  * 設定されたパスコードを変更する
-  * 古いパスコードが要求される
-* Remove
-  * パスコードを入力する
-  * キャンセルで処理を中断させられる
+- Enter
+  - パスコードを入力して一致するかチェックする
+- Set
+  - 新たにパスコードを入力する
+  - 古いパスコードは要求されない
+- Change
+  - 設定されたパスコードを変更する
+  - 古いパスコードが要求される
+- Remove
+  - パスコードを入力する
+  - キャンセルで処理を中断させられる
 
-といった違いがある。Removeに関してはEnterとほとんど同じなのでここでは無視できるとして、これをSwiftUIに拡張しつつ使いやすさも兼ねたライブラリにするためには、
+といった違いがある。Remove に関しては Enter とほとんど同じなのでここでは無視できるとして、これを SwiftUI に拡張しつつ使いやすさも兼ねたライブラリにするためには、
 
-* Enter
-  * 引数
-    * 現在のパスコード
-    * 生体認証を使うかどうかのフラグ
-  * 返り値
-    * パスコードと一致したかどうか
-* Set
-  * 引数なし
-  * 返り値
-    * 設定された新たなパスコード
-* Change
-  * 引数
-    * 現在のパスコード
-  * 返り値
-    * 再設定されたパスコード
-    * パスコードと一致したかどうか
-    * のどちらか（これはResultを使えば対応可能）
+- Enter
+  - 引数
+    - 現在のパスコード
+    - 生体認証を使うかどうかのフラグ
+  - 返り値
+    - パスコードと一致したかどうか
+- Set
+  - 引数なし
+  - 返り値
+    - 設定された新たなパスコード
+- Change
+  - 引数
+    - 現在のパスコード
+  - 返り値
+    - 再設定されたパスコード
+    - パスコードと一致したかどうか
+    - のどちらか（これは Result を使えば対応可能）
 
 というような仕様を満たせば良いことになる。つまり、例えば以下のような実装が考えられる。
 
@@ -230,14 +228,14 @@ struct ContentView: View {
     // 完了ハンドラを決定する
     typealias CompletionHandler = (Result<Bool, Error>) -> Void
     let completionHandler: CompletionHandler
-    
+
     // パスコードは5にしておく
     private var passcode: Int = 5
 
     init(completionHandler: @escaping CompletionHandler) {
         self.completionHandler = completionHandler
     }
-    
+
     var body: some View {
         GeometryReader { geometry in
             LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 60, maximum: 80), spacing: 0), count: 3), alignment: .center, spacing: 10, pinnedViews: []) {
@@ -256,7 +254,7 @@ struct ContentView: View {
         .edgesIgnoringSafeArea(.all)
         .background(Color.white)
     }
-    
+
     func addSign(sender: Int) {
         // ボタンを押したときの処理
         if sender == passcode {
@@ -287,16 +285,16 @@ struct CircleButtonStyle: ButtonStyle {
 
 で、めちゃくちゃ話がとぶのだがこのコードを書けるようになるまでに随分苦労した。このような処理が必要になる場面は多々あると思うのだが、"SwiftUI completion", "SwiftUI closure"などと探しても全く参考文献が見つからないのだ。
 
-まじでこれどうやって書くんだと悩んでいたとき、ふとBetterSafariViewのコードを見ていてひらめいたのである。
+まじでこれどうやって書くんだと悩んでいたとき、ふと BetterSafariView のコードを見ていてひらめいたのである。
 
 ```swift
 public typealias CompletionHandler = ASWebAuthenticationSession.CompletionHandler // <- CompletionHandler
 /// A completion handler for the web authentication session.
 ```
 
-この部分でCompletionHandlerを設定しているのだが、`ASWebAuthenticationSession.CompletionHandler`はあくまでもASWebAuthenticationSessionの完了ハンドラなので使えない。が、完了ハンドラ自体を自分で定義すればよいのではないかと。
+この部分で CompletionHandler を設定しているのだが、`ASWebAuthenticationSession.CompletionHandler`はあくまでも ASWebAuthenticationSession の完了ハンドラなので使えない。が、完了ハンドラ自体を自分で定義すればよいのではないかと。
 
-この完了ハンドラ自体は[Appleのドキュメント](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/completionhandler)に載っていたのですぐに特定できた。
+この完了ハンドラ自体は[Apple のドキュメント](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/completionhandler)に載っていたのですぐに特定できた。
 
 すると、これは単に以下のコードであることがわかった。要するに、完了ハンドラはこう書けばいいのである。
 

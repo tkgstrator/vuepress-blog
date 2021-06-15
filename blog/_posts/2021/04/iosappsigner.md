@@ -74,7 +74,7 @@ iOS App Signer は[ここ](https://dantheman827.github.io/ios-app-signer/)で配
 
 ダウンロードしたら起動し、Provisionig Profile に先ほど作成してダウンロードしたものを指定します。
 
-その後 Input File から署名したい IPA ファイルを選択します。今回は Twitter アプリに対して署名したかったので[GitHub](https://github.com/ipahost/Owl-for-Twitter)の公式ページから IPA をダウンロードしてきました。
+その後 Input File から署名したい IPA ファイルを選択します。今回は Twitter アプリに対して署名したかったので[GitHub の公式ページ](https://github.com/ipahost/Owl-for-Twitter)から IPA をダウンロードしてきました。
 
 あとは署名をしてしまえば終了です。だいたい一分くらいで終わります。
 

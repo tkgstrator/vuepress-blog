@@ -7,7 +7,9 @@ category: 話題
 
 ## 誰にとっても 10 進法である
 
-Daniel Stenberg 氏により投稿されたツイートが[こちら](https://twitter.com/bagder/status/1389605985422036994?s=20)
+[@bagder](https://twitter.com/bagder)氏により投稿されたツイート。
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">Never forget: every base is base 10. <a href="https://t.co/vY7l5vLHAB">https://t.co/vY7l5vLHAB</a> <a href="https://t.co/Utu1EH1CWc">pic.twitter.com/Utu1EH1CWc</a></p>&mdash; Daniel 🥌 Stenberg (@bagder) <a href="https://twitter.com/bagder/status/1389605985422036994?ref_src=twsrc%5Etfw">May 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ::: tip 基数について
 

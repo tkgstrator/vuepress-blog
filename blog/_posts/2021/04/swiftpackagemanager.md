@@ -23,9 +23,10 @@ Apple 謹製のライブラリ管理ツールなのだが、CocoaPods や Cartha
 
 ::: tip 参考文献
 
-[iOS 用ライブラリ作成者向け Swift Package Manager のリソース周り Tips](https://qiita.com/kazuhiro4949/items/0378e163fa00a79eb00a)
+[	iOS用ライブラリ作成者向けSwift Package Managerのリソース周りTips](https://qiita.com/kazuhiro4949/items/0378e163fa00a79eb00a)
 
-[自作ライブラリの Swift Package Manager(SwiftPM)対応](https://qiita.com/am10/items/72dbc511efc512fc065a)
+[自作ライブラリのSwift Package Manager(SwiftPM)対応](https://qiita.com/am10/items/72dbc511efc512fc065a)
+
 :::
 
 今回は XIB や NIB については扱わず、JSON ファイルをローカルでライブラリに追加したい場合を考える。
@@ -182,21 +183,21 @@ Salmon Stats の API はリザルトを一件ずつ取得した場合には全�
 
 ## 完成したもの
 
-いろいろあったが、無事に[Salmon Statsライブラリ](https://github.com/tkgstrator/SalmonStats)を完成させることができた。
+いろいろあったが、無事に[Salmon Stats ライブラリ](https://github.com/tkgstrator/SalmonStats)を完成させることができた。
 
-詳しくはREADMEに書いてあるのだが、以下のAPIを叩いてそのレスポンスを整形した上で返してくれる。
+詳しくは README に書いてあるのだが、以下の API を叩いてそのレスポンスを整形した上で返してくれる。
 
-| 内容                     | エンドポイント                          | パラメータ       | 
-| :----------------------: | :-------------------------------------: | :--------------: | 
-| リザルト一件取得         | results                                 | -                | 
-| リザルト複数件取得       | player/{nsaid}/results                  | raw, count, page | 
-| シフト記録取得           | schedules/{schedule_id}                 | -                | 
-| シフト統計取得           | players/{nsaid}/schedules/{schedule_id} | -                | 
-| ユーザデータ取得         | players/metadata                        | ids              | 
-| ユーザデータ概要複数取得 | players/metadata                        | ids              | 
-| ユーザ検索               | players/search                          | name             | 
+|           内容           |             エンドポイント              |    パラメータ    |
+| :----------------------: | :-------------------------------------: | :--------------: |
+|     リザルト一件取得     |                 results                 |        -         |
+|    リザルト複数件取得    |         player/{nsaid}/results          | raw, count, page |
+|      シフト記録取得      |         schedules/{schedule_id}         |        -         |
+|      シフト統計取得      | players/{nsaid}/schedules/{schedule_id} |        -         |
+|     ユーザデータ取得     |            players/metadata             |       ids        |
+| ユーザデータ概要複数取得 |            players/metadata             |       ids        |
+|        ユーザ検索        |             players/search              |       name       |
 
-ユーザデータ複数取得にいつの間にかAPIが対応していたのだが、この記事を書くまで気づかなかったのでライブラリ側でまだ対応できていない。
+ユーザデータ複数取得にいつの間にか API が対応していたのだが、この記事を書くまで気づかなかったのでライブラリ側でまだ対応できていない。
 
 ただ、ユーザデータも複数件取得した場合にはいくつかのデータが抜け落ちた状態でレスポンスが返ってくる。
 

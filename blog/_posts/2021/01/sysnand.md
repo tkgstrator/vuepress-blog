@@ -3,8 +3,10 @@ title: "[Hack] 一台のプロコンをEmuNANDとSysNANDで使い分ける方法
 date: 2021-01-14
 category: Hack
 ---
+
 tags:
-  - CFW
+
+- CFW
 
 ## ペアリングについて
 

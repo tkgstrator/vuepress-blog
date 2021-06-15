@@ -59,7 +59,7 @@ tags:
 
 - 判定を利用したテクニック
 
-(https://pbs.twimg.com/media/E3GWQ40UUAACUGy?format=png)
+![](https://pbs.twimg.com/media/E3GWQ40UUAACUGy?format=png)
 
 おそらくタチウオパーキングで最も有名なテクニック。
 
@@ -67,7 +67,7 @@ tags:
 
 超射程スピナーに狙われていたり、上に敵が待ち伏せされていることがわかっている場合には一度足をつけてカウントを確定させてしまったほうが良いです。
 
-(https://pbs.twimg.com/media/E3GWSjRVIAgLSP-?format=png)
+![](https://pbs.twimg.com/media/E3GWSjRVIAgLSP-?format=png)
 
 意外と知られていなさそうなのがここの壁の判定でしょう。
 
@@ -75,7 +75,7 @@ tags:
 
 - 壁裏を利用したテクニック
 
-(https://pbs.twimg.com/media/E3GWUGlVEAEDPTI?format=png)
+![](https://pbs.twimg.com/media/E3GWUGlVEAEDPTI?format=png)
 
 側面はガチホコショットで塗るよりないが、ここを使えば安全にカウント 42 まで進めることができます。
 
@@ -83,7 +83,7 @@ tags:
 
 ## ガチヤグラ
 
-(https://pbs.twimg.com/media/E3GWZXDVkAUVKlu?format=png)
+![](https://pbs.twimg.com/media/E3GWZXDVkAUVKlu?format=png)
 
 |         項目         |   値    |
 | :------------------: | :-----: |

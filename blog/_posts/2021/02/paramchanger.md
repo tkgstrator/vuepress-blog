@@ -6,7 +6,7 @@ category: Hack
 
 ## ParamHash
 
-[ParamHash](https://github.com/tkgstrator/ParamHash/releases/tag/v0.0.1)
+[ParamHash](https://github.com/tkgstrator/ParamHash/releases)
 
 解説すると長くなるのだが、スプラトゥーン 2 では XML のパラメータファイルが BPRM, BYML, BYAML といったファイルに暗号化されている。
 
@@ -16,7 +16,7 @@ category: Hack
 
 ### パラメータ名の抽出とハッシュ化
 
-やり方は全くわからなかったので、Shadow 氏に協力を依頼した。
+やり方は全くわからなかったので、[@shadowninja108](https://twitter.com/shadowninja108)氏に協力を依頼した。
 
 すると一時間も経たずに 5.4.0 向けのパラメータファイルを抽出してくれた、やはり天才である。
 
@@ -36,9 +36,9 @@ w.write(f"{hash},{param[0[}\\n")
 
 それ自体は上のようなコードで実装できる。とても簡単である。
 
-これで全てのハッシュを出力できたかと思ったのだが、Shadow 氏の手法では一部のパラメータを抽出し損ねているようでサーモンランに関するパラメータが全く見つからなかった。
+これで全てのハッシュを出力できたかと思ったのだが、[@shadowninja108](https://twitter.com/shadowninja108)氏の手法では一部のパラメータを抽出し損ねているようでサーモンランに関するパラメータが全く見つからなかった。
 
-そこで Leanny 氏が公開しており旧バージョンの ParamHash でも使っていた CSV ファイルを組み合わせることにした。
+そこで[@leanyoshi](https://twitter.com/leanyoshi)氏が公開しており旧バージョンの ParamHash でも使っていた CSV ファイルを組み合わせることにした。
 
 重複するものを削除して全部で 11159 通りの[パラメータとハッシュのリスト](https://github.com/tkgstrator/ParamHash/blob/python/param.csv)が完成した。
 

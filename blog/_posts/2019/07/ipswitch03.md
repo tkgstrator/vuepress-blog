@@ -52,9 +52,9 @@ if(x0 == 1){
 
 つまり、 BL 命令は分岐先で何か処理をしたあとで X0/W0 レジスタに値をセットする命令だということです。
 
-## _ZN4Game4Coop3Utl7GetRuleEv
+## \_ZN4Game4Coop3Utl7GetRuleEv
 
-さて、BL命令について理解したら`_ZN4Game4Coop3Utl7GetRuleEv`というサブルーチンに注目してみましょう。
+さて、BL 命令について理解したら`_ZN4Game4Coop3Utl7GetRuleEv`というサブルーチンに注目してみましょう。
 
 アドレスは以下にメモしておきますので、 IDA Pro なり GHIDRA なりで確認してみてください。
 
@@ -77,12 +77,14 @@ __int64 __fastcall Game::Coop::Utl::GetRule(Game::Coop::Utl *__hidden this)
 0075E6F8                 RET
 ```
 
-最終的に RET 命令で値をリターンしていることはわかり、さらにサブルーチンの定義から __int64 型（64 ビット整数）を返していることがわかります。
+最終的に RET 命令で値をリターンしていることはわかり、さらにサブルーチンの定義から \_\_int64 型（64 ビット整数）を返していることがわかります。
 
 ではこのサブルーチンがどのように使われているかを調べます。
 
 ::: tip
+
 IDA Pro があるならサブルーチン名を右クリックして Jump to xref to operand を選択すると`GetRule()`が使われている関数をすべて調べることができます。
+
 :::
 
 すると例えば以下のようなコードが見つかります。
@@ -130,14 +132,14 @@ v13 = *(_QWORD *)(v7 + 8);
 
 |                サブルーチン                | アドレス |
 | :----------------------------------------: | :------: |
-| Game::Coop::GuideDirector::showMessage_() | 006FF36C |
+| Game::Coop::GuideDirector::showMessage\_() | 006FF36C |
 |     Game::Coop::Moderator::Moderator()     | 0072ED40 |
 |    Game::SeqCoopResult::SeqCoopResult()    | 0074E80C |
 |        Game::Coop::Setting::reset()        | 0075BF54 |
 
 さて、それぞれ弄るとどんな結果になるのか見てましょう。
 
-**showMessage_()**
+**showMessage\_()**
 
 ここを弄ると...！！
 
@@ -158,7 +160,9 @@ v13 = *(_QWORD *)(v7 + 8);
 どのブキを選んでも必ずボールドに変えられてしまいます、なんじゃそりゃ...
 
 :::tip
+
 恐らくオンラインの情報から現在支給されるブキ情報をとってくるんだけど、オンラインに一回も繋いでいないのでブキデータがなく、初期値 0 のボールドマーカーが使われているんだと思います。
+
 :::
 
 ```
@@ -195,7 +199,7 @@ v13 = *(_QWORD *)(v7 + 8);
 
 ここはオンラインもオフラインも似たようなことをしているみたいです。
 
-## _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc
+## \_ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc
 
 次もいろいろなことに使えそうなサブルーチンを紹介します。
 

@@ -35,9 +35,9 @@ tags:
 
 ピンクのルートは中央からガチホコを運ぶためのルートというよりは、相手に進められたホコを中央を経由せずに相手ゴールまで近づけるためのルートだ。
 
-(https://pbs.twimg.com/media/E3GWMQYUUAIFYBj?format=png)
+![](https://pbs.twimg.com/media/E3GWMQYUUAIFYBj?format=png)
 
-(https://pbs.twimg.com/media/E3GWN3XUcAMRNu-?format=png)
+![](https://pbs.twimg.com/media/E3GWN3XUcAMRNu-?format=png)
 
 見てわかるように、ジャンプするだけでカウントを 60 近くも進めることができる。ここは塗れない床なので前線が押し込めていないとここから先に進めるのは困難だが、カウント 40 でリードを奪えるような状況であれば一発逆転を狙ってみるのもアリだろう。
 
