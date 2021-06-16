@@ -181,5 +181,14 @@ module.exports = {
         ga: "UA-111335437-2",
       },
     ],
+    [
+      "vuepress-plugin-mathjax",
+      {
+        target: "svg",
+        macros: {
+          "*": "\\times",
+        },
+      },
+    ],
   ],
 };
