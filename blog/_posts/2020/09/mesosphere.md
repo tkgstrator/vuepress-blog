@@ -1,7 +1,7 @@
 ---
 title: MesosphereによるスイッチHackのブレイクスルーとは
 date: 2020-09-06
-description: Mesosphereとはなんざという方向けの解説です
+description: Mesosphereとはなんぞや、という方向けの解説です
 category: Hack
 tags:
   - CFW
@@ -11,11 +11,11 @@ tags:
 
 <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">It&#39;s a good day :) <a href="https://t.co/7Cg0r5drLa">pic.twitter.com/7Cg0r5drLa</a></p>&mdash; Michael (@SciresM) <a href="https://twitter.com/SciresM/status/1285495615112134657?ref_src=twsrc%5Etfw">July 21, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-以前[@SciresM])https://twitter.com/SciresM)氏がツイートしていたのをご存知の方がひょっとしたらいらっしゃるかもしれません。
+以前[@SciresM](https://twitter.com/SciresM)氏がツイートしていたのをご存知の方がひょっとしたらいらっしゃるかもしれません。
 
 当ブログでは完成するまで特に取り上げていなかったのですが、どうやらこれがおおよそ完成したようなので記事にしようと思います。
 
-[@SciresM])https://twitter.com/SciresM)氏といえばスイッチの CFW の親分である Atmosphere の開発者なのですが、気になるのは Atmosphere と Mesosphere は何が違うのかということですね。
+[@SciresM](https://twitter.com/SciresM)氏といえばスイッチの CFW の親分である Atmosphere の開発者なのですが、気になるのは Atmosphere と Mesosphere は何が違うのかということですね。
 
 ### Mesosphere の仕組み
 
