@@ -37,7 +37,7 @@ Atmosphere は権限のレベルによって五つのコンポーネントにわ
 
 <blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">As of today, Mesosphere has all the functionality present in the real 10.x kernel binary. Still got debug functionality to add (/bugfixes), but it&#39;s amazing to be at the end of this part of the project.<br><br>I played animal crossing online for two hours last night with no issues :)</p>&mdash; Michael (@SciresM) <a href="https://twitter.com/SciresM/status/1289304650097688576?ref_src=twsrc%5Etfw">July 31, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-@SciresM 氏が Mesosphere の動作テストとしてあつまれどうぶつの森を CFW 状態でオンラインプレイしたそうです。
+[@SciresM](https://twitter.com/SciresM)が Mesosphere の動作テストとしてあつまれどうぶつの森を CFW 状態でオンラインプレイしたそうです。
 
 当ブログでは CFW 状態でのオンラインプレイは絶対にやめていただきたいので推奨はしないのですが、二時間プレイしても全く BAN されなかったとのこと。
 
