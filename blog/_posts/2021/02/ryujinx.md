@@ -1,5 +1,5 @@
 ---
-title: Nintendo Switch エミュレータ Ryujinx を使ってみた
+title: Nintendo SwitchエミュレータRyujinxを使ってみた
 date: 2021-02-02
 category: Hack
 ---
