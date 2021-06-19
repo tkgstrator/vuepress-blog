@@ -20,14 +20,14 @@ tags:
 
 ## コードの意味を理解しよう
 
-今回は、昔実装した、[スペシャルをリアルタイムに変更するコード](https://tkgstrator.work/posts/2020/11/02/ipswitch08.html)を改良していきます。
+今回は、昔実装した 5.4.0 の[スペシャルをリアルタイムに変更するコード](https://tkgstrator.work/posts/2020/11/02/ipswitch08.html)を改良していきます。
 
 以前書いたコードは次のようなアセンブラでした。
 
 ```
 0104C94C STP X29, X30, [SP, #-0x10]!
 0104C950 MOV X29, SP
-0104C954 ADRP X0, #0x01CB1000
+0104C954 ADRP X0, #0x1CB1000
 0104C958 LDR X0, [X0, #0xCF8]
 0104C95C LDR X0, [X0]
 0104C960 BL #0x9A3CC
@@ -37,28 +37,13 @@ tags:
 0104C970 ADD X2, X1, #1
 0104C974 CSEL X1, X2, XZR, LO
 0104C978 STR X1, [X0, #0x450]
-0104C97C NOP
+0104C97C OP
 0104C980 NOP
 0104C984 NOP
 0104C988 NOP
 0104C98C NOP
 0104C990 LDP X29, X30, [SP], #0x10
 0104C994 RET
-```
-
-これだけでは意味がわからないと思うので、これを擬似コードに書き直します。
-
-```cpp
-uint64_t x1 = x0[0x450];  // LDR X1, [X0, #0x450]
-uint64_t nzcv = x1 - 13;  // CMP X1, #13
-x1 = x0[0x450];           // LDR X1, [X0, #0x450]
-uint64_t x2 = x1 + 1;     // ADD X2, X1, #1
-if (nzcv is LO) {         // CSEL X1, X2, XZR, LO
-  x1 = x2;
-} else {
-  x1 = 0;
-}
-x0[0x450] = x1;           // STR X1, [X0, #0x450]
 ```
 
 ::: tip 二回 LDR 命令を読み込んでいる理由
@@ -149,7 +134,7 @@ NZCV は条件フラグと呼ばれる特殊なレジスタで、計算の結果
 
 ::: tip なんで V なのか
 
-Buffer overflow なら B とか O を使いそうなものなのに、何故 V なのかちょっとよくわからない（理由があるのだろうけれど）。
+Buffer overflow なら B とか O を使いそうなものなのに、何故 V なのかちょっとよくわからない（理由があるのだろうけれど）
 
 :::
 
@@ -434,7 +419,7 @@ ARM to HEX Converter で BL 命令を変換するとナゾのオフセットが�
 :::
 
 ```
-// RealTime Special Changer by Signal Hook [tkgling]
+// Change Special by Signal (5.4.0) [tkgling]
 @disabled
 0104C94C FD7BBFA9 // STP X29, X30, [SP, #-0x10]!
 0104C950 FD030091 // MOV X29, SP
@@ -456,6 +441,10 @@ ARM to HEX Converter で BL 命令を変換するとナゾのオフセットが�
 0104C990 FD7BC1A8 // LDP X29, X30, [SP], #0x10
 0104C994 C0035FD6 // RET
 ```
+
+<video controls src="https://video.twimg.com/ext_tw_video/1397378347756253184/pu/vid/1280x720/XjsHhgwjEO_S4-uh.mp4"</video>
+
+ナイス玉やハンコへの切り替え、センパイキャノンも撃ててますね。
 
 ## IF 文の書き方まとめ
 

@@ -27,9 +27,9 @@ category: Splatoon2
 
 ![](https://pbs.twimg.com/media/E4EtSlLUcAQOH2b?format=png)
 
-- ダテコンタクト （スペシャル増加量アップ）
-- ベイビークラゲシャツ （爆風軽減・改）
-- レイニーシャボン （受け身術）
+- ダテコンタクト（スペシャル増加量アップ）
+- ベイビークラゲシャツ（爆風軽減・改）
+- レイニーシャボン（受け身術）
 
 レイニーシャボンにはやっぱりカサでしょ！
 
@@ -43,9 +43,9 @@ category: Splatoon2
 
 ![](https://pbs.twimg.com/media/E4EtbL-VcAE-bY4?format=png)
 
-- ビバレッジキャップ （サブインク効率アップ）
-- クラーゲス 528 （ヒト速度アップ）
-- スリッポンブルー （サブ性能アップ）
+- ビバレッジキャップ（サブインク効率アップ）
+- クラーゲス 528（ヒト速度アップ）
+- スリッポンブルー（サブ性能アップ）
 
 ![](https://pbs.twimg.com/media/E4EtcPLUYAAS61m?format=png)
 
@@ -61,9 +61,9 @@ category: Splatoon2
 
 ![](https://pbs.twimg.com/media/E4Etfw_VcAM7S1d?format=png)
 
-- クロヤキフグバンダナ （爆風軽減・改）
-- プルオーバーコート （サーマルインク）
-- アローズ タタキベッチュー （受け身術）
+- クロヤキフグバンダナ（爆風軽減・改）
+- プルオーバーコート（サーマルインク）
+- アローズ タタキベッチュー（受け身術）
 
 品定めをするマダムっぽいイカちゃん。
 
@@ -79,9 +79,9 @@ category: Splatoon2
 
 ![](https://pbs.twimg.com/media/E4EtNTlVgAwH6-e?format=png)
 
-- クロヤキフグバンダナ （爆風軽減・改）
-- プルオーバーコート （サーマルインク）
-- アローズ タタキベッチュー （受け身術）
+- クロヤキフグバンダナ（爆風軽減・改）
+- プルオーバーコート（サーマルインク）
+- アローズ タタキベッチュー（受け身術）
 
 ![](https://pbs.twimg.com/media/E4EtOZyVcAEUTFy?format=png)
 
@@ -91,13 +91,13 @@ category: Splatoon2
 
 カモン！
 
-## 雪国コーデ 2
+### 雪国コーデ 2
 
 ![](https://pbs.twimg.com/media/E4EtUujVUAQ_c_6?format=png)
 
-- フグベルベルハット （復活短縮）
-- ホタパーカー ブラック （敵インク影響軽減）
-- ノリマキ 750 ホワイト （イカダッシュ速度アップ）
+- フグベルベルハット（復活短縮）
+- ホタパーカー ブラック（敵インク影響軽減）
+- ノリマキ 750 ホワイト（イカダッシュ速度アップ）
 
 ![](https://pbs.twimg.com/media/E4EtWPxUYAQQDQW?format=png)
 

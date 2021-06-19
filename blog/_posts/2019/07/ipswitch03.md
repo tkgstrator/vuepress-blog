@@ -40,7 +40,7 @@ if(x0 == 1){
 }
 ```
 
-要するに、 BL 命令はレジスタをいろいろいじった後で最終的になにかの値を返す命令なのです。
+要するに、BL 命令はレジスタをいろいろいじった後で最終的になにかの値を返す命令なのです。
 
 さて、ここで疑問「アセンブラってどうやって値を返すの？」って思った人もいると思います、素晴らしい疑問です。
 
@@ -50,31 +50,21 @@ if(x0 == 1){
 
 という事に気付きました。
 
-つまり、 BL 命令は分岐先で何か処理をしたあとで X0/W0 レジスタに値をセットする命令だということです。
+つまり、BL 命令は分岐先で何か処理をしたあとで X0/W0 レジスタに値をセットする命令だということです。
 
 ## \_ZN4Game4Coop3Utl7GetRuleEv
 
 さて、BL 命令について理解したら`_ZN4Game4Coop3Utl7GetRuleEv`というサブルーチンに注目してみましょう。
 
-アドレスは以下にメモしておきますので、 IDA Pro なり GHIDRA なりで確認してみてください。
-
-| バージョン | アドレス |
-| :--------: | :------: |
-|   3.1.0    | 005C3368 |
-|   5.4.0    | 0075E6DC |
-
-さて、この`Game4Coop3Utl7GetRuleEv`（以下、`GetRule()`と省略する）というなんだか長くてややこしいサブルーチンですが全体を見ると面白いことに気付きます。
+この`Game4Coop3Utl7GetRuleEv`（以下、`GetRule()`と省略する）というなんだか長くてややこしいサブルーチンですが全体を見ると面白いことに気付きます。
 
 ```
-__int64 __fastcall Game::Coop::Utl::GetRule(Game::Coop::Utl *__hidden this)
-0075E6DC                 ADRP            X8, #off_2D0ED20@PAGE
-0075E6E0                 LDR             X8, [X8,#off_2D0ED20@PAGEOFF]
-0075E6E4                 LDR             X8, [X8]
-0075E6E8                 CBZ             X8, loc_075E6F4
-0075E6EC                 LDR             S0, [X8,#0x30]
-0075E6F0                 RET
-0075E6F4                 FMOV            S0, WZR
-0075E6F8                 RET
+005C3368                 ADRP            X8, #off_4156130@PAGE
+005C336C                 LDR             X8, [X8,#off_4156130@PAGEOFF]
+005C3370                 LDR             X8, [X8] ; Cmn::StaticMem::sInstance
+005C3374                 CBZ             X8, loc_5C3380
+005C3378                 LDR             W0, [X8,#0x72C]
+005C337C                 RET
 ```
 
 最終的に RET 命令で値をリターンしていることはわかり、さらにサブルーチンの定義から \_\_int64 型（64 ビット整数）を返していることがわかります。
@@ -90,11 +80,11 @@ IDA Pro があるならサブルーチン名を右クリックして Jump to xre
 すると例えば以下のようなコードが見つかります。
 
 ```
-006FF3AC                 BL              sub_075E1CC
-006FF3B0                 LDR             X26, [X24,#8]
-006FF3B4                 CMP             W0, #2
-006FF3B8                 ADD             X0, SP, #0x3E0+var_3D8
-006FF3BC                 MOV             W8, #7
+00568C04                 BL              _ZN4Game4Coop3Utl7GetRuleEv ; Game::Coop::Utl::GetRule(void)
+00568C08                 LDR             X26, [X24,#8]
+00568C0C                 CMP             W0, #2
+00568C10                 ADD             X0, SP, #0x3D0+var_3C0 ; this
+00568C14                 MOV             W8, #7
 ```
 
 これだけだとわかりにくいと思うので、擬似コードに変換すると次のようになります。
@@ -120,7 +110,7 @@ v13 = *(_QWORD *)(v7 + 8);
 |   イカッチャ   |     2     | 40008052 |
 | チュートリアル |     3     | 60008052 |
 
-例えばオンラインで遊んでいるかのようにデータをいじりたいときは、 W0 の値を 1 にするような命令で`GetRule()`を上書きすれば良いことになります。
+例えばオンラインで遊んでいるかのようにデータをいじりたいときは、W0 の値を 1 にするような命令で`GetRule()`を上書きすれば良いことになります。
 
 ### GetRule() が使われるサブルーチン
 
@@ -128,14 +118,12 @@ v13 = *(_QWORD *)(v7 + 8);
 
 引数がすっごい多いやつもあるのでここでは引数は省略します。
 
-以下のコードは全て 5.4.0 向けです。
-
 |                サブルーチン                | アドレス |
 | :----------------------------------------: | :------: |
-| Game::Coop::GuideDirector::showMessage\_() | 006FF36C |
-|     Game::Coop::Moderator::Moderator()     | 0072ED40 |
-|    Game::SeqCoopResult::SeqCoopResult()    | 0074E80C |
-|        Game::Coop::Setting::reset()        | 0075BF54 |
+| Game::Coop::GuideDirector::showMessage\_() | 00568C04 |
+|     Game::Coop::Moderator::Moderator()     | 005960CC |
+|    Game::SeqCoopResult::SeqCoopResult()    | 005B3F6C |
+|        Game::Coop::Setting::reset()        | 005C11CC |
 
 さて、それぞれ弄るとどんな結果になるのか見てましょう。
 
@@ -144,7 +132,11 @@ v13 = *(_QWORD *)(v7 + 8);
 ここを弄ると...！！
 
 ```
-// Raspy Voice [tkgling]
+// Raspy Voice (3.1.0) [tkgling]
+@disabled
+00568C04 20008052 // MOV W0, #1
+
+// Raspy Voice (5.4.0) [tkgling]
 @disabled
 006FF3AC 20008052 // MOV W0, #1
 ```
@@ -166,19 +158,27 @@ v13 = *(_QWORD *)(v7 + 8);
 :::
 
 ```
-// Force Splash-o-matic
+// Force Splash-o-matic (3.1.0)
+@disabled
+005960CC 20008052 // MOV W0, #1
+
+// Force Splash-o-matic (5.4.0)
 @disabled
 0072ED84 20008052 // MOV W0, #1
 ```
 
-変な値（ 2 とか）にすると何ももってないまま棒立ちするイカちゃんが見れます。
+変な値（2 とか）にすると何ももってないまま棒立ちするイカちゃんが見れます。
 
 **SeqCoopResult()**
 
 返り値を 1 にすると`Game::Coop::OnlineResultPlayReport()`が呼び出されるはず。
 
 ```
-// SeqCoopResult
+// SeqCoopResult (3.1.0)
+@disabled
+005B3F6C 20008052 // MOV W0, #1
+
+// SeqCoopResult (5.4.0)
 @disabled
 0074EB5C 20008052 // MOV W0, #1
 ```
@@ -190,7 +190,11 @@ v13 = *(_QWORD *)(v7 + 8);
 値が 1 のときだけ`Cmn::Def::Coop::CalcOnlineEvalPoint()`というオンラインのクマサンポイントを計算するサブルーチンが呼び出されます。
 
 ```
-// CalcOnlineEvalPoint
+// CalcOnlineEvalPoint (3.1.0)
+@disabled
+005C11CC 20008052 // MOV W0, #1
+
+// CalcOnlineEvalPoint (5.4.0)
 @disabled
 0075BF7C 20008052 // MOV W0, #1
 ```
@@ -206,40 +210,40 @@ v13 = *(_QWORD *)(v7 + 8);
 このサブルーチンは`Lp::Utl::ByamlIter::tryGetIntByKey()`という別名をもっており、その内容は次のようになります。
 
 ```
-019E4678                 STR             X21, [SP,#-0x10+var_20]!
-019E467C                 STP             X20, X19, [SP,#0x20+var_10]
-019E4680                 STP             X29, X30, [SP,#0x20+var_s0]
-019E4684                 ADD             X29, SP, #0x20
-019E4688                 MOV             X21, X0
-019E468C                 ADD             X0, SP, #0x20+var_18
-019E4690                 MOV             X20, X2
-019E4694                 MOV             X19, X1
-019E4698                 BL              sub_19E5030
-019E469C                 ADD             X1, SP, #0x20+var_18
-019E46A0                 MOV             X0, X21
-019E46A4                 MOV             X2, X20
-019E46A8                 BL              sub_19E406C
-019E46AC                 TBZ             W0, #0, loc_19E46EC
-019E46B0                 ADD             X0, SP, #0x20+var_18
-019E46B4                 BL              sub_19E505C
-019E46B8                 AND             W8, W0, #0xFF
-019E46BC                 CMP             W8, #0xFF
-019E46C0                 B.EQ            loc_19E46EC
-019E46C4                 ADD             X0, SP, #0x20+var_18
-019E46C8                 BL              sub_19E505C
-019E46CC                 AND             W8, W0, #0xFF
-019E46D0                 CMP             W8, #0xD1
-019E46D4                 B.NE            loc_19E46EC
-019E46D8                 ADD             X0, SP, #0x20+var_18
-019E46DC                 BL              sub_19E5064
-019E46E0                 STR             W0, [X19]
-019E46E4                 MOV             W0, #1
-019E46E8                 B               loc_19E46F0
-019E46EC                 MOV             W0, WZR
-019E46F0                 LDP             X29, X30, [SP,#0x20+var_s0]
-019E46F4                 LDP             X20, X19, [SP,#0x20+var_10]
-019E46F8                 LDR             X21, [SP+0x20+var_20],#0x30
-019E46FC                 RET
+01A56ED0                 STR             X21, [SP,#-0x10+var_20]!
+01A56ED4                 STP             X20, X19, [SP,#0x20+var_10]
+01A56ED8                 STP             X29, X30, [SP,#0x20+var_s0]
+01A56EDC                 ADD             X29, SP, #0x20
+01A56EE0                 MOV             X21, X0
+01A56EE4                 ADD             X0, SP, #0x20+var_18 ; this
+01A56EE8                 MOV             X20, X2
+01A56EEC                 MOV             X19, X1
+01A56EF0                 BL              _ZN2Lp3Utl9ByamlDataC2Ev ; Lp::Utl::ByamlData::ByamlData(void)
+01A56EF4                 ADD             X1, SP, #0x20+var_18 ; Lp::Utl::ByamlData *
+01A56EF8                 MOV             X0, X21 ; this
+01A56EFC                 MOV             X2, X20 ; char *
+01A56F00                 BL              _ZNK2Lp3Utl9ByamlIter17getByamlDataByKeyEPNS0_9ByamlDataEPKc ; Lp::Utl::ByamlIter::getByamlDataByKey(Lp::Utl::ByamlData *,char const*)
+01A56F04                 TBZ             W0, #0, loc_1A56F44
+01A56F08                 ADD             X0, SP, #0x20+var_18 ; this
+01A56F0C                 BL              _ZNK2Lp3Utl9ByamlData7getTypeEv ; Lp::Utl::ByamlData::getType(void)
+01A56F10                 AND             W8, W0, #0xFF
+01A56F14                 CMP             W8, #0xFF
+01A56F18                 B.EQ            loc_1A56F44
+01A56F1C                 ADD             X0, SP, #0x20+var_18 ; this
+01A56F20                 BL              _ZNK2Lp3Utl9ByamlData7getTypeEv ; Lp::Utl::ByamlData::getType(void)
+01A56F24                 AND             W8, W0, #0xFF
+01A56F28                 CMP             W8, #0xD1
+01A56F2C                 B.NE            loc_1A56F44
+01A56F30                 ADD             X0, SP, #0x20+var_18 ; this
+01A56F34                 BL              _ZNK2Lp3Utl9ByamlData8getValueEv ; Lp::Utl::ByamlData::getValue(void)
+01A56F38                 STR             W0, [X19]
+01A56F3C                 MOV             W0, #1
+01A56F40                 B               loc_1A56F48
+01A56F44                 MOV             W0, WZR
+01A56F48                 LDP             X29, X30, [SP,#0x20+var_s0]
+01A56F4C                 LDP             X20, X19, [SP,#0x20+var_10]
+01A56F50                 LDR             X21, [SP+0x20+var_20],#0x30
+01A56F54                 RET
 ```
 
 読むのめんどくせえなあって思った方は正解です。
@@ -253,19 +257,18 @@ v13 = *(_QWORD *)(v7 + 8);
 そして、このサブルーチンは以下のように使われます。
 
 ```
-__int64 __fastcall Cmn::MushUnlockGearInfo::create()
-0009420C                 ADRP            X2, #aAppversion@PAGE ; "AppVersion"
-00094210                 ADD             X0, SP, #0xE0+var_B8
-00094214                 MOV             X1, X24
-00094218                 ADD             X2, X2, #aAppversion@PAGEOFF ; "AppVersion"
-0009421C                 BL              sub_19E4678
+0004A59C                 ADRP            X2, #aAppversion@PAGE ; "AppVersion"
+0004A5A0                 ADD             X0, SP, #0xA0+var_70 ; this
+0004A5A4                 MOV             X1, X24 ; int *
+0004A5A8                 ADD             X2, X2, #aAppversion@PAGEOFF ; "AppVersion"
+0004A5AC                 BL              _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc ; Lp::Utl::ByamlIter::tryGetIntByKey(int *,char const*)
 ```
 
 これは UnlockGearInfo.byml を読み込んで、そこに書かれている`AppVersion`の値を取得する関数です。
 
 もしも「あるギア X の`UnlockVersion`が現在のスプラのバージョンよりも低ければ開放する」という仕組みですね。
 
-じゃあ「さっきと同じように BL 命令を上書きして適当に 0 （True）を返すようにすればいいんじゃないの？」と思うのですが、それではいけません。
+じゃあ「さっきと同じように BL 命令を上書きして適当に 0（True）を返すようにすればいいんじゃないの？」と思うのですが、それではいけません。
 
 擬似コードを読めば何故ダメなのかわかります。
 

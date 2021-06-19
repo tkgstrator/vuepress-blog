@@ -25,7 +25,7 @@ IPSwitch 形式のコードには単純に命令を上書きするものと、�
 前者の一例を挙げるとスペシャルウエポンの塗りポイントを 0 にするようなものが考えられます。
 
 ```
-// Special Cost 0 [tkgling] [3.1.0]
+// Special Cost 0 (3.1.0) [tkgling]
 @disabled
 000847B4 3F0000F9 // STR WZR, [X1]
 ```
@@ -43,16 +43,15 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 ## インスタンス参照コード
 
 ```
-// Got 9999 Power Eggs by Signal [tkgling] [3.1.0]
+// Get 9999 Power Eggs by Signal (3.1.0) [tkgling]
 @disabled
-00E797FC 60970190 // ADRP X0, #0x32EC000
-00E79800 00DC46F9 // LDR X0, [X0, #0xDB8]
-00E79804 000040F9 // LDR X0, [X0]         // X0 = PlayerDirector
-00E79808 01B841F9 // LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
-00E7980C 21084091 // ADD X1, X1, #0x2000  // X1 = X1 + 8192
-00E79810 213C1C91 // ADD X1, X1, #0x70F   // X1 = X1 + 1807
-00E79814 01B801F9 // STR X1, [X0, #0x370] // mTotalBankedPowerIkuraNum = X1
-00E79818 C0035FD6 // RET                  // Return
+0104C94C 60970190 // ADRP X0, #0x32EC000
+0104C950 00DC46F9 // LDR X0, [X0, #0xDB8]
+0104C954 000040F9 // LDR X0, [X0]         // X0 = PlayerDirector
+0104C958 01B841F9 // LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
+0104C95C E1E184D2 // MOV X1, #0x270F      // X1 = 0x270F
+0104C960 01B801F9 // STR X1, [X0, #0x370] // mTotalBankedPowerIkuraNum = X1
+0104C964 C0035FD6 // RET
 ```
 
 これはカモンかナイスを押せば赤イクラ取得数が 9999 になるコードですが、最初の二行のコードが`PlayerDirector`のインスタンスを読み込む内容になっています。
@@ -106,7 +105,6 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 このインスタンスの見つけ方ですが`Game::Coop::Utl::GetPlayer()`という関数がプレイヤーのデータを取得する際に`Game::PlayerMgr`を呼び出しているので、それを利用します。
 
 ```
-// Game::Coop::Utl::GetPlayer(Game::Coop::Utl *__hidden this, int) [3.1.0]
 005C5758                 MOV             W8, W0
 005C575C                 TBNZ            W8, #0x1F, loc_5C5794
 005C5760                 STP             X29, X30, [SP,#-0x10+var_s0]!
@@ -136,9 +134,9 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 このサブルーチンは比較的特徴的な命令を持っているので、
 
 ```
-005C5784 LDRB W8, [X0,#0x430]
-005C5788 CMP W8, #0
-005C578C CSEL X0, XZR, X0, NE
+005C5784                 LDRB            W8, [X0,#0x430]
+005C5788                 CMP             W8, #0
+005C578C                 CSEL            X0, XZR, X0, NE
 ```
 
 この三つの命令群をバイナリ検索すれば簡単に見つけられます。
@@ -148,12 +146,11 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 これをバイナリ検索すれば 5.4.0 の場合 007605EC がヒットすると思います。
 
 ```
-// Game::Coop::Utl::GetPlayer(Game::Coop::Utl *__hidden this, int) [5.4.0]
 007605C0                 MOV             W8, W0
 007605C4                 TBNZ            W8, #0x1F, loc_7605FC
 007605C8                 STP             X29, X30, [SP,#-0x10+var_s0]!
 007605CC                 MOV             X29, SP
-007605D0                 ADRP            X9, #off_CFDCF8@PAGE
+007605D0                 ADRP            X9, #off_2CFDCF8@PAGE
 007605D4                 LDR             X9, [X9,#off_2CFDCF8@PAGEOFF]
 007605D8                 LDR             X0, [X9]
 007605DC                 MOV             W1, W8
@@ -182,7 +179,6 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 このインスタンスは`Game::Coop::PlayerDirector`のでデコンストラクタを使って探すのが楽ではないかと思います。
 
 ```
-// Game::Coop::PlayerDirector::~PlayerDirector(Game::Coop::PlayerDirector *__hidden this) [3.1.0]
 005A6130                 STP             X20, X19, [SP,#-0x10+var_10]!
 005A6134                 STP             X29, X30, [SP,#0x10+var_s0]
 005A6138                 ADD             X29, SP, #0x10
@@ -209,10 +205,10 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 何が書いてあるかさっぱりだと思うのですが、上から 10 行目の 04165DB8 が`Game::Coop::PlayerDirector`のアドレスになります。
 
 ```
-005A6144 MOV X19, X0
-005A6148 SUB X20, X19, #0x348
-005A614C ADD X8, X8, #0x10
-005A6150 STR X8, [X19]
+005A6144                 MOV             X19, X0
+005A6148                 SUB             X20, X19, #0x348
+005A614C                 ADD             X8, X8, #0x10
+005A6150                 STR             X8, [X19]
 ```
 
 幸いなことにこのサブルーチンにも特徴的な命令があり、これをバイナリに変換すると`F3 03 00 AA 74 22 0D D1 08 41 00 91 68 02 00 F9`となります。
@@ -235,10 +231,9 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 なので 0073EC84 のサブルーチンをチェックします。
 
 ```
-// Game::Coop::PlayerDirector::~PlayerDirector(Game::Coop::PlayerDirector *__hidden this) [5.4.0]
-0073EC84                 STP             X20, X19, [SP,#-0x10+var_10]!
-0073EC88                 STP             X29, X30, [SP,#0x10+var_s0]
-0073EC8C                 ADD             X29, SP, #0x10
+0073EC84                 STP             X20, X19, [SP,#var_20]!
+0073EC88                 STP             X29, X30, [SP,#0x20+var_10]
+0073EC8C                 ADD             X29, SP, #0x20+var_10
 0073EC90                 ADRP            X8, #off_2D100B8@PAGE
 0073EC94                 LDR             X8, [X8,#off_2D100B8@PAGEOFF]
 0073EC98                 MOV             X19, X0
@@ -254,332 +249,14 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 0073ECC0                 ADD             X8, X8, #0x10
 0073ECC4                 SUB             X0, X19, #0x230
 0073ECC8                 STR             X8, [X20]
-0073ECCC                 BL              nullsub_6295
-0073ECD0                 LDP             X29, X30, [SP,#0x10+var_s0]
+0073ECCC                 BL              nullsub_1290
+0073ECD0                 LDP             X29, X30, [SP,#0x20+var_10]
 0073ECD4                 MOV             X0, X20 ; void *
-0073ECD8                 LDP             X20, X19, [SP+0x10+var_10],#0x20
+0073ECD8                 LDP             X20, X19, [SP+0x20+var_20],#0x20
 0073ECDC                 B               _ZdlPv  ; operator delete(void *)
 ```
 
 同様に上から 10 番目の命令を見ればアドレスが 02D0CEE0 であることがわかります。
-
-## チーム変更コードを移植しよう
-
-インスタンスのアドレスが分かったので、あとはコードを移植するだけになります。
-
-全てをそのまま使うことはできないのですが、テンプレートがあるのでそれを使えば空いているところに値を入れるだけで移植ができます。
-
-### チーム変更コードテンプレート
-
-以下は、全てのバージョンで正しく動作するチーム変更コードです。
-
-バージョンによって異なるのは`XXXXX`、`YYY`、`AAAAAAAA`、`BBBBBBBB`の値だけです。つまり、各バージョンにおいてこれら四つの値を突き止めることが移植することに繋がります。
-
-```
-STP X29, X30, [SP, #-0x10]!
-MOV X29, SP
-ADRP X8, #0xXXXXX000
-LDR X8, [X8, #0xYYY]
-LDR X0, [X8[
-BL #0xAAAAAAAA - 0xBBBBBBBB
-LDR X8, [X0, #0x328]
-EOR X8, X8, #1
-STR X8, [X0, #0x328]
-LDP X29, X30, [SP], #0x10
-RET
-```
-
-それぞれのパラメータの意味をいかに解説します。
-
-| パラメータ |                                    意味                                     |
-| :--------: | :-------------------------------------------------------------------------: |
-|   XXXXX    |                 Game::PlayerMgr のアドレスを使って計算する                  |
-|    YYY     | XXXXX000 に対するオフセット <br> Game::PlayerMgr のアドレスを使って計算する |
-|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
-|  BBBBBBBB  |                         この命令が書かれるアドレス                          |
-
-これらの値を計算するためにはあと二つのアドレスがわからなければいけません。
-
-というのも、チーム変更は「自分が操作しているプレイヤー」のチーム情報がわからないといけないからです。
-
-「自分が操作しているプレイヤー」の情報をとってくるには`Game::PlayerMgr`が利用できます。
-
-これは全てのプレイヤーの情報を持っているので、このクラスを利用して「自分が操作してるプレイヤー」の情報だけをとってきます。
-
-自分が操作しているプレイヤーが全プレイヤーの何番目なのかは固定ではないのですが（ホストであれば常に 0 番目であることが保証されます）、`Game::PlayerMgr::getControlledPerformer`というサブルーチンを使えば「自分が操作しているプレイヤー」の情報が取得できます。
-
-よって、まずはこのサブルーチンを呼び出すことを考えます。
-
-サブルーチン呼び出しには「呼び出したいサブルーチンが定義されているアドレス」と「サブルーチンを呼び出すアドレス」の二つが必要です。
-
-「呼び出すアドレス」はコード開発者が自由に決められるのでどうやって決めるかはのちのち解説します。
-
-よって、まずは`Game::PlayerMgr::getControlledPerformer`が定義されているアドレスを探しましょう。
-
-### Game::PlayerMgr::getControlledPerformer
-
-|              サブルーチン               |  3.1.0   |  5.4.0   |
-| :-------------------------------------: | :------: | :------: |
-| Game::PlayerMgr::getControlledPerformer | 00F07B1C | 010E6D2C |
-
-`getControlledPerformer()`は`Game::PlayerMgr`クラスのサブルーチンなので先程まで探していたアドレス付近にあります。
-これもやはり特徴的な命令があるので簡単に見つけられます。
-
-```
-// Game::PlayerMgr::getControlledPerformer(Game::PlayerMgr *__hidden this) [3.1.0]
-00F07B1C                 STR             X19, [SP,#-0x10+var_10]!
-00F07B20                 STP             X29, X30, [SP,#0x10+var_s0]
-00F07B24                 ADD             X29, SP, #0x10
-00F07B28                 LDRSW           X8, [X0,#0x5C8]
-00F07B2C                 LDR             W9, [X0,#0x624]
-00F07B30                 CMP             W9, W8
-00F07B34                 B.LE            loc_F07B64
-00F07B38                 LDR             X10, [X0,#0x638]
-00F07B3C                 LDR             W9, [X0,#0x630]
-00F07B40                 ADD             X11, X10, X8,LSL#3
-00F07B44                 CMP             W9, W8
-00F07B48                 CSEL            X8, X11, X10, HI
-00F07B4C                 LDR             X19, [X8]
-00F07B50                 CBZ             X19, loc_F07B68
-00F07B54                 LDRB            W8, [X19,#0x430]
-00F07B58                 CBZ             W8, loc_F07B68
-00F07B5C                 BL              _ZN2Lp3Utl31printStackTraceIfLastWarningAddEv ; Lp::Utl::printStackTraceIfLastWarningAdd(void)
-00F07B60                 B               loc_F07B68
-```
-
-バイナリ検索で`08 C8 85 B9 09 24 46 B9 3F 01 08 6B 8D 01 00 54`とすれば 010E6D38 がヒットすると思います。
-
-```
-// Game::PlayerMgr::getControlledPerformer(Game::PlayerMgr *__hidden this) [5.4.0]
-010E6D2C                 STR             X19, [SP,#-0x10+var_10]!
-010E6D30                 STP             X29, X30, [SP,#0x10+var_s0]
-010E6D34                 ADD             X29, SP, #0x10
-010E6D38                 LDRSW           X8, [X0,#0x5C8]
-010E6D3C                 LDR             W9, [X0,#0x624]
-010E6D40                 CMP             W9, W8
-010E6D44                 B.LE            loc_10E6D74
-010E6D48                 LDR             X10, [X0,#0x638]
-010E6D4C                 LDR             W9, [X0,#0x630]
-010E6D50                 ADD             X11, X10, X8,LSL#3
-010E6D54                 CMP             W9, W8
-010E6D58                 CSEL            X8, X11, X10, HI
-010E6D5C                 LDR             X19, [X8]
-010E6D60                 CBZ             X19, loc_10E6D78
-010E6D64                 LDRB            W8, [X19,#0x430]
-010E6D68                 CBZ             W8, loc_10E6D78
-010E6D6C                 BL              sub_19F8C5C
-010E6D70                 B               loc_10E6D78
-```
-
-するとやはり一発で見つかります。
-
-サブルーチンのアドレスというのは「サブルーチンの先頭アドレス」を意味するので、この場合は 010E6D2C ということになります。
-
-これで「呼び出したいサブルーチンのアドレス」は分かったので、次は「呼び出すアドレス」を決めます。
-
-「探す」ではなく「決める」と書いたのは、ここまで分かった情報で「好きなアドレスから`Game::PlayerMgr`クラスを読み込み、`getControlledPerformer()`をコールして自分のプレイヤー情報を読み込み、チームを変更する」というコードは書けるからです。
-
-しかし、このままでは自分が好きなタイミングでチームを変更することができません。
-
-要するに、ナイスやカモンを押したタイミングでチームを変えたいので、ナイスやカモンの本来の動作をチーム変更コードに上書きしたいわけです。
-
-なので、今回はナイスやカモンの挙動のうち、上書きしてもゲームの動作に問題ない箇所を探せば良いことになります。
-
-### Game::PlayerCloneHandle::sendSignalEvent
-
-上書きしても大丈夫なナイスやカモンをコールしたときに呼び出されるサブルーチンとしていつも使っているのが`Game::PlayerCloneHandle::sendSignalEvent()`です。
-
-これは別にこのサブルーチンでなくても他のサブルーチンでも代用できます。
-
-|               サブルーチン               |  3.1.0   |  5.4.0   |
-| :--------------------------------------: | :------: | :------: |
-| Game::PlayerCloneHandle::sendSignalEvent | 00E797FC | 0104C94C |
-
-```
-// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [3.1.0]
-00E797FC                 STR             X19, [SP,#-0x10+var_10]!
-00E79800                 STP             X29, X30, [SP,#0x10+var_s0]
-00E79804                 ADD             X29, SP, #0x10
-00E79808                 STUR            W1, [X29,#var_4]
-00E7980C                 LDUR            W8, [X29,#var_4]
-00E79810                 MOV             X19, X0
-00E79814                 STRB            W8, [SP,#0x10+var_8]
-00E79818                 BL              _ZNK4Game15CloneHandleBase14isOfflineSceneEv ; Game::CloneHandleBase::isOfflineScene(void)
-00E7981C                 TBZ             W0, #0, loc_E79828
-00E79820                 MOV             W0, #1
-00E79824                 B               loc_E79834
-00E79828                 LDR             X0, [X19,#0x10]
-00E7982C                 ADD             X1, SP, #0x10+var_8
-00E79830                 BL              _ZN4Game14PlayerCloneObj21pushPlayerSignalEventERKNS_22PlayerSignalCloneEventE ; Game::PlayerCloneObj::pushPlayerSignalEvent(Game::PlayerSignalCloneEvent const&)
-00E79834                 LDP             X29, X30, [SP,#0x10+var_s0]
-00E79838                 AND             W0, W0, #1
-00E7983C                 LDR             X19, [SP+0x10+var_10],#0x20
-00E79840                 RET
-```
-
-これも特徴的な命令があるのでバイナリ検索で`FD 43 00 91 A1 C3 1F B8 A8 C3 5F B8 F3 03 00 AA`と検索すれば一発で見つかります。
-
-```
-// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [5.4.0]
-0104C94C                 STR             X19, [SP,#var_20]!
-0104C950                 STP             X29, X30, [SP,#0x20+var_10]
-0104C954                 ADD             X29, SP, #0x20+var_10
-0104C958                 STUR            W1, [X29,#-4]
-0104C95C                 LDUR            W8, [X29,#-4]
-0104C960                 MOV             X19, X0
-0104C964                 STRB            W2, [SP,#0x20+var_17]
-0104C968                 STRB            W8, [SP,#0x20+var_18]
-0104C96C                 BL              sub_5BC880
-0104C970                 TBZ             W0, #0, loc_104C97C
-0104C974                 MOV             W0, #1
-0104C978                 B               loc_104C988
-0104C97C                 LDR             X0, [X19,#0x10]
-0104C980                 ADD             X1, SP, #0x20+var_18
-0104C984                 BL              sub_104E590
-0104C988                 LDP             X29, X30, [SP,#0x20+var_10]
-0104C98C                 AND             W0, W0, #1
-0104C990                 LDR             X19, [SP+0x20+var_20],#0x20
-0104C994                 RET
-```
-
-これで命令を呼び出したいアドレスを決めることができました。
-
-### テンプレートを完成させよう
-
-さて、ここで`Game::PlayerCloneHandle::sendSignalEvent`の内容全てをテンプレートで上書きします。
-
-テンプレートの方が命令が少ないので余った部分には何もしないを意味する NOP を埋めておきます。
-
-埋めていなくても RET 命令があるためここの命令は実行されないのですが、解説ではわかりやすさを重視して入れておきます。
-
-```
-// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [5.4.0]
-0104C94C STP X29, X30, [SP, #-0x10]!
-0104C950 MOV X29, SP
-0104C954 ADRP X8, #0xXXXXX000
-0104C958 LDR X8, [X8, #0xYYY]
-0104C95C LDR X0, [X8]
-0104C960 BL #0xAAAAAAAA - 0xBBBBBBBB
-0104C964 LDR X9, [X0, #0x328]
-0104C968 EOR X9, X9, #1
-0104C96C STR X9, [X0, #0x328]
-0104C970 LDR X1, [X0, #0x488]
-0104C974 STR X9, [X1, #0x38]
-0104C978 LDP X29, X30, [SP], #0x10
-0104C97C RET
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-```
-
-あとはこの四つのパラメータを計算したら終わりです。
-
-| パラメータ |                                    意味                                     |
-| :--------: | :-------------------------------------------------------------------------: |
-|  XXXXX000  |         下三桁が 0 の値 Game::PlayerMgr のアドレスを使って計算する          |
-|    YYY     | XXXXX000 に対するオフセット <br> Game::PlayerMgr のアドレスを使って計算する |
-|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
-|  BBBBBBBB  |                         この命令が書かれるアドレス                          |
-
-これらを計算するのに必要なデータも載せます。
-
-| パラメータ |                       求め方                       |    値    |
-| :--------: | :------------------------------------------------: | :------: |
-|   XXXXX    |                    計算式は後述                    |  01CB1   |
-|    YYY     |         Game::PlayerMgr のアドレスの下三桁         |   CF8    |
-|  AAAAAAAA  | Game::PlayerMgr::getControlledPerformer のアドレス | 010E6D2C |
-|  BBBBBBBB  |             BL 命令が書かれるアドレス              | 0104C960 |
-
-ここで XXXXX 以外の値は簡単にわかります。問題は XXXXX なのですが、これは
-
-`Game::PlayerMgr`のアドレスの上五桁からこの命令（ADRP）が書かれるアドレスの上五桁を引いたものになります。今回の場合ですと、
-
-```
-Game::PlayerMgr : 02CFDCF8 → 02CFD
-ADRP : 0104C954 → 0104C
-
-XXXXX = 02CFD - 0104C = 01CB1
-```
-
-となり、`XXXXX` = `01CB1` となります。
-
-```
-// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [5.4.0]
-0104C94C STP X29, X30, [SP, #-0x10]!
-0104C950 MOV X29, SP
-0104C954 ADRP X8, #0x1CB1000
-0104C958 LDR X8, [X8, #0xCF8]
-0104C95C LDR X0, [X8]
-0104C960 BL #0x9A3CC
-0104C964 LDR X9, [X0, #0x328]
-0104C968 EOR X9, X9, #1
-0104C96C STR X9, [X0, #0x328]
-0104C970 LDR X1, [X0, #0x488]
-0104C974 STR X9, [X1, #0x38]
-0104C978 LDP X29, X30, [SP], #0x10
-0104C97C RET
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-```
-
-ここまでをまとめるとこうなります。
-
-あとはこれを ARM to HEX Converter で変換すれば IPSwitch 形式のコードが得られます。
-
-BL 命令はまとめて変換するとオフセットがズレるバグがあるので、BL 命令の箇所だけは必ず個別に変換してください。
-
-```
-0104C94C FD7BBFA9
-0104C950 FD030091
-0104C954 88E500B0
-0104C958 087D46F9
-0104C95C 000140F9
-0104C960 F3680294 // BL
-0104C964 099441F9
-0104C968 290140D2
-0104C96C 099401F9
-0104C970 014442F9
-0104C974 291C00F9
-0104C978 FD7BC1A8
-0104C97C C0035FD6
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-```
-
-これだと無意味に長くてわかりにくいので NOP を消したりして簡易表示すると以下のようになります。
-
-```
-// Swap Team Color by Signal [tkgling]
-@disabled
-0104C94C FD7BBFA9 // STP X29, X30, [SP, #-0x10]!
-0104C950 FD030091 // MOV X29, SP
-0104C954 88E500B0 // ADRP X8, #0x1CB1000
-0104C958 087D46F9 // LDR X8, [X8, #0xCF8]
-0104C95C 000140F9 // LDR X0, [X8]
-0104C960 F3680294 // BL #0x9A3CC
-0104C964 099441F9 // LDR X9, [X0, #0x328]
-0104C968 290140D2 // EOR X9, X9, #1
-0104C96C 099401F9 // STR X9, [X0, #0x328]
-0104C970 014442F9 // LDR X1, [X0, #0x488]
-0104C974 291C00F9 // STR X9, [X1, #0x38]
-0104C978 FD7BC1A8 // LDP X29, X30, [SP], #0x10
-0104C97C C0035FD6 // RET
-```
-
-### 動作テストをしてみる
-
-<video controls src="https://video.twimg.com/ext_tw_video/1397085676164632577/pu/vid/1280x720/vP10raBucY9XVDty.mp4"></video>
 
 ## イクラ個数変更コードを移植しよう
 
@@ -643,26 +320,15 @@ Game::Coop::PlayerDirector
 同じように`sendSignalEvent`をに上書きをします。
 
 ```
-// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [5.4.0]
 0104C94C ADRP X0, #0xXXXXX000
-0104C94C LDR X0, [X0, #0xYYY]
-0104C94C LDR X0, [X0]
-0104C94C MOV W1, #0x270F
-0104C94C STR W1, [X0, #0x370]
-0104C94C MOV W1, #0x3E7
-0104C94C STR W1, [X0, #0x378]
-0104C94C STR W1, [X0, #0x37C]
-0104C94C RET
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
+0104C950 LDR X0, [X0, #0xYYY]
+0104C954 LDR X0, [X0]
+0104C958 MOV W1, #0x270F
+0104C95C STR W1, [X0, #0x370]
+0104C960 MOV W1, #0x3E7
+0104C964 STR W1, [X0, #0x378]
+0104C968 STR W1, [X0, #0x37C]
+0104C96C RET
 ```
 
 | パラメータ |                                    意味                                     |
@@ -672,76 +338,36 @@ Game::Coop::PlayerDirector
 |  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
 |  BBBBBBBB  |                         この命令が書かれるアドレス                          |
 
-```
-Game::Coop::PlayerDirector : 02D0CEE0 → 02CD0
-ADRP : 0104C94C → 0104C
-
-XXXXX = 02CD0 - 0104C = 01CC0
-```
+$02CD0-0104C=01CC0$
 
 なので XXXXX は 01CC0 となり、YYY は EE0 となります。
 
 ```
-// Game::PlayerCloneHandle::sendSignalEvent(Game::PlayerSignalCloneEvent::Type) [5.4.0]
-0104C94C ADRP X0, #0x01CC0000
-0104C94C LDR X0, [X0, #0xEE0]
-0104C94C LDR X0, [X0]
-0104C94C MOV W1, #0x270F
-0104C94C STR W1, [X0, #0x370]
-0104C94C MOV W1, #0x3E7
-0104C94C STR W1, [X0, #0x378]
-0104C94C STR W1, [X0, #0x37C]
-0104C94C RET
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
-0104C94C NOP
+0104C94C ADRP X0, #0x1CC0000
+0104C950 LDR X0, [X0, #0xEE0]
+0104C954 LDR X0, [X0]
+0104C958 MOV W1, #0x270F
+0104C95C STR W1, [X0, #0x370]
+0104C960 MOV W1, #0x3E7
+0104C964 STR W1, [X0, #0x378]
+0104C968 STR W1, [X0, #0x37C]
+0104C96C RET
 ```
 
 これを ARM to HEX Converter で変換するとこうなります。
 
 ```
-0104C94C 00E60090
-0104C94C 007047F9
-0104C94C 000040F9
-0104C94C E1E18452
-0104C94C 017003B9
-0104C94C E17C8052
-0104C94C 017803B9
-0104C94C 017C03B9
-0104C94C C0035FD6
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-0104C94C 1F2003D5
-```
-
-NOP の部分は実際には不要なので整形した上で余計なコードを削除すると、
-
-```
-// Get 999 GoldenEggs and 9999 PowerEggs by Signal [tkgling]
+// Get 999 Golden Eggs and 9999 Power Eggs by Signal [tkgling]
 @disabled
-0104C94C 00E60090 // ADRP X0, #0x01CC0000
-0104C94C 007047F9 // LDR X0, [X0, #0xEE0]
-0104C94C 000040F9 // LDR X0, [X0]
-0104C94C E1E18452 // MOV W1, #0x270F
-0104C94C 017003B9 // STR W1, [X0, #0x370]
-0104C94C E17C8052 // MOV W1, #0x3E7
-0104C94C 017803B9 // STR W1, [X0, #0x378]
-0104C94C 017C03B9 // STR W1, [X0, #0x37C]
-0104C94C C0035FD6 // RET
+0104C94C 00E60090 // ADRP X0, #0x1CC0000
+0104C950 007047F9 // LDR X0, [X0, #0xEE0]
+0104C954 000040F9 // LDR X0, [X0]
+0104C958 E1E18452 // MOV W1, #0x270F
+0104C95C 017003B9 // STR W1, [X0, #0x370]
+0104C960 E17C8052 // MOV W1, #0x3E7
+0104C964 017803B9 // STR W1, [X0, #0x378]
+0104C968 017C03B9 // STR W1, [X0, #0x37C]
+0104C96C C0035FD6 // RET
 ```
 
 というコードが得られます。
@@ -755,5 +381,278 @@ NOP の部分は実際には不要なので整形した上で余計なコード�
 ただ、リザルト画面でのスコアに正しく反映されないのは相変わらずです。
 
 ここを直すのも宿題の一つということで！
+
+## チーム変更コードを移植しよう
+
+インスタンスのアドレスが分かったので、あとはコードを移植するだけになります。
+
+全てをそのまま使うことはできないのですが、テンプレートがあるのでそれを使えば空いているところに値を入れるだけで移植ができます。
+
+### チーム変更コードテンプレート
+
+以下は、全てのバージョンで正しく動作するチーム変更コードです。
+
+バージョンによって異なるのは`XXXXX`、`YYY`、`AAAAAAAA`、`BBBBBBBB`の値だけです。つまり、各バージョンにおいてこれら四つの値を突き止めることが移植することに繋がります。
+
+```
+STP X29, X30, [SP, #-0x10]!
+MOV X29, SP
+ADRP X0, #0xXXXXX000
+LDR X0, [X0, #0xYYY]
+LDR X0, [X0]
+BL #0xAAAAAAAA - 0xBBBBBBBB
+LDR X1, [X0, #0x328]
+EOR X1, X1, #1
+STR X1, [X0, #0x328]
+LDR X1, [X0, #0x488]
+STR X1, [X0, #0x38]
+LDP X29, X30, [SP], #0x10
+RET
+```
+
+それぞれのパラメータの意味をいかに解説します。
+
+| パラメータ |                                    意味                                     |
+| :--------: | :-------------------------------------------------------------------------: |
+|   XXXXX    |                 Game::PlayerMgr のアドレスを使って計算する                  |
+|    YYY     | XXXXX000 に対するオフセット <br> Game::PlayerMgr のアドレスを使って計算する |
+|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
+|  BBBBBBBB  |                         この命令が書かれるアドレス                          |
+
+これらの値を計算するためにはあと二つのアドレスがわからなければいけません。
+
+というのも、チーム変更は「自分が操作しているプレイヤー」のチーム情報がわからないといけないからです。
+
+「自分が操作しているプレイヤー」の情報をとってくるには`Game::PlayerMgr`が利用できます。
+
+これは全てのプレイヤーの情報を持っているので、このクラスを利用して「自分が操作してるプレイヤー」の情報だけをとってきます。
+
+自分が操作しているプレイヤーが全プレイヤーの何番目なのかは固定ではないのですが（ホストであれば常に 0 番目であることが保証されます）、`Game::PlayerMgr::getControlledPerformer`というサブルーチンを使えば「自分が操作しているプレイヤー」の情報が取得できます。
+
+よって、まずはこのサブルーチンを呼び出すことを考えます。
+
+サブルーチン呼び出しには「呼び出したいサブルーチンが定義されているアドレス」と「サブルーチンを呼び出すアドレス」の二つが必要です。
+
+「呼び出すアドレス」はコード開発者が自由に決められるのでどうやって決めるかはのちのち解説します。
+
+よって、まずは`Game::PlayerMgr::getControlledPerformer`が定義されているアドレスを探しましょう。
+
+### Game::PlayerMgr::getControlledPerformer
+
+|              サブルーチン               |  3.1.0   |  5.4.0   |
+| :-------------------------------------: | :------: | :------: |
+| Game::PlayerMgr::getControlledPerformer | 00F07B1C | 010E6D2C |
+
+`getControlledPerformer()`は`Game::PlayerMgr`クラスのサブルーチンなので先程まで探していたアドレス付近にあります。
+これもやはり特徴的な命令があるので簡単に見つけられます。
+
+```
+00F07B1C                 STR             X19, [SP,#-0x10+var_10]!
+00F07B20                 STP             X29, X30, [SP,#0x10+var_s0]
+00F07B24                 ADD             X29, SP, #0x10
+00F07B28                 LDRSW           X8, [X0,#0x5C8]
+00F07B2C                 LDR             W9, [X0,#0x624]
+00F07B30                 CMP             W9, W8
+00F07B34                 B.LE            loc_F07B64
+00F07B38                 LDR             X10, [X0,#0x638]
+00F07B3C                 LDR             W9, [X0,#0x630]
+00F07B40                 ADD             X11, X10, X8,LSL#3
+00F07B44                 CMP             W9, W8
+00F07B48                 CSEL            X8, X11, X10, HI
+00F07B4C                 LDR             X19, [X8]
+00F07B50                 CBZ             X19, loc_F07B68
+00F07B54                 LDRB            W8, [X19,#0x430]
+00F07B58                 CBZ             W8, loc_F07B68
+00F07B5C                 BL              _ZN2Lp3Utl31printStackTraceIfLastWarningAddEv ; Lp::Utl::printStackTraceIfLastWarningAdd(void)
+00F07B60                 B               loc_F07B68
+```
+
+バイナリ検索で`08 C8 85 B9 09 24 46 B9 3F 01 08 6B 8D 01 00 54`とすれば 010E6D38 がヒットすると思います。
+
+```
+010E6D2C                 STR             X19, [SP,#-0x10+var_10]!
+010E6D30                 STP             X29, X30, [SP,#0x10+var_s0]
+010E6D34                 ADD             X29, SP, #0x10
+010E6D38                 LDRSW           X8, [X0,#0x5C8]
+010E6D3C                 LDR             W9, [X0,#0x624]
+010E6D40                 CMP             W9, W8
+010E6D44                 B.LE            loc_10E6D74
+010E6D48                 LDR             X10, [X0,#0x638]
+010E6D4C                 LDR             W9, [X0,#0x630]
+010E6D50                 ADD             X11, X10, X8,LSL#3
+010E6D54                 CMP             W9, W8
+010E6D58                 CSEL            X8, X11, X10, HI
+010E6D5C                 LDR             X19, [X8]
+010E6D60                 CBZ             X19, loc_10E6D78
+010E6D64                 LDRB            W8, [X19,#0x430]
+010E6D68                 CBZ             W8, loc_10E6D78
+010E6D6C                 BL              sub_19F8C5C
+010E6D70                 B               loc_10E6D78
+```
+
+するとやはり一発で見つかります。
+
+サブルーチンのアドレスというのは「サブルーチンの先頭アドレス」を意味するので、この場合は 010E6D2C ということになります。
+
+これで「呼び出したいサブルーチンのアドレス」は分かったので、次は「呼び出すアドレス」を決めます。
+
+「探す」ではなく「決める」と書いたのは、ここまで分かった情報で「好きなアドレスから`Game::PlayerMgr`クラスを読み込み、`getControlledPerformer()`をコールして自分のプレイヤー情報を読み込み、チームを変更する」というコードは書けるからです。
+
+しかし、このままでは自分が好きなタイミングでチームを変更することができません。
+
+要するに、ナイスやカモンを押したタイミングでチームを変えたいので、ナイスやカモンの本来の動作をチーム変更コードに上書きしたいわけです。
+
+なので、今回はナイスやカモンの挙動のうち、上書きしてもゲームの動作に問題ない箇所を探せば良いことになります。
+
+### Game::PlayerCloneHandle::sendSignalEvent
+
+上書きしても大丈夫なナイスやカモンをコールしたときに呼び出されるサブルーチンとしていつも使っているのが`Game::PlayerCloneHandle::sendSignalEvent()`です。
+
+これは別にこのサブルーチンでなくても他のサブルーチンでも代用できます。
+
+|               サブルーチン               |  3.1.0   |  5.4.0   |
+| :--------------------------------------: | :------: | :------: |
+| Game::PlayerCloneHandle::sendSignalEvent | 00E797FC | 0104C94C |
+
+```
+00E797FC                 STR             X19, [SP,#-0x10+var_10]!
+00E79800                 STP             X29, X30, [SP,#0x10+var_s0]
+00E79804                 ADD             X29, SP, #0x10
+00E79808                 STUR            W1, [X29,#var_4]
+00E7980C                 LDUR            W8, [X29,#var_4]
+00E79810                 MOV             X19, X0
+00E79814                 STRB            W8, [SP,#0x10+var_8]
+00E79818                 BL              _ZNK4Game15CloneHandleBase14isOfflineSceneEv ; Game::CloneHandleBase::isOfflineScene(void)
+00E7981C                 TBZ             W0, #0, loc_E79828
+00E79820                 MOV             W0, #1
+00E79824                 B               loc_E79834
+00E79828                 LDR             X0, [X19,#0x10]
+00E7982C                 ADD             X1, SP, #0x10+var_8
+00E79830                 BL              _ZN4Game14PlayerCloneObj21pushPlayerSignalEventERKNS_22PlayerSignalCloneEventE ; Game::PlayerCloneObj::pushPlayerSignalEvent
+00E79834                 LDP             X29, X30, [SP,#0x10+var_s0]
+00E79838                 AND             W0, W0, #1
+00E7983C                 LDR             X19, [SP+0x10+var_10],#0x20
+00E79840                 RET
+```
+
+これも特徴的な命令があるのでバイナリ検索で`FD 43 00 91 A1 C3 1F B8 A8 C3 5F B8 F3 03 00 AA`と検索すれば一発で見つかります。
+
+```
+0104C94C                 STR             X19, [SP,#var_20]!
+0104C950                 STP             X29, X30, [SP,#0x20+var_10]
+0104C954                 ADD             X29, SP, #0x20+var_10
+0104C958                 STUR            W1, [X29,#-4]
+0104C95C                 LDUR            W8, [X29,#-4]
+0104C960                 MOV             X19, X0
+0104C964                 STRB            W2, [SP,#0x20+var_17]
+0104C968                 STRB            W8, [SP,#0x20+var_18]
+0104C96C                 BL              sub_5BC880
+0104C970                 TBZ             W0, #0, loc_104C97C
+0104C974                 MOV             W0, #1
+0104C978                 B               loc_104C988
+0104C97C                 LDR             X0, [X19,#0x10]
+0104C980                 ADD             X1, SP, #0x20+var_18
+0104C984                 BL              sub_104E590
+0104C988                 LDP             X29, X30, [SP,#0x20+var_10]
+0104C98C                 AND             W0, W0, #1
+0104C990                 LDR             X19, [SP+0x20+var_20],#0x20
+0104C994                 RET
+```
+
+これで命令を呼び出したいアドレスを決めることができました。
+
+### テンプレートを完成させよう
+
+さて、ここで`Game::PlayerCloneHandle::sendSignalEvent`の内容全てをテンプレートで上書きします。
+
+テンプレートの方が命令が少ないので余った部分には何もしないを意味する NOP を埋めておきます。
+
+埋めていなくても RET 命令があるためここの命令は実行されないのですが、解説ではわかりやすさを重視して入れておきます。
+
+```
+0104C94C STP X29, X30, [SP, #-0x10]!
+0104C94C MOV X29, SP
+0104C94C ADRP X0, #0xXXXXX000
+0104C94C LDR X0, [X0, #0xYYY]
+0104C94C LDR X0, [X0]
+0104C94C BL #0xAAAAAAAA - 0xBBBBBBBB
+0104C94C LDR X1, [X0, #0x328]
+0104C94C EOR X1, X1, #1
+0104C94C STR X1, [X0, #0x328]
+0104C94C LDR X1, [X0, #0x488]
+0104C94C STR X1, [X0, #0x38]
+0104C94C LDP X29, X30, [SP], #0x10
+0104C94C RET
+```
+
+あとはこの四つのパラメータを計算したら終わりです。
+
+| パラメータ |                                    意味                                     |
+| :--------: | :-------------------------------------------------------------------------: |
+|  XXXXX000  |         下三桁が 0 の値 Game::PlayerMgr のアドレスを使って計算する          |
+|    YYY     | XXXXX000 に対するオフセット <br> Game::PlayerMgr のアドレスを使って計算する |
+|  AAAAAAAA  |             Game::PlayerMgr::getControlledPerformer のアドレス              |
+|  BBBBBBBB  |                         この命令が書かれるアドレス                          |
+
+これらを計算するのに必要なデータも載せます。
+
+| パラメータ |                       求め方                       |    値    |
+| :--------: | :------------------------------------------------: | :------: |
+|   XXXXX    |                    計算式は後述                    |  01CB1   |
+|    YYY     |         Game::PlayerMgr のアドレスの下三桁         |   CF8    |
+|  AAAAAAAA  | Game::PlayerMgr::getControlledPerformer のアドレス | 010E6D2C |
+|  BBBBBBBB  |             BL 命令が書かれるアドレス              | 0104C960 |
+
+ここで XXXXX 以外の値は簡単にわかります。問題は XXXXX なのですが、これは
+
+`Game::PlayerMgr`のアドレスの上五桁からこの命令（ADRP）が書かれるアドレスの上五桁を引いたものになります。今回の場合ですと、
+
+$02CFD-0104C=01CB1$
+
+となり、XXXXX = 01CB1 となります。
+
+```
+0104C94C STP X29, X30, [SP, #-0x10]!
+0104C94C MOV X29, SP
+0104C94C ADRP X0, #0x1CB1000
+0104C94C LDR X0, [X0, #0xCF8]
+0104C94C LDR X0, [X0]
+0104C94C BL #0x9A3CC
+0104C94C LDR X1, [X0, #0x328]
+0104C94C EOR X1, X1, #1
+0104C94C STR X1, [X0, #0x328]
+0104C94C LDR X1, [X0, #0x488]
+0104C94C STR X1, [X0, #0x38]
+0104C94C LDP X29, X30, [SP], #0x10
+0104C94C RET
+```
+
+ここまでをまとめるとこうなります。
+
+あとはこれを ARM to HEX Converter で変換すれば IPSwitch 形式のコードが得られます。
+
+BL 命令はまとめて変換するとオフセットがズレるバグがあるので、BL 命令の箇所だけは必ず個別に変換してください。
+
+```
+// Swap Team Color by Signal (5.4.0) [tkgling]
+@disabled
+0104C94C FD7BBFA9 // STP X29, X30, [SP, #-0x10]!
+0104C94C FD030091 // MOV X29, SP
+0104C94C 80E500B0 // ADRP X0, #0x1CB1000
+0104C94C 007C46F9 // LDR X0, [X0, #0xCF8]
+0104C94C 000040F9 // LDR X0, [X0]
+0104C94C F3680294 // BL #0x9A3CC
+0104C94C 019441F9 // LDR X1, [X0, #0x328]
+0104C94C 210040D2 // EOR X1, X1, #1
+0104C94C 019401F9 // STR X1, [X0, #0x328]
+0104C94C 014442F9 // LDR X1, [X0, #0x488]
+0104C94C 011C00F9 // STR X1, [X0, #0x38]
+0104C94C FD7BC1A8 // LDP X29, X30, [SP], #0x10
+0104C94C C0035FD6 // RET
+```
+
+### 動作テストをしてみる
+
+<video controls src="https://video.twimg.com/ext_tw_video/1397085676164632577/pu/vid/1280x720/vP10raBucY9XVDty.mp4"></video>
 
 記事は以上。

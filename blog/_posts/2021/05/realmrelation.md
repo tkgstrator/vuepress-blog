@@ -402,7 +402,7 @@ From {
 
 :::
 
-その場合、プライマリキーがあれば`Invalidate`を、なければ`Index out of range`のエラーを返す。 これは`objectWillChange`があってもなくても関係ないので覚えておくこと。
+その場合、プライマリキーがあれば`Invalidate`を、なければ`Index out of range`のエラーを返す。これは`objectWillChange`があってもなくても関係ないので覚えておくこと。
 
 [Realm Swift + SwiftUI でテーブル表示・編集・削除](https://llcc.hatenablog.com/entry/2020/04/26/205254)のページにもあるように`RealmSwift.Results`ではなく、それを配列に変換したものなどを使うと良い。
 

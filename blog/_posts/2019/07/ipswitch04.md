@@ -82,23 +82,16 @@ Lock というところでブキが販売されているかどうかのチェッ
 ただし、Rank 制限はこれとはまた別に引っかかってくるのでこちらも解除する必要があります。
 
 ```
-000864F4                 ADRP            X2, #aLock@PAGE ; "Lock"
-000864F8                 SUB             X0, X29, #-var_C8
-000864FC                 ADD             X1, SP, #0x6C0+src
-00086500                 ADD             X2, X2, #aLock@PAGEOFF ; "Lock"
-00086504                 STR             WZR, [SP,#0x6C0+var_26C]
-00086508                 BL              sub_19E4510
-0008650C                 MOV             W23, WZR
+00038EA4                 ADRP            X2, #aLock@PAGE ; "Lock"
+00038EA8                 SUB             X0, X29, #-var_C8 ; this
+00038EAC                 ADD             X1, SP, #0x630+src ; char **
+00038EB0                 ADD             X2, X2, #aLock@PAGEOFF ; "Lock"
+00038EB4                 STR             WZR, [SP,#0x630+var_20C]
+00038EB8                 BL              _ZNK2Lp3Utl9ByamlIter17tryGetStringByKeyEPPKcS3_ ; Lp::Utl::ByamlIter::tryGetStringByKey(char const**,char const*)
+00038EBC                 MOV             W21, WZR
 ```
 
 このコードがどのように動いているかを考えましょう。
-
-Lock の値を設定するアドレスを載せておくので各自確かめてください。
-
-|  Ver  | アドレス |
-| :---: | :------: |
-| 3.1.0 | 00038EA4 |
-| 5.4.0 | 000864F4 |
 
 ```
 Lp::Utl::ByamlIter::tryGetIntByKey((Lp::Utl::ByamlIter *)&v269, (int *)&v260, "SpecialCost");
@@ -125,7 +118,7 @@ STR "None", [X1]
 
 さてここで使われるのが Enum という仕組みです。
 
-Enum というのはこれまた大雑把にいうと配列のようなものです（正確には列挙型というらしい）。
+Enum というのはこれまた大雑把にいうと配列のようなものです（正確には列挙型というらしい）
 
 文字列のイテレータ（ポインタ）が Enum の何番目にあるのかを返して、それに対してパラメータを設定するわけです。
 
@@ -142,8 +135,8 @@ Enum というのはこれまた大雑把にいうと配列のようなもので
 このサブルーチン、あまりに長いので省略しますが次のような箇所を見てみるとたしかに Enum を使って TextPtr（テキストポインタ）を操作していそうなことがわかります。
 
 ```
-0009D800                 BL              sub_1720020
-0009D804                 STR             X21, [X24]
+00053DFC                 BL              _ZN4sead8EnumUtil10parseText_EPPcS1_i ; sead::EnumUtil::parseText_(char **,char *,int)
+00053E00                 STR             X21, [X24] ; Cmn::WeaponData::LockType::text_(int)::spTextPtr
 ```
 
 ここでの各自のパラメータにおける Enum の値（これが正しい書き方なのかわからん）は以下のとおりです。
@@ -157,7 +150,7 @@ Enum というのはこれまた大雑把にいうと配列のようなもので
 | MissionBcat |  4   |
 |    Other    |  5   |
 
-None が 0 なのがいいですね、 0 に設定するのは楽なので。
+None が 0 なのがいいですね、0 に設定するのは楽なので。
 
 ## 擬似コード
 
@@ -208,13 +201,13 @@ while (1)
 LABEL_244 : v263 = v120;
 ```
 
-さて、このサブルーチンをどういじっていいのかわからないと思いますが（ここを解析するのにすっごい時間がかかった）。
+さて、このサブルーチンをどういじっていいのかわからないと思いますが（ここを解析するのにすっごい時間がかかった）
 
 最終的に goto LABEL_244 に到達して v263=v120 という処理をおこなっていることに注目すれば何となく分かると思います。
 
-ここでは v120 は W21 レジスタで、 v263 は [SP, #0x424] を意味しています。
+ここでは v120 は W21 レジスタで、v263 は [SP, #0x424] を意味しています。
 
-つまり、 W21 レジスタの中身を "わざわざ" メモリにコピーしているということです。
+つまり、W21 レジスタの中身を "わざわざ" メモリにコピーしているということです。
 
 本来は W21 レジスタの中身をコピーしているところを None（Enum だと 0）をコピーすればいいのでゼロレジスタを使います。
 
@@ -229,7 +222,11 @@ STR WZR, [SP,#0x424]
 さて、これで常に Lock の値として None を返すコードが書けます。
 
 ```
-// Unlock Weapon [tkgling]
+// Unlock Weapon (3.1.0) [tkgling]
+@disabled
+00038F98 FF2704B9 // STR WZR, [SP, #0x424]
+
+// Unlock Weapon (5.4.0) [tkgling]
 @disabled
 000865E8 FF2704B9 // STR WZR, [SP, #0x424]
 ```
@@ -241,16 +238,16 @@ STR WZR, [SP,#0x424]
 ついでなので値段も変更してしまいましょう。
 
 ```
-0008636C                 LDR             X1, [SP,#0x6C0+var_650]
-00086370                 ADRP            X2, #aPrice@PAGE ; "Price"
-00086374                 SUB             X0, X29, #-var_C8
-00086378                 ADD             X2, X2, #aPrice@PAGEOFF ; "Price"
-0008637C                 BL              sub_19E4678
-00086380                 LDR             X1, [SP,#0x6C0+var_658]
-00086384                 ADRP            X2, #aRank@PAGE ; "Rank"
-00086388                 SUB             X0, X29, #-var_C8
-0008638C                 ADD             X2, X2, #aRank@PAGEOFF ; "Rank"
-00086390                 BL              sub_19E4678
+00038D1C                 LDR             X1, [SP,#0x630+var_5C8] ; int *
+00038D20                 ADRP            X2, #aPrice@PAGE ; "Price"
+00038D24                 SUB             X0, X29, #-var_C8 ; this
+00038D28                 ADD             X2, X2, #aPrice@PAGEOFF ; "Price"
+00038D2C                 BL              _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc ; Lp::Utl::ByamlIter::tryGetIntByKey(int *,char const*)
+00038D30                 LDR             X1, [SP,#0x630+var_5D0] ; int *
+00038D34                 ADRP            X2, #aRank@PAGE ; "Rank"
+00038D38                 SUB             X0, X29, #-var_C8 ; this
+00038D3C                 ADD             X2, X2, #aRank@PAGEOFF ; "Rank"
+00038D40                 BL              _ZNK2Lp3Utl9ByamlIter14tryGetIntByKeyEPiPKc ; Lp::Utl::ByamlIter::tryGetIntByKey(int *,char const*)
 ```
 
 以下のようにどちらも値をレジスタに直接代入していないので、[X1] レジスタにコピーするコードを書きましょう。
@@ -275,13 +272,21 @@ STR WZR, [X1]
 これを ARM to HEX で変換してアドレスを追加して IPSwitch で使える形式にします。
 
 ```
-// Free Weapon [tkgling]
+// Free Weapon (3.1.0) [tkgling]
+@disabled
+00038D2C 3F0000B9 // STR WZR, [X1]
+
+// Free Weapon (5.4.0) [tkgling]
 @disabled
 0008637C 3F0000B9 // STR WZR, [X1]
 ```
 
 ```
-// Unlock All Weapon [tkgling]
+// Unlock All Weapon (3.1.0) [tkgling]
+@disabled
+00038D40 3F0000B9 // STR WZR, [X1]
+
+// Unlock All Weapon (5.4.0) [tkgling]
 @disabled
 00086390 3F0000B9 // STR WZR, [X1]
 ```
@@ -293,7 +298,13 @@ STR WZR, [X1]
 一応別のコードを使って全ブキをデバッグ状態っぽく開放すれば購入はできるのですが、いろいろバグっているので公開は控えます。
 
 ```
-// Unlock All Weapon [tkgling]
+// Unlock All Weapon (3.1.0) [tkgling]
+@disabled
+00038D2C 3F0000B9 // STR WZR, [X1]
+00038D40 3F0000B9 // STR WZR, [X1]
+00038F98 FF2704B9 // STR WZR, [SP, #0x424]
+
+// Unlock All Weapon (5.4.0) [tkgling]
 @disabled
 0008637C 3F0000B9 // STR WZR, [X1]
 00086390 3F0000B9 // STR WZR, [X1]
