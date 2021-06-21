@@ -24,7 +24,7 @@ tags:
 
 Hook というのが自分でもよくわかってないのですが、本来の動作の命令を上書きして任意の関数を呼び出したりそういうのが Hook なんじゃないかとおもっています、違ったらごめんなさい。
 
-まず、 Hook するコードを書くために必要なことは三つです。
+まず、Hook するコードを書くために必要なことは三つです。
 
 - Hook したい関数のアドレス
 
@@ -65,9 +65,9 @@ Hook というのが自分でもよくわかってないのですが、本来の
 このクラスがどこでインスタンスを生成しているか調べれば良いのです。
 
 ```
-0073EC54                 ADRP            X8, #off_2D0CEE0@PAGE
-0073EC58                 LDR             X8, [X8,#off_2D0CEE0@PAGEOFF]
-0073EC5C                 STR             XZR, [X8]
+005A6154                 ADRP            X8, #off_4165DB8@PAGE
+005A6158                 LDR             X8, [X8,#off_4165DB8@PAGEOFF]
+005A615C                 STR             XZR, [X8] ; Cmn::Singleton<Game::Coop::PlayerDirector>::GetInstance_(void)::sInstance
 ```
 
 調べると、こんな感じで 0073EC5C 付近に見つかり、02D0CEE0 からインスタンスのアドレスを読み込んでいることがわかります。
@@ -145,7 +145,7 @@ IPSwitch 向けコードを書くといっても最終的に機械語に翻訳�
 
 | Game::Coop::PlayerDirector | sendSignalEvent() |
 | :------------------------: | :---------------: |
-|          02D0CEE0          |     0104C94C      |
+|          04165DB8          |     00E797FC      |
 
 ### インスタンスのアドレスを読み込む
 
@@ -165,25 +165,23 @@ LDR X0, [X0]
 
 - XXXXX の求め方
 
-目的アドレスと Hook アドレスの下三桁を全て 0 にし、目的アドレス - Hook アドレスの計算結果が XXXXX になります。
+目的アドレスと Hook アドレスの下三桁無くした、目的アドレス - Hook アドレスの計算結果が XXXXX になります。
 
-|   目的   |   Hook   |   結果   |
-| :------: | :------: | :------: |
-| 02D0C000 | 0104C000 | 01CC0000 |
+$04165-00E79=032EC$
 
 これは Windows 標準の電卓で簡単に計算することができます。
 
 - YYY の求め方
 
-目的アドレスの下三桁なので EE0 になります。
+目的アドレスの下三桁なので DB8 になります。
 
 ### データを取得する
 
 さて、XXXXX と YYY の値がわかったので先程のテンプレの命令に当てはめると以下のようになります。
 
 ```
-ADRP X0, #0x1CC0000
-LDR X0, [X0, #0xEE0]
+ADRP X0, #0x32EC000
+LDR X0, [X0, #0xDB8]
 LDR X0, [X0]
 ```
 
@@ -253,9 +251,9 @@ STR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
 最後の RET 命令はおまじないのようなもので、Hook する関数にも依りますが基本的には必要になってきます。
 
 ```
-ADRP X0, #0x1CC0000
-LDR X0, [X0, #0xEE0]
-LDR X0, [X0]         // X0 = PlayerDirector
+ADRP X0, #0x32EC000
+LDR X0, [X0, #0xDB8]
+LDR X0, [X0]
 LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
 MOV X1, #0x270F      // X1 = 0x270F
 STR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
@@ -268,9 +266,11 @@ RET
 
 このとき出力される ARM HEX という値が今回欲しかったコードになります。
 
+BL 命令はまとめて変換するとオフセットがズレるバグがあるので、BL 命令の箇所だけは必ず個別に変換してください。
+
 ```
-00E60090
-007047F9
+60970190
+00DC46F9
 000040F9
 01B841F9
 E1E184D2
@@ -285,7 +285,17 @@ C0035FD6
 `sendSignalEvent()`の先頭からドンドン上書きするだけなので以下のようになります。
 
 ```
-// Signal Hook [tkgling]
+// Get 9999 Power Eggs by Signal (3.1.0) [tkgling]
+@disabled
+0104C94C 60970190 // ADRP X0, #0x32EC000
+0104C950 00DC46F9 // LDR X0, [X0, #0xDB8]
+0104C954 000040F9 // LDR X0, [X0]
+0104C958 01B841F9 // LDR X1, [X0, #0x370]
+0104C95C E1E184D2 // MOV X1, #0x270F
+0104C960 01B801F9 // STR X1, [X0, #0x370]
+0104C964 C0035FD6 // RET
+
+// Get 9999 Power Eggs by Signal (5.4.0) [tkgling]
 @disabled
 0104C94C 00E60090 // ADRP X0, #0x1CC0000
 0104C950 007047F9 // LDR X0, [X0, #0xEE0]
@@ -296,17 +306,9 @@ C0035FD6
 0104C964 C0035FD6 // RET
 ```
 
-<video controls src="https://video.twimg.com/ext_tw_video/1255570033041866752/pu/vid/1280x720/V6dR98sBNkv9dCRo.mp4"></video>
-
-Starlight（3.1.0）を使って左上に常に取得した赤イクラ数が表示されているのですが、ナイスを押すたびに 9999 増えていることがわかります。
-
-<video controls src="https://video.twimg.com/ext_tw_video/1255585723153088513/pu/vid/1280x720/0KtV15agtrlbh_C6.mp4"></video>
-
-ちなみに、 5.4.0 では赤イクラ数はプレイヤー一人あたり最大 9999 でカンストするので押すたびに 9999 増やすコードは最初の一回しか意味がなかったりします。
-
 ### 演習問題
 
-ナイスを押すと一人目のプレイヤー（player[0] ）の`mRoundBankedGoldenIkuraNum`の数が 999 になるコードを書いてください。
+ナイスを押すと一人目のプレイヤー（player[0]）の`mRoundBankedGoldenIkuraNum`の数が 999 になるコードを書いてください。
 
 player[0] の`mRoundBankedGoldenIkuraNum`が先頭からいくらズレているかをチェックすれば難しくないはず。
 

@@ -37,19 +37,19 @@ Starlight だと簡単だったけど、それだと面白くないのでいつ�
 以下のような命令群が見つかると思うのですが、後半部分の ADRP 命令で読み込んでいるところが`PlayerMgr`クラスのインスタンスになります。
 
 ```
-00A0EF0C                 ADRP            X8, #aPlayermgr@PAGE ; "PlayerMgr"
-00A0EF10                 ADD             X8, X8, #aPlayermgr@PAGEOFF ; "PlayerMgr"
-00A0EF14                 ADD             X0, SP, #0x80+var_70
-00A0EF18                 MOV             X1, SP
-00A0EF1C                 MOV             X2, XZR
-00A0EF20                 STR             X8, [SP,#0x80+var_78]
-00A0EF24                 BL              sub_1956EF4
-00A0EF28                 ADRP            X8, #off_2CFDCF8@PAGE
-00A0EF2C                 LDR             X8, [X8,#off_2CFDCF8@PAGEOFF]
-00A0EF30                 LDR             X8, [X8]
+008A9F44                 ADRP            X8, #aPlayermgr@PAGE ; "PlayerMgr"
+008A9F48                 ADD             X8, X8, #aPlayermgr@PAGEOFF ; "PlayerMgr"
+008A9F4C                 ADD             X0, SP, #0x80+var_70
+008A9F50                 MOV             X1, SP
+008A9F54                 MOV             X2, XZR
+008A9F58                 STR             X8, [SP,#0x80+var_78]
+008A9F5C                 BL              _ZN2Lp3Sys23ActorMemProfilerAutoValC2ERKN4sead14SafeStringBaseIcEENS0_16ActorMemProfiler4FuncE ; Lp::Sys::ActorMemProfilerAutoVal::ActorMemProfilerAutoVal(sead::SafeStringBase<char> const&,Lp::Sys::ActorMemProfiler::Func)
+008A9F60                 ADRP            X8, #off_4157578@PAGE
+008A9F64                 LDR             X8, [X8,#off_4157578@PAGEOFF]
+008A9F68                 LDR             X8, [X8] ; Game::PlayerMgr::sInstance
 ```
 
-なので、今回の場合は 02CFDCF8 が求めているアドレスになります。
+なので、今回の場合は 04157578 が求めているアドレスになります。
 
 ### SendSignalEvent() を探そう
 
@@ -58,25 +58,24 @@ Starlight だと簡単だったけど、それだと面白くないのでいつ�
 以下のような命令群が、`SendSignalEvent()`です。
 
 ```
-0104C94C                 STR             X19, [SP,#var_20]!
-0104C950                 STP             X29, X30, [SP,#0x20+var_10]
-0104C954                 ADD             X29, SP, #0x20+var_10
-0104C958                 STUR            W1, [X29,#-4]
-0104C95C                 LDUR            W8, [X29,#-4]
-0104C960                 MOV             X19, X0
-0104C964                 STRB            W2, [SP,#0x20+var_17]
-0104C968                 STRB            W8, [SP,#0x20+var_18]
-0104C96C                 BL              sub_5BC880
-0104C970                 TBZ             W0, #0, loc_104C97C
-0104C974                 MOV             W0, #1
-0104C978                 B               loc_104C988
-0104C97C                 LDR             X0, [X19,#0x10]
-0104C980                 ADD             X1, SP, #0x20+var_18
-0104C984                 BL              sub_104E590
-0104C988                 LDP             X29, X30, [SP,#0x20+var_10]
-0104C98C                 AND             W0, W0, #1
-0104C990                 LDR             X19, [SP+0x20+var_20],#0x20
-0104C994                 RET
+00E797FC                 STR             X19, [SP,#-0x10+var_10]!
+00E79800                 STP             X29, X30, [SP,#0x10+var_s0]
+00E79804                 ADD             X29, SP, #0x10
+00E79808                 STUR            W1, [X29,#var_4]
+00E7980C                 LDUR            W8, [X29,#var_4]
+00E79810                 MOV             X19, X0
+00E79814                 STRB            W8, [SP,#0x10+var_8]
+00E79818                 BL              _ZNK4Game15CloneHandleBase14isOfflineSceneEv ; Game::CloneHandleBase::isOfflineScene(void)
+00E7981C                 TBZ             W0, #0, loc_E79828
+00E79820                 MOV             W0, #1
+00E79824                 B               loc_E79834
+00E79828                 LDR             X0, [X19,#0x10]
+00E7982C                 ADD             X1, SP, #0x10+var_8
+00E79830                 BL              _ZN4Game14PlayerCloneObj21pushPlayerSignalEventERKNS_22PlayerSignalCloneEventE ; Game::PlayerCloneObj::pushPlayerSignalEvent(Game::PlayerSignalCloneEvent const&)
+00E79834                 LDP             X29, X30, [SP,#0x10+var_s0]
+00E79838                 AND             W0, W0, #1
+00E7983C                 LDR             X19, [SP+0x10+var_10],#0x20
+00E79840                 RET
 ```
 
 ### getControlledPerformer() を探そう
@@ -86,40 +85,40 @@ Starlight だと簡単だったけど、それだと面白くないのでいつ�
 以下のような命令群が`getControlledPerformer()`です。
 
 ```
-010E6D2C                 STR             X19, [SP,#-0x10+var_10]!
-010E6D30                 STP             X29, X30, [SP,#0x10+var_s0]
-010E6D34                 ADD             X29, SP, #0x10
-010E6D38                 LDRSW           X8, [X0,#0x5C8]
-010E6D3C                 LDR             W9, [X0,#0x624]
-010E6D40                 CMP             W9, W8
-010E6D44                 B.LE            loc_10E6D74
-010E6D48                 LDR             X10, [X0,#0x638]
-010E6D4C                 LDR             W9, [X0,#0x630]
-010E6D50                 ADD             X11, X10, X8,LSL#3
-010E6D54                 CMP             W9, W8
-010E6D58                 CSEL            X8, X11, X10, HI
-010E6D5C                 LDR             X19, [X8]
-010E6D60                 CBZ             X19, loc_10E6D78
-010E6D64                 LDRB            W8, [X19,#0x430]
-010E6D68                 CBZ             W8, loc_10E6D78
-010E6D6C                 BL              sub_19F8C5C
-010E6D70                 B               loc_10E6D78
-010E6D74                 MOV             X19, XZR
-010E6D78                 LDP             X29, X30, [SP,#0x10+var_s0]
-010E6D7C                 MOV             X0, X19
-010E6D80                 LDR             X19, [SP+0x10+var_10],#0x20
-010E6D84                 RET
+00F07B1C                 STR             X19, [SP,#-0x10+var_10]!
+00F07B20                 STP             X29, X30, [SP,#0x10+var_s0]
+00F07B24                 ADD             X29, SP, #0x10
+00F07B28                 LDRSW           X8, [X0,#0x5C8]
+00F07B2C                 LDR             W9, [X0,#0x624]
+00F07B30                 CMP             W9, W8
+00F07B34                 B.LE            loc_F07B64
+00F07B38                 LDR             X10, [X0,#0x638]
+00F07B3C                 LDR             W9, [X0,#0x630]
+00F07B40                 ADD             X11, X10, X8,LSL#3
+00F07B44                 CMP             W9, W8
+00F07B48                 CSEL            X8, X11, X10, HI
+00F07B4C                 LDR             X19, [X8]
+00F07B50                 CBZ             X19, loc_F07B68
+00F07B54                 LDRB            W8, [X19,#0x430]
+00F07B58                 CBZ             W8, loc_F07B68
+00F07B5C                 BL              _ZN2Lp3Utl31printStackTraceIfLastWarningAddEv ; Lp::Utl::printStackTraceIfLastWarningAdd(void)
+00F07B60                 B               loc_F07B68
+00F07B64                 MOV             X19, XZR
+00F07B68                 LDP             X29, X30, [SP,#0x10+var_s0]
+00F07B6C                 MOV             X0, X19
+00F07B70                 LDR             X19, [SP+0x10+var_10],#0x20
+00F07B74                 RET
 ```
 
 ### ここまでの情報をまとめよう
 
 さて、ここまで調べたデータをまとめると以下のようになります。
 
-|                  クラス                  |  5.4.0   |
+|                  クラス                  |  3.1.0   |
 | :--------------------------------------: | :------: |
-|        Game::PlayerMgr::sInstance        | 02CFDCF8 |
-| Game::PlayerCloneHandle::sendSignalEvent | 0104C94C |
-| Game::PlayerMgr::getControlledPerformer  | 010E6D2C |
+|        Game::PlayerMgr::sInstance        | 04157578 |
+| Game::PlayerCloneHandle::sendSignalEvent | 00E797FC |
+| Game::PlayerMgr::getControlledPerformer  | 00F07B1C |
 
 ではここから`sendSignalEvent()`の命令を上書きして、ナイスを押すとスペシャルを切り替えられるようにしましょう。
 
@@ -128,25 +127,24 @@ Starlight だと簡単だったけど、それだと面白くないのでいつ�
 シグナルを送るコードは上のようになっています。
 
 ```
-0104C94C                 STR             X19, [SP,#var_20]!
-0104C950                 STP             X29, X30, [SP,#0x20+var_10]
-0104C954                 ADD             X29, SP, #0x20+var_10
-0104C958                 STUR            W1, [X29,#-4]
-0104C95C                 LDUR            W8, [X29,#-4]
-0104C960                 MOV             X19, X0
-0104C964                 STRB            W2, [SP,#0x20+var_17]
-0104C968                 STRB            W8, [SP,#0x20+var_18]
-0104C96C                 BL              sub_5BC880
-0104C970                 TBZ             W0, #0, loc_104C97C
-0104C974                 MOV             W0, #1
-0104C978                 B               loc_104C988
-0104C97C                 LDR             X0, [X19,#0x10]
-0104C980                 ADD             X1, SP, #0x20+var_18
-0104C984                 BL              sub_104E590
-0104C988                 LDP             X29, X30, [SP,#0x20+var_10]
-0104C98C                 AND             W0, W0, #1
-0104C990                 LDR             X19, [SP+0x20+var_20],#0x20
-0104C994                 RET
+00E797FC                 STR             X19, [SP,#-0x10+var_10]!
+00E79800                 STP             X29, X30, [SP,#0x10+var_s0]
+00E79804                 ADD             X29, SP, #0x10
+00E79808                 STUR            W1, [X29,#var_4]
+00E7980C                 LDUR            W8, [X29,#var_4]
+00E79810                 MOV             X19, X0
+00E79814                 STRB            W8, [SP,#0x10+var_8]
+00E79818                 BL              _ZNK4Game15CloneHandleBase14isOfflineSceneEv ; Game::CloneHandleBase::isOfflineScene(void)
+00E7981C                 TBZ             W0, #0, loc_E79828
+00E79820                 MOV             W0, #1
+00E79824                 B               loc_E79834
+00E79828                 LDR             X0, [X19,#0x10]
+00E7982C                 ADD             X1, SP, #0x10+var_8
+00E79830                 BL              _ZN4Game14PlayerCloneObj21pushPlayerSignalEventERKNS_22PlayerSignalCloneEventE ; Game::PlayerCloneObj::pushPlayerSignalEvent
+00E79834                 LDP             X29, X30, [SP,#0x10+var_s0]
+00E79838                 AND             W0, W0, #1
+00E7983C                 LDR             X19, [SP+0x10+var_10],#0x20
+00E79840                 RET
 ```
 
 ここに書かれている命令を、
@@ -168,28 +166,28 @@ Starlight だと簡単だったけど、それだと面白くないのでいつ�
 その場合は以下のようにそれぞれ一行ずつコードを省略することができます。
 
 ```
-0104C94C STP X29, X30, [SP, #-0x10]!
-0104C950 MOV X29, SP
-0104C954
-0104C958
-0104C95C
-0104C960
-0104C964
-0104C968
-0104C96C
-0104C970
-0104C974
-0104C978
-0104C97C
-0104C980
-0104C984
-0104C988
-0104C98C
-0104C990 LDP X29, X30, [SP], #0x10
-0104C994 RET
+00E797FC STP X29, X30, [SP, #-0x10]!
+00E79800 MOV X29, SP
+00E79804
+00E79808
+00E7980C
+00E79810
+00E79814
+00E79818
+00E7981C
+00E79820
+00E79824
+00E79828
+00E7982C
+00E79830
+00E79834
+00E79838
+00E7983C
+00E79840 LDP X29, X30, [SP], #0x10
+00E79844 RET
 ```
 
-### Game::PlayerMgr を呼び出そう
+### インスタンスを呼び出す
 
 インスタンスを呼び出すコードは何度か説明しているのですが今回も説明します！
 
@@ -205,54 +203,52 @@ LDR X0, [X0]
 
 これらを求めるためには「目的アドレス」と「呼び出し元アドレス」の二つが必要になります。目的アドレスは今回呼び出したい「`Game::PlayerMgr`クラスのインスタンスのアドレス」、「呼び出し元アドレス」は本来は「命令を上書きしたいアドレス」なのですが 0x1000 以下のズレはオフセットで補正できるので「`sendSignalEvent()`のアドレス」と考えても問題ありません。
 
-|   目的   |   Hook   |
-| :------: | :------: |
-| 02CFDCF8 | 0104C94C |
+| Game::PlayerMgr::sInstance | Game::PlayerCloneHandle::sendSignalEvent |
+| :------------------------: | :--------------------------------------: |
+|          04157578          |                 00E797FC                 |
 
 - XXXXX の求め方
 
-目的アドレスと Hook アドレスの下三桁を全て 0 にし、目的アドレス - Hook アドレスの計算結果が XXXXX になります。
+目的アドレスと Hook アドレスの下三桁無くした、目的アドレス - Hook アドレスの計算結果が XXXXX になります。
 
-|   目的   |   Hook   |   結果   |
-| :------: | :------: | :------: |
-| 02CFD000 | 0104C000 | 01CB1000 |
+$04157-00E79=032DE000$
 
 これは Windows 標準の電卓で簡単に計算することができます。
 
 - YYY の求め方
 
-目的アドレスの下三桁なので CF8 になります。
+目的アドレスの下三桁なので 578 になります。
 
 ここまでをまとめると、`Game::PlayerMgr`のインスタンスを呼び出すテンプレートの命令は以下のようになります。
 
 ```
-ADRP X0, #0x01CB1000
-LDR X0, [X0, #0xCF8]
+ADRP X0, #0x32DE000
+LDR X0, [X0, #0x578]
 LDR X0, [X0]
 ```
 
 あとはこのコードを最初に書いた上書き命令のテンプレートにくっつけるだけです。
 
 ```
-0104C94C STP X29, X30, [SP, #-0x10]!
-0104C950 MOV X29, SP
-0104C954 ADRP X0, #0x01CB1000
-0104C958 LDR X0, [X0, #0xCF8]
-0104C95C LDR X0, [X0]
-0104C960
-0104C964
-0104C968
-0104C96C
-0104C970
-0104C974
-0104C978
-0104C97C
-0104C980
-0104C984
-0104C988
-0104C98C
-0104C990 LDP X29, X30, [SP], #0x10
-0104C994 RET
+00E797FC STP X29, X30, [SP, #-0x10]!
+00E79800 MOV X29, SP
+00E79804 ADRP X0, #0x32DE000
+00E79808 LDR X0, [X0, #0x578]
+00E7980C LDR X0, [X0]
+00E79810
+00E79814
+00E79818
+00E7981C
+00E79820
+00E79824
+00E79828
+00E7982C
+00E79830
+00E79834
+00E79838
+00E7983C
+00E79840 LDP X29, X30, [SP], #0x10
+00E79844 RET
 ```
 
 ### getControlledPerformer() を呼び出そう
@@ -263,34 +259,34 @@ BL 命令で必要なのは「呼び出し先アドレス」と「呼び出し�
 
 | getControlledPerformer() | BL 命令をコールするアドレス |
 | :----------------------: | :-------------------------: |
-|         010E6D2C         |          0104C960           |
+|         00F07B1C         |          00E79810           |
 
 呼び出し先アドレスはすぐにわかるのですが「呼び出し元はどこか」となりますよね。
 
-このとき呼び出し元というのは BL 命令を書くアドレスそのもので、上のテンプレートを見ると 0104C9A8 までは命令が埋まっているので BL 命令を書くのであれば 0104C9AC であることがわかります。
+$00F07B1C-00E79810=0008E30C$
 
 ここも Windows 謹製の電卓を使って差を計算しましょう。
 
 ```
-0104C94C STP X29, X30, [SP, #-0x10]!
-0104C950 MOV X29, SP
-0104C954 ADRP X0, #0x01CB1000
-0104C958 LDR X0, [X0, #0xCF8]
-0104C95C LDR X0, [X0]
-0104C960 BL #0x9A3CC
-0104C964
-0104C968
-0104C96C
-0104C970
-0104C974
-0104C978
-0104C97C
-0104C980
-0104C984
-0104C988
-0104C98C
-0104C990 LDP X29, X30, [SP], #0x10
-0104C994 RET
+00E797FC STP X29, X30, [SP, #-0x10]!
+00E79800 MOV X29, SP
+00E79804 ADRP X0, #0x32DE000
+00E79808 LDR X0, [X0, #0x578]
+00E7980C LDR X0, [X0]
+00E79810 BL #0x8E30C
+00E79814
+00E79818
+00E7981C
+00E79820
+00E79824
+00E79828
+00E7982C
+00E79830
+00E79834
+00E79838
+00E7983C
+00E79840 LDP X29, X30, [SP], #0x10
+00E79844 RET
 ```
 
 さて、ここまでで`Game::PlayerMgr`を呼び出し、`getControlledPerformer()`をコールし、自分が操作しているプレイヤー情報（`Game::Player`）のインスタンスのポインタが X0 レジスタにコピーされました。
@@ -323,60 +319,32 @@ STR X1, [X0, #0x450]
 ここまでをまとめると以下のようになります。
 
 ```
-0104C94C STP X29, X30, [SP, #-0x10]!
-0104C950 MOV X29, SP
-0104C954 ADRP X0, #0x01CB1000
-0104C958 LDR X0, [X0, #0xCF8]
-0104C95C LDR X0, [X0]
-0104C960 BL #0x9A3CC
-0104C964 STR XZR, [X0, #0x450]
-0104C968 NOP
-0104C96C NOP
-0104C970 NOP
-0104C974 NOP
-0104C978 NOP
-0104C97C NOP
-0104C980 NOP
-0104C984 NOP
-0104C988 NOP
-0104C98C NOP
-0104C990 LDP X29, X30, [SP], #0x10
-0104C994 RET
+00E797FC STP X29, X30, [SP, #-0x10]!
+00E79800 MOV X29, SP
+00E79804 ADRP X0, #0x32DE000
+00E79808 LDR X0, [X0, #0x578]
+00E7980C LDR X0, [X0]
+00E79810 BL #0x8E30C
+00E79814 STR XZR, [X0, #0x450]
+00E79818 NOP
+00E7981C NOP
+00E79820 NOP
+00E79824 NOP
+00E79828 NOP
+00E7982C NOP
+00E79830 NOP
+00E79834 NOP
+00E79838 NOP
+00E7983C NOP
+00E79840 LDP X29, X30, [SP], #0x10
+00E79844 RET
 ```
 
 大量にある NOP 命令は「何もしない」という意味を持ちます。
 
 とりあえず場所だけ確保しておいて、何かやりたいことが増えたら NOP を上書きしていけば良いです。
 
-あとはこれを ARM to HEX Converter でちまちま変換していくだけです。
-
-自分はコピペで入力するのがめんどくさすぎたので自作ツールでコマンド一発で変換できるようにしました。
-
-```
-// Change Special by Signal Hook [tkgling]
-@disabled
-0104C94C FD7BBFA9
-0104C950 FD030091
-0104C954 80E500B0
-0104C958 007C46F9
-0104C95C 000040F9
-0104C960 F3680294
-0104C964 1F2802F9
-0104C968 1F2003D5
-0104C96C 1F2003D5
-0104C970 1F2003D5
-0104C974 1F2003D5
-0104C978 1F2003D5
-0104C97C 1F2003D5
-0104C980 1F2003D5
-0104C984 1F2003D5
-0104C988 1F2003D5
-0104C98C 1F2003D5
-0104C990 FD7BC1A8
-0104C994 C0035FD6
-```
-
-このコードは 5.4.0 で実施に動作し、ナイスを押すとスペシャルがマルチミサイルになります。
+これは、ナイスを押すとスペシャルがマルチミサイルになります。
 
 しかしこれでは意味がないので、ナイスを押せばどんどんスペシャルが変わるようにしましょう。
 
@@ -398,11 +366,11 @@ STR X1, [X0, #0x450]
 
 スプラトゥーンで定義されているスペシャルの数は決まっているので、それを超えるとバグの原因になるわけです。
 
-実際、上の命令をそのままコード化するとスペシャルがガチホコになった段階でクラッシュしてしまいます。
+実際、上の命令をそのままコード化すると 3.1.0 の場合はスペシャルがダイオウイカに、5.4.0 の場合はスペシャルがガチホコになった段階でクラッシュしてしまいます。
 
-<video controls src="https://video.twimg.com/ext_tw_video/1323372803291291648/pu/vid/1280x720/n2slGRbMKvBXplnS.mp4"></video>
+ダイオウイカは ID が 17 なので「読み取った値が 17 だったら 0 に戻す」という処理を書けば良いことになります。
 
-ガチホコは ID が 13 なので「読み取った値が 13 だったら 0 に戻す」という処理を書けば良いことになります。
+また、ガチホコは ID が 13 なので「読み取った値が 13 だったら 0 に戻す」という処理を書けば良いことになります。
 
 これは C++だと三項演算子を使って以下のように上手くかけるのですが、アセンブラではそういう事はできないので地道に実装しましょう。
 
@@ -419,6 +387,15 @@ X1 = X1 == 13 ? 0 : ++X1;
 ここを直すのを宿題ということで。
 
 ```
+// ダイオウイカ
+LDR X1, [X0, #0x450] // X1 = X0[0x450];
+CMP X1, #17          // NZCV = X1 >= 17 ? 1 : 0
+LDR X1, [X0, #0x450] // X1 = X0[0x450];
+ADD X2, X1, #1       // X2 = X1 + 1;
+CSEL X1, X2, XZR, LO // X1 = NZCV == 0 ? X2 : XZR
+STR X1, [X0, #0x450] // X0[0x450] = X1
+
+// ガチホコ
 LDR X1, [X0, #0x450] // X1 = X0[0x450];
 CMP X1, #13          // NZCV = X1 >= 13 ? 1 : 0
 LDR X1, [X0, #0x450] // X1 = X0[0x450];
@@ -431,40 +408,36 @@ CSEL 命令は NZCV レジスタという特別なレジスタの値をみて、
 
 じゃあその NZCV レジスタにどこで値を代入したんだって話になるんですが、それを行うのが CMP 命令です。
 
-ただし、 CMP 命令を実行するとレジスタの値が変化してしまうので再度読み込みが必要になります（ややこしい）。
+ただし、CMP 命令を実行するとレジスタの値が変化してしまうので再度読み込みが必要になります（ややこしい）
 
 要するに CMP 命令は NZCV レジスタにフラグをつけるだけの役目しかないということです。
 
-ここまでのコードをまとめると以下のような感じになります。
-
-```
-0104C94C STP X29, X30, [SP, #-0x10]!
-0104C950 MOV X29, SP
-0104C954 ADRP X0, #0x01CB1000
-0104C958 LDR X0, [X0, #0xCF8]
-0104C95C LDR X0, [X0]
-0104C960 BL #0x9A3CC
-0104C964 LDR X1, [X0, #0x450]
-0104C968 CMP X1, #13
-0104C96C LDR X1, [X0, #0x450]
-0104C970 ADD X2, X1, #1
-0104C974 CSEL X1, X2, XZR, LO
-0104C978 STR X1, [X0, #0x450]
-0104C97C NOP
-0104C980 NOP
-0104C984 NOP
-0104C988 NOP
-0104C98C NOP
-0104C990 LDP X29, X30, [SP], #0x10
-0104C994 RET
-```
-
 ## 完成したもの
 
-めんどくさいので IPSwitch 形式でコード化したのも載せておきます。
-
 ```
-// RealTime Special Changer by Signal Hook [tkgling]
+// Change Special by Signal (3.1.0) [tkgling]
+@disabled
+00E797FC FD7BBFA9 // STP X29, X30, [SP, #-0x10]!
+00E79800 FD030091 // MOV X29, SP
+00E79804 E09601D0 // ADRP X0, #0x32DE000
+00E79808 00BC42F9 // LDR X0, [X0, #0x578]
+00E7980C 000040F9 // LDR X0, [X0]
+00E79810 C3380294 // BL #0x8E30C
+00E79814 012842F9 // LDR X1, [X0, #0x450]
+00E79818 3F4400F1 // CMP X1, #17
+00E7981C 012842F9 // LDR X1, [X0, #0x450]
+00E79820 22040091 // ADD X2, X1, #1
+00E79824 41309F9A // CSEL X1, X2, XZR, LO
+00E79828 012802F9 // STR X1, [X0, #0x450]
+00E7982C 1F2003D5 // NOP
+00E79830 1F2003D5 // NOP
+00E79834 1F2003D5 // NOP
+00E79838 1F2003D5 // NOP
+00E7983C 1F2003D5 // NOP
+00E79840 FD7BC1A8 // LDP X29, X30, [SP], #0x10
+00E79844 C0035FD6 // RET
+
+// Change Special by Signal (5.4.0) [tkgling]
 @disabled
 0104C94C FD7BBFA9 // STP X29, X30, [SP, #-0x10]!
 0104C950 FD030091 // MOV X29, SP
@@ -487,35 +460,35 @@ CSEL 命令は NZCV レジスタという特別なレジスタの値をみて、
 0104C994 C0035FD6 // RET
 ```
 
+<video controls src="https://video.twimg.com/ext_tw_video/1406147127789572100/pu/vid/1280x720/xiiVJL-4wQTfq5x_.mp4"></video>
+
+3.1.0 のコード。
+
 <video controls src="https://video.twimg.com/ext_tw_video/1323408602737090560/pu/vid/1280x720/QIB619OGvnD1EWlm.mp4"></video>
+
+5.4.0 のコード。
 
 まあ動画を見てもらえばわかるのですが、色んなところがバグっています。
 
 ### 既存のバグ一覧
 
-- 発動しないスペシャルがある。
-
-  - まともに使えるのはインクアーマー、スプラッシュボムピッチャー、スーパーチャクチのみ。
-  - わかばシューターを使っている影響かもしれない。
-
-- ナイスを押すと何故か一回目にマルチミサイルになる。
-
-  - 1 足されるはずなのに 0 で初期化されている。
-  - 0x450 が間違っているか、まあなんか間違ってる。
-  - 条件分岐かもしれない。
-
-- イカスフィアとバブルは普通に発動するとクラッシュする。
-
-  - モデルデータ読み込んでないからとか多分そんなんの。
-
-- ナイスダマとウルトラハンコがない。
-
-  - ID が離れたところにあるので 1 足してるだけではでてこない。
-  - ID が何かは知らんが、やれば実装できる。
-
-- ガチホコを持つと何故かマルチミサイルを構える。
-  - わけがわからん。
+- 発動しないスペシャルがある
+  - まともに使えるのはインクアーマー、スプラッシュボムピッチャー、スーパーチャクチのみ
+  - わかばシューターを使っている影響かもしれない
+- ナイスを押すと何故か一回目にマルチミサイルになる
+  - 1 足されるはずなのに 0 で初期化されている
+  - 0x450 が間違っているか、まあなんか間違ってる
+  - 条件分岐かもしれない
+- イカスフィアとバブルは普通に発動するとクラッシュする
+  - モデルデータ読み込んでないからとか多分そんなんの
+- ナイスダマとウルトラハンコがない
+  - ID が離れたところにあるので 1 足してるだけではでてこない
+  - ID が何かは知らんが、やれば実装できる
+- ガチホコを持つと何故かマルチミサイルを構える
+  - わけがわからん
 
 みなさんへの宿題はスペシャルをちゃんと発動できるようにすることと、切り替えをちゃんとできるようにすること、ということで！
+
+ちなみに、ダイオウイカなどは Debug Menu がなくなった時になくなりました。
 
 記事は以上。
