@@ -66,7 +66,7 @@ PS3 のファームウェアは公式で配布されているのでありがた�
 
 [PS3 System software](https://www.playstation.com/en-us/support/hardware/ps3/system-software/)
 
-ダウンロードができたら、RPCS3 のメニューから「File」→「Install Firmware」を選択してインストールします。
+ダウンロードができたら、RPCS3 のメニューから「File」->「Install Firmware」を選択してインストールします。
 
 二分くらいで終わるので待ちましょう。
 

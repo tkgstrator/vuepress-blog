@@ -7,13 +7,13 @@ tags:
   - IPSwitch
 ---
 
-## IPSwitch
+## [IPSwitch](https://github.com/3096/ipswitch/releases)
 
 IPSwitch とは pchtxt（パッチテキスト）を読み込み、IPS 形式のパッチとして出力するツールのこと。
 
 これがあるだけでわざわざ自分で IPS ファイルを書かなくてもコードを実際に使える形式に変換してくれます。
 
-[IPSwitch](https://github.com/3096/ipswitch/releases)
+
 
 まずは IPSwitch をダウンロードし、switch フォルダ内に「ipswitch」というフォルダを作成し、ipswitch.nro をコピーします。
 

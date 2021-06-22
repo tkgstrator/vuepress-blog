@@ -24,7 +24,7 @@ Salmonia3 は以下の参考記事を利用させていただいて Realm にデ
 
 ## Combine + Alamofire
 
-というわけで以下の記事を参考に Combine を使ってタスクを渡してそれをクロージャで処理できるライブラリをつくることにしました。
+というわけで、以下の記事を参考に Combine を使ってタスクを渡してそれをクロージャで処理できるライブラリをつくることにしました。
 
 [Combine+Alamofire+SwiftUIでAPI実行](https://qiita.com/shira-shun/items/778e65308f26860664fc)
 

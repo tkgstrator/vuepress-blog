@@ -82,21 +82,34 @@ IPSwitch でいろいろなコードを試している人はたくさんいる�
 
 ::: danger
 
-GHIDRA で ELF を分析する場合、メモリ使用量がデフォルトだと 1024MB しか使えないためオーバーフローしてしまいます。
-
-4096MB を指定すれば最後まで実行できたので、大きめに設定してください。
-
-:::
+GHIDRA はデフォルトでは 1024MB しかメモリを使ってくれないのですが、これだとメモリが足りずに解析失敗するかもしれないので最低でも 2048MB は確保したほうがいいでしょう。
 
 **ghidraRun.bat**
 
 ```
-::set MAXMEM=4096M
+:: Ghidra launch
 
-call "%~dp0support\\launch.bat" bg Ghidra "%MAXMEM%" "" ghidra.GhidraRun %\*
+@echo off
+setlocal
+
+:: Maximum heap memory size
+:: Default for Windows 32-bit is 768M and 64-bit is 1024M
+:: Raising the value too high may cause a silent failure where
+:: Ghidra fails to launch.
+:: Uncomment MAXMEM setting if non-default value is needed
+
+set MAXMEM=2048M
+
+call "%~dp0support\launch.bat" bg Ghidra "%MAXMEM%" "" ghidra.GhidraRun %*
+
+
 ```
 
-GHIDRA を起動させるためのバッチファイル内で最大メモリ使用量が指定できるので、変更しましょう。
+こんな感じでコメントを外して好きな値をいれれば OK。
+
+一応 1024MB でも解析できたけど、余裕があるならそれ以上に設定しておこう。
+
+:::
 
 ![](https://pbs.twimg.com/media/E2cSHEYUUAY7PZm?format=png)
 

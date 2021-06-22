@@ -68,8 +68,8 @@ sendSignalEvent のアドレスが変わったのでまずはそこをズラそ�
 こちらは BL 命令を使わないのでコールスタックは不要。XXXXX と YYY の値を計算したらおしまい。
 
 ```
-Game::Coop::PlayerDirector : 02D0CEE0 → 02D0C
-ADRP : 0104C94C → 0104C
+Game::Coop::PlayerDirector : 02D0CEE0 -> 02D0C
+ADRP : 0104C94C -> 0104C
 
 XXXXX = 02D0C - 0104C = 01CC0
 YYY = EE0
@@ -95,8 +95,8 @@ YYY = EE0
 イクラを取得すると取った瞬間になかったことになるコードです。
 
 ```
-Game::Coop::PlayerDirector : 02D0CEE0 → 02D0C
-ADRP : 0073C604 → 0073C
+Game::Coop::PlayerDirector : 02D0CEE0 -> 02D0C
+ADRP : 0073C604 -> 0073C
 
 XXXXX = 02D0C - 0073C = 02594
 YYY = EE0

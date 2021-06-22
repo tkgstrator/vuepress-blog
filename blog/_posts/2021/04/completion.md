@@ -121,7 +121,7 @@ public typealias OnCompletion = (_ result: Result<URL, Error>) -> Void
 
 let url: URL
 let callbackURLScheme: String?
-let completionHandler: CompletionHandler　// <- CompletionHandler
+let completionHandler: CompletionHandler // <- CompletionHandler
 ```
 
 `typealias`というのは C++でいうところの`define`のようなものだと勝手に思っている。つまり、上のコードは以下のコードと等価ということになる。

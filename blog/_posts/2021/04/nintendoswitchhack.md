@@ -71,11 +71,9 @@ RCM に入るためには特定のピンをショートさせる必要がある�
 </ul>
 </div>
 
-### hekate
+### [hekate](https://github.com/CTCaer/hekate/releases)
 
 RCM から起動できるユーティリティツールのこと。
-
-[hekate](https://github.com/CTCaer/hekate/releases)
 
 - CFW の起動
 - NAND のバックアップ
@@ -107,19 +105,15 @@ NAND のバックアップを取っていないと、Nintendo Switch はブリ�
 
 CFW としては Atmosphere や SXOS などが有名ですね。
 
-### Atmosphere
+### [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases)
 
 Github で公開されているオープンソースの CFW のこと。
 
 更新がものすごく速いことで有名です。
 
-[Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases)
-
-### DeepSea
+### [DeepSea](https://github.com/Team-Neptune/DeepSea/releases)
 
 Micro SD に展開するだけで CFW（Atmosphere）が起動する環境が整えられるパッケージのこと。
-
-[DeepSea](https://github.com/Team-Neptune/DeepSea/releases)
 
 ### Stock
 

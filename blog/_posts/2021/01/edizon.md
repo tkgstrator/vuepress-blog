@@ -6,9 +6,9 @@ tags:
   - CFW
 ---
 
-## Edizon
+## [Edizon](https://github.com/WerWolv/EdiZon/releases)
 
-[Edizon](https://github.com/WerWolv/EdiZon)とはセーブデータマネージャであり、更に付随機能としてチートコードを有効化することもできる便利なアプリです。
+Edizon とはセーブデータマネージャであり、更に付随機能としてチートコードを有効化することもできる便利なアプリです。
 
 なんで今までそんな便利なアプリの解説記事を書かなかったかというと、スプラトゥーンに限って言えば Edizon よりも IPSwitch を使う機会の方が圧倒的に多いためです。
 
