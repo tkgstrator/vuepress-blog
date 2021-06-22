@@ -133,8 +133,6 @@ A676A682
 
 最新のバージョンのアドレスははナイショですが、GHIDRA でうまいこと検索したらすぐに見つかります。
 
-5.3.0 までのアドレスは以下のレポジトリから確認できるので、その辺を調べてみてください。
-
-[StarlightSeedHack](https://github.com/tkgstrator/StarlightSeedHack)
+5.3.0 までのアドレスはこの[ReedMe](https://github.com/tkgstrator/StarlightSeedHack/blob/master/ReadMe.md#apply-for-ipswitch)から確認できるので、その辺を調べてみてください。
 
 バグかはしりませんが、このパッチを当てた状態でイカッチャで三つ目のステージを遊ぶと必ずクラッシュします。なぜなのかはわかりません。

@@ -19,7 +19,7 @@
 
 - 対応 OS: iOS14.0 - iOS14.4.2
 
-## [LanPlay](https://discord.gg/vUVBJFAKvZ)
+## [LanPlay-JP](https://discord.gg/vUVBJFAKvZ)
 
 [@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play/releases) の国内向けサーバを設立し運営中。
 

@@ -25,7 +25,7 @@ Tinfoil のような非公式アプリを Applet Mode 以外で起動させる�
 
 ![](https://github.com/ITotalJustice/sigpatch-updater/blob/master/images/example.jpg?raw=true)
 
-Kosmos/DeepSea/Hekate ユーザは上から二番目の「Update Sigpatches (For Hekate / Kosmos Users)」を選択しましょう。
+Kosmos/DeepSea/Hekate ユーザは上から二番目の`Update Sigpatches (For Hekate / Kosmos Users)`を選択しましょう。
 
 GitHub のレポジトリから Sigpatch をダウンロードして SD カード内に展開してくれます。
 
@@ -96,9 +96,9 @@ EmuMMC を利用している多くの方は OFW を SysNAND で動かしてオ�
 
 :::
 
-## [AIO-Switch-Updater](https://github.com/HamletDuFromage/aio-switch-updater)
+## [AIO-Switch-Updater](https://github.com/HamletDuFromage/aio-switch-updater/releases)
 
-`hekate_ipl.ini`を編集するのがめんどくさい方向けに AIO-Switch-Updater というものがリリースされています。
+hekate_ipl.ini を編集するのがめんどくさい方向けに AIO-Switch-Updater というものがリリースされています。
 
 ![](https://user-images.githubusercontent.com/61667930/107124480-7a41f400-68a4-11eb-9a01-d7b3c9f3e828.jpg)
 
@@ -118,6 +118,6 @@ EmuMMC を利用している多くの方は OFW を SysNAND で動かしてオ�
 
 いちいち Sigpatch を使うのがめんどくさいという方はそもそも NSP をダンプするときに証明書（Ticket）付きでダンプすれば良いです。
 
-ゲームのバックアップを NSP で保存するためには[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool)というツールを使うのが最も手っ取り早いです。
+ゲームのバックアップを NSP で保存するためには[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)というツールを使うのが最も手っ取り早いです。
 
 NXDumpTool の使い方に関しては[この記事](https://tkgstrator.work/posts/2021/06/10/nxdumptool.html)で解説しているのでどうぞ。
