@@ -1,7 +1,7 @@
 ---
 title: "[Hack] IPSwitchの使い方"
 date: 2019-04-01
-description: IPSwitchの使い方についての解説です
+description: IPSwitchについて簡単に解説しています
 category: Hack
 tags:
   - IPSwitch
@@ -12,8 +12,6 @@ tags:
 IPSwitch とは pchtxt（パッチテキスト）を読み込み、IPS 形式のパッチとして出力するツールのこと。
 
 これがあるだけでわざわざ自分で IPS ファイルを書かなくてもコードを実際に使える形式に変換してくれます。
-
-
 
 まずは IPSwitch をダウンロードし、switch フォルダ内に「ipswitch」というフォルダを作成し、ipswitch.nro をコピーします。
 

@@ -442,7 +442,7 @@ ARM to HEX Converter で BL 命令を変換するとナゾのオフセットが�
 0104C994 C0035FD6 // RET
 ```
 
-<video controls src="https://video.twimg.com/ext_tw_video/1397378347756253184/pu/vid/1280x720/XjsHhgwjEO_S4-uh.mp4"</video>
+<video controls src="https://video.twimg.com/ext_tw_video/1397378347756253184/pu/vid/1280x720/XjsHhgwjEO_S4-uh.mp4"></video>
 
 ナイス玉やハンコへの切り替え、センパイキャノンも撃ててますね。
 

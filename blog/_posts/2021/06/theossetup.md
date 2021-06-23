@@ -102,7 +102,7 @@ rm -r master.zip $TMP
 
 `$THEOS/bin/nic.pl`と実行して以下のように表示されれば成功
 
-![](https://pbs.twimg.com/media/E4VdYyqVgAY6fgM?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4VdYyqVgAY6fgM?format=png)
 
 ## THEOS JAILED のセットアップ
 
@@ -120,7 +120,7 @@ cd theos-jailed
 
 `$THEOS/bin/nic.pl`と実行して以下のように表示されれば成功
 
-![](https://pbs.twimg.com/media/E4Vh6K_UUAAH3Kg?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4Vh6K_UUAAH3Kg?format=png)
 
 さっきまでの結果と比べて`[8.] iphone/jailed`という項目が追加されているのがわかります。
 
