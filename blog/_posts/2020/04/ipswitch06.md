@@ -48,7 +48,7 @@ Hook というのが自分でもよくわかってないのですが、本来の
 
 ### Hook したい関数のアドレス
 
-ナイスを押したときに呼び出される関数は`Game::PlayerCloneHandle::sendSignalEvent()`で、これはアドレス 0104C94C にかかれています。
+ナイスを押したときに呼び出される関数は`Game::PlayerCloneHandle::sendSignalEvent()`で、これはアドレス 00E797FC にかかれています。
 
 見ればわかるのですが、`sendSignalEvent()`自体は命令長が 17 の関数です。
 
@@ -70,9 +70,9 @@ Hook というのが自分でもよくわかってないのですが、本来の
 005A615C                 STR             XZR, [X8] ; Cmn::Singleton<Game::Coop::PlayerDirector>::GetInstance_(void)::sInstance
 ```
 
-調べると、こんな感じで 0073EC5C 付近に見つかり、02D0CEE0 からインスタンスのアドレスを読み込んでいることがわかります。
+調べると、こんな感じで 005A615C 付近に見つかり、04165DB8 からインスタンスのアドレスを読み込んでいることがわかります。
 
-よって、インスタンスのアドレスは 02D0CEE0 ということがわかりました。
+よって、インスタンスのアドレスは 04165DB8 ということがわかりました。
 
 ### インスタンスの構造体
 
@@ -287,13 +287,13 @@ C0035FD6
 ```
 // Get 9999 Power Eggs by Signal (3.1.0) [tkgling]
 @disabled
-0104C94C 60970190 // ADRP X0, #0x32EC000
-0104C950 00DC46F9 // LDR X0, [X0, #0xDB8]
-0104C954 000040F9 // LDR X0, [X0]
-0104C958 01B841F9 // LDR X1, [X0, #0x370]
-0104C95C E1E184D2 // MOV X1, #0x270F
-0104C960 01B801F9 // STR X1, [X0, #0x370]
-0104C964 C0035FD6 // RET
+00E797FC 60970190 // ADRP X0, #0x32EC000
+00E79800 00DC46F9 // LDR X0, [X0, #0xDB8]
+00E79804 000040F9 // LDR X0, [X0]
+00E79808 01B841F9 // LDR X1, [X0, #0x370]
+00E7980C E1E184D2 // MOV X1, #0x270F
+00E79810 01B801F9 // STR X1, [X0, #0x370]
+00E79814 C0035FD6 // RET
 
 // Get 9999 Power Eggs by Signal (5.4.0) [tkgling]
 @disabled
