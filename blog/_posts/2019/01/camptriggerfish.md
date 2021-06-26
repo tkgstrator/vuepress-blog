@@ -55,7 +55,7 @@ tags:
 
 また、左ルートはじわじわと押していくルートなのでホコ持ちはあんまりガンガン攻め込まないほうがいいこともある。金網上の仲間のアシストや相手のインクレール方向を撃って応援が来れないようにするといった動きを心掛けたい。
 
-<video controls src="https://video.twimg.com/ext_tw_video/1006530846852026369/pu/vid/1280x720/RTnMwnlQxr4pFwT6.mp4"</video>
+<video controls src="https://video.twimg.com/ext_tw_video/1006530846852026369/pu/vid/1280x720/RTnMwnlQxr4pFwT6.mp4"></video>
 
 中央ルート突破の例です。
 
@@ -81,6 +81,6 @@ tags:
 
 ## 小技
 
-<video controls src="https://video.twimg.com/ext_tw_video/1120000988645957632/pu/vid/1280x720/NjuYKppgynwohIev.mp4"</video>
+<video controls src="https://video.twimg.com/ext_tw_video/1120000988645957632/pu/vid/1280x720/NjuYKppgynwohIev.mp4"></video>
 
 真下でジャンプすればとれる。

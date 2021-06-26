@@ -235,6 +235,6 @@ Windows における exe ファイルというと伝わりやすいかもしれ�
 
 ### ELF
 
-NSO を[nx2elf](https://github.com/tkgstrator/nx2elf/releases)で変換したファイルのことで、アセンブラで書かれている中間ファイル。
+NSO を[nx2elf](https://github.com/tkgstrator/nx2elf/releases)で復号したファイルのことで、アセンブラで書かれている中間ファイル。
 
 NSO よりも解析しやすいが、NSO を直接読み込める NSO Loader などもあるので好きな方を使えばいいと思います。

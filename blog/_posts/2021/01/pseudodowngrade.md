@@ -162,7 +162,19 @@ romfs.bin に辿り着いたら右クリックから「ファイル分割」を�
 
 すると、以下の六つのファイルができているはずです。
 
-`romfs.bin/00 romfs.bin/01 exefs/main exefs/main.npdm exefs/rtld exefs/sdk`
+```
+romfs.bin/00
+
+romfs.bin/01
+
+exefs/main
+
+exefs/main.npdm
+
+exefs/rtld
+
+exefs/sdk
+```
 
 ### ハッシュチェック
 

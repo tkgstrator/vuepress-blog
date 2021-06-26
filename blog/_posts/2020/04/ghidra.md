@@ -78,9 +78,7 @@ Ghidra の再起動が要求されると思うので、再起動しましょう�
 
 この作業は ELF を分析する場合は不要です。
 
-わざわざ旧バージョンを使う必要もありませんし、オフセットなどがあったりするのでぶっちゃけ ELF に復号して分析する方が楽です。
-
-復号は[nx2elf](https://github.com/tkgstrator/nx2elf)ですることができます。
+復号は[nx2elf](https://github.com/tkgstrator/nx2elf/releases)ですることができます。
 
 :::
 
@@ -175,6 +173,17 @@ Tutorial = Fld_Tutorial00_Ttr
 Old Starfish Mainstage = Fld_Venue00_Vss
 Shifty Station = Fld_Deli_Octa51_Vss
 ```
+
+## オフセット
+
+逆アセンブラの種類と解析するファイルの種類によって ELF を IDA で解析したときに比べてアドレスがズレるのでその値を覚えて置かなければいけません。
+
+| 逆アセンブラ  |  オフセット   |
+| :-----------: | :-----------: |
+| GHIDRA (NSO)  | +0x7100000000 |
+| GHIDRA (ELF)  | +0x0000100000 |
+| IDA Pro (NSO) | +0x7100000000 |
+| IDA Pro (ELF) |       0       |
 
 ## まとめ
 
