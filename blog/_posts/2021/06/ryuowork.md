@@ -53,7 +53,7 @@ AI レベル的にはアマチュア高段クラスであるというのはま�
 
 逆に得意戦法に「空中戦法」がある月夜見坂さんは全然横歩取り指してきません。
 
-![](https://pbs.twimg.com/media/E4vH8zrVIAAv_08?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vH8zrVIAAv_08?format=png)
 
 銀ちゃんは横歩取りを目指せばほぼ確実にこの四パターンのどれかになります。
 
@@ -67,13 +67,13 @@ AI レベル的にはアマチュア高段クラスであるというのはま�
 
 ### 7 二金の場合
 
-![](https://pbs.twimg.com/media/E4vF-5_VEAEdpg_?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vF-5_VEAEdpg_?format=png)
 
 7 二金は 8 三角打を防いだ手なのですが、正直疑問手です。というのも、8 三角打を防ぐためだけに壁形になってしまい、玉を固く囲うことができないからです。
 
 実際、この 7 八金のせいで銀ちゃんはあっという間に負けてしまいます。
 
-![](https://pbs.twimg.com/media/E4vO2y6VoAguJI4?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vO2y6VoAguJI4?format=png)
 
 まず、2 四歩打とします。これを放置すれば 2 三歩成、同金となり飛車打ちのスキが生じるので、2 二歩打と受けたり 2 七飛打とする手が有力視されています。
 
@@ -81,11 +81,11 @@ AI レベル的にはアマチュア高段クラスであるというのはま�
 
 そしてほぼ 100%、2 七飛打と指してきます。その手を指された場合は 2 八飛打と受けます。
 
-![](https://pbs.twimg.com/media/E4vO2y6VgAMwxDT?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vO2y6VgAMwxDT?format=png)
 
 ここが AI の読み抜けで、定跡に従えば同飛成とするところなのですが、何故か 4 七飛成と指してきます。
 
-![](https://pbs.twimg.com/media/E4vO2zIVkAM7y1N?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vO2zIVkAM7y1N?format=png)
 
 この 2 三歩成が強烈だと思うのですが、AI はこの手は「2 七歩打」「1 五角打」で受かると錯覚しています。
 
@@ -95,11 +95,11 @@ AI レベル的にはアマチュア高段クラスであるというのはま�
 
 以下、2 七歩打、3 二と、2 八歩成、1 五角と進みます。
 
-![](https://pbs.twimg.com/media/E4vO2zjVkAcdnvw?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vO2zjVkAcdnvw?format=png)
 
 そして 1 五角を無視して 3 九とと指してきます。しかし、これは詰めろではない上に実はこの 1 五角は次の 3 三角成からの九手詰みです。
 
-![](https://pbs.twimg.com/media/E4vSEpVVUAghd2s?format=jpg&name=900x900)
+![](https://pbs.twimg.com/media/E4vSEpVVUAghd2s?format=png)
 
 この手順が決まればわずか 44 手で勝てます。
 
@@ -269,7 +269,7 @@ AI レベル的にはアマチュア高段クラスであるというのはま�
 
 4 五角戦法も正しく指せば先手が勝つと言われているのですが、AI は読み抜けがあるため逆に正しく指せば必ずプレイヤー側が勝てます。
 
-![](https://pbs.twimg.com/media/E4vb_hiVkAUQ2TV?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vb_hiVkAUQ2TV?format=png)
 
 基本は定跡通りに進むのですが、この 7 四香打は対応を誤るとすぐに負けてしまいます。
 
@@ -277,11 +277,11 @@ AI レベル的にはアマチュア高段クラスであるというのはま�
 
 以下、5 四金、同角、6 三桂成、7 八香成、同銀と進みます。
 
-![](https://pbs.twimg.com/media/E4vb_iLUYAc2I5O?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vb_iLUYAc2I5O?format=png)
 
 中盤に 9 一飛打という手が飛んでくるのですが、これはおとなしく 7 九歩打と底歩で受けます。こちらの玉は居玉ですがこの底歩がなかなかしっかりしていてすぐには寄りません。
 
-![](https://pbs.twimg.com/media/E4vb_ifVgAE7Vrn?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4vb_ifVgAE7Vrn?format=png)
 
 ここまでずっと銀ちゃんがリードを取っているのですが、ここで大悪手がとんできます。
 
