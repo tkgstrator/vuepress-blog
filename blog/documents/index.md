@@ -4,7 +4,7 @@
 
 ぜひ有効活用してください。
 
-## [Nintendo Switch](/posts/2021/04/28/nintendoswitch.html)
+## [Nintendo Switch](/nintendoswitch/)
 
 Nintendo Switch の改造に関するまとめページです。
 
