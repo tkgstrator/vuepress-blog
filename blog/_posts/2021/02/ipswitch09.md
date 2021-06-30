@@ -48,9 +48,9 @@ X1 レジスタはそれぞれのブキのスペシャルウエポン発動に�
 0104C94C 60970190 // ADRP X0, #0x32EC000
 0104C950 00DC46F9 // LDR X0, [X0, #0xDB8]
 0104C954 000040F9 // LDR X0, [X0]         // X0 = PlayerDirector
-0104C958 01B841F9 // LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
+0104C958 01B841F9 // LDR X1, [X0, #0x370] // X1 = mRoundBankedPowerIkuraNum
 0104C95C E1E184D2 // MOV X1, #0x270F      // X1 = 0x270F
-0104C960 01B801F9 // STR X1, [X0, #0x370] // mTotalBankedPowerIkuraNum = X1
+0104C960 01B801F9 // STR X1, [X0, #0x370] // mRoundBankedPowerIkuraNum = X1
 0104C964 C0035FD6 // RET
 ```
 

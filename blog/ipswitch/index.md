@@ -6,7 +6,7 @@
 
 - 当該のスプラトゥーン 2 の実行ファイル
   - 取得方法は記事が長くなるので割愛します
-- [IDA Pro](https://www.hex-rays.com/ida-pro/)または[GHIDRA](https://ghidra-sre.org/)などの ARM64v8 の逆アセンブラツール
+- [IDA Pro](https://www.hex-rays.com/ida-pro/)または[GHIDRA](https://github.com/NationalSecurityAgency/ghidra/releases)などの ARM64v8 の逆アセンブラツール
 
   - ARM64v8 のバイナリをそのまま読み込むためのローダ
     - GHIDRA 用: [Ghidra-Switch-Loader](https://github.com/Adubbz/Ghidra-Switch-Loader/releases)

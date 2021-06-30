@@ -67,7 +67,7 @@ categories: Splatoon2
 
 ルビンの壺を知らない人のために簡単に説明すると、見方によっていろいろな解釈ができる絵のことですね。
 
-> ルビンの壺（ルビンのつぼ、Rubin's vase）とは、1915年頃にデンマークの心理学者エドガー・ルビンが考案した多義図形。ルビンの顔（ルビンのかお、Rubin face）、図地の壺（ずちのつぼ、figure-ground vase）、ルビンの盃・ルビンの杯（ルビンのさかずき、Rubin's goblet-profile）[1]とも。
+> ルビンの壺（ルビンのつぼ、Rubin's vase）とは、1915年頃にデンマークの心理学者エドガー・ルビンが考案した多義図形。ルビンの顔（ルビンのかお、Rubin face）、図地の壺（ずちのつぼ、figure-ground vase）、ルビンの盃・ルビンの杯（ルビンのさかずき、Rubin's goblet-profile）とも。
 >
 > https://ja.wikipedia.org/wiki/ルビンの壺
 

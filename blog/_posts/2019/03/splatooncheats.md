@@ -109,7 +109,7 @@ BAN の種類はいろいろありますが、LFS や ExeFS を有効化した�
 
 いい仕事をしたね（Nice job Nintendo）の一文は明らかに任天堂に対する皮肉でしょうね。
 
-@[shadowninja108](https://twitter.com/shadowninja108)氏はスプラの裏界隈では[HACGUI]https://github.com/shadowninja108/HACGUI)などのリリースでかなり有名な人です。
+@[shadowninja108](https://twitter.com/shadowninja108)氏はスプラの裏界隈では[HACGUI](https://github.com/shadowninja108/HACGUI/releases)などのリリースでかなり有名な人です。
 
 氏が言うのですからこの情報はある程度信頼できるものと言って良いでしょう。
 
