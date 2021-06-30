@@ -15,7 +15,7 @@ tags:
 
 当ブログでは完成するまで特に取り上げていなかったのですが、どうやらこれがおおよそ完成したようなので記事にしようと思います。
 
-[@SciresM](https://twitter.com/SciresM)氏といえばスイッチの CFW の親分である Atmosphere の開発者なのですが、気になるのは Atmosphere と Mesosphere は何が違うのかということですね。
+SciresM 氏といえばスイッチの CFW の親分である Atmosphere の開発者なのですが、気になるのは Atmosphere と Mesosphere は何が違うのかということですね。
 
 ### Mesosphere の仕組み
 

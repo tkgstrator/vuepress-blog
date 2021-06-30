@@ -62,7 +62,7 @@ title.keys に関しては用意した NSP が EU 版であれば EU 版のタ�
 
 あとはこの title.keys を.switch というフォルダの中にコピーします。
 
-HACGUI を一度でも使った事があれば既に title.keys が.switch フォルダ内に作られているのでこの作業は不要だったりします。
+[HACGUI](https://github.com/shadowninja108/HACGUI/releases)を一度でも使った事があれば既に title.keys が.switch フォルダ内に作られているのでこの作業は不要だったりします。
 
 `C:\Users\<USER NAME>\.switch`
 
@@ -73,8 +73,8 @@ HACGUI を一度でも使った事があれば既に title.keys が.switch フ�
 ### 追加で必要なもの
 
 1. [7zip](https://sevenzip.osdn.jp/)
-2. [LibHac(hacotoolnet)](https://github.com/Thealexbarney/LibHac/releases)
-3. [hactool](https://github.com/SciresM/hactool/releases)
+2. [hactool](https://github.com/SciresM/hactool/releases)
+3. [LibHac(hacotoolnet)](https://github.com/Thealexbarney/LibHac/releases)
 
 NSP を展開するのに hactool を使うので、既に NCA として持っている場合は hactool は不要です。
 
@@ -124,7 +124,7 @@ hactool -t nca --exefsdir=exefs 310.nca
 hactoolnet 310.nca --basenca 100.nca --romfs romfs.bin
 ```
 
-次に、上のコマンドを貼り付けたバッチファイルを作成します（面倒であれば直接コマンドから叩いても構いません）
+次に、上のコマンドをコマンドを入力します。
 
 先程 NCA のリネームをしたのはここでダラダラと長いコマンドを打つのがわかりにくかったからです。
 

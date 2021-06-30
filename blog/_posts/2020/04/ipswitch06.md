@@ -192,7 +192,7 @@ LDR X0, [X0]
 実はデータ取得に必要なコードはたった一種類なので、使い方さえ覚えてしまえば非常に簡単です。
 
 ```
-LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
+LDR X1, [X0, #0x370] // X1 = mRoundBankedPowerIkuraNum
 ```
 
 それがこの LDR 命令で、これは X0 レジスタ（今回の場合は`PlayerDirecotr`のポインタ）から 370 ズラしたところにあるデータを X1 レジスタにコピーするという命令です。
@@ -226,7 +226,7 @@ LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
 Windows のプログラマモードの電卓で 9999 を 16 進数に直すと 270F であることがわかります。
 
 ```
-LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
+LDR X1, [X0, #0x370] // X1 = mRoundBankedPowerIkuraNum
 MOV X1, #0x270F      // X1 = 0x270F
 ```
 
@@ -241,7 +241,7 @@ MOV X1, #0x270F      // X1 = 0x270F
 データを戻す命令は STR 命令で、使い方は LDR 命令と全く同じです。
 
 ```
-STR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
+STR X1, [X0, #0x370] // X1 = mRoundBankedPowerIkuraNum
 ```
 
 ## コード化する
@@ -254,9 +254,9 @@ STR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
 ADRP X0, #0x32EC000
 LDR X0, [X0, #0xDB8]
 LDR X0, [X0]
-LDR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
+LDR X1, [X0, #0x370] // X1 = mRoundBankedPowerIkuraNum
 MOV X1, #0x270F      // X1 = 0x270F
-STR X1, [X0, #0x370] // X1 = mTotalBankedPowerIkuraNum
+STR X1, [X0, #0x370] // X1 = mRoundBankedPowerIkuraNum
 RET
 ```
 

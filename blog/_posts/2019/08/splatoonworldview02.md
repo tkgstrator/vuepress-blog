@@ -7,7 +7,7 @@ categories: Splatoon2
 
 ## 歴史
 
-[第一回](https://tkgstrator.work/posts/2019/01/07/splatoonworldview.html)では過去から現在までの流れを説明しましたが、今回はインクリングたちの生活や文化について説明しようと思います。
+[第一回](https://tkgstrator.work/posts/2019/01/07/splatoonworldview01.html)では過去から現在までの流れを説明しましたが、今回はインクリングたちの生活や文化について説明しようと思います。
 
 ## 生活
 

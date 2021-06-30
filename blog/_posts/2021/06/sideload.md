@@ -99,23 +99,23 @@ Clutch が進化したやつだけど、最終コミットが 8 年前なので�
 
 ## CrackerXI+の使い方
 
-![](https://pbs.twimg.com/media/E4jlD6kUYAAf2Ao?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4jlD6kUYAAf2Ao?format=png)
 
 単に起動して署名解除をしようとすると`Enable CrackerXI hook in settings tab.`と表示されるので`Settings`から設定を更新しよう。
 
-![](https://pbs.twimg.com/media/E4jlD6iVUAcsq0U?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4jlD6iVUAcsq0U?format=png)
 
 ここで`CrackerXI hook`を有効化します。
 
-![](https://pbs.twimg.com/media/E4jlD6jVgAEVGPZ?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4jlD6jVgAEVGPZ?format=png)
 
 有効化しているとちゃんと動作します。このとき`YES, Full IPA`を選択します。
 
-![](https://pbs.twimg.com/media/E4jnQoNVUAYveLZ?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4jnQoNVUAYveLZ?format=png)
 
 アプリを選択すると一度画面が切り替わったあとで再び`CrackerXI+`がひらきます。
 
-![](https://pbs.twimg.com/media/E4jnQoOUUAMS0jH?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4jnQoOUUAMS0jH?format=png)
 
 こんな表示がでたらダンプは成功です。
 
@@ -125,11 +125,11 @@ Clutch が進化したやつだけど、最終コミットが 8 年前なので�
 
 これは`Filza File Manager`の`WebDAV Server`の機能を使えば簡単です。
 
-![](https://pbs.twimg.com/media/E4jl4CPVoAIisY6?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4jl4CPVoAIisY6?format=png)
 
 `Filze File Maanger`をひらいたら下にある歯車マークを押します。
 
-![](https://pbs.twimg.com/media/E4jl4CQUUAEhqJh?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4jl4CQUUAEhqJh?format=png)
 
 そこで`Enable WebDAV Server`を有効化します。更に下を見ると
 
@@ -145,17 +145,17 @@ Listening at https://192.168.1.13:11111
 
 :::
 
-![](https://pbs.twimg.com/media/E4jrWivVIAIlZa2?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E4jrWivVIAIlZa2?format=png)
 
 URL にアクセスするとこのようにデバイスの内部データにアクセスできます。
 
 `/var/mobile/Documents/CrackerXI`に移動するとダンプした IPA があることがわかります。
 
-![](https://pbs.twimg.com/media/E4jrbIAVUAUcf7o?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E4jrbIAVUAUcf7o?format=png)
 
 ダウンロードしたいクリックすると以下のような画面に変わります。
 
-![](https://pbs.twimg.com/media/E4jrdZdVEAAwYCN?format=jpg&name=4096x4096)
+![](https://pbs.twimg.com/media/E4jrdZdVEAAwYCN?format=png)
 
 ここで`Download`を押せば IPA ファイルがデバイスからパソコンにコピーされます。
 
@@ -228,7 +228,7 @@ dpkg -x XXXXXXXX.deb YYYYYYYY
 
 :::
 
-![](https://pbs.twimg.com/media/E4j0IqFVgAA1vHZ?format=jpg&name=large)
+![](https://pbs.twimg.com/media/E4j0IqFVgAA1vHZ?format=png)
 
 すると目的の`dylib`が手に入ります。
 
@@ -245,15 +245,15 @@ dpkg -x XXXXXXXX.deb YYYYYYYY
 
 上の二つがとりあえず見つかったのですが、自分は macOS が Catalina でしたので必然的に`iPAPatcher`を使うことになりました。
 
-![](https://pbs.twimg.com/media/E4j1RlSVoAMw--H?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4j1RlSVoAMw--H?format=png)
 
 まったく難しい作業はなく、ダンプした署名解除済みの`IPA`と先程展開した`dylib`を選択するだけです
 
-![](https://pbs.twimg.com/media/E4j1cwjVcAce7F5?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4j1cwjVcAce7F5?format=png)
 
 選択したら`Patching.`を選択します。
 
-![](https://pbs.twimg.com/media/E4j1elwVEAEZKUW?format=jpg&name=medium)
+![](https://pbs.twimg.com/media/E4j1elwVEAEZKUW?format=png)
 
 IPA のサイズにもよるのですが、二分ほどで終わると思います。
 
