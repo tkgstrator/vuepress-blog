@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.8.2",
-    "@vuepress/theme-blog": "^1.6.0",
+    "@vuepress/theme-blog": "^2.1.0",
     "markdown-it-video": "^0.6.3",
     "vuepress": "^1.8.2",
     "vuepress-plugin-google-adsense": "^0.2.1",
@@ -24,7 +24,7 @@
   "dependencies": {
     "@centerforopenscience/markdown-it-video": "^1.0.0",
     "@vssue/api-github-v4": "^1.4.7",
-    "@vssue/vuepress-plugin-vssue": "^0.10.0",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "latest": "^0.2.0",
     "vuepress-plugin-google-adsense": "^0.2.1",
     "vuepress-plugin-mathjax": "^1.2.8",
