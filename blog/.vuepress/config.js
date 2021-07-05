@@ -159,6 +159,13 @@ module.exports = {
 
   plugins: [
     [
+      "social-share",
+      {
+        networks: ["twitter"],
+        twitterUser: "tkgling",
+      },
+    ],
+    [
       "vuepress-plugin-google-adsense",
       {
         adClient: "ca-pub-7107468397673752", // replace it with your adClient
@@ -181,8 +188,6 @@ module.exports = {
         ga: "UA-111335437-2",
       },
     ],
-    [
-      "vuepress-plugin-mathjax",
-    ],
+    ["vuepress-plugin-mathjax"],
   ],
 };
