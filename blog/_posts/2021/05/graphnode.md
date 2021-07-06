@@ -27,7 +27,7 @@ tags:
 
 このグラフノードは BYAML という XML を暗号化したフォーマットで与えられており、普通のエディタでは中身を見ることができない。
 
-ただ、そこはスーパーハカーが[復号用のプログラム](https://github.com/exelix11/TheFourthDimension)を開発してくれている。この中にある`The4Dimension.exe`を使って`BYAML, BYML, BPRM`などのデータを復号することができる。
+ただ、そこはスーパーハカーが[復号用のプログラム](https://github.com/exelix11/TheFourthDimension)を開発してくれている。この中にある`The4Dimension.exe`を使って`BYAML、BYML、BPRM`などのデータを復号することができる。
 
 ::: tip BYAML などについて
 

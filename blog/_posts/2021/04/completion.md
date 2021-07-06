@@ -136,7 +136,7 @@ let completionHandler = ASWebAuthenticationSession.CompletionHandler
 
 ここまでの話は単にパスコードを入力するだけの機能を考えた場合の話である。実際にはもっと複雑なリクエストが要求される。
 
-例えば[PasscodeLock](https://github.com/yankodimitrov/SwiftPasscodeLock)では`Enter`, `Set`, `Change`, `Remove`の四つのモードがサポートされている。
+例えば[PasscodeLock](https://github.com/yankodimitrov/SwiftPasscodeLock)では`Enter`、`Set`、`Change`、`Remove`の四つのモードがサポートされている。
 
 これらはそれぞれ
 
@@ -283,7 +283,7 @@ struct CircleButtonStyle: ButtonStyle {
 
 なので、パスコードが一致しなかった場合にはパスコードチェックプロセスは正しく動作したが、パスコードが間違っていたという意味で`success(false)`を返す方が良いのではないかと考えた。
 
-で、めちゃくちゃ話がとぶのだがこのコードを書けるようになるまでに随分苦労した。このような処理が必要になる場面は多々あると思うのだが、"SwiftUI completion", "SwiftUI closure"などと探しても全く参考文献が見つからないのだ。
+で、めちゃくちゃ話がとぶのだがこのコードを書けるようになるまでに随分苦労した。このような処理が必要になる場面は多々あると思うのだが、"SwiftUI completion"、"SwiftUI closure"などと探しても全く参考文献が見つからないのだ。
 
 まじでこれどうやって書くんだと悩んでいたとき、ふと BetterSafariView のコードを見ていてひらめいたのである。
 

@@ -31,7 +31,7 @@ extension Optional where Wrapped == Double {
 }
 ```
 
-本当は「数値であれば〜」という処理にしたかったので、
+本当は「数値であれば～」という処理にしたかったので、
 
 ```swift
 extension Optional where Wrapped == Numeric {

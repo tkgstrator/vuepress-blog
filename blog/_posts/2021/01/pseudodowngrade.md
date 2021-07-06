@@ -72,17 +72,17 @@ title.keys に関しては用意した NSP が EU 版であれば EU 版のタ�
 
 ### 追加で必要なもの
 
-1. [7zip](https://sevenzip.osdn.jp/)
-2. [hactool](https://github.com/SciresM/hactool/releases)
-3. [LibHac(hacotoolnet)](https://github.com/Thealexbarney/LibHac/releases)
+1. [hactool](https://github.com/SciresM/hactool/releases)
+2. [hacotoolnet](https://github.com/Thealexbarney/LibHac/releases)
+3. [7-Zip](https://sevenzip.osdn.jp/)
 
 NSP を展開するのに hactool を使うので、既に NCA として持っている場合は hactool は不要です。
 
-LibHac は NCA からバイナリファイルを作るために使い、7zip はそのバイナリファイルを FAT32 で扱えるように分割するために使います。
+hacotoolnet は NCA からバイナリファイルを作るために使い、7-Zip はそのバイナリファイルを FAT32 で扱えるように分割するために使います。
 
 ![](https://pbs.twimg.com/media/Eq_N-haVkAAxszt?format=png)
 
-とりあえず必要な 7zip をインストールした上で、NSP のファイル名を 310.nsp と 100.nsp に変えておきましょう（わかりやすくするためで、必須ではないです）
+とりあえず必要な 7-Zip をインストールした上で、NSP のファイル名を 310.nsp と 100.nsp に変えておきましょう（わかりやすくするためで、必須ではないです）
 
 ![](https://pbs.twimg.com/media/Eq_OMZTUwAAsGRI?format=png)
 
@@ -90,13 +90,11 @@ ZIP を解凍して実行ファイルを展開できたら、いよいよダウ�
 
 ### NSP を NCA に展開しよう
 
-以下のコマンドで NSP から NCA を展開できます。
+hactool を使って NSP から NCA を抽出するためのコマンドを載せておきますので、これを適当な名前のバッチファイルとして保存してください。
 
 ```
 hactool -t pfs0 --pfs0dir=%~n1 %1
 ```
-
-そこで、hactool を使って NSP から NCA を抽出するためのコマンドを載せておきますので、これを適当な名前のバッチファイルとして保存してください。
 
 あとは、このバッチファイルに NSP をドラッグアンドドロップすれば NCA として抽出してくれます。
 
@@ -136,9 +134,9 @@ hactoolnet 310.nca --basenca 100.nca --romfs romfs.bin
 
 なのでこの romfs.bin を FAT32 で扱えるように分割しなきゃいけないわけです。
 
-### 7zip で分割する
+### 7-Zip で分割する
 
-7zip を起動して romfs.bin をひらきます。
+7-Zip を起動して romfs.bin をひらきます。
 
 ![](https://pbs.twimg.com/media/Eq_cOrqU0AEWvk-?format=png)
 
@@ -220,7 +218,7 @@ SHA256: 1AD3BA3CB35303A7C713231F2E49346EF40C42DEB8A7526B6305A0B6358282FD
 
 ### ファイルのコピー
 
-ここまでできたらあとはダウングレード用のファイルを`sdcm:/atmosphere/contents/titleid`にコピーするだけです。
+ここまでできたらあとはダウングレード用のファイルを`sdmc:/atmosphere/contents/titleid`にコピーするだけです。
 
 titleid にはダウングレードしたいスプラトゥーンの ID を入力しましょう。
 

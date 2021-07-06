@@ -23,7 +23,7 @@ Swift では`main`スレッドと`global`スレッドの二つが存在する。
 
 `main`スレッドでは`Main Queue`のみが実行され、`global`スレッドでは`Global Queue`だけが実行される。どちらのスレッドに処理（`Queue`）を追加するかは基本的にシステムが自動的に行なってくれるのだが`DispatchQueue`を指定することで任意のスレッドに処理を渡すことができる。
 
-`Global Queue`には実行優先度があり、高い方から順に`high`, `default`, `low`, `background`となっている。
+`Global Queue`には実行優先度があり、高い方から順に`high`、`default`、`low`、`background`となっている。
 
 ただし、これらの実行優先度を直接指定することはなく、普通は Enum を使って指定する
 :w
