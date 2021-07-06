@@ -3,7 +3,7 @@
 - 名前: えいむー
 - 所属: 無職ニート
 - 言語
-  - Python, C, C++, Javascript, Swift
+  - Python、C、C++、Javascript、Swift
 - GitHub: [tkgstrator](https://github.com/tkgstrator)
 - Twitter: [tkgling](https://twitter.com/tkgling)
 

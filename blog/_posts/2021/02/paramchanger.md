@@ -8,7 +8,7 @@ category: Hack
 
 [ParamHash](https://github.com/tkgstrator/ParamHash/releases)
 
-解説すると長くなるのだが、スプラトゥーン 2 では XML のパラメータファイルが BPRM, BYML, BYAML といったファイルに暗号化されている。
+解説すると長くなるのだが、スプラトゥーン 2 では XML のパラメータファイルが BPRM、BYML、BYAML といったファイルに暗号化されている。
 
 この暗号化自体は[The4Dimension](https://github.com/exelix11/TheFourthDimension/releases)というツールを使えば復号できるのだが、パラメータ名が CRC32 でハッシュ化されているためそのままでは読むことができない。
 
@@ -44,7 +44,7 @@ w.write(f"{hash},{param[0[}\\n")
 
 ## 使い方
 
-使い方についてはリリースページを見ていただきたいのだが、The4Dimension と組み合わせることで BPRM, BYML, BYAML を XML に復号し、復号した XML のハッシュをパラメータ名に置換するところまでを自動で行ってくれる。
+使い方についてはリリースページを見ていただきたいのだが、The4Dimension と組み合わせることで BPRM、BYML、BYAML を XML に復号し、復号した XML のハッシュをパラメータ名に置換するところまでを自動で行ってくれる。
 
 また、逆変換にも対応しており、置換された XML をハッシュ化し、暗号化することにも対応した。
 

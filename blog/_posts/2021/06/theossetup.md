@@ -15,7 +15,7 @@ THEOS は脱獄 Tweak を作成するためのプラットフォームです。
 
 ## THEOS のセットアップ
 
-THEOS は Windows, iOS, macOS, Linux のプラットフォームをサポートしているようですが、とりあえず macOS を利用するのが簡単です。
+THEOS は Windows、iOS、macOS、Linux のプラットフォームをサポートしているようですが、とりあえず macOS を利用するのが簡単です。
 
 iOS でも開発はできるので macOS を持っていない方は脱獄した iOS に環境を作り、SSH 接続して PC でコードを書くことになると思います。Windows や Linux はめんどくさいので今回は割愛します。
 
@@ -25,7 +25,7 @@ iOS でも開発はできるので macOS を持っていない方は脱獄した
   - Mavericks(10.9)以上であれば問題ないようです
 - Xcode
   - とりあえず最新のものをインストールしておけばよいです
-- Objective-C, Swift への情熱
+- Objective-C、Swift への情熱
   - 最低限のプログラミングスキルは必須
 - エラーにもくじけない心
 
@@ -45,7 +45,7 @@ iOS でも開発はできるので macOS を持っていない方は脱獄した
 
 それなりに時間がかかるのでじっくり待ちます。
 
-### ldid, xz のインストール
+### ldid、xz のインストール
 
 ```bash
 brew install ldid xz

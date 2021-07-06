@@ -1,5 +1,5 @@
 ---
-title: 第一回 THEOSで脱獄アプリを作成する
+title: "[第一回] THEOSで脱獄アプリを作成する"
 date: 2021-06-21
 description: THEOSを使って簡単な脱獄Tweakを作成するためのチュートリアルです
 category: プログラミング

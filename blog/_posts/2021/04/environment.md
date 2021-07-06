@@ -69,7 +69,7 @@ present.wrappedValue.dismiss()
 
 ### imageScale
 
-画像のサイズを指定できる。`small`, `medium`, `large`の三つがあった気がするが
+画像のサイズを指定できる。`small`、`medium`、`large`の三つがあった気がするが
 `large`でも全然大きくなくて困る。
 
 `extraLarge`みたいな Enum が欲しい、実装方法ないのかな。

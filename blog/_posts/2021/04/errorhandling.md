@@ -153,7 +153,7 @@ do {
 
 ただ、`localizedDescription`を表示すると`errorDescription`の値を表示することはできた。問題は`errorCode`をどうやって受け取るかである。
 
-Swift で使えるエラーには`Error`, `NSError`, `CustomNSError`などがあるが、今回のケースではエラーコードを利用するために`CustomNSError`を継承しているのでこれを利用する。
+Swift で使えるエラーには`Error`、`NSError`、`CustomNSError`などがあるが、今回のケースではエラーコードを利用するために`CustomNSError`を継承しているのでこれを利用する。
 
 ```swift
 do {

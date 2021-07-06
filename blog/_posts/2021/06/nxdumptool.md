@@ -8,7 +8,7 @@ tags:
   - NSP
 ---
 
-## [NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)
+# [NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)
 
 > この記事は以前公開していたものを加筆・修正したものになります
 
