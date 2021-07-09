@@ -84,8 +84,7 @@ BID のリストが一つしかないということはバージョン 1.0.0 の
 
 ここで BID をクリックするとチートコードのファイルがひらきます。
 
-![](https://pbs.twimg.com/media/ErJ_BCEU0AAzJJo?format=png
-
+![](https://pbs.twimg.com/media/ErJ_BCEU0AAzJJo?format=png)
 コードとしては「全てのエピソード開放」「心証減らない」の二つがあるようです。
 
 ここで右側の「Raw」のボタンを押すことで、実際のファイルを開くことができます。

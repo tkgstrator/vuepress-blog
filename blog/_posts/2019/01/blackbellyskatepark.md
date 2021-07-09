@@ -55,7 +55,7 @@ tags:
 
 ## ガチヤグラ
 
-(https://tkgstrator.work/wp-content/uploads/2019/05/tc_11.png)
+![](https://pbs.twimg.com/media/E5u0MocVgAYgzLj?format=png)
 
 |         項目         |   値   |
 | :------------------: | :----: |

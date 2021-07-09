@@ -8,12 +8,12 @@
   - 取得方法は記事が長くなるので割愛します
 - [IDA Pro](https://www.hex-rays.com/ida-pro/)または[GHIDRA](https://github.com/NationalSecurityAgency/ghidra/releases)などの ARM64v8 の逆アセンブラツール
 
-  - ARM64v8 のバイナリをそのまま読み込むためのローダ
-    - GHIDRA 用: [Ghidra-Switch-Loader](https://github.com/Adubbz/Ghidra-Switch-Loader/releases)
-    - IDA Pro 用: [loaders](https://github.com/reswitched/loaders)
-  - 復号化ツール[nx2elf](https://github.com/tkgstrator/nx2elf/releases)
-    - これがあればローダは不要になります
-    - 64 ビットで動作するように改良したものになります
+- ARM64v8 のバイナリをそのまま読み込むためのローダ
+  - GHIDRA 用: [Ghidra-Switch-Loader](https://github.com/Adubbz/Ghidra-Switch-Loader/releases)
+  - IDA Pro 用: [loaders](https://github.com/reswitched/loaders)
+- 復号化ツール[nx2elf](https://github.com/tkgstrator/nx2elf/releases)
+  - これがあればローダは不要になります
+  - 64 ビットで動作するように改良したものになります
 
 - [Online ARM to HEX Converter](https://armconverter.com/)
   - ウェブサイトなのでそのまま利用できます

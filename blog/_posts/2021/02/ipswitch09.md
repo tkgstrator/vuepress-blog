@@ -354,7 +354,7 @@ $02CD0-0104C=01CC0$
 0104C96C RET
 ```
 
-これを ARM to HEX Converter で変換するとこうなります。
+これを[Online ARM to HEX Converter](https://armconverter.com/)で変換するとこうなります。
 
 ```
 // Get 999 Golden Eggs and 9999 Power Eggs by Signal [tkgling]
@@ -629,7 +629,7 @@ $02CFD-0104C=01CB1$
 
 ここまでをまとめるとこうなります。
 
-あとはこれを ARM to HEX Converter で変換すれば IPSwitch 形式のコードが得られます。
+あとはこれを[Online ARM to HEX Converter](https://armconverter.com/)で変換すれば IPSwitch 形式のコードが得られます。
 
 BL 命令はまとめて変換するとオフセットがズレるバグがあるので、BL 命令の箇所だけは必ず個別に変換してください。
 
