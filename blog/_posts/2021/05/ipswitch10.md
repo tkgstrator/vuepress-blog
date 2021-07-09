@@ -410,11 +410,11 @@ CSEL X1, X1, XZR, LO
 0104C994 RET
 ```
 
-あとはこれを ARM to HEX Converter に突っ込んであげればおしまいです。
+あとはこれを[Online ARM to HEX Converter](https://armconverter.com/)に突っ込んであげればおしまいです。
 
 ::: danger BL 命令がズレる件について
 
-ARM to HEX Converter で BL 命令を変換するとナゾのオフセットがついて変換したコードがバグってしまうので BL 命令だけは必ず単体で変換するようにしましょう。
+[Online ARM to HEX Converter](https://armconverter.com/)で BL 命令を変換するとナゾのオフセットがついて変換したコードがバグってしまうので BL 命令だけは必ず単体で変換するようにしましょう。
 
 :::
 

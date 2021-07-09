@@ -35,7 +35,7 @@ tags:
 
 ![](https://pbs.twimg.com/media/E1Bb7bzVgAEEBRM?format=png)
 
-左下にある「他のカレンダー」の右側にある「＋」をクリックして、「URL で追加」を押します。
+左下にある「他のカレンダー」の右側にある「+」をクリックして、「URL で追加」を押します。
 
 ![](https://pbs.twimg.com/media/E1Bb-omUUAAzt4A?format=png)
 

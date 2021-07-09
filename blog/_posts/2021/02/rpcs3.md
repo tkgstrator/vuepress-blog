@@ -118,8 +118,7 @@ PS3 はニンテンドースイッチとは違って認証無しでアップデ�
 
 ネットの広大な海を彷徨っていると、自分が使っているやつと同じソフトがミラーとしてアップロードされていたので紹介しておきます。
 
-![](https://pbs.twimg.com/media/EtGMpOYVEAE1lpg?format=png
-
+![](https://pbs.twimg.com/media/EtGMpOYVEAE1lpg?format=png)
 ![](https://pbs.twimg.com/media/EtGM_wSU4Akp0b4?format=png)
 
 アップデータは PKG として保存されるので、HDD などに保存しておきましょう。

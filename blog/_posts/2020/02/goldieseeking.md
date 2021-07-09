@@ -54,9 +54,9 @@ tags:
 | 通常 | 3.3219 |  2.7777  |  4.0000  |
 | 満潮 | 2.5849 |  2.2000  |  3.0000  |
 
-->![](/assets/images/NT-Shakeup.png)<-
+![](/assets/images/NT-Shakeup.png)
 
-->![](/assets/images/HT-Shakeup.png)<-
+![](/assets/images/HT-Shakeup.png)
 
 ### 難破船ドン・ブラコ
 
@@ -72,9 +72,9 @@ tags:
 | 通常 | 3.3219 |    -     |    -     |
 | 満潮 | 2.5849 |    -     |    -     |
 
-->![](/assets/images/NT-Shakehouse.png)<-
+![](/assets/images/NT-Shakehouse.png)
 
-->![](/assets/images/HT-Shakehouse.png)<-
+![](/assets/images/HT-Shakehouse.png)
 
 ### トキシラズいぶし工房
 
@@ -83,9 +83,9 @@ tags:
 | 通常 | 3.0000 |  2.4285  |  3.0000  |
 | 満潮 | 2.5849 |  2.2000  |  3.0000  |
 
-->![](/assets/images/NT-Shakelift.png)<-
+![](/assets/images/NT-Shakelift.png)
 
-->![](/assets/images/HT-Shakelift.png)<-
+![](/assets/images/HT-Shakelift.png)
 
 ### 朽ちた箱舟 ポラリス
 
@@ -94,9 +94,9 @@ tags:
 | 通常 | 3.0000 |  2.5714  |  4.0000  |
 | 満潮 | 2.3219 |  2.2000  |  3.0000  |
 
-->![](/assets/images/NT-Shakeride.png)<-
+![](/assets/images/NT-Shakeride.png)
 
-->![](/assets/images/HT-Shakeride.png)<-
+![](/assets/images/HT-Shakeride.png)
 
 ## キンシャケルート
 

@@ -42,15 +42,13 @@ Lan プレイとはニンテンドースイッチに実装されている隠し�
 - [WinPcap](https://www.winpcap.org/install/default.htm)
   - LanPlay の動作に必須です
 - [C++再頒布パッケージ x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
-
-  - switchlanplay を実行するのに必要なパッケージです
-
+  - SwitchLanPlay を実行するのに必要なパッケージです
 - [SwitchLanPlay](https://tkgstrator.work/switchlanplay/index.html)
   - [@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play/releases)を GUI で簡単に扱えるようにしたものです
 
 MacOS は対応してはいますがファイルがないため全て手動で設定する必要があります。めんどくさいのであまりおすすめしません。
 
-### [WinPcap](https://www.winpcap.org/install/default.htm)のインストール
+### WinPcap のインストール
 
 WinPcap は Windows10 向けのものも公開されていますが、そちらでは動作しません。
 
@@ -59,7 +57,6 @@ WinPcap は Windows10 向けのものも公開されていますが、そちら�
 ダウンロードしてインストールするだけです。
 
 万が一インストールできない場合は[C++再頒布パッケージ x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)を試してみてください。
-git p
 
 ### SwitchLanPlay
 
@@ -109,7 +106,7 @@ LanPlay に接続できなくなってしまいます。
 |                 |       項目       |      値       |                              注釈                              |
 | :-------------: | :--------------: | :-----------: | :------------------------------------------------------------: |
 | IP アドレス設定 |       手動       |               |                                                                |
-|                 |   IP アドレス    | 10.13.XXX.YYY | XXX, YYY は他人とかぶらないような 000-255 までの好きな値を設定 |
+|                 |   IP アドレス    | 10.13.XXX.YYY | XXX、YYY は他人とかぶらないような 000-255 までの好きな値を設定 |
 |                 | サブネットマスク |  255.255.0.0  |                            全員共通                            |
 |                 |   ゲートウェイ   |  10.13.37.1   |                            全員共通                            |
 |    DNS 設定     |       手動       |               |                                                                |
@@ -131,7 +128,7 @@ Server IP: 13.231.102.57
 
 ### スプラトゥーンの設定
 
-イカッチャで L スティック押し込み + L +R を同時押しして三秒間固定すれば LanPlay に切り替わります。
+イカッチャで L スティック押し込み + L + R を同時押しして三秒間固定すれば LanPlay に切り替わります。
 
 右下の黄色いスタンプマークが消えていれば LanPlay に切り替わっています。
 

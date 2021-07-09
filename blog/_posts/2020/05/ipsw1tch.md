@@ -87,15 +87,15 @@ Starlight ではこのように codehook.slpatch にアセンブラを書いて�
 
 で、本来であればこのような仕組みにするのがベストなんですが keystone の環境をつくるのが死ぬほどめんどくさいんです。なので今回は keystone を使わずにインラインアセンブラが書けるうまい仕組みを考えました。
 
-### ARM to HEX Converter
+### [Online ARM to HEX Converter](https://armconverter.com/)
 
-コード開発においてものすごくお世話になっている ARM to HEX Converter なのですが、なぜかここ数日繋がらない状況が続いていました。
+コード開発においてものすごくお世話になっている Online ARM to HEX Converter なのですが、なぜかここ数日繋がらない状況が続いていました。
 
 サービス終了だったら代替サービスがなくて困るなあと思っていたのですが、それは杞憂だったらしくなんとなんとアップデートされてかえってきました！
 
 地味に SSL に対応してる！
 
-そしてアプデされた ARM to HEX Converter を開発者ツールで眺めているときに気付いたのです。
+そしてアプデされた Online ARM to HEX Converter を開発者ツールで眺めているときに気付いたのです。
 
 ![](https://pbs.twimg.com/media/EYdcKMHWkAI-gkZ?format=png)
 

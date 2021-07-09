@@ -388,7 +388,7 @@ STR X1, [X0, #0x38]
 
 ## コールスタック
 
-ここまでできたのであれば「あとは ARM to HEX Converter で HEX 化して終わりじゃないの？」って思う方もいるかも知れませんが、ここで最後のトラップである[コールスタック](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF)が残っています。
+ここまでできたのであれば「あとは[Online ARM to HEX Converter](https://armconverter.com/)で HEX 化して終わりじゃないの？」って思う方もいるかも知れませんが、ここで最後のトラップである[コールスタック](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF)が残っています。
 
 ここで、オリジナル状態の`sendSignalEvent()`の ARM 命令を見返してみましょう。
 

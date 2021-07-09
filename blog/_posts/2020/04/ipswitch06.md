@@ -262,7 +262,7 @@ RET
 
 命令の長さは全部で 8 となり、`sendSignalEvent()`の長さである 17 以下で収めることができました。
 
-あとはこのアセンブラを ARM to HEX Converter で変換するだけです。
+あとはこのアセンブラを[Online ARM to HEX Converter](https://armconverter.com/)で変換するだけです。
 
 このとき出力される ARM HEX という値が今回欲しかったコードになります。
 
