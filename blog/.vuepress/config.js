@@ -138,16 +138,6 @@ module.exports = {
       perPage: 20,
     },
 
-    // comment config(vssue)
-    // comments: {
-    //   platform: "github-v4",
-    //   owner: "tkgstrator",
-    //   repo: "vuepress-blog-comment",
-    //   clientId: "f7ca8cef9b8e0be50beb",
-    //   clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
-    //   autoCreateIssue: process.env.NODE_ENV !== "development",
-    // },
-
     // the content of navbar links
     nav: [
       { text: "投稿一覧", link: "/posts/", exact: false },
@@ -158,19 +148,6 @@ module.exports = {
   },
 
   plugins: [
-    [
-      "social-share",
-      {
-        networks: ["twitter"],
-        twitterUser: "tkgling",
-      },
-    ],
-    [
-      "vuepress-plugin-google-adsense",
-      {
-        adClient: "ca-pub-7107468397673752", // replace it with your adClient
-      },
-    ],
     [
       "@vssue/vuepress-plugin-vssue",
       {
