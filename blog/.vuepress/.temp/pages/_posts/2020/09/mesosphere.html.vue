@@ -1,0 +1,30 @@
+<template><h2 id="mesosphere-とは" tabindex="-1"><a class="header-anchor" href="#mesosphere-とは" aria-hidden="true">#</a> Mesosphere とは</h2>
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">It&#39;s a good day :) <a href="https://t.co/7Cg0r5drLa">pic.twitter.com/7Cg0r5drLa</a></p>&mdash; Michael (@SciresM) <a href="https://twitter.com/SciresM/status/1285495615112134657?ref_src=twsrc%5Etfw">July 21, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>以前<a href="https://twitter.com/SciresM" target="_blank" rel="noopener noreferrer">@SciresM<OutboundLink/></a>氏がツイートしていたのをご存知の方がひょっとしたらいらっしゃるかもしれません。</p>
+<p>当ブログでは完成するまで特に取り上げていなかったのですが、どうやらこれがおおよそ完成したようなので記事にしようと思います。</p>
+<p>SciresM 氏といえばスイッチの CFW の親分である Atmosphere の開発者なのですが、気になるのは Atmosphere と Mesosphere は何が違うのかということですね。</p>
+<h3 id="mesosphere-の仕組み" tabindex="-1"><a class="header-anchor" href="#mesosphere-の仕組み" aria-hidden="true">#</a> Mesosphere の仕組み</h3>
+<p>Atmosphere は権限のレベルによって五つのコンポーネントにわかれています。これはユーザレベルのものから TrustZone レベルのものまで様々です。</p>
+<p>現在の CFW は RCM からペイロードを読み込ませて、という起動方法をとっていますが、これはニンテンドースイッチのシステムファームウェアである Horizon OS をアプリケーションレベルでカスタマイズしたものを利用しているわけです。</p>
+<p>つまり、CFW という名の通り OFW のデータを流用しつつ、いろいろパッチを当てたファイルを使っているという感じです。</p>
+<p>それに対して Mesosphere はニンテンドースイッチの純正カーネルを使用しない仕組み（方向性）になっています。これは iPhone で Andoroid を動かしたりするような、デバイスのハードウェアだけ利用してファームウェアを自作するようなものです。</p>
+<p>既にあるものを流用する単純な CFW に比べて開発の難易度が格段に高いのはいうまでもありません。というか、いままで他のコンシューマ機で純正 FW に依存しない CFW ってリリースされたことあるんですか？</p>
+<p>かなりなんでもできていた PSP や PS3 でも元の FW にパッチを当てた CFW をインストールする方式（その際、署名がない CFW のインストールをブロックされないようにする仕組みが必要）だったので、そういうコンシューマ機があるようには思えないのですが。</p>
+<p>ファームウェア（カーネル）レベルでカスタマイズできるということは、RCM など不要で起動時に自動で CFW として起動することも可能になることを意味します。うーん、そう考えるとかなり需要はありそうですね。</p>
+<h3 id="ban-対策もすごいらしい" tabindex="-1"><a class="header-anchor" href="#ban-対策もすごいらしい" aria-hidden="true">#</a> BAN 対策もすごいらしい</h3>
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">As of today, Mesosphere has all the functionality present in the real 10.x kernel binary. Still got debug functionality to add (/bugfixes), but it&#39;s amazing to be at the end of this part of the project.<br><br>I played animal crossing online for two hours last night with no issues :)</p>&mdash; Michael (@SciresM) <a href="https://twitter.com/SciresM/status/1289304650097688576?ref_src=twsrc%5Etfw">July 31, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p><a href="https://twitter.com/SciresM" target="_blank" rel="noopener noreferrer">@SciresM<OutboundLink/></a>が Mesosphere の動作テストとしてあつまれどうぶつの森を CFW 状態でオンラインプレイしたそうです。</p>
+<p>当ブログでは CFW 状態でのオンラインプレイは絶対にやめていただきたいので推奨はしないのですが、二時間プレイしても全く BAN されなかったとのこと。</p>
+<p>スプラだと一日後に BAN されるのですが、あつ森だと最短でどのくらいで BAN されるんでしょうね？</p>
+<p>で、これでスプラのオンラインチーターが増えるんじゃないかと危惧する方がいるかも知れませんが、それについては問題ないはずです。というのも、スプラではアプリケーションレベルでのファイル整合性チェックを行っているためで、Mesosphere によってシステム側の改造がチェックできなくても、自動切断機能が正しく動作することが期待されるからです。</p>
+<p>まあでもこれがあれば 90DNS などを設定しなくて良くなるはずなので、その点はちょっと嬉しいかもしれません。</p>
+<h2 id="mesosphere-の開発状況" tabindex="-1"><a class="header-anchor" href="#mesosphere-の開発状況" aria-hidden="true">#</a> Mesosphere の開発状況</h2>
+<p>先述したとおり、おおよその開発は終わって今後デベロッパー向けにドキュメントが作成されるようです。</p>
+<p>GitHub の Wiki 機能を利用するような内容のツイートがあったのですが、内容を理解できるユーザがどの程度いるのかかなり怪しいところです（当然ぼくはわかりません）</p>
+<p>誰かが日本語に翻訳しないかなと期待しつつ、翻訳したところでそれを活用できるユーザがほとんどいないことを考えると（活用できるならそもそも公式ドキュメントが読めそう）、やってくれる人はいなさそうな気もします。</p>
+<h2 id="まとめ" tabindex="-1"><a class="header-anchor" href="#まとめ" aria-hidden="true">#</a> まとめ</h2>
+<p>Mesosphere 自体は純正 FW に依存しない CFW 開発の足がかりとなる可能性が高い、素晴らしい功績です。</p>
+<p>が、あまりにローレベルな領域に関わる内容であるために理解できる開発者がどのくらいいるのか全く予想がつかない現状です。</p>
+<p>昔、iOS 開発界隈で Jailbreak に関わるオープンソースプロジェクトがあったのですが放置されたっていう歴史があるのでそうならないことを祈るばかりですね。</p>
+<p>記事は以上。</p>
+</template>

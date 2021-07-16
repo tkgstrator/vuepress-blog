@@ -1,153 +1,51 @@
 module.exports = {
-  // title of website
-  title: "えいむーと愉快な仲間たち",
-
-  // description of website
-  description: "えいむーの備忘録です",
-
-  // language of website
-  locales: {
-    "/": {
-      lang: "ja",
-    },
-  },
-
-  // head information of website
-  head: [
-    // need favicon
-    // ["link", { href: "/css/style.css", rel: "stylesheet" }],
-    ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
-    ["meta", { name: "og:url", content: "https://tkgstrator.work" }],
-    ["meta", { name: "og:type", content: "website" }],
-    [
-      "meta",
-      {
-        name: "og:description",
-        content: "えいむーの備忘録です",
-      },
-    ],
-    [
-      "meta",
-      {
-        name: "og:image",
-        content: "assets/29420801.png",
-      },
-    ],
-  ],
-
-  // markdown config
-  markdown: {
-    lineNumbers: true,
-    linkfy: true,
-    plugins: {
-      "@centerforopenscience/markdown-it-video": {},
-    },
-    anchor: {
-      permalink: false,
-      permalinkSymbol: "",
-    },
-  },
-
-  // theme to use
-  theme: "@vuepress/blog", // OR shortcut: @vuepress/blog
-
+  title: 'VuePress Blog Example',
+  description: 'This is a blog example built by VuePress',
+  theme: '@vuepress/theme-blog', // OR shortcut: @vuepress/blog
   themeConfig: {
-    // personal information
-    personalInfo: {
-      nickname: "tkgling",
-
-      description:
-        "神保町に本が詰まったビルを所有している紙使いのお姉さんがいます",
-
-      email: "nasawake.am@gmail.com",
-
-      location: "Kyoto",
-
-      avatar: "assets/29420801.png",
-
-      sns: {
-        // github account and link
-        github: {
-          account: "tkgstrator",
-          link: "https://github.com/tkgstrator",
-        },
-
-        // twitter account and link
-        twitter: {
-          account: "tkgling",
-          link: "https://twitter.com/tkgling",
-        },
-      },
+    /**
+     * Ref: https://vuepress-theme-blog.ulivz.com/#modifyblogpluginoptions
+     */
+    modifyBlogPluginOptions(blogPluginOptions) {
+      return blogPluginOptions
     },
-
-    // header config
-    header: {
-      background: {
-        // use random pattern
-        url: "/assets/background_blue.png",
-        useGeo: true,
-      },
-
-      // show title in the header or not
-      showTitle: true,
-    },
-
-    // footer config
-    footer: {
-      // show "Powered by VuePress" or not
-      poweredBy: false,
-
-      // show the theme
-      poweredByTheme: false,
-    },
-
-    // info card config
-    infoCard: {
-      // the background of the info card"s header
-      headerBackground: {
-        // use random pattern
-        useGeo: true,
-      },
-    },
-
-    // show the last updated time of posts
-    lastUpdated: true,
-
-    // enable smooth scrolling or not
-    smoothScroll: true,
-
-    // pagination config
-    pagination: {
-      perPage: 20,
-    },
-
-    // the content of navbar links
+    /**
+     * Ref: https://vuepress-theme-blog.ulivz.com/#nav
+     */
     nav: [
-      { text: "投稿一覧", link: "/posts/", exact: false },
-      { text: "自己紹介", link: "/about/", exact: false },
-      { text: "ドキュメント", link: "/documents/", exact: false },
-      { text: "サポート", link: "/support/", exact: false },
+      {
+        text: 'Blog',
+        link: '/',
+      },
+      {
+        text: 'Tags',
+        link: '/tag/',
+      },
     ],
+    /**
+     * Ref: https://vuepress-theme-blog.ulivz.com/#footer
+     */
+    footer: {
+      contact: [
+        {
+          type: 'github',
+          link: 'https://github.com/ulivz',
+        },
+        {
+          type: 'twitter',
+          link: 'https://twitter.com/_ulivz',
+        },
+      ],
+      copyright: [
+        {
+          text: 'Privacy Policy',
+          link: 'https://policies.google.com/privacy?hl=en-US',
+        },
+        {
+          text: 'MIT Licensed | Copyright © 2018-present Vue.js',
+          link: '',
+        },
+      ],
+    },
   },
-
-  plugins: [
-    [
-      "@vssue/vuepress-plugin-vssue",
-      {
-        platform: "github-v4",
-        owner: "tkgstrator",
-        repo: "vuepress-blog-comment",
-        clientId: "f7ca8cef9b8e0be50beb",
-        clientSecret: "464942025b0f73b828e0ba9fdc683734cfd4d01f",
-        autoCreateIssue: process.env.NODE_ENV !== "development",
-      },
-    ],
-    [
-      "@vuepress/google-analytics",
-      {
-        ga: "UA-111335437-2",
-      },
-    ],
-    ["vuepress-plugin-mathjax"],
-  ],
-};
+}
