@@ -2,7 +2,7 @@
 title: プロトコルの準拠とその罠について
 date: 2021-06-18
 description: プロトコルを学ぶとコーディングがとても便利になります
-category: ぷろぐら
+category: プログラミング
 tags:
   - Swift
   - SwiftUI
