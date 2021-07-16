@@ -15,7 +15,7 @@ module.exports = {
   // head information of website
   head: [
     // need favicon
-    ["link", { href: "/css/style.css", rel: "stylesheet" }],
+    // ["link", { href: "/css/style.css", rel: "stylesheet" }],
     [
       "script",
       {
