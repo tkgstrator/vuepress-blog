@@ -16,5 +16,8 @@
   "devDependencies": {
     "@vuepress/theme-blog": "^2.1.0",
     "vuepress": "^1.8.2"
+  },
+  "dependencies": {
+    "vuepress-theme-meteorlxy": "^1.9.0"
   }
 }
