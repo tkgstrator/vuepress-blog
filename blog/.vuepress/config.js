@@ -57,12 +57,9 @@ module.exports = {
   },
 
   // theme to use
-  theme: "meteorlxy", // OR shortcut: @vuepress/blog
+  theme: "@vuepress/blog", // OR shortcut: @vuepress/blog
 
   themeConfig: {
-    // language of this theme
-    // lang: require("./public/lang/ja-JP"),
-
     // personal information
     personalInfo: {
       nickname: "tkgling",
@@ -88,12 +85,6 @@ module.exports = {
           account: "tkgling",
           link: "https://twitter.com/tkgling",
         },
-
-        // instagram account and link
-        // instagram: {
-        //   account: "",
-        //   link: "",
-        // },
       },
     },
 

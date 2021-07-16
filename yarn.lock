@@ -3226,11 +3226,6 @@ deepmerge@^1.5.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.5.2.tgz#10499d868844cdad4fee0842df8c7f6f0c95a753"
   integrity sha512-95k0GDqvBjZavkuvzx/YqVLv/6YYa17fz6ILMSf7neqQITCPbnfEnQvEgMPNjH4kgobe7+WIL0yJEHku+H3qtQ==
 
-deepmerge@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
-  integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
-
 default-gateway@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -9302,11 +9297,6 @@ vuepress-plugin-feed@^0.1.8:
     remove-markdown "0.3.0"
     striptags "3.1.1"
 
-vuepress-plugin-google-adsense@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-google-adsense/-/vuepress-plugin-google-adsense-0.2.1.tgz#04bd7e421542992d193bf15951dc882bcd561e0f"
-  integrity sha512-6t6jLEPf1NISBsHxIzCYe4SfXlkk5I9MRR94GfV1HTMEyblYXEEGAra60FOWvoq2leB4rshdasabUp56PzunwA==
-
 vuepress-plugin-mailchimp@^1.4.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-mailchimp/-/vuepress-plugin-mailchimp-1.4.2.tgz#373fa1df8f03a8993817b09ddfb8bd9d04a1c665"
@@ -9368,13 +9358,6 @@ vuepress-plugin-smooth-scroll@^0.0.9:
   integrity sha512-UXX+HLZO1NKVwyiOJlj0smh8F9dKnwybjEi7w/Mj9EYLhKrNYr5uXs+N+OTt8VwKCn3f0vZ1XAwFIjsPlD7GJA==
   dependencies:
     smoothscroll-polyfill "^0.4.4"
-
-vuepress-plugin-social-share@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-social-share/-/vuepress-plugin-social-share-1.0.0.tgz#775a250ae050211cadd015bcceed684976f12b8f"
-  integrity sha512-BBYIPubR7J4IMrgC9djbcidA/XhgqPgz7EdGXLIQ620bEFo1d6ERUDAvTbeNbKiKz6kndvSkPPeN7UZlZvdyGg==
-  dependencies:
-    deepmerge "^4.2.2"
 
 vuepress-plugin-table-of-contents@^1.1.5:
   version "1.1.7"
