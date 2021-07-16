@@ -14,8 +14,11 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@vssue/api-github-v4": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "@vuepress/theme-blog": "^2.1.0",
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-mathjax": "^1.2.8"
   },
   "dependencies": {
     "vuepress-theme-meteorlxy": "^1.9.0"

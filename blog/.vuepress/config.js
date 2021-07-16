@@ -15,15 +15,6 @@ module.exports = {
   // head information of website
   head: [
     // need favicon
-    ["link", { href: "/css/style.css", rel: "stylesheet" }],
-    [
-      "script",
-      {
-        "data-ad-client": "ca-pub-7107468397673752",
-        async: true,
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-      },
-    ],
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
     ["meta", { name: "og:url", content: "https://tkgstrator.work" }],
     ["meta", { name: "og:type", content: "website" }],
@@ -38,7 +29,7 @@ module.exports = {
       "meta",
       {
         name: "og:image",
-        content: "https://avatars.githubusercontent.com/u/29420801?v=4",
+        content: "assets/image/29420801.png",
       },
     ],
   ],
@@ -74,7 +65,7 @@ module.exports = {
 
       location: "Kyoto",
 
-      avatar: "https://avatars.githubusercontent.com/u/29420801?v=4",
+      avatar: "/assets/image/29420801.png",
 
       sns: {
         // github account and link
@@ -88,12 +79,6 @@ module.exports = {
           account: "tkgling",
           link: "https://twitter.com/tkgling",
         },
-
-        // instagram account and link
-        // instagram: {
-        //   account: "",
-        //   link: "",
-        // },
       },
     },
 
