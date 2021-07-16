@@ -38,7 +38,7 @@ module.exports = {
       "meta",
       {
         name: "og:image",
-        content: "https://avatars.githubusercontent.com/u/29420801?v=4",
+        content: "assets/29420801.png",
       },
     ],
   ],
@@ -74,7 +74,7 @@ module.exports = {
 
       location: "Kyoto",
 
-      avatar: "https://avatars.githubusercontent.com/u/29420801?v=4",
+      avatar: "assets/29420801.png",
 
       sns: {
         // github account and link
