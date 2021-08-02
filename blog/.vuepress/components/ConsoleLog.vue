@@ -1,6 +1,6 @@
 <template>
   <div>
-    <script>console.log("{{ message }}")</script>
+    <script>console.log("{{ $page.frontmatter.message }}")</script>
   </div>
 </template>
 
@@ -9,7 +9,6 @@ export default {
   name: "ConsoleLog",
   data() {
     return {
-      message: "Hello, World!"
     };
   },
 };

@@ -6,6 +6,7 @@ category: プログラミング
 tags:
   - Vue
   - Javascript
+message: "Hello, Tkgling!"
 ---
 
 # Vuepress
@@ -147,6 +148,41 @@ export default {
 
 さて、簡単なコンポーネントは表示できましたが Markdown からコンポーネントに対して引数を与えたい場合もあります。
 
-例えば、指定した回数だけ`Hello, World!`を表示するようなコンポーネントを考えてみます。
+例えば、指定したメッセージを表示するようなコンポーネントを考えます。
 
-<ConsoleLog/>
+Vue コンポーネントのコンストラクタでは直接引数を指定できないので、`frontmatter`の機能を利用します。
+
+Vuepress で記事を書いているのであれば Frontmatter で`tags`などの指定をしていると思います。そこに値を書き込むことで無理やり読み込ませられます。
+
+```md
+---
+tags:
+  - "Vue"
+message: "Hello, Tkgling!"
+---
+```
+
+次に Vue コンポーネントを以下のように書き換えます。
+
+```vue
+<template>
+  <p class="color-red">{{ $page.frontmatter.message }}</p>
+</template>
+
+<script>
+export default {
+  name: "HelloWorld",
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style>
+.color-red {
+  color: red;
+}
+</style>
+```
+
+<HelloWorld/>

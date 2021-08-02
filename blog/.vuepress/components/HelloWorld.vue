@@ -1,14 +1,12 @@
 <template>
-  <p class="color-red">{{ message }}</p>
+  <p class="color-red">{{ $page.frontmatter.message }}</p>
 </template>
 
 <script>
 export default {
   name: "HelloWorld",
   data() {
-    return {
-      message: "Hello, World!",
-    };
+    return {};
   },
 };
 </script>
