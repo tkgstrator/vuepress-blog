@@ -17,7 +17,7 @@ tags:
 
 Tinfoil のような非公式アプリを Applet Mode 以外で起動させるにも Sigpatch が必要になってきますので、使いたい方は導入必須です。
 
-## [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater/releases)
+## [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater)
 
 ![](https://pbs.twimg.com/media/EmVSlw_WEAIeXEs?format=png)
 
@@ -96,7 +96,7 @@ EmuMMC を利用している多くの方は OFW を SysNAND で動かしてオ�
 
 :::
 
-## [AIO-Switch-Updater](https://github.com/HamletDuFromage/aio-switch-updater/releases)
+## [AIO-Switch-Updater](https://github.com/HamletDuFromage/aio-switch-updater)
 
 hekate_ipl.ini を編集するのがめんどくさい方向けに AIO-Switch-Updater というものがリリースされています。
 
@@ -118,6 +118,6 @@ hekate_ipl.ini を編集するのがめんどくさい方向けに AIO-Switch-Up
 
 いちいち Sigpatch を使うのがめんどくさいという方はそもそも NSP をダンプするときに証明書（Ticket）付きでダンプすれば良いです。
 
-ゲームのバックアップを NSP で保存するためには[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)というツールを使うのが最も手っ取り早いです。
+ゲームのバックアップを NSP で保存するためには[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool)というツールを使うのが最も手っ取り早いです。
 
 NXDumpTool の使い方に関しては[この記事](https://tkgstrator.work/posts/2021/06/10/nxdumptool.html)で解説しているのでどうぞ。

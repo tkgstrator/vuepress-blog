@@ -13,7 +13,7 @@ tags:
 
 NSP はゲームのカートリッジ、または eShop からダウンロードしたダウンロード版ゲームや体験版や DLC、または配布されたアップデートなどが該当します。
 
-NSP をゲームから抽出するには[HACGUI](https://github.com/shadowninja108/HACGUI/releases)か[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)を使うのが基本的な手順となりますが、この際に署名付きでダンプしないとパッチをあてていない CFW ではインストールができないので以下の手順を読んで正しく署名付きで NSP を作成するようにしてください。
+NSP をゲームから抽出するには[HACGUI](https://github.com/shadowninja108/HACGUI)か[NXDumpTool](https://github.com/DarkMatterCore/nxdumptool)を使うのが基本的な手順となりますが、この際に署名付きでダンプしないとパッチをあてていない CFW ではインストールができないので以下の手順を読んで正しく署名付きで NSP を作成するようにしてください。
 
 HACGUI と NXDumpTool の使い方は上のリンク参照！
 
@@ -60,7 +60,7 @@ NXDumpTool にはダウンロード版の personalized ticket を common ticket 
 
 そこで、非署名の NSP をインストールする仕組みが考えられました。それが、Sigpatch です。
 
-### [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater/releases)
+### [Sigpatch Updater](https://github.com/ITotalJustice/sigpatch-updater)
 
 Sigpatch を GitHub のリリースページから自動で取得してくれるアプリがあります。
 

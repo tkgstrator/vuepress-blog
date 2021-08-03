@@ -8,13 +8,13 @@ tags:
   - NSP
 ---
 
-# [NXDumpTool](https://github.com/DarkMatterCore/nxdumptool/releases)
+# [NXDumpTool](https://github.com/DarkMatterCore/nxdumptool)
 
 > この記事は以前公開していたものを加筆・修正したものになります
 
 ニンテンドースイッチ本体のみでゲームカートリッジやアップデータからデータを抽出することができるツールです。
 
-利用にあたっては事前に[LockPick_RCM](https://github.com/shchmue/Lockpick_RCM/releases)で title.key 及び prod.key を取得する必要があるのでやっておきましょう。スイッチ上で実行するだけでよくて、特にファイルを移動させたりする必要はありません。
+利用にあたっては事前に[LockPick_RCM](https://github.com/shchmue/Lockpick_RCM)で title.key 及び prod.key を取得する必要があるのでやっておきましょう。スイッチ上で実行するだけでよくて、特にファイルを移動させたりする必要はありません。
 
 LockPick_RCM の使い方については[この記事]()を参考にしてください。
 

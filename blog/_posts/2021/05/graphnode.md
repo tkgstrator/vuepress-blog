@@ -41,10 +41,10 @@ tags:
 
 必要なものは以下の通り。
 
-- [SARC-Tool](https://github.com/aboood40091/SARC-Tool/releases)
+- [SARC-Tool](https://github.com/aboood40091/SARC-Tool)
   - 圧縮ファイルを解凍するためのツール
   - 解凍して BYAML データを手に入れます
-- [TheFourthDimension](https://github.com/exelix11/TheFourthDimension/releases)
+- [TheFourthDimension](https://github.com/exelix11/TheFourthDimension)
   - BYAML を XML に変換するツール
 - [VSCode](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)
   - XML を編集/閲覧するテキストエディタ

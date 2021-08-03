@@ -177,7 +177,7 @@ RPCS3 のセーブデータは`dev_hdd0/home/00000001/savedata`内にあるの�
 
 PS3 のコントローラは失くしてしまったので代わりにプロコンを使いました。
 
-[BetterJoy](https://github.com/Davidobot/BetterJoy/releases)
+[BetterJoy](https://github.com/Davidobot/BetterJoy)
 
 BetterJoy というソフトをつかえば有線接続という条件はあるもののメチャクチャ簡単に接続できました。ちなみに、Blutooth 接続であれば BetterJoy は不要です。
 
