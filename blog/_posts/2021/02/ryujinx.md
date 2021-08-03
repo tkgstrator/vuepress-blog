@@ -30,7 +30,7 @@ yuzu よりもちょっとめんどくさかったのですが、それでも以
 
 「File」から「Open Ryujinx Folder」を選択してフォルダを開いたら、その中の system というサブフォルダの中に prod.keys をコピーします。
 
-prod.keys 自体は[Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releases)を使って取得してください。
+prod.keys 自体は[Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM)を使って取得してください。
 
 また、このとき prod.keys はインストールしたい NCA を復号するために必要なキーを含んでいる必要があるので、なるべく最新のものを使うこと。
 
@@ -40,7 +40,7 @@ prod.keys 自体は[Lockpick_RCM](https://github.com/shchmue/Lockpick_RCM/releas
 
 Ryujinx はファームウェアをインストールする必要があります。
 
-カートリッジのダンプである XCI があるなら、その中にファームウェアが入っているのでそれでもいいですが、自分でダンプしたい場合は[TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer/releases)で取得することができます。
+カートリッジのダンプである XCI があるなら、その中にファームウェアが入っているのでそれでもいいですが、自分でダンプしたい場合は[TegraExplorer](https://github.com/suchmememanyskill/TegraExplorer)で取得することができます。
 
 また、有志がアップロードしてくれているファイルを使う方法でも可能です。
 

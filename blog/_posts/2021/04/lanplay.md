@@ -44,7 +44,7 @@ Lan プレイとはニンテンドースイッチに実装されている隠し�
 - [C++再頒布パッケージ x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
   - SwitchLanPlay を実行するのに必要なパッケージです
 - [SwitchLanPlay](https://tkgstrator.work/switchlanplay/index.html)
-  - [@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play/releases)を GUI で簡単に扱えるようにしたものです
+  - [@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play)を GUI で簡単に扱えるようにしたものです
 
 MacOS は対応してはいますがファイルがないため全て手動で設定する必要があります。めんどくさいのであまりおすすめしません。
 

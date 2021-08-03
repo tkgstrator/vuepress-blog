@@ -71,7 +71,7 @@ RCM に入るためには特定のピンをショートさせる必要がある�
 </ul>
 </div>
 
-### [hekate](https://github.com/CTCaer/hekate/releases)
+### [hekate](https://github.com/CTCaer/hekate)
 
 RCM から起動できるユーティリティツールのこと。
 
@@ -105,13 +105,13 @@ NAND のバックアップを取っていないと、Nintendo Switch はブリ�
 
 CFW としては Atmosphere や SXOS などが有名ですね。
 
-### [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere/releases)
+### [Atmosphere](https://github.com/Atmosphere-NX/Atmosphere)
 
 Github で公開されているオープンソースの CFW のこと。
 
 更新がものすごく速いことで有名です。
 
-### [DeepSea](https://github.com/Team-Neptune/DeepSea/releases)
+### [DeepSea](https://github.com/Team-Neptune/DeepSea)
 
 Micro SD に展開するだけで CFW（Atmosphere）が起動する環境が整えられるパッケージのこと。
 
@@ -235,6 +235,6 @@ Windows における exe ファイルというと伝わりやすいかもしれ�
 
 ### ELF
 
-NSO を[nx2elf](https://github.com/tkgstrator/nx2elf/releases)で復号したファイルのことで、アセンブラで書かれている中間ファイル。
+NSO を[nx2elf](https://github.com/tkgstrator/nx2elf)で復号したファイルのことで、アセンブラで書かれている中間ファイル。
 
 NSO よりも解析しやすいが、NSO を直接読み込める NSO Loader などもあるので好きな方を使えばいいと思います。
