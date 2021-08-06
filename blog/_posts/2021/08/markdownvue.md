@@ -186,3 +186,37 @@ export default {
 ```
 
 <HelloWorld/>
+
+## Script を直接埋め込む
+
+Vue コンポーネントがあればなんでも Markdown に埋め込みできそうですが、Javascript をそのまま埋め込もうとするとおかしなことになります。
+
+```vue
+<template>
+  <script>
+    console.log("{{ $page.frontmatter.message }}");
+  </script>
+</template>
+
+<script>
+export default {
+  name: "HelloWorld",
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style></style>
+```
+
+例えば、上のようなコードを書くと一回目の描画では正しく読み込むことができますが、リロードを行なうと`Uncaught SyntaxError: Unexpected token '&'`というエラーが発生してしまいます。
+
+これは、HTML にスクリプトを埋め込んだ際に特殊文字である`"`をエスケープしてしまって`$quot`に置き換わったのが原因です。
+
+これに対する対策はパッと思いついたところで二つあります。
+
+- 強制的にエスケープを無視する
+  - ある意味最強だが、エスケープすることで悪意のあるスクリプトを実行できてしまう可能性がある
+- Javascript を埋め込む別の方法を探す
+  - これが一番無難

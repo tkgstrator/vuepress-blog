@@ -29,7 +29,7 @@ module.exports = {
       "meta",
       {
         name: "og:image",
-        content: "assets/image/29420801.png",
+        content: "https://avatars.githubusercontent.com/u/29420801?v=4",
       },
     ],
   ],
