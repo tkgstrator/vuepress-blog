@@ -7,7 +7,7 @@ tags:
   - IPSwitch
 ---
 
-## [Ghidra](https://github.com/NationalSecurityAgency/ghidra/releases)
+## [Ghidra](https://github.com/NationalSecurityAgency/ghidra)
 
 NSA が開発した逆アセンブラツール。
 
@@ -78,7 +78,7 @@ Ghidra の再起動が要求されると思うので、再起動しましょう�
 
 この作業は ELF を分析する場合は不要です。
 
-復号は[nx2elf](https://github.com/tkgstrator/nx2elf/releases)ですることができます。
+復号は[nx2elf](https://github.com/tkgstrator/nx2elf)ですることができます。
 
 :::
 

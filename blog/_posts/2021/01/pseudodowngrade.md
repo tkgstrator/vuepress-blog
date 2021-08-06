@@ -62,7 +62,7 @@ title.keys に関しては用意した NSP が EU 版であれば EU 版のタ�
 
 あとはこの title.keys を.switch というフォルダの中にコピーします。
 
-[HACGUI](https://github.com/shadowninja108/HACGUI/releases)を一度でも使った事があれば既に title.keys が.switch フォルダ内に作られているのでこの作業は不要だったりします。
+[HACGUI](https://github.com/shadowninja108/HACGUI)を一度でも使った事があれば既に title.keys が.switch フォルダ内に作られているのでこの作業は不要だったりします。
 
 `C:\Users\<USER NAME>\.switch`
 
@@ -72,8 +72,8 @@ title.keys に関しては用意した NSP が EU 版であれば EU 版のタ�
 
 ### 追加で必要なもの
 
-1. [hactool](https://github.com/SciresM/hactool/releases)
-2. [hacotoolnet](https://github.com/Thealexbarney/LibHac/releases)
+1. [hactool](https://github.com/SciresM/hactool)
+2. [hacotoolnet](https://github.com/Thealexbarney/LibHac)
 3. [7-Zip](https://sevenzip.osdn.jp/)
 
 NSP を展開するのに hactool を使うので、既に NCA として持っている場合は hactool は不要です。
