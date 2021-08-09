@@ -41,7 +41,6 @@ export default {
     this.productURL = `${this.baseURL}${product["productId"]}/?tag=${this.associateId}`
     this.productName = product["productName"]
     this.productPrice = product["productPrice"]
-    console.log(product)
   }
 };
 </script>
@@ -65,6 +64,8 @@ export default {
   /* height: 100%; */
   width: 30%;
   max-width: 200px;
+  min-width: 100px;
+  max-height: 100%;
 }
 
 #centerCol {
@@ -78,19 +79,29 @@ h1#productTitle {
   appearance: none;
   font-weight: 400;
   /* height: 100%; */
-  font-size: 16px !important;
+  font-size: 14px !important;
   border-bottom: none !important;
-  text-decoration: none !important;
+  /* 省略するためのスタイル */
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  line-height: 24px;
+  max-height: calc(24px*2);
 }
 
 #productPrice {
   color: #B12704 !important;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
 }
 
 img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 </style>

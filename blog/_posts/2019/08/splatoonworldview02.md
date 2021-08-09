@@ -13,13 +13,7 @@ categories: Splatoon2
 
 今回は主にイカすアートブックに載っている情報をまとめてみました。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/61-BUSdVyVL._SL200_.jpg"></img>
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/4047332690/?tag=tkgstrator0f-22" target="_blank">スプラトゥーン2 イカすアートブック</a></li>
-<li class="price">￥4,435</li>
-</ul>
-</div>
+<Amazon/>
 
 ### インクリングについて
 
@@ -95,13 +89,7 @@ categories: Splatoon2
 
 やっぱりイカすアートブックは何回読んでも飽きないですね。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/616x8yxKnqL._SL200_.jpg"></img>
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/4047330736/?tag=tkgstrator0f-22" target="_blank">スプラトゥーン イカすアートブック (ファミ通の攻略本)</a></li>
-<li class="price">￥4,180 (コレクター商品)</li>
-</ul>
-</div>
+<Amazon/>
 
 次はサーモンランの記事を書こうと思っているのでよろしくおねがいします。
 

@@ -21,13 +21,7 @@ Never forget: every base is base 10
 
 これはある意味不可解なように感じられる。なぜなら我々は基数が 10 である 10 進法以外にも 16 進法などを使いこなしているからだ。何故全ての基数が 10 なのだろう？
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/51g-2NeJtlL._SL200_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/4798150460/?tag=tkgstrator0f-22" target="_blank">情報処理教科書 基本情報技術者試験のアルゴリズム問題がちゃんと解ける本 第2版</a></li>
-<li class="price">￥5,605 (コレクター商品)</li>
-</ul>
-</div>
+<Amazon/>
 
 ## 問題の場面
 

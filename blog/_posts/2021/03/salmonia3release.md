@@ -109,12 +109,6 @@ Salmonia1 の方は 3 の機能が充実次第、App Store から削除してサ
 
 あと、最近喫茶ステラと死神の蝶っていう美少女ゲームにでてくる四季ナツメさんが可愛いと思い始めています。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/512GMIqA2WL._SL200_.jpg"></img>
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08935SPLQ/?tag=tkgstrator0f-22" target="_blank">喫茶ステラと死神の蝶 オリジナルサウンドトラック(ボックス付き)</a></li>
-<li class="price">￥4,979 (中古品)</li>
-</ul>
-</div>
+<Amazon/>
 
 記事は以上。
