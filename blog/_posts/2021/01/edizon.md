@@ -6,7 +6,7 @@ tags:
   - CFW
 ---
 
-## [Edizon](https://github.com/WerWolv/EdiZon/releases)
+## [Edizon](https://github.com/WerWolv/EdiZon)
 
 Edizon とはセーブデータマネージャであり、更に付随機能としてチートコードを有効化することもできる便利なアプリです。
 

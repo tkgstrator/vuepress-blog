@@ -1,4 +1,4 @@
-## Nintendo Switch Hack
+# Nintendo Switch Hack
 
 ::: danger オンラインプレイについて
 

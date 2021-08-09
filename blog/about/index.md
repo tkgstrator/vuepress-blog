@@ -21,7 +21,7 @@
 
 ## [LanPlay-JP](https://discord.gg/vUVBJFAKvZ)
 
-[@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play/releases) の国内向けサーバを設立し運営中。
+[@spacemeowx2](https://twitter.com/spacemeowx2)氏が開発した[switch-lan-play](https://github.com/spacemeowx2/switch-lan-play) の国内向けサーバを設立し運営中。
 
 ::: tip LanPlay とは
 

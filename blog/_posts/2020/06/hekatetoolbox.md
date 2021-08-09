@@ -5,13 +5,13 @@ description: 自分で追加したモジュールのオンオフの切り替え�
 category: Hack
 ---
 
-## [Hekate-Toolbox](https://github.com/WerWolv/Hekate-Toolbox/releases)
+## [Hekate-Toolbox](https://github.com/WerWolv/Hekate-Toolbox)
 
 Hekate-Toolbox または DeepSea-Toolbox からモジュールの切り替えができるのがすごく便利なのですが、よくよく考えたら自分で追加したモジュールのオンオフの切り替えも Hekate-Toolbox でできたら便利じゃないですか？
 
 ## DeepSea 既存のモジュール
 
-### [emuiibo](https://github.com/XorTroll/emuiibo/releases)
+### [emuiibo](https://github.com/XorTroll/emuiibo)
 
 アミーボ機能をエミュレートするモジュール。
 
@@ -19,43 +19,43 @@ Hekate-Toolbox または DeepSea-Toolbox からモジュールの切り替えが
 
 というか、この機能使っている人間の 99%は海賊行為をしているだろうと勝手に決めつけているので、emuiibo についての解説はなし。当 HP で emuiibo のトピックを扱っていないのもそれが理由。
 
-### [Tesla-Menu](https://github.com/WerWolv/Tesla-Menu/releases)
+### [Tesla-Menu](https://github.com/WerWolv/Tesla-Menu)
 
 ニンテンドースイッチでオーバーレイを使ってチートの有効化などを行えるモジュール。
 
 「L + 十字キー下ボタン + 右スティック押し込み」のコマンドでメニューを表示し、いろいろいじることができます。便利そうですが、使えるメモリが 4MB しかないので何でもできるわけではないことに注意。
 
-### [nx-ovlloader](ttps://github.com/WerWolv/nx-ovlloader/releases)
+### [nx-ovlloader](ttps://github.com/WerWolv/nx-ovlloader)
 
 OVL ファイルを読み込むためのモジュール。
 
 Tesla-Menu などはこのモジュールが必要です。
 
-### [Status-Monitor-Overlay](https://github.com/masagrator/Status-Monitor-Overlay/releases)
+### [Status-Monitor-Overlay](https://github.com/masagrator/Status-Monitor-Overlay)
 
 ハードウェアをリアルタイムで監視するモジュール。
 
 FPS Counter を使用すると、一部のゲームではロード画面が動かなくなったり、音声が飛んだりすることがあるそうですが、めったにないとのことです。
 
-### [sys-clk](https://github.com/retronx-team/sys-clk/releases)
+### [sys-clk](https://github.com/retronx-team/sys-clk)
 
 ニンテンドースイッチをオーバークロックできる機能で、本来はドックに挿している TV モードが一番スペックを高くできるのだが、その制限を解除して携帯モードとかテーブルモードでも CPU のクロック数を上げられるモジュール。
 
 使ったことがないので基本はオフで問題ない。
 
-### [sys-con](https://github.com/cathery/sys-con/releases)
+### [sys-con](https://github.com/cathery/sys-con)
 
 純正品以外のサードパーティコントローラを扱うためのモジュール。
 
 使わないのであればずっとオフで問題ない。
 
-### [MissionController](https://github.com/ndeadly/MissionControl/releases)
+### [MissionController](https://github.com/ndeadly/MissionControl)
 
 ニンテンドースイッチ以外の Wii、WiiU、PS4、PS5、Xbox などのコントローラを扱うためのモジュール。
 
 使わないのであればずっとオフで問題ない。
 
-### [sys-ftpd-light](https://github.com/cathery/sys-ftpd-light/releases)
+### [sys-ftpd-light](https://github.com/cathery/sys-ftpd-light)
 
 ニンテンドースイッチでポート 5000 を利用して FTP 通信を有効化するモジュールである sys-ftpd の軽量版。メモリ消費量が抑えられているのが特徴。
 
@@ -63,7 +63,7 @@ FPS Counter を使用すると、一部のゲームではロード画面が動�
 
 モジュールが利用できるメモリの合計値は結構カツカツなので、こういう軽量化は非常にありがたい。よほどのことがない限り、常時オンで問題ない。
 
-### [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm/releases)
+### [ldn_mitm](https://github.com/spacemeowx2/ldn_mitm)
 
 LanPlay に対応していないゲームの LocalPlay（アドホックモード）を強制的に LanPlay（LAN モード）に切り替えるモジュール。
 
@@ -73,7 +73,7 @@ LanPlay に対応していないゲームの LocalPlay（アドホックモー�
 
 ## 追加すると便利そうなモジュール一覧
 
-### [SysDVR](https://github.com/exelix11/SysDVR/releases)
+### [SysDVR](https://github.com/exelix11/SysDVR)
 
 キャプチャーボードなしで USB または LAN 経由で画面キャプチャーをパソコンに転送できるモジュール。すごい便利なのだが、そこそこメモリを消費するのでゲームの動作が不安定になったりするときがあるのが玉に瑕。
 
@@ -83,13 +83,13 @@ sys-ftpd-light と致命的に相性が悪いので、両方オンにしてい�
 
 使うときだけオンにしておくのが良いでしょう。
 
-### [sys-botbase](https://github.com/olliz0r/sys-botbase/releases)
+### [sys-botbase](https://github.com/olliz0r/sys-botbase)
 
 Wi-Fi 経由でコントローラの入力をエミュレートしたり、ゲームのメモリを読み込んだりできるモジュール。
 
 これも結構重いのでオンにするのは使いたいときだけが良い。
 
-### [USB-Botbase](https://github.com/fishguy6564/USB-Botbase/releases)
+### [USB-Botbase](https://github.com/fishguy6564/USB-Botbase)
 
 sys-botabase をベースとして、USB 経由でコントローラの入力をエミュレートできるモジュール。
 
@@ -97,13 +97,13 @@ sys-botabase をベースとして、USB 経由でコントローラの入力を
 
 そういうときはニンテンドースイッチを再起動する以外に対処できないので注意。
 
-### [sys-netcheat](https://github.com/jakibaki/sys-netcheat/releases)
+### [sys-netcheat](https://github.com/jakibaki/sys-netcheat)
 
 LAN 経由でチートの検索などができるモジュール。署名無効化パッチ（sigpatch）と干渉してゲームによっては起動しなくなる場合があるそうなので、その際は Common Ticket を Tinfoil のオプションから削除して再起動すると良いそうだ。
 
 使ったことがないのでまあ全然わからんのだが、人によっては便利かもしれない。
 
-### [sys-tune](https://github.com/HookedBehemoth/sys-tune/releases)
+### [sys-tune](https://github.com/HookedBehemoth/sys-tune)
 
 Tesla overlay を利用してバックグラウンドで音楽を再生することができるモジュール。ただ、M4A は再生できなかったので汎用性はあんまりないかもしれない（MP3 ならいける）
 

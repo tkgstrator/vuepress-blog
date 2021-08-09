@@ -6,11 +6,11 @@ category: Hack
 
 ## ParamHash
 
-[ParamHash](https://github.com/tkgstrator/ParamHash/releases)
+[ParamHash](https://github.com/tkgstrator/ParamHash)
 
 解説すると長くなるのだが、スプラトゥーン 2 では XML のパラメータファイルが BPRM、BYML、BYAML といったファイルに暗号化されている。
 
-この暗号化自体は[The4Dimension](https://github.com/exelix11/TheFourthDimension/releases)というツールを使えば復号できるのだが、パラメータ名が CRC32 でハッシュ化されているためそのままでは読むことができない。
+この暗号化自体は[The4Dimension](https://github.com/exelix11/TheFourthDimension)というツールを使えば復号できるのだが、パラメータ名が CRC32 でハッシュ化されているためそのままでは読むことができない。
 
 また、CRC32 はハッシュであり暗号化ではないため一意の復号もできない。そこで、スプラトゥーン 2 で定義されているパラメータ名を片っ端から抽出して、それを CRC32 でハッシュ化し、ハッシュリストをつくることにした。
 

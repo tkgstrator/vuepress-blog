@@ -236,7 +236,7 @@ dpkg -x XXXXXXXX.deb YYYYYYYY
 
 ここが一番めんどくさいところなのですが、`IPA`に`DYLIB`を同梱させた上でバイナリから`DYLIB`を実行するようにパッチを当ててくれるツールがあります。
 
-- [iPAPatcher](https://github.com/brandonplank/iPAPatcher/releases)
+- [iPAPatcher](https://github.com/brandonplank/iPAPatcher)
   - Catalina 以上であれば動作する
   - おそらく今後のアップデートはなし
 - [iPatch](https://github.com/EamonTracey/iPatch)

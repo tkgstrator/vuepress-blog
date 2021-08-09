@@ -7,7 +7,7 @@ tags:
   - IPSwitch
 ---
 
-## [IPSwitch](https://github.com/3096/ipswitch/releases)
+## [IPSwitch](https://github.com/3096/ipswitch)
 
 IPSwitch とは pchtxt（パッチテキスト）を読み込み、IPS 形式のパッチとして出力するツールのこと。
 
