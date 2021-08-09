@@ -27,7 +27,7 @@ Netlify は GitHub にプッシュされた内容を自動でビルドして更�
 
 ## 実装してみる
 
-[Netlifyへのデプロイをビルド時間0で行うためのGitHub Actions](https://qiita.com/nwtgck/items/e9a355c2ccb03d8e8eb0)でキーの取得から設定まで載っているので利用させていただきましょう。
+[Netlify へのデプロイをビルド時間 0 で行うための GitHub Actions](https://qiita.com/nwtgck/items/e9a355c2ccb03d8e8eb0)でキーの取得から設定まで載っているので利用させていただきましょう。
 
 ```yml
 // キャッシュ無効
@@ -155,10 +155,4 @@ jobs:
 
 記事は以上。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/51IAyqqAEhL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08KD4ZXQZ/?tag=tkgstrator0f-22" target="_blank">魔女の旅々 Blu-ray BOX 上巻</a></li>
-<li class="price">￥11,880 (中古品)</li>
-</ul>
-</div>
+<Amazon/>

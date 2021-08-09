@@ -104,10 +104,4 @@ iOS 向けの Style は以下の三つが使えるが、`DefaultButtonStyle`以�
 |  DefaultButtonStyle   | 発生しない |
 | BorderlessButtonStyle |    発生    |
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/51w2MavLBfL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08R1WY3BR/?tag=tkgstrator0f-22" target="_blank">TVアニメ『ウマ娘 プリティーダービー Season 2』ANIMATION DERBY Season2 vol.2「木漏れ日のエール」</a></li>
-<li class="price">￥1,320</li>
-</ul>
-</div>
+<Amazon/>

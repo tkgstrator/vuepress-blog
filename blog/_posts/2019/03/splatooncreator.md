@@ -11,13 +11,7 @@ categories: Splatoon2
 
 詳しくはイカすアートブック 2 に載っているので是非読んでいただきたい。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/61-BUSdVyVL._SL200_.jpg"></img>
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/4047332690/?tag=tkgstrator0f-22" target="_blank">スプラトゥーン2 イカすアートブック</a></li>
-<li class="price">￥4,435</li>
-</ul>
-</div>
+<Amazon/>
 
 ### 校章
 
@@ -67,7 +61,7 @@ categories: Splatoon2
 
 ルビンの壺を知らない人のために簡単に説明すると、見方によっていろいろな解釈ができる絵のことですね。
 
-> ルビンの壺（ルビンのつぼ、Rubin's vase）とは、1915年頃にデンマークの心理学者エドガー・ルビンが考案した多義図形。ルビンの顔（ルビンのかお、Rubin face）、図地の壺（ずちのつぼ、figure-ground vase）、ルビンの盃・ルビンの杯（ルビンのさかずき、Rubin's goblet-profile）とも。
+> ルビンの壺（ルビンのつぼ、Rubin's vase）とは、1915 年頃にデンマークの心理学者エドガー・ルビンが考案した多義図形。ルビンの顔（ルビンのかお、Rubin face）、図地の壺（ずちのつぼ、figure-ground vase）、ルビンの盃・ルビンの杯（ルビンのさかずき、Rubin's goblet-profile）とも。
 >
 > https://ja.wikipedia.org/wiki/ルビンの壺
 
@@ -113,7 +107,7 @@ categories: Splatoon2
 
 泣く女。
 
-> 『泣く女』（なくおんな）は、パブロ・ピカソが1937年に描いた絵画作品。ピカソが写真家であり絵も描いた愛人ドラ・マール（本名、アンリエット・テオドラ・マルコヴィッチ）をモデルにした、有名な作品の一つ。
+> 『泣く女』（なくおんな）は、パブロ・ピカソが 1937 年に描いた絵画作品。ピカソが写真家であり絵も描いた愛人ドラ・マール（本名、アンリエット・テオドラ・マルコヴィッチ）をモデルにした、有名な作品の一つ。
 >
 > https://ja.wikipedia.org/wiki/泣く女
 

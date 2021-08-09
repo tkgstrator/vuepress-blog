@@ -77,10 +77,4 @@ category: 話題
 
 「仕事している自分が好きな人」にはプログラミングは向いていません。頑張って電卓を叩いていると良いでしょう。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/51FVPPAC4TL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/4863542887/?tag=tkgstrator0f-22" target="_blank">徹底解説Visual Studio Code</a></li>
-<li class="price">￥2,792</li>
-</ul>
-</div>
+<Amazon/>

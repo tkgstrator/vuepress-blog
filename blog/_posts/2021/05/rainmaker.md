@@ -59,13 +59,7 @@ tags:
 
 画像のライブラリやチャートのライブラリを駆使して面白いアプリに仕上げたいですね。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/41WGU6WHK1L._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B07RY6SR16/?tag=tkgstrator0f-22" target="_blank">点と線の数学 ～グラフ理論と4色問題～ 数学への招待</a></li>
-<li class="price">￥1,860</li>
-</ul>
-</div>
+<Amazon/>
 
 ### ちなみに
 

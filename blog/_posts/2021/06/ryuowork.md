@@ -15,13 +15,7 @@ tags:
 
 どうせソフトと対局するならそこそこ手加減してくれる女子小学生のほうがいいじゃないですか、はい。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/51yE5PdWDdL._SL200_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08DRRVQRP/?tag=tkgstrator0f-22" target="_blank">りゅうおうのおしごと! - Switch</a></li>
-<li class="price">￥4300</li>
-</ul>
-</div>
+<Amazon/>
 
 ## 空 銀子戦の必勝手順
 

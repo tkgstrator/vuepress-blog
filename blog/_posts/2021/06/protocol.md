@@ -81,13 +81,7 @@ func multiple<T: Numeric>(_ a: T, _ b: T) -> T {
 
 整数同士での計算は整数で返したいのでこの場合は`Numeric`の方が良いでしょう。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/31MOz9wtBkL._SL200_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B07J6P93MB/?tag=tkgstrator0f-22" target="_blank">スイッチ用 RCMジグ RCMツール ショートコネクタ RCMクリップ 収納ケース付き (レッド)</a></li>
-<li class="price">￥650</li>
-</ul>
-</div>
+<Amazon/>
 
 ## 算術プロトコル
 
@@ -429,10 +423,4 @@ for error in errorType.errors {
 
 プロトコルにプロトコルを準拠させる時は`associatedtype`がついているか気をつけようね！！！
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/31lUTkystbL._SL200_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B001U7651A/?tag=tkgstrator0f-22" target="_blank">コカ・コーラ ドクターペッパー 500mlPET×24本</a></li>
-<li class="price">￥2,120 (￥88 / 本)</li>
-</ul>
-</div>
+<Amazon/>

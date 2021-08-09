@@ -152,10 +152,4 @@ struct TouchDemoApp: App {
 
 なんとこれだけで終わりである、神かな？
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/416ZqsPCCjL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/4815604061/?tag=tkgstrator0f-22" target="_blank">SwiftUI 徹底入門</a></li>
-<li class="price">￥7,054</li>
-</ul>
-</div>
+<Amazon/>

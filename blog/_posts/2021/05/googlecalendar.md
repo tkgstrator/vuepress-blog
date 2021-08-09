@@ -21,13 +21,7 @@ tags:
 
 :::
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/41nc-YsbiZL._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08QWXW524/?tag=tkgstrator0f-22" target="_blank">【Amazon.co.jp限定】『ウマ箱2』第1コーナー アニメ『ウマ娘 プリティーダービー Season 2』トレーナーズBOX) (全巻購入特典「映像特典DVD&描き下ろし全巻収納BOX」 引換シリアルコード付) [Blu-ray]</a></li>
-<li class="price">￥19,580 (中古品)</li>
-</ul>
-</div>
+<Amazon/>
 
 ## 追加の仕方
 
@@ -87,12 +81,4 @@ URL の入力画面になるのでカレンダーを追加します。
 
 記事は以上。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/513o1YnBRFL._SL200_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/4471805649/?tag=tkgstrator0f-22" target="_blank">高橋 2021年 カレンダー 卓上 B6 E154 ([カレンダー])</a></li>
-<li class="price">￥770</li>
-</ul>
-</div>
-
-<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;src=OW9qZGQ4NzFoMGJqaHV0c2NkdWxpamliMWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=cGpxa3Mybzg5ZGlwZWR0c2lvbGZrdDI3bW9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=M2tydjk2bHZxNmgyM3YyZ3U4OGUyY3Y5cDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dmFxanJ2MGhrOHE2bHUxbW8zZW9wNHU2dmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23AD1457&amp;color=%23F09300&amp;color=%23009688&amp;color=%23B39DDB&amp;title=%E3%82%B7%E3%83%95%E3%83%88%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<Amazon/>

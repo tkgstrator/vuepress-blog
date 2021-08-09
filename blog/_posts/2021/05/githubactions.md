@@ -138,13 +138,7 @@ steps: # ビルド後の処理などを書く
 
 `github.ref`には余計な情報が入っているので一回コマンドでそれらを削除した後に環境変数に入れることで対応します。この使い方、割とスタンダードらしいので覚えておくと便利かもしれません。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/419yWNlLUML._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B08GZ44B5Q/?tag=tkgstrator0f-22" target="_blank">【Amazon.co.jp 限定】素晴らしき日々~不連続存在~ 10th anniversary特別仕様版【描き下ろしB2タペストリー(Wスエード) 付き】</a></li>
-<li class="price">￥15,708</li>
-</ul>
-</div>
+<Amazon/>
 
 ## 実際にやってみた
 

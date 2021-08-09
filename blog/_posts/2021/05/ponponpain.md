@@ -25,13 +25,7 @@ category: 話題
 
 いや、これはもう完全に ponponpain を支えてますね、はい。
 
-<div class="vuepress-affiliate">
-<img src="https://m.media-amazon.com/images/I/21orU5Pq28L._SL500_.jpg" />
-<ul>
-<li><a href="https://www.amazon.co.jp/dp/B013FHREL2/?tag=tkgstrator0f-22" target="_blank">りぶはあと 抱き枕 プレミアムねむねむアニマルズ しろくまのラッキー Mサイズ(全長約53cm) ふわふわ もちもち 28976-11</a></li>
-<li class="price">￥2,132</li>
-</ul>
-</div>
+<Amazon/>
 
 ## ponponpain を支える技術
 
