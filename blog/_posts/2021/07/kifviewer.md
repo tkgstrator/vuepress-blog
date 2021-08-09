@@ -172,3 +172,5 @@ module.exports = {
 ## 完成したもの
 
 ###
+
+<Amazon/>

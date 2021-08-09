@@ -577,3 +577,5 @@ func sum<T: Numeric>(of arrays: Array<Array<T>>) -> Array<T> {
 ```
 
 書き方がダサいので多分もっとかっこよく書けます。
+
+<Amazon/>

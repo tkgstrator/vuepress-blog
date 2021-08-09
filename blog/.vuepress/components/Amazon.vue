@@ -1,7 +1,7 @@
 <template>
   <div id="product" @click="openURL">
     <div id="leftCol">
-      <img :src="imageURL">
+      <img id="productImage" :src="imageURL">
     </div>
     <div id="centerCol">
       <h1 id="productTitle">{{ productName}}</h1>
@@ -99,9 +99,12 @@ h1#productTitle {
   line-height: 24px;
 }
 
-img {
+img#productImage {
+  cursor: pointer;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  /* クリックで画像拡大を無効化 */
+  pointer-events: none;
 }
 </style>

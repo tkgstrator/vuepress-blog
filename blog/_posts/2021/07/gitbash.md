@@ -60,3 +60,5 @@ setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%
 chmod 755 /usr/local/share/zsh/site-functions
 chmod 755 /usr/local/share/zsh
 ```
+
+<Amazon/>

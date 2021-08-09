@@ -76,3 +76,7 @@ csrutil disable
 というわけで、テストするために BigSur にアップデートしてみます。
 
 XVim2、いままでありがとう。
+
+## 追記
+
+<Amazon/>

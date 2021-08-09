@@ -400,3 +400,5 @@ git log                 # コミットのハッシュをチェック
 git checkout developB   # ブランチを移動
 git cherry-pick <HASH>  # ハッシュを指定して取り込み
 ```
+
+<Amazon/>

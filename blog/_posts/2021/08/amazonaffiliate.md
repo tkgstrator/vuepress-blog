@@ -72,7 +72,7 @@ tags:
 
 ```vue
 <script>
-// ファイル読み込み
+/* ファイル読み込み */
 import ProductData from "./product.json"
 
 export default {
@@ -120,6 +120,8 @@ export default {
 ### CSS
 
 最後に見た目をモダンにするための CSS を紹介しておきます。
+
+今使っているのはこれとはちょっと違うのですが、だいたいこんな感じです。
 
 ```css
 #product {
