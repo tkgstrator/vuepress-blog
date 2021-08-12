@@ -99,6 +99,8 @@ module.exports = {
 
       // show the theme
       poweredByTheme: false,
+
+      custom: "Copyright 2021 tkgstrator.work",
     },
 
     // info card config

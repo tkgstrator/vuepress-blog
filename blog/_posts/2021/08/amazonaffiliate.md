@@ -14,6 +14,8 @@ tags:
 
 なので、やってみようと思います。
 
+<Amazon/>
+
 ## [コンポーネント](https://tkgstrator.work/posts/2021/08/02/markdownvue.html)
 
 前回、Markdown で Vue コンポーネントを読み込ませる手順については解説したので、それを利用します。

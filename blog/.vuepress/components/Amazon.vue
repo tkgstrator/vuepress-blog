@@ -37,6 +37,7 @@ export default {
     const product = this.products[Math.floor(Math.random() * this.products.length)]
     // 画像のURLを取得(PA APIでしか取得できない場合もあるらしい)
     this.imageURL = `https://images-na.ssl-images-amazon.com/images/P/${product["productId"]}.09.LZZZZZZZ`
+    this.imageURL = product["productImageURL"]
     // リンクをタグ付きで作成
     this.productURL = `${this.baseURL}${product["productId"]}/?tag=${this.associateId}`
     this.productName = product["productName"]
