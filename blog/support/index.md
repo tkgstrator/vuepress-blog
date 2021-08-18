@@ -22,9 +22,7 @@
 
 宛先タグ: `76690685`
 
-## アマゾンギフト券
-
-近日中に対応予定。
+## [アマゾンギフト券](/amazongiftcode)
 
 ## [PayPal](https://paypal.me/salmonia)
 
