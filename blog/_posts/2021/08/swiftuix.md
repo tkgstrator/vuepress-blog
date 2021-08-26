@@ -1,7 +1,7 @@
 ---
-title: SwiftUIXを使ってみる
+title: SwiftUIXの実力を確かめてみた
 date: 2021-08-25
-description: SwiftUIXを利用してどのような機能があるかを調査してみました。
+description: SwiftUIの拡張ライブラリであるSwiftUIXを実際に使ってみました
 category: プログラミング
 tags:
   - Swift
