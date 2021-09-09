@@ -227,3 +227,9 @@ func setupPreview(previewSize: CGRect) {
 `videoGravity`は上の三つから選ぶことができ、アスペクト比を変えたいというケースは稀だと思うのでまあ大体`resizeAspect`か`resizeAspectFill`を使うことになると思います。
 
 今回は`resizeAspectFill`を利用しましたが、単に`resizeAspect`を使って画像の中央を指定したフレームで切り抜くような感じで実装するのも良いと思います。
+
+## おまけ
+
+実は[Apple 謹製の Swift 向けのカメラのコード](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/avcam_building_a_camera_app)がのっているのだが、これを実行してもデバイスを回転させたときの挙動がおかしいことには代わりがない。
+
+挙動が一番正しいのはカメラアプリなのだが、こちらは実装のコードがのっていないためどうやればこのように View を回転させることができるのかがわからない。
