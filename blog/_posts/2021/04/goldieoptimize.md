@@ -2,7 +2,7 @@
 title: 最も効率的なアタリ位置はどこか
 date: 2021-04-24
 description: 各ステージで最も稼げそうなアタリ位置とそのシードを求めました
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

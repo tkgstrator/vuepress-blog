@@ -1,7 +1,7 @@
 ---
 title: 回線落ちでサーモンランのイベントがバグる原因について
 date: 2021-01-25
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

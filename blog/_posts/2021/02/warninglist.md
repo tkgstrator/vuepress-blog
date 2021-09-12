@@ -1,7 +1,7 @@
 ---
 title: サーモンラン注意人物リストをつくってみた
 date: 2021-02-19
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

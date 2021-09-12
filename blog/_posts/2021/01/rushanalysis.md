@@ -1,7 +1,7 @@
 ---
 title: ラッシュいろいろ検証
 date: 2021-01-31
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

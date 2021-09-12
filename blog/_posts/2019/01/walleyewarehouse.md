@@ -2,7 +2,7 @@
 title: ハコフグ倉庫
 date: 2019-01-01
 description: 記事内でも説明しているアタマこっつんは必修、これができるのとできないのとで勝率が大きく変わってきます
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - ガチホコカウントマップ
 ---

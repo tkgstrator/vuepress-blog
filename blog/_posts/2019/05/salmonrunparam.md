@@ -2,7 +2,7 @@
 title: サモランのパラメータ解説する
 date: 2019-05-08
 description: サーモンランで使われているパラメータ、wikiにも載っていないような情報を調べてみたので、是非どうぞ！
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
   - 解析
