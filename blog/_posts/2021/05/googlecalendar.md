@@ -2,7 +2,7 @@
 title: サーモンランの将来のシフトをカレンダーに追加する
 date: 2021-05-10
 description: Google Calendarで管理したいと相談を受けたので作ってみました
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

@@ -2,7 +2,7 @@
 title: "[決定版] ハコビヤマップつくった"
 date: 2020-03-31
 description: シャケコプターが降りてくる位置のマップです
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - ハコビヤマップ
   - サーモンラン

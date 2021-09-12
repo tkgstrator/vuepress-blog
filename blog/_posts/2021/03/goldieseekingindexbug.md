@@ -1,7 +1,7 @@
 ---
 title: キンシャケ探しインデックスバグの詳細
 date: 2021-03-28
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

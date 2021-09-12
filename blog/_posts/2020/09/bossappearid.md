@@ -1,7 +1,7 @@
 ---
 title: オオモノ湧きアルゴリズムを解析した
 date: 2020-09-14
-category: Splatoon2
+category: スプラトゥーン2
 description: サーモンランにおけるオオモノの脇アルゴリズムを解析しました
 tags:
   - 解析

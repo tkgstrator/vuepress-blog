@@ -1,7 +1,7 @@
 ---
 title: GAS版Salmoniaを複数アカウント対応した
 date: 2021-02-04
-category: Splatoon2
+category: スプラトゥーン2
 ---
 
 ## Android 利用者向けである

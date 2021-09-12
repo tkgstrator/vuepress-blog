@@ -1,7 +1,7 @@
 ---
 title: ラッシュにおける割り込み効果を調べてみる
 date: 2021-01-24
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

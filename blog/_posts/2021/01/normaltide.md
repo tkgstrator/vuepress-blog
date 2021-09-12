@@ -1,7 +1,7 @@
 ---
 title: 通常潮位イベントなしで72納品できそうなシードまとめ
 date: 2021-01-09
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---

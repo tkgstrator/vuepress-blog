@@ -2,7 +2,7 @@
 title: "[夜イベント] キンシャケ探しデータベース"
 date: 2020-02-24
 description: サーモンランの夜イベントにおけるキンシャケ探しに関するデータです
-category: Splatoon2
+category: スプラトゥーン2
 tags:
   - サーモンラン
 ---
