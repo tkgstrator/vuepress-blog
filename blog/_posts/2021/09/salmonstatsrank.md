@@ -287,7 +287,7 @@ Salmon Stats はスケジュール ID として UTC を採用しているので�
 | 87   | [---](https://salmon-stats-api.yuki.games/api/players/395ddabe666886ea)                  | 109  |
 | 88   | [taw](https://salmon-stats-api.yuki.games/api/players/7764ee494afd786f)                  | 107  |
 | 89   | [ゆ](https://salmon-stats-api.yuki.games/api/players/f9b041d34af86ad4)                   | 105  |
-| 90   | [もりも。](https://salmon-stats-api.yuki.games/api/players/84f6e7c870465272)             | 104  |
+| 90   | [えむいーのはか](https://salmon-stats-api.yuki.games/api/players/84f6e7c870465272)       | 104  |
 | 91   | [だてんし ☆ きいと](https://salmon-stats-api.yuki.games/api/players/7bb2b331e766b198)    | 102  |
 | 92   | UNREGISTERED USER                                                                        | 102  |
 | 93   | UNREGISTERED USER                                                                        | 101  |
