@@ -40,7 +40,7 @@ EmuMMC は SD カード上に仮想の NAND を作成することで環境を完
 
 ### DeepSea の導入
 
-### EmuMMC の導入
+### [EmuMMC の導入](https://tkgstrator.work/posts/2021/10/01/emummc.html)
 
 ## 初級編
 
