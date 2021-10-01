@@ -40,13 +40,13 @@ EmuMMC は SD カード上に仮想の NAND を作成することで環境を完
 
 ### DeepSea の導入
 
-### [EmuMMC の導入](https://tkgstrator.work/posts/2021/10/01/emummc.html)
+### [EmuMMC の導入](/posts/2021/10/01/emummc.html)
 
 ## 初級編
 
 ### カスタムテーマ
 
-### [IPSwitch でチート適用](posts/2019/04/01/ipswitch.html)
+### [IPSwitch でチート適用](/posts/2019/04/01/ipswitch.html)
 
 IPSwitch はスプラトゥーン 2 に特化した、チートコードをパッチに変換するツールです。
 
@@ -74,6 +74,24 @@ title.keys や prod.keys を保存するには Lockpick を使うのが最も楽
 
 ゲームのバックアップには HACGUI を使った方法と、NXDumpTool を使った方法があります。
 
+::: tip 何故バックアップが必要になるのですか
+
+CFW を導入した本体では任天堂のサーバにアクセスすると BAN の原因になるため、OFW でアップデータなどをダウンロードしてそれをバックアップします。
+
+そのアップデータを使ってバージョンを上げれば CFW を導入した本体で任天堂のサーバを経由することなくゲームのバージョンを上げることができます。
+
+ただし、二台持ちをされている場合には「近くの本体とバージョンを合わせる」の機能を利用した方が楽です。
+
+:::
+
+### [HACGUI](/posts/2021/10/01/hacgui.html)
+
+HACGUI を利用したアップデータ・BCAT・DLC のダンプ方法です。
+
+### [NXDumpTool](/posts/2021/10/01/hacgui.html)
+
+NXDumpTool を利用したゲームカード・アップデータ・DLC のダンプ方法です。
+
 ### バックアップのインストール
 
 ### [Sigpatch Installer](/posts/2021/06/10/nosigpatch.html)
@@ -94,9 +112,15 @@ DeepSea Toolbox で設定できる項目の意味について解説していま�
 
 ### Pack ファイル
 
-### SZS/SARC ファイル
+### [SZS/SARC](/posts/2021/10/02/sardtool.html)
 
-### BPRM/BYML/BYAML ファイル
+これらの拡張子のファイルには SARC Tool を使うことで対応できます。
+
+### [BPRM/BYML/BYAML]()
+
+これらの拡張子のファイルには The Fourth Dimension を使うことで対応できます。
+
+Python 限定ですが、より便利にした ParamHash をリリースしたのでそちらをご利用ください。
 
 ### [Starlion](/posts/2020/11/01/starlion.html)
 
