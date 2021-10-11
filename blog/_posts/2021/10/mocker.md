@@ -85,3 +85,32 @@ let mock = Mock(url: url, dataType: .json, statusCode: 200, data: [
 よく考えたらわざわざ`JSON`を経由する必要はないかもしれない。
 
 :::
+
+## Alamofire
+
+実はこの Mocker は`URLSession`だけでなく`Alamofire`に対しても使うことができます。
+
+ただし、ちょっと使い方が異なるのでそれをメモしておきます。
+
+```swift
+// 通常の使い方
+AF.request("https://httpbin.org/get").responseJSON { response in
+    debugPrint(response)
+}
+```
+
+Alamofire は`AF`というインスタンス（モジュール名？）を持っているため、これを利用して上のようにリクエストを送ることが多いと思います。
+
+ですが、この書き方では Mocker は動作しません。
+
+```swift
+let configuration = URLSessionConfiguration.af.default
+configuration.protocolClasses = [MockingURLProtocol.self]
+let sessionManager = Alamofire.Session(configuration: configuration)
+
+sessionManager.request("https://httpbin.org/get").responseJSON { response in
+    debugPrint(response)
+}
+```
+
+上のように一度`MockerURLProtocol`を`Configuration`として設定してセッション用のインスタンスを作成し、それを利用して通信を行う必要があります。

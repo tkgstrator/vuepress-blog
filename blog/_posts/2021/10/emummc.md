@@ -336,7 +336,7 @@ CFW を導入するのであれば絶対に整えておきたいです。
 
 ### [AIO-Switch-Updater](https://github.com/HamletDuFromage/aio-switch-updater)
 
-Kosomos が採用している CFW である atmosphere は海賊版対策として証明書がない NSP をインストール出来ないようになっているので、自分でダンプした NSP でさえもチケットが本体に保存されていないとインストールや起動ができません。
+DeepSea が採用している CFW である atmosphere は海賊版対策として証明書がない NSP をインストール出来ないようになっているので、自分でダンプした NSP でさえもチケットが本体に保存されていないとインストールや起動ができません。
 
 なので nosigpatch を導入してこの制限を取っ払う必要があります。
 
