@@ -1,6 +1,7 @@
 ---
 title: "[決定版] SARC Toolの使い方"
 date: 2021-10-02
+description: SZSやSARCファイルの中身を取り出すSARC Toolの使い方について解説します
 categories: Hack
 tags:
   - CFW

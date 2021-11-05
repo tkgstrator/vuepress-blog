@@ -1,6 +1,7 @@
 ---
 title: "[決定版] Splatoon2を改造しよう"
 date: 2021-10-02
+description: Splatoon2の改造方法について解説する記事です
 categories: Hack
 tags:
   - CFW
@@ -29,3 +30,5 @@ SD カードに DeepSea があれば概ね以下のようなディレクトリ�
 | JP         | 01003C700009C000 |
 | US         | 01003BC0000A0000 |
 | EU         | 0100F8F0000A2000 |
+
+> 執筆途中です

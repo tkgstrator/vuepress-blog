@@ -1,6 +1,7 @@
 ---
 title: "[決定版] SD PartitionでEmuNANDを導入しよう"
 date: 2021-10-01
+description: 不用意なBANを避けるためにも改造したSwitchには必ずEmuNANDを導入しましょうという話です
 categories: Hack
 tags:
   - CFW

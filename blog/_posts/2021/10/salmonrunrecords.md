@@ -1,6 +1,7 @@
 ---
 title: Salmon Run Recordsの赤イクラの項目がよくわからない件
 date: 2021-10-03
+description: どうやれば記錄を上手くまとめることができるかについて考えてみる
 categories: Switch
 tags:
   - Splatoon2

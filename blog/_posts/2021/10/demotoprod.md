@@ -1,6 +1,7 @@
 ---
 title: スプラ体験版を製品版に変更しよう
 date: 2021-10-02
+description: スプラトゥーンのリージョンを強制変更して体験版を製品版として遊ぶためのチュートリアルです
 categories: Hack
 tags:
   - Splatoon2

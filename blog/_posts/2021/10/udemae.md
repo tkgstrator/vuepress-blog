@@ -1,6 +1,7 @@
 ---
 title: ウデマエメーターが割れる仕組み
 date: 2021-10-08
+description: スプラトゥーン2におけるウデマエメーターの仕組みについて海外のハッカーの解析を元に、それを翻訳しつつ解説します
 category: Splatoon2
 ---
 
@@ -8,9 +9,7 @@ category: Splatoon2
 
 このウデマエメーターの仕組みについては海外のハッカーの OatmealDome 氏が解析していたのでその結果を日本語で報告したいと思います。
 
-当記事では大まかにしか紹介しないので、もしも詳細に興味がある方は氏の記事を読まれると良いと思います。
-
-> https://oatmealdome.me/blog/an-in-depth-look-at-the-splatoon-2-ranking-system
+当記事では大まかにしか紹介しないので、もしも詳細に興味がある方は[氏の記事](https://oatmealdome.me/blog/an-in-depth-look-at-the-splatoon-2-ranking-system)を読まれると良いと思います。
 
 ## ウデマエゲージ
 

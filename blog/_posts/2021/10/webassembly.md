@@ -1,6 +1,7 @@
 ---
 title: WebAssemblyでブラウザでアセンブラを動かそう
 date: 2021-10-13
+description: ブラウザで実行できるアセンブラの作成方法について考えてみるの巻
 category: プログラミング
 tags:
   - Swift

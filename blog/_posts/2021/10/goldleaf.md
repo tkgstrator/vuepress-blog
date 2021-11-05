@@ -1,6 +1,7 @@
 ---
 title: "[決定版] Goldleafの使い方"
 date: 2021-10-02
+description: NSPインストーラであるGoldleafの使い方について解説します
 categories: Hack
 tags:
   - Switch

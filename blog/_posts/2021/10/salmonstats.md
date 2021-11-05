@@ -1,6 +1,7 @@
 ---
 title: Salmon Statsの記錄だけをまとめたサイトをつくった
 date: 2021-10-08
+description: Salmon Statsの記錄だけをまとめて一覧で見れる便利なサイトを開設しました
 categories: Splatoon2
 tags:
   - サーモンラン
