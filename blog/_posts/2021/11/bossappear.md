@@ -92,7 +92,7 @@ private func getEnemyId(mEnemySeed: UInt32) -> SalmonType {
 #### WaveSeed
 
 - 各 WAVE の内容を司るシード値
-  　　- それぞれの WAVE に一つずつなので三つ鹿存在しない
+  - それぞれの WAVE に一つずつなので三つしか存在しない
 - GameSeed で初期化された PRNG から生成されるので、GameSeed さえ決まればここの値は一意に決定できます
 
 #### EventSeed
