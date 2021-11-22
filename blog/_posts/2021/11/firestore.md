@@ -29,6 +29,7 @@ Firestore を圧倒的に使いやすくするための`FSCodable`という`Coda
 import Foundation
 
 protocol FSCodable: Codable, Identifiable {
+    var id: String? { get }
 }
 
 extension FSCodable {
@@ -132,7 +133,12 @@ class FirestoreManager {
 エラーを返す場合があるので、エラーは以下のように定義しました。
 
 ```swift
+import Foundation
 
+enum FIError: Error {
+    case notfound
+    case undecodable
+}
 ```
 
 ## 今後の展望
