@@ -2,12 +2,7 @@ module.exports = {
   // title of website
   title: "えいむーと愉快な仲間たち",
   configureWebpack: {
-    plugins: [
-      "vuepress-plugin-google-adsense",
-      {
-        adClient: "ca-pub-7107468397673752",
-      },
-    ],
+    plugins: [],
   },
 
   // description of website
@@ -142,6 +137,11 @@ module.exports = {
 
   plugins: [
     [
+      "vuepress-plugin-google-adsense",
+      {
+        google_ad_client: "ca-pub-7107468397673752", // ca-pub-0000000000000000
+        enable_page_level_ads: true,
+      },
       "@vssue/vuepress-plugin-vssue",
       {
         platform: "github-v4",
