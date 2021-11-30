@@ -17,6 +17,14 @@ module.exports = {
 
   // head information of website
   head: [
+    [
+      "script",
+      {
+        "data-ad-client": "ca-pub-7107468397673752",
+        async: true,
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      },
+    ],
     // need favicon
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
     ["meta", { name: "og:url", content: "https://tkgstrator.work" }],
@@ -139,7 +147,7 @@ module.exports = {
     [
       "vuepress-plugin-google-adsense",
       {
-        google_ad_client: "ca-pub-7107468397673752", // ca-pub-0000000000000000
+        google_ad_client: "ca-pub-7107468397673752",
         enable_page_level_ads: true,
       },
       "@vssue/vuepress-plugin-vssue",
