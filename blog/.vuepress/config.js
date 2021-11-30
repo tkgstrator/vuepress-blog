@@ -1,17 +1,12 @@
-const webpack = require("webpack");
-const { config } = require("dotenv");
-config();
-
 module.exports = {
   // title of website
   title: "えいむーと愉快な仲間たち",
   configureWebpack: {
     plugins: [
-      new webpack.DefinePlugin({
-        "process.env": {
-          VUE_APP_WEBHOOK_URL: JSON.stringify(process.env.VUE_APP_WEBHOOK_URL),
-        },
-      }),
+      "vuepress-plugin-google-adsense",
+      {
+        adClient: "ca-pub-7107468397673752",
+      },
     ],
   },
 
