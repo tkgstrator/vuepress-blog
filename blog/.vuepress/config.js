@@ -20,12 +20,14 @@ module.exports = {
     [
       "script",
       {
-        "data-ad-client": "ca-pub-7107468397673752",
-        async: true,
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+        "async src": "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
       },
     ],
-    // need favicon
+    [
+      "script",
+      {},
+      '(adsbygoogle = window.adsbygoogle || []).push({  google_ad_client: "ca-pub-7107468397673752",  enable_page_level_ads: true });',
+    ],
     ["meta", { name: "og:title", content: "えいむーと愉快な仲間たち" }],
     ["meta", { name: "og:url", content: "https://tkgstrator.work" }],
     ["meta", { name: "og:type", content: "website" }],
@@ -145,11 +147,6 @@ module.exports = {
 
   plugins: [
     [
-      "vuepress-plugin-google-adsense",
-      {
-        google_ad_client: "ca-pub-7107468397673752",
-        enable_page_level_ads: true,
-      },
       "@vssue/vuepress-plugin-vssue",
       {
         platform: "github-v4",
